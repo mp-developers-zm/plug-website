@@ -1267,30 +1267,121 @@ html.lite .phone{will-change:auto}
 }
 
 /* ==== finance page (M&P) ==== */
-.fin-band{background:linear-gradient(135deg,#17191c,#0b0c0e 60%,#2a2d32)}
-.fin-band .row-b .btn-glass{color:#0d0e10;background:#fff;border-color:#fff}
-.fin-partners{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.fin-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;margin-bottom:34px}
+.fin-partners{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
 .fin-partners span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;font-size:13px;font-weight:600;color:var(--ink2)}
-.fin-partners i{width:8px;height:8px;border-radius:50%;background:#e8641f;box-shadow:0 0 0 3px rgba(232,100,31,.18)}
-.fin-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.fin-step{padding:24px;border-radius:var(--r)}
+.fin-partners i{width:8px;height:8px;border-radius:50%;background:#e8641f;animation:finPing 2.4s ease-out infinite}
+.fin-partners span:nth-child(2) i{animation-delay:.8s}.fin-partners span:nth-child(3) i{animation-delay:1.6s;background:#0d0e10}
+@keyframes finPing{0%{box-shadow:0 0 0 0 rgba(232,100,31,.45)}80%,100%{box-shadow:0 0 0 9px rgba(232,100,31,0)}}
+.fin-hero .pg-h .fin-w{display:inline-block;opacity:0;transform:translateY(.5em) rotateX(-40deg);transform-origin:50% 100%;animation:finWord .8s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(.08s + var(--i)*.09s)}
+@keyframes finWord{to{opacity:1;transform:none}}
+.fin-hero .pg-h .fin-w{background:inherit;background-size:inherit;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* partner logos */
+.fin-logos{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+.fin-logos .fl{display:inline-flex;align-items:center;justify-content:center;height:58px;padding:0 18px;border-radius:18px;background:rgba(255,255,255,.92);animation:finBob 5s ease-in-out infinite}
+.fin-logos .fl:nth-of-type(2){animation-delay:-1.6s}.fin-logos .fl:nth-of-type(3){animation-delay:-3.2s}
+.fin-logos .fl img{display:block;height:34px;width:auto}.fin-logos .fl.la img{height:44px}
+.fin-logos em{font-style:normal;font-weight:700;color:var(--mute);font-size:18px}
+@keyframes finBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.fin-badge{position:absolute;z-index:6;display:grid;place-items:center;border-radius:20px;background:rgba(255,255,255,.94);box-shadow:0 18px 34px -16px rgba(20,24,32,.45);pointer-events:none}
+.fin-badge img{display:block;width:auto}
+.fin-badge.b1{left:2%;top:6%;width:74px;height:74px;border-radius:50%;animation:finBob 4.6s ease-in-out infinite}.fin-badge.b1 img{height:46px}
+.fin-badge.b2{right:3%;bottom:12%;width:78px;height:72px;animation:finBob 5.4s ease-in-out infinite -2s}.fin-badge.b2 img{height:40px}
+.fin-badge.b3{right:6%;top:2%;height:52px;padding:0 14px;border-radius:16px;animation:finBob 6s ease-in-out infinite -1s}.fin-badge.b3 img{height:26px}
+.fin-gear{position:absolute;left:50%;top:50%;width:380px;height:380px;margin:-190px 0 0 -190px;opacity:.09;animation:finSpin 40s linear infinite;pointer-events:none}
+.fin-gear img{width:100%;height:100%;object-fit:contain;filter:grayscale(1)}
+@keyframes finSpin{to{transform:rotate(360deg)}}
+.fin-cta-logos{display:flex;align-items:center;gap:12px;margin-top:12px}.fin-cta-logos img{height:24px;width:auto;opacity:.9}.fin-cta-logos img.la{height:30px}
+.fin-band .fin-band-ic{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;margin-right:14px;vertical-align:middle;animation:finSpin 18s linear infinite}.fin-band .fin-band-ic img{height:30px}
+/* fanned, floating poster stack */
+.fin-stack{position:relative;height:440px;perspective:1400px;cursor:pointer}
+.fin-stack .fc{position:absolute;left:50%;top:50%;width:300px;aspect-ratio:1/1;margin:-150px 0 0 -150px;border-radius:26px;padding:8px;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .9s,opacity .9s;will-change:transform}
+.fin-stack .fc img{display:block;width:100%;height:100%;object-fit:cover;border-radius:19px;background:#e5e7ea}
+.fin-stack .fc::after{content:"";position:absolute;inset:8px;border-radius:19px;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 65%);background-size:250% 100%;background-position:120% 0;opacity:0}
+.fin-stack .fc.p0{transform:translate3d(0,0,60px) rotate(-2deg);z-index:3}
+.fin-stack .fc.p0::after{animation:finSheen 3.6s ease-in-out infinite 1s}
+.fin-stack .fc.p1{transform:translate3d(118px,-26px,-40px) rotate(9deg) scale(.9);z-index:2;filter:saturate(.85) brightness(.97)}
+.fin-stack .fc.p2{transform:translate3d(-118px,22px,-80px) rotate(-11deg) scale(.86);z-index:1;filter:saturate(.75) brightness(.95)}
+@keyframes finSheen{0%{opacity:0;background-position:120% 0}15%{opacity:1}55%{opacity:1;background-position:-20% 0}70%,100%{opacity:0;background-position:-20% 0}}
+.fin-float{position:absolute;inset:0;animation:finFloat 6s ease-in-out infinite;transform-style:preserve-3d}
+@keyframes finFloat{0%,100%{transform:translateY(0) rotateX(4deg) rotateY(-6deg)}50%{transform:translateY(-14px) rotateX(-2deg) rotateY(5deg)}}
+.fin-glow{position:absolute;left:50%;top:52%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,100,31,.28),rgba(232,100,31,0) 70%);animation:finGlow 7s ease-in-out infinite;pointer-events:none}
+@keyframes finGlow{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+.fin-tilt{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tilt-live .fin-tilt,.tilt-live.fin-tc{transition:transform .08s linear}
+.fin-badge{translate:calc(var(--tx,0)*-22px) calc(var(--ty,0)*-22px);transition:translate .5s cubic-bezier(.2,.8,.2,1)}
+.tilt-live .fin-badge{transition:translate .1s linear}
+.fin-gear{translate:calc(var(--tx,0)*14px) calc(var(--ty,0)*14px)}
+.fin-tc{position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fin-tc::before,.fin-stack .fc::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .4s;
+  background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),rgba(255,255,255,0) 60%)}
+.tilt-live.fin-tc::before,.tilt-live .fc.p0::before{opacity:1}
+.fin-cf .cf .fin-tc{width:100%;height:100%;border-radius:22px}
+.fin-cf .cf.c0.tilt-press{scale:.98}
+.fin-dots{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;gap:8px}
+.fin-dots i{width:8px;height:8px;border-radius:99px;background:rgba(13,14,16,.22);transition:width .4s,background .4s}.fin-dots i.on{width:26px;background:#0d0e10}
+/* dark band with moving glow */
+.fin-band{position:relative;overflow:hidden;background:linear-gradient(135deg,#17191c,#0b0c0e 60%,#2a2d32)}
+.fin-band::before{content:"";position:absolute;width:520px;height:520px;right:-140px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,100,31,.45),rgba(232,100,31,0));animation:finOrb 9s ease-in-out infinite alternate;pointer-events:none}
+@keyframes finOrb{from{transform:translate(0,0)}to{transform:translate(-260px,120px)}}
+.fin-band>*{position:relative}
+.fin-band .row-b .btn-glass{color:#0d0e10;background:#fff;border-color:#fff}
+/* ribbon */
+.fin-rib{margin:34px -40px 0;height:46px;overflow:hidden;transform:rotate(-1.6deg);background:#0d0e10;box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
+.fin-rib>div{display:flex;width:max-content;height:100%;align-items:center;animation:finMarq 26s linear infinite}
+.fin-rib span{display:inline-flex;align-items:center;gap:18px;padding:0 18px;white-space:nowrap;font:800 14px/1 var(--head);letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.fin-rib span b{width:7px;height:7px;border-radius:50%;background:#e8641f}
+@keyframes finMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* steps */
+.fin-steps{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fin-steps::before{content:"";position:absolute;left:8%;right:8%;top:41px;height:2px;background:linear-gradient(90deg,#0d0e10,#e8641f);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,.8,.2,1) .2s;z-index:0;border-radius:2px}
+.fin-steps.go::before{transform:scaleX(1)}
+.fin-step{position:relative;z-index:1;padding:24px;border-radius:var(--r)}
 .fin-step b{display:flex;align-items:center;gap:12px;font-family:var(--head);font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
-.fin-step b em{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px;color:#fff;background:linear-gradient(160deg,#3a3d42,#0d0e10);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-.fin-step p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.55}
-.fin-step a{text-decoration:underline}
-.fin-posters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;perspective:1200px}
-.fin-poster{display:block;padding:10px;border-radius:30px;text-align:left;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;transform-style:preserve-3d}
-.fin-poster img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;background:#e5e7ea}
-.fin-poster span{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 8px 4px;font-weight:600;font-size:14.5px}
-.fin-poster span small{font-weight:500;color:var(--mute);font-size:12.5px}
-.fin-poster:hover{transform:translateY(-6px) rotateX(4deg);box-shadow:0 34px 60px -28px rgba(20,24,32,.45)}
-html.lite .fin-poster:hover{transform:none}
-.fin-big{display:block;width:100%;border-radius:18px}
-.fin-cta{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:26px 30px;border-radius:var(--r);margin-top:30px}
+.fin-step b em{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px;color:#fff;background:linear-gradient(160deg,#3a3d42,#0d0e10);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transform:scale(.4);opacity:0;transition:transform .6s cubic-bezier(.3,1.6,.5,1),opacity .4s}
+.fin-steps.go .fin-step b em{transform:none;opacity:1}
+.fin-steps.go .fin-step:nth-child(2) b em{transition-delay:.45s}.fin-steps.go .fin-step:nth-child(3) b em{transition-delay:.9s}
+.fin-step p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.55}.fin-step a{text-decoration:underline}
+/* 3D coverflow of posters */
+.fin-cf{position:relative;height:500px;perspective:1600px;margin-top:6px;touch-action:pan-y;user-select:none}
+.fin-cf .cf{position:absolute;left:50%;top:10px;width:420px;max-width:76vw;aspect-ratio:1/1;border-radius:30px;padding:10px;transform:translateX(-50%);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s,filter .8s;cursor:pointer;will-change:transform}
+.fin-cf .cf img{display:block;width:100%;height:100%;object-fit:cover;border-radius:22px;background:#e5e7ea;pointer-events:none}
+.fin-cf .cf::after{content:"";position:absolute;inset:10px;border-radius:22px;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,0) 38%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 62%);background-size:260% 100%;background-position:120% 0;opacity:0}
+.fin-cf .cf.c0{transform:translateX(-50%) translateZ(0) rotateY(0);z-index:3}
+.fin-cf .cf.c0::after{animation:finSheen 4s ease-in-out infinite .6s}
+.fin-cf .cf.c1{transform:translateX(12%) translateZ(-260px) rotateY(-38deg);z-index:2;filter:brightness(.92) saturate(.85);opacity:.9}
+.fin-cf .cf.c2{transform:translateX(-112%) translateZ(-260px) rotateY(38deg);z-index:1;filter:brightness(.92) saturate(.85);opacity:.9}
+.fin-cf .zoom{position:absolute;right:22px;top:22px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.85);box-shadow:0 6px 16px -6px rgba(0,0,0,.4);opacity:0;transform:scale(.7);transition:.35s}
+.fin-cf .cf.c0 .zoom{opacity:1;transform:none}
+.fin-cf .zoom svg{width:18px;height:18px}
+.fin-cf-nav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:4px}
+.fin-cf-nav button.ar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.fin-cf-nav .fin-dots{position:static;transform:none}
+.fin-big{display:block;width:100%;border-radius:18px;animation:finPop .5s cubic-bezier(.2,1.2,.4,1)}
+@keyframes finPop{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}
+.fin-cta{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:26px 30px;border-radius:var(--r);margin-top:34px}
 .fin-cta b{display:block;font-family:var(--head);font-size:24px;letter-spacing:-.02em}.fin-cta p{margin:4px 0 0;color:var(--ink2)}
+.fin-cta .btn.wa{animation:finNudge 3.2s ease-in-out infinite 1.5s}
+@keyframes finNudge{0%,86%,100%{transform:none}90%{transform:translateY(-3px) scale(1.04)}94%{transform:translateY(0) scale(.99)}}
 .fin-link{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 22px;border-radius:20px;margin-top:14px;font-size:14.5px}
 .fin-link b{font-weight:700}
-@media (max-width:820px){.fin-steps,.fin-posters{grid-template-columns:minmax(0,1fr)}.fin-cta{padding:22px}.fin-link{flex-direction:column;align-items:flex-start}}
+@media (max-width:820px){
+  .fin-hero{grid-template-columns:minmax(0,1fr);gap:8px}
+  .fin-stack{height:330px}.fin-stack .fc{width:220px;margin:-110px 0 0 -110px}
+  .fin-stack .fc.p1{transform:translate3d(78px,-18px,-40px) rotate(9deg) scale(.88)}.fin-stack .fc.p2{transform:translate3d(-78px,16px,-80px) rotate(-11deg) scale(.84)}
+  .fin-glow{width:300px;height:300px;margin:-150px 0 0 -150px}
+  .fin-gear{width:280px;height:280px;margin:-140px 0 0 -140px}
+  .fin-badge.b1{width:58px;height:58px}.fin-badge.b1 img{height:36px}.fin-badge.b2{width:62px;height:58px}.fin-badge.b2 img{height:32px}.fin-badge.b3{height:42px}.fin-badge.b3 img{height:20px}
+  .fin-logos .fl{height:50px;padding:0 14px}.fin-logos .fl img{height:28px}.fin-logos .fl.la img{height:38px}
+  .fin-steps{grid-template-columns:minmax(0,1fr)}.fin-steps::before{left:41px;right:auto;top:30px;bottom:30px;width:2px;height:auto;transform:scaleY(0);transform-origin:top;background:linear-gradient(180deg,#0d0e10,#e8641f)}.fin-steps.go::before{transform:scaleY(1)}
+  .fin-cf{height:min(78vw,360px)}.fin-cf .cf{width:min(68vw,300px)}
+  .fin-cf .cf.c1{transform:translateX(4%) translateZ(-220px) rotateY(-40deg)}.fin-cf .cf.c2{transform:translateX(-104%) translateZ(-220px) rotateY(40deg)}
+  .fin-rib{margin:28px -20px 0;height:40px}.fin-rib span{font-size:12px}
+  .fin-cta{padding:22px}.fin-link{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){.fin-float,.fin-glow,.fin-band::before,.fin-rib>div,.fin-stack .fc::after,.fin-cf .cf::after,.fin-cta .btn.wa,.fin-partners i,.fin-logos .fl,.fin-badge,.fin-gear,.fin-band-ic{animation:none!important}.fin-hero .pg-h .fin-w{animation:none;opacity:1;transform:none}}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -1507,24 +1598,25 @@ html.lite .fin-poster:hover{transform:none}
   <!-- FINANCE PAGE: Zanaco Gadget Finance with Line-Age, offered through Plug -->
   <section class="pg" id="finance-top">
     <div class="wrap">
-      <div class="pg-head reveal"><span class="eyebrow glass">Finance · with Zanaco &amp; Line-Age</span><h1 class="pg-h">Own it now.<br>Pay over time.</h1>
-        <p class="lead">Get the phone, laptop or tablet you want from Plug and pay for it in instalments with Zanaco Gadget Finance, offered through Plug with our partners Zanaco and Line-Age.</p>
-        <div class="fin-partners"><span class="glass"><i></i>Zanaco Gadget Finance</span><span class="glass"><i></i>Line-Age Group of Companies</span><span class="glass"><i></i>Plug Electronics &amp; More</span></div></div>
-      <div class="deal-band fin-band reveal"><div><b>Upgrade for less</b><span>Spread the cost of your next device. Ask us how, or email Zanaco directly.</span></div>
+      <div class="fin-hero">
+        <div class="pg-head" style="margin:0"><span class="eyebrow glass">Finance · with Zanaco &amp; Line-Age</span><h1 class="pg-h"><span class="fin-w" style="--i:0">Own</span> <span class="fin-w" style="--i:1">it</span> <span class="fin-w" style="--i:2">now.</span> <br><span class="fin-w" style="--i:3">Pay</span> <span class="fin-w" style="--i:4">over</span> <span class="fin-w" style="--i:5">time.</span></h1>
+          <p class="lead">Get the phone, laptop or tablet you want from Plug and pay for it in instalments with Zanaco Gadget Finance, offered through Plug with our partners Zanaco and Line-Age.</p>
+          <div class="fin-logos"><span class="fl glass"><img src="img/logo.webp" alt="Plug Electronics &amp; More"></span><em>×</em><span class="fl glass"><img src="img/fin_zanaco.webp" alt="Zanaco"></span><em>×</em><span class="fl glass la"><img src="img/fin_lineage.webp" alt="Line-Age Group of Companies"></span></div></div>
+        <div class="fin-stack" id="finStack" aria-label="Finance offers"><i class="fin-glow"></i><span class="fin-gear" aria-hidden="true"><img src="img/fin_zanaco_ic.webp" alt=""></span><span class="fin-badge b1" aria-hidden="true"><img src="img/fin_zanaco_ic.webp" alt=""></span><span class="fin-badge b2" aria-hidden="true"><img src="img/fin_lineage_ic.webp" alt=""></span><span class="fin-badge b3" aria-hidden="true"><img src="img/logo.webp" alt=""></span><div class="fin-float"><div class="fin-tilt" id="finTilt"><div class="fc glass p0" data-k="0"><img loading="lazy" decoding="async" src="img/fin_s25.webp" alt="Zanaco Gadget Finance offer"></div><div class="fc glass p1" data-k="1"><img loading="lazy" decoding="async" src="img/fin_ip16.webp" alt="Zanaco Gadget Finance offer"></div><div class="fc glass p2" data-k="2"><img loading="lazy" decoding="async" src="img/fin_gadgets.webp" alt="Zanaco Gadget Finance with Line-Age"></div></div></div><div class="fin-dots" id="finStackDots"><i class="on"></i><i></i><i></i></div></div>
+      </div>
+      <div class="deal-band fin-band reveal"><div><b><span class="fin-band-ic"><img src="img/fin_zanaco_ic.webp" alt=""></span>Upgrade for less</b><span>Spread the cost of your next device. Ask us how, or email Zanaco directly.</span></div>
         <div class="row-b"><a class="btn btn-glass" href="mailto:vaf@zanaco.co.zm?subject=Zanaco%20Gadget%20Finance%20%E2%80%93%20Plug%20Electronics%20%26%20More">Email Zanaco →</a><button class="btn btn-glass" id="finAsk">Ask June</button></div></div>
+      <div class="fin-rib" aria-hidden="true"><div><span>Upgrade for less<b></b></span><span>Pay over time<b></b></span><span>Zanaco Gadget Finance<b></b></span><span>With Line-Age<b></b></span><span>Only at Plug<b></b></span><span>Upgrade for less<b></b></span><span>Pay over time<b></b></span><span>Zanaco Gadget Finance<b></b></span><span>With Line-Age<b></b></span><span>Only at Plug<b></b></span><span>Upgrade for less<b></b></span><span>Pay over time<b></b></span><span>Zanaco Gadget Finance<b></b></span><span>With Line-Age<b></b></span><span>Only at Plug<b></b></span><span>Upgrade for less<b></b></span><span>Pay over time<b></b></span><span>Zanaco Gadget Finance<b></b></span><span>With Line-Age<b></b></span><span>Only at Plug<b></b></span></div></div>
       <h2 class="sub-h reveal">How it works</h2>
-      <div class="fin-steps">
+      <div class="fin-steps" id="finSteps">
         <div class="fin-step glass reveal"><b><em>1</em>Pick your device</b><p>Choose from iPhone, Samsung, laptops, tablets and more in the <a href="#shop">Plug shop</a>.</p></div>
-        <div class="fin-step glass reveal"><b><em>2</em>Apply with Zanaco</b><p>Email <a href="mailto:vaf@zanaco.co.zm">vaf@zanaco.co.zm</a> or ask June on the chat to help you start your Zanaco Gadget Finance application.</p></div>
-        <div class="fin-step glass reveal"><b><em>3</em>Get your gadget</b><p>Once Zanaco approves you, collect at Liberty Mall, Shop 31, or get it delivered in Lusaka or Ndola.</p></div>
+        <div class="fin-step glass reveal" style="transition-delay:.12s"><b><em>2</em>Apply with Zanaco</b><p>Email <a href="mailto:vaf@zanaco.co.zm">vaf@zanaco.co.zm</a> or ask June on the chat to help you start your Zanaco Gadget Finance application.</p></div>
+        <div class="fin-step glass reveal" style="transition-delay:.24s"><b><em>3</em>Get your gadget</b><p>Once Zanaco approves you, collect at Liberty Mall, Shop 31, or get it delivered in Lusaka or Ndola.</p></div>
       </div>
       <h2 class="sub-h reveal">Finance offers</h2>
-      <div class="fin-posters">
-        <button class="fin-poster glass reveal" data-fin="img/fin_s25.webp"><img loading="lazy" decoding="async" src="img/fin_s25.webp" alt="Upgrade for less: Samsung Galaxy S25 Ultra with Zanaco Gadget Finance"><span>Samsung Galaxy S25 Ultra <small>Tap to view</small></span></button>
-        <button class="fin-poster glass reveal" data-fin="img/fin_ip16.webp"><img loading="lazy" decoding="async" src="img/fin_ip16.webp" alt="Upgrade for less: iPhone 16 Pro Max with Zanaco Gadget Finance"><span>iPhone 16 Pro Max <small>Tap to view</small></span></button>
-        <button class="fin-poster glass reveal" data-fin="img/fin_gadgets.webp"><img loading="lazy" decoding="async" src="img/fin_gadgets.webp" alt="Your dream gadgets, now affordable: Zanaco and Line-Age Gadget Finance"><span>Phones, laptops, tablets &amp; more <small>Tap to view</small></span></button>
-      </div>
-      <div class="fin-cta glass reveal"><div><b>Not sure what you qualify for?</b><p>June can help you pick a device that fits your budget.</p></div><div class="row-b"><a class="btn wa" href="https://wa.me/260574541778?text=Hi%20Plug%2C%20I%27d%20like%20to%20buy%20a%20device%20with%20Zanaco%20Gadget%20Finance" target="_blank" rel="noopener" style="color:#fff">WhatsApp Plug</a><a class="btn btn-dark" href="#shop">Browse devices →</a></div></div>
+      <div class="fin-cf reveal" id="finCf"><div class="cf glass c0" data-k="0" role="button" tabindex="0" aria-label="View offer 1 larger"><img loading="lazy" decoding="async" src="img/fin_s25.webp" alt="Zanaco Gadget Finance offer"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></div><div class="cf glass c1" data-k="1" role="button" tabindex="0" aria-label="View offer 2 larger"><img loading="lazy" decoding="async" src="img/fin_ip16.webp" alt="Zanaco Gadget Finance offer"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></div><div class="cf glass c2" data-k="2" role="button" tabindex="0" aria-label="View offer 3 larger"><img loading="lazy" decoding="async" src="img/fin_gadgets.webp" alt="Zanaco Gadget Finance with Line-Age"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></div></div>
+      <div class="fin-cf-nav"><button class="ar glass" id="finPrev" aria-label="Previous offer">←</button><div class="fin-dots" id="finCfDots"><i class="on"></i><i></i><i></i></div><button class="ar glass" id="finNext" aria-label="Next offer">→</button></div>
+      <div class="fin-cta glass reveal"><div><b>Not sure what you qualify for?</b><p>June can help you pick a device that fits your budget.</p><div class="fin-cta-logos" aria-label="Plug, Zanaco and Line-Age"><img src="img/logo.webp" alt="Plug"><img src="img/fin_zanaco.webp" alt="Zanaco"><img class="la" src="img/fin_lineage.webp" alt="Line-Age"></div></div><div class="row-b"><a class="btn wa" href="https://wa.me/260574541778?text=Hi%20Plug%2C%20I%27d%20like%20to%20buy%20a%20device%20with%20Zanaco%20Gadget%20Finance" target="_blank" rel="noopener" style="color:#fff">WhatsApp Plug</a><a class="btn btn-dark" href="#shop">Browse devices →</a></div></div>
       <p class="fine">Finance is a partner service. Zanaco Gadget Finance is provided by Zanaco together with Line-Age Group of Companies. Approval, repayment terms and any fees are set by Zanaco. Plug helps you choose your device and arranges collection or delivery.</p>
     </div>
   </section>
@@ -2803,8 +2895,43 @@ function route(){
 addEventListener('hashchange',route);
 document.addEventListener('click',e=>{if(e.defaultPrevented)return;const a=e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')===(location.hash||'#home')){e.preventDefault();route()}});
 /* ==== finance page (M&P) ==== */
-$$('[data-fin]').forEach(b=>b.addEventListener('click',()=>openSheet(`<img class="fin-big" src="${b.dataset.fin}" alt="${esc(b.querySelector('img').alt)}">`,'modal',true)));
-{const fa=$('#finAsk');if(fa)fa.onclick=()=>{openChat('June');const i=$('#chatInput');if(i){i.value="Hi June, I'd like to buy a device with Zanaco Gadget Finance.";i.focus()}}}
+{const N=3,big=src=>openSheet(`<img class="fin-big" src="${src}" alt="Zanaco Gadget Finance offer">`,'modal',true);
+ const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const stack=$('#finStack'),cf=$('#finCf');
+ if(stack&&cf){
+  let s=0,c=0,ts=null,tc=null;
+  const cards=[...stack.querySelectorAll('.fc')],slides=[...cf.querySelectorAll('.cf')],sd=[...$$('#finStackDots i')],cd=[...$$('#finCfDots i')];
+  const paintS=()=>{cards.forEach((e,i)=>{e.classList.remove('p0','p1','p2');e.classList.add('p'+((i-s+N)%N))});sd.forEach((d,i)=>d.classList.toggle('on',i===s))};
+  const paintC=()=>{slides.forEach((e,i)=>{const p=(i-c+N)%N;e.classList.remove('c0','c1','c2');e.classList.add('c'+p)});cd.forEach((d,i)=>d.classList.toggle('on',i===c))};
+  const onFin=()=>curView==='finance'&&!document.hidden;
+  const auto=()=>{clearInterval(ts);clearInterval(tc);if(reduceM)return;ts=setInterval(()=>{if(onFin()){s=(s+1)%N;paintS()}},3200);tc=setInterval(()=>{if(onFin()){c=(c+1)%N;paintC()}},4200)};
+  stack.addEventListener('click',()=>{const f=stack.querySelector('.fc.p0 img');if(f)big(f.getAttribute('src'))});
+  sd.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();s=i;paintS();auto()}));
+  cf.addEventListener('click',e=>{const t=e.target.closest('.cf');if(!t)return;const k=+t.dataset.k;if(k===c)big(t.querySelector('img').getAttribute('src'));else{c=k;paintC();auto()}});
+  cf.addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.closest('.cf');if(t)t.click()}});
+  $('#finPrev').onclick=()=>{c=(c-1+N)%N;paintC();auto()};$('#finNext').onclick=()=>{c=(c+1)%N;paintC();auto()};
+  cd.forEach((d,i)=>d.addEventListener('click',()=>{c=i;paintC();auto()}));
+  let x0=null;cf.addEventListener('pointerdown',e=>{x0=e.clientX});cf.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){c=(c+(dx<0?1:-1)+N)%N;paintC();auto()}});
+  /* 3D touch: tilt with the mouse, or by touching and dragging on phones; a light shine follows the finger */
+  const tilt3d=(host,target,max,onMove)=>{if(reduceM||!host||!target)return;let raf=0;
+    const set=(cx,cy)=>{const r=host.getBoundingClientRect(),x=Math.max(-.5,Math.min(.5,(cx-r.left)/r.width-.5)),y=Math.max(-.5,Math.min(.5,(cy-r.top)/r.height-.5));
+      cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{host.classList.add('tilt-live');target.style.transform=`perspective(1000px) rotateY(${x*max}deg) rotateX(${-y*max}deg)`;
+        host.style.setProperty('--gx',(x+.5)*100+'%');host.style.setProperty('--gy',(y+.5)*100+'%');host.style.setProperty('--tx',x*2);host.style.setProperty('--ty',y*2);if(onMove)onMove(x,y)})};
+    const reset=()=>{cancelAnimationFrame(raf);host.classList.remove('tilt-live');target.style.transform='';host.style.setProperty('--tx',0);host.style.setProperty('--ty',0)};
+    host.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')set(e.clientX,e.clientY)});
+    host.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')reset()});
+    host.addEventListener('touchstart',e=>{const t=e.touches[0];set(t.clientX,t.clientY)},{passive:true});
+    host.addEventListener('touchmove',e=>{const t=e.touches[0];set(t.clientX,t.clientY)},{passive:true});
+    host.addEventListener('touchend',reset,{passive:true});host.addEventListener('touchcancel',reset,{passive:true})};
+  tilt3d(stack,$('#finTilt'),22,(x,y)=>{const f=stack.querySelector('.fc.p0');if(f){f.style.setProperty('--gx',(x+.5)*100+'%');f.style.setProperty('--gy',(y+.5)*100+'%')}});
+  slides.forEach(sl=>{const w=document.createElement('div');w.className='fin-tc';while(sl.firstChild)w.appendChild(sl.firstChild);sl.appendChild(w);
+    tilt3d(sl,w,16);w.addEventListener('transitionend',()=>{});});
+  $$('#finSteps .fin-step, .fin-cta').forEach(el=>{el.classList.add('fin-tc');tilt3d(el,el,el.classList.contains('fin-step')?12:5)});
+  const st=$('#finSteps');if(st&&'IntersectionObserver' in window){const o=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){st.classList.add('go');o.disconnect()}}),{threshold:.3});o.observe(st)}else if(st)st.classList.add('go');
+  paintS();paintC();auto();
+ }
+ const fa=$('#finAsk');if(fa)fa.onclick=()=>{openChat('June');const i=$('#chatInput');if(i){i.value="Hi June, I'd like to buy a device with Zanaco Gadget Finance.";i.focus()}};
+}
 
 route();
 /* keep what staff typed in the sign-in form when the page refreshes the form (e.g. when the database finishes loading) */
