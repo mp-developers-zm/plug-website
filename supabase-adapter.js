@@ -8,9 +8,31 @@
 */
 (function () {
   var CFG = window.PLUG_CONFIG || {};
-  if (!CFG.supabaseUrl || !CFG.supabaseKey || !window.supabase || !window.supabase.createClient) return;
+  if (!CFG.supabaseUrl || !CFG.supabaseKey) return;
+  var LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
 
-  var sb = window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseKey, {
+  // Speed: the database library (about 120 KB) downloads in the background, so the page can draw and
+  // start working straight away. Everything below waits for it only when it is actually needed.
+  var libP = new Promise(function (res) {
+    if (window.supabase && window.supabase.createClient) return res(window.supabase);
+    var s = document.createElement('script'); s.src = LIB; s.async = true;
+    s.onload = function () { res(window.supabase && window.supabase.createClient ? window.supabase : null); };
+    s.onerror = function () { res(null); };
+    document.head.appendChild(s);
+  });
+  var apiP = libP.then(function (lib) { return lib ? boot(lib) : null; }).catch(function () { return null; });
+
+  window.claude = { use: function (name) { return apiP.then(function (api) { if (!api) throw new Error('Database not reachable'); return api.use(name); }); } };
+  window.PLUG_ENSURE_UID = function () { return apiP.then(function (api) { return api ? api.ensureUid() : null; }); };
+  window.PLUG_AUTH = {
+    signIn: function (e, p) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database. Check your internet and try again.'); return api.auth.signIn(e, p); }); },
+    signOut: function () { return apiP.then(function (api) { return api && api.auth.signOut(); }); },
+    reset: function (e) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database.'); return api.auth.reset(e); }); },
+    session: function () { return apiP.then(function (api) { return api ? api.auth.session() : null; }); }
+  };
+
+  function boot(lib) {
+  var sb = lib.createClient(CFG.supabaseUrl, CFG.supabaseKey, {
     auth: { persistSession: true, autoRefreshToken: true, storageKey: 'plug-auth' }
   });
   var BUCKET = CFG.imageBucket || 'product-images';
@@ -35,7 +57,6 @@
       return anonP;
     });
   }
-  window.PLUG_ENSURE_UID = ensureUid;
 
   /* ---------------- documents ---------------- */
   // Everything lives in one table: docs(collection, id, data jsonb, owner, updated_at)
@@ -120,13 +141,16 @@
     }
   };
 
-  window.claude = { use: function (name) { return Promise.resolve({ db: db, user: user, assets: assets, downloads: downloads }[name] || null); } };
-
-  /* ---------------- staff sign-in (admin page) ---------------- */
-  window.PLUG_AUTH = {
-    signIn: function (email, password) { return sb.auth.signInWithPassword({ email: email, password: password }).then(fail); },
-    signOut: function () { return sb.auth.signOut(); },
-    reset: function (email) { return sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname }).then(fail); },
-    session: function () { return sessionP; }
+  var parts = { db: db, user: user, assets: assets, downloads: downloads };
+  return {
+    use: function (name) { return Promise.resolve(parts[name] || null); },
+    ensureUid: ensureUid,
+    auth: {
+      signIn: function (email, password) { return sb.auth.signInWithPassword({ email: email, password: password }).then(fail); },
+      signOut: function () { return sb.auth.signOut(); },
+      reset: function (email) { return sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname }).then(fail); },
+      session: function () { return sessionP; }
+    }
   };
+  }
 })();
