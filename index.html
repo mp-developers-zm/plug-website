@@ -1218,6 +1218,15 @@ select.ai{width:auto}
 @media (prefers-reduced-motion:reduce){.pbob{animation:none!important}}
 html.lite .phone{will-change:auto}
 .ring-sec,.arrivals,.home-band,.news,.faq-sec,footer{content-visibility:auto;contain-intrinsic-size:auto 700px}
+
+/* ==== smoother login animation (M&P) ==== */
+.lg-in{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(160deg,rgba(255,255,255,.94),rgba(242,244,247,.9))}
+.lchip:before{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.lg-stage{isolation:isolate}
+.lg-stage.pre .lg-in,.lg-stage.pre .lchip,.lg-stage.pre::before{opacity:0}
+.lg-stage>.lg-card{filter:none}
+.lg-stage::before{content:"";position:absolute;left:5%;right:5%;top:22px;bottom:-12px;z-index:-1;border-radius:34px;background:rgba(20,24,32,.15);filter:blur(22px);pointer-events:none}
+.bg svg.ribbon{will-change:transform;backface-visibility:hidden}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -1226,19 +1235,20 @@ html.lite .phone{will-change:auto}
 
 <!-- liquid silver ribbons -->
 <div class="bg" aria-hidden="true">
-<svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
-  <defs>
+<svg class="ribbon" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><defs>
     <linearGradient id="rb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".35" stop-color="#fff"/><stop offset=".5" stop-color="#b9bec6"/><stop offset=".62" stop-color="#fff"/><stop offset="1" stop-color="#d7dade" stop-opacity="0"/></linearGradient>
     <linearGradient id="rb2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".4" stop-color="#e9ebee"/><stop offset=".55" stop-color="#9da3ab"/><stop offset=".7" stop-color="#fafafa"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
     <filter id="bl"><feGaussianBlur stdDeviation="14"/></filter>
-  </defs>
-  <g class="ribbon" filter="url(#bl)">
+  </defs><g filter="url(#bl)">
     <path d="M-100 620 C 250 420, 520 820, 860 560 S 1400 260, 1720 480 L 1720 640 C 1400 420, 1160 760, 860 720 S 250 600, -100 820Z" fill="url(#rb1)" opacity=".9"/>
-  </g>
-  <g class="ribbon b" filter="url(#bl)">
-    <path d="M-100 200 C 300 60, 600 360, 1000 180 S 1500 40, 1720 160 L 1720 260 C 1460 150, 1260 420, 960 320 S 300 200, -100 360Z" fill="url(#rb2)" opacity=".75"/>
-  </g>
-</svg>
+  </g></svg>
+<svg class="ribbon b" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><defs>
+    <linearGradient id="rb1x" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".35" stop-color="#fff"/><stop offset=".5" stop-color="#b9bec6"/><stop offset=".62" stop-color="#fff"/><stop offset="1" stop-color="#d7dade" stop-opacity="0"/></linearGradient>
+    <linearGradient id="rb2x" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".4" stop-color="#e9ebee"/><stop offset=".55" stop-color="#9da3ab"/><stop offset=".7" stop-color="#fafafa"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <filter id="blx"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs><g filter="url(#blx)">
+    <path d="M-100 200 C 300 60, 600 360, 1000 180 S 1500 40, 1720 160 L 1720 260 C 1460 150, 1260 420, 960 320 S 300 200, -100 360Z" fill="url(#rb2x)" opacity=".75"/>
+  </g></svg>
 </div>
 
 <div class="announce" id="announce" hidden></div>
@@ -2203,16 +2213,16 @@ function accountView(){ if(user) return dashView();
     <p class="lg-note">Preview: accounts are saved on this device until Plug's customer system is connected.</p></div>`,'modal dark');
   bindAuth('in'); lgAnim(null,'intro');
 }
-function lgAnim(swap,kind='switch',root=sheet){
+function lgAnim(swap,kind='switch',root=sheet){const BL1=LITE?'none':'blur(6px)',BL0=LITE?'none':'blur(0px)';
   const st=root.querySelector('.lg-stage'); if(!st){swap&&swap();return} const tl=st.querySelector('.lchip.tl'), br=st.querySelector('.lchip.br'), orb=st.querySelector('.lorb'), ring=st.querySelector('.lring'), inn=st.querySelector('.lg-in');
   if(reduce){swap&&swap();return}
   const W=st.offsetWidth,H=st.offsetHeight,cx=W/2,cy=H/2;
   const d1=`translate(${cx-12}px,${cy-12}px)`, d2=`translate(${cx-W+12}px,${cy-H+12}px)`;
   orb.style.left=(cx+22)+'px'; orb.style.top=(cy+30)+'px'; ring.style.left=orb.style.left; ring.style.top=orb.style.top;
   const T=kind==='intro'?1000:kind==='out'?820:1350, E='cubic-bezier(.7,0,.2,1)';
-  const seq=kind==='intro'?{c:[{opacity:0,filter:'blur(10px)'},{opacity:0,filter:'blur(10px)',offset:.35},{opacity:1,filter:'blur(0)'}],m:[{transform:d1},{transform:d1,offset:.3},{transform:'none'}],m2:[{transform:d2},{transform:d2,offset:.3},{transform:'none'}],o:[.05,.18,.4]}
-    :kind==='out'?{c:[{opacity:1,filter:'blur(0)'},{opacity:0,filter:'blur(10px)',offset:.35},{opacity:0,filter:'blur(10px)'}],m:[{transform:'none'},{transform:d1,offset:.5},{transform:d1}],m2:[{transform:'none'},{transform:d2,offset:.5},{transform:d2}],o:[.5,.7,1]}
-    :{c:[{opacity:1,filter:'blur(0)'},{opacity:0,filter:'blur(10px)',offset:.22},{opacity:0,filter:'blur(10px)',offset:.6},{opacity:1,filter:'blur(0)'}],m:[{transform:'none'},{transform:d1,offset:.34},{transform:d1,offset:.62},{transform:'none'}],m2:[{transform:'none'},{transform:d2,offset:.34},{transform:d2,offset:.62},{transform:'none'}],o:[.36,.5,.72]};
+  const seq=kind==='intro'?{c:[{opacity:0,filter:BL1},{opacity:0,filter:BL1,offset:.35},{opacity:1,filter:BL0}],m:[{transform:d1},{transform:d1,offset:.3},{transform:'none'}],m2:[{transform:d2},{transform:d2,offset:.3},{transform:'none'}],o:[.05,.18,.4]}
+    :kind==='out'?{c:[{opacity:1,filter:BL0},{opacity:0,filter:BL1,offset:.35},{opacity:0,filter:BL1}],m:[{transform:'none'},{transform:d1,offset:.5},{transform:d1}],m2:[{transform:'none'},{transform:d2,offset:.5},{transform:d2}],o:[.5,.7,1]}
+    :{c:[{opacity:1,filter:BL0},{opacity:0,filter:BL1,offset:.22},{opacity:0,filter:BL1,offset:.6},{opacity:1,filter:BL0}],m:[{transform:'none'},{transform:d1,offset:.34},{transform:d1,offset:.62},{transform:'none'}],m2:[{transform:'none'},{transform:d2,offset:.34},{transform:d2,offset:.62},{transform:'none'}],o:[.36,.5,.72]};
   inn.animate(seq.c,{duration:T,easing:'ease',fill:'both'});
   tl.animate(seq.m,{duration:T,easing:E}); br.animate(seq.m2,{duration:T,easing:E});
   const [a,b,c]=seq.o;
@@ -2345,7 +2355,7 @@ function renderAdmGate(){const g=$('#admGate');if(!g||curAdm)return;
      <button class="lbtn" id="admDemo">Explore demo mode <b>→</b></button><p class="ls" style="margin:14px 0 0">In demo mode, changes are saved on this device only.</p>`}
    <p class="ls gate-lic">Software by M&amp;P Developers · Licensed to Plug Electronics &amp; More</p>
    </div></div><i class="lchip tl"></i><i class="lchip br"></i><i class="lorb"></i><i class="lring"></i></div></div>`;
-  lgAnim(null,'intro',g);
+  if(ADM.ready){const ph=g.dataset.intro;if(ph!=='done'){const st0=g.querySelector('.lg-stage');if(st0)st0.classList.add('pre');if(!ph){g.dataset.intro='pending';const run=()=>{g.dataset.intro='done';const st=g.querySelector('.lg-stage.pre');if(!st)return;st.classList.remove('pre');lgAnim(null,'intro',g)};const idle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:700}):f=>setTimeout(f,80);(document.readyState==='complete'?Promise.resolve():new Promise(r=>addEventListener('load',r,{once:true}))).then(()=>idle(()=>requestAnimationFrame(run)))}}else{const i=g.querySelector('.lg-in');if(i)i.animate([{opacity:.6},{opacity:1}],{duration:240,easing:'ease-out'})}}
   const go=$('#admGo'),dm=$('#admDemo');
   if(go)go.onclick=()=>lgAnim(()=>openAdmin('overview'),'out',g);
   if(dm)dm.onclick=()=>lgAnim(()=>{store.set('demoOn',true);enterDemo();openAdmin('overview')},'out',g);
