@@ -1,11 +1,6 @@
-/*
-  Plug Electronics & More — site settings
-  Paste your Supabase "Project URL" and "anon public" key below (Supabase → Project Settings → API).
-  The anon key is meant to be public: the database rules in supabase-setup.sql decide what visitors can do.
-  Leave them empty to run the site without a database (built-in catalogue + WhatsApp ordering).
-*/
+// Plug Electronics & More — connection settings (public values, safe to be in the browser)
 window.PLUG_CONFIG = {
-  supabaseUrl: '',
-  supabaseKey: '',
+  supabaseUrl: 'https://knuqiithcainhwljuvra.supabase.co',
+  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtudXFpaXRoY2Fpbmh3bGp1dnJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MDIzNzMsImV4cCI6MjEwOTI3ODM3M30.mQKeSuMeUtw9yGzJqkpwtW5-RuUAkcsUUSegXdkBzk0',
   imageBucket: 'product-images'
 };

@@ -31,6 +31,13 @@ $$;
 alter table public.docs   enable row level security;
 alter table public.admins enable row level security;
 
+-- Let the website reach the tables (the rules below still decide what each person may do).
+grant usage on schema public to anon, authenticated;
+grant select on public.docs to anon, authenticated;
+grant insert, update, delete on public.docs to authenticated;
+grant select on public.admins to authenticated;
+grant execute on function public.is_admin() to anon, authenticated;
+
 drop policy if exists "read public store data" on public.docs;
 drop policy if exists "admins do everything"   on public.docs;
 drop policy if exists "customers add own"      on public.docs;
