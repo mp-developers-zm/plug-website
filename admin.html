@@ -1227,6 +1227,44 @@ html.lite .phone{will-change:auto}
 .lg-stage>.lg-card{filter:none}
 .lg-stage::before{content:"";position:absolute;left:5%;right:5%;top:22px;bottom:-12px;z-index:-1;border-radius:34px;background:rgba(20,24,32,.15);filter:blur(22px);pointer-events:none}
 .bg svg.ribbon{will-change:transform;backface-visibility:hidden}
+
+/* ==== live support chat (M&P) ==== */
+.m.auto{background:rgba(255,255,255,.6);color:var(--ink2);font-size:13px}
+.m .m-by{display:block;font-size:11px;font-weight:700;color:var(--mute);margin-bottom:2px}
+.chat-fab.has-new::after{content:"1";position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:#e11d48;color:#fff;font:700 12px/20px var(--body);text-align:center;box-shadow:0 0 0 2px #fff}
+.adm-side nav button .nb{margin-left:auto;min-width:22px;height:22px;padding:0 7px;border-radius:99px;background:#e11d48;color:#fff;font:700 12px/22px var(--body);font-style:normal;text-align:center}
+.mx{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:520px;border-radius:26px;overflow:hidden;padding:0}
+.mx-list{border-right:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.35);overflow:auto;max-height:640px;padding:10px;display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:6px}
+.mx-it{display:flex;align-items:center;gap:10px;padding:10px;border-radius:16px;text-align:left;width:100%;min-width:0}
+.mx-it:hover{background:rgba(255,255,255,.7)}.mx-it.on{background:#fff;box-shadow:0 8px 20px -12px rgba(20,24,32,.35)}
+.mx-av{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(160deg,#3a3d42,#0d0e10)}
+.mx-tx{min-width:0;flex:1}.mx-tx b{display:block;font-size:14px}.mx-tx small{display:block;font-size:12.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx-it.un .mx-tx b,.mx-it.un .mx-tx small{color:var(--ink);font-weight:700}
+.mx-tm{font-size:11px;color:var(--mute);display:grid;justify-items:end;gap:6px;flex:none}.mx-tm i{width:9px;height:9px;border-radius:50%;background:#e11d48}
+.mx-empty,.mx-pick{padding:26px 18px}.mx-pick{display:grid;place-items:center;height:100%}
+.mx-thread{display:flex;flex-direction:column;min-width:0;background:rgba(255,255,255,.2)}
+.mx-top{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.9);flex-wrap:wrap}
+.mx-who{flex:1;min-width:0}.mx-who b{display:block}.mx-who span{font-size:12.5px;color:var(--mute)}
+.mx-back{display:none}
+.mx-msgs{flex:1;overflow:auto;max-height:430px;min-height:260px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.mx-m{max-width:78%;padding:10px 13px 6px;border-radius:16px 16px 16px 4px;background:#fff;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word;box-shadow:0 4px 12px -8px rgba(20,24,32,.3)}
+.mx-m small{display:block;font-size:11px;font-weight:700;color:var(--mute);margin-bottom:2px}
+.mx-m em{display:block;font-style:normal;font-size:10.5px;color:var(--mute);margin-top:3px;text-align:right}
+.mx-m.st{align-self:flex-end;background:#0d0e10;color:#fff;border-radius:16px 16px 4px 16px}.mx-m.st small,.mx-m.st em{color:rgba(255,255,255,.65)}
+.mx-m.au{background:rgba(255,255,255,.55);color:var(--ink2);font-size:13px}
+.mx-quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 18px 8px}
+.mx-quick button{padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.75);border:1px solid #fff;font-size:12px;font-weight:500}
+.mx-form{display:flex;gap:8px;align-items:flex-end;padding:12px 18px 18px;border-top:1px solid rgba(255,255,255,.9)}
+.mx-form select{height:44px;border-radius:12px;border:1px solid rgba(13,14,16,.14);background:#fff;padding:0 8px;font:inherit;font-size:13px}
+.mx-form textarea{flex:1;min-height:44px;max-height:140px;resize:vertical;border-radius:14px;border:1px solid rgba(13,14,16,.14);background:#fff;padding:11px 14px;font:inherit;font-size:14px}
+.mx-form textarea:focus{outline:none;border-color:#0d0e10}.mx-form .btn{height:44px}
+@media (max-width:820px){
+  .mx{grid-template-columns:minmax(0,1fr);min-height:0}
+  .mx-list{border-right:0;max-height:none}
+  .mx.sel .mx-list{display:none}.mx:not(.sel) .mx-thread{display:none}
+  .mx-back{display:inline-flex}.mx-msgs{max-height:55vh}
+  .mx-form{flex-wrap:wrap}.mx-form textarea{flex-basis:100%;order:-1}.mx-form select{flex:1}
+}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -2400,7 +2438,7 @@ function renderAdm(tab){curAdm=tab;
   $('#admSide').querySelectorAll('[data-at]').forEach(b=>b.onclick=()=>{renderAdm(b.dataset.at);window.scrollTo(0,0)});
   $('#admExit').onclick=()=>{if(ADM.demo){store.set('demoOn',false)}exitAdmin()};
   const so=$('#admSignOut');if(so)so.onclick=async()=>{await PLUG_AUTH.signOut();location.reload()};
-  const T={overview:admOverview,products:admProducts,codes:admCodes,promos:admPromos,email:admEmail,orders:admOrders,customers:admCustomers,settings:admSettings};
+  const T={overview:admOverview,products:admProducts,codes:admCodes,promos:admPromos,email:admEmail,orders:admOrders,customers:admCustomers,messages:admMessages,settings:admSettings};
   $('#admMain').innerHTML=(ADM.demo?`<div class="demo-note">Demo mode: changes are saved on this device only. Share the site with staff as Editors to manage the live store.</div>`:'')+T[tab]();
   (T[tab].bind||(()=>{}))();
 }
@@ -2740,12 +2778,120 @@ function route(){
 addEventListener('hashchange',route);
 document.addEventListener('click',e=>{if(e.defaultPrevented)return;const a=e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')===(location.hash||'#home')){e.preventDefault();route()}});
 route();
+/* keep what staff typed in the sign-in form when the page refreshes the form (e.g. when the database finishes loading) */
+if(typeof renderAdmGate==='function'){const _rag=renderAdmGate;renderAdmGate=function(){const keep={};document.querySelectorAll('#admLogin input').forEach(i=>{keep[i.name]=i.value});const ae=document.activeElement,foc=ae&&ae.closest&&ae.closest('#admLogin')?ae.name:null;const out=_rag.apply(this,arguments);document.querySelectorAll('#admLogin input').forEach(i=>{if(keep[i.name])i.value=keep[i.name]});if(foc){const f=document.querySelector('#admLogin [name="'+foc+'"]');if(f)f.focus()}return out}}
+
+/* ==== live support chat (M&P) ====
+   Customers: messages from the chat button are saved to the database (collection "chats", one document per visitor).
+   Staff: reply from the admin page (Messages tab). Replies are saved in "chatreplies" and appear on the customer's screen. */
+const LC={uid:null,mine:[],staff:[],who:'June',ready:false,watching:false,poll:null,shown:0};
+const lcLive=()=>!!(ADM.db&&ADM.live&&!ADM.demo&&window.PLUG_ENSURE_UID);
+const lcTime=t=>{const d=new Date(t),n=new Date();return d.toDateString()===n.toDateString()?d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):d.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})};
+const _demoReply=reply, _openChat=openChat;
+function lcBubble(m){const el=document.createElement('div');el.className='m'+(m.f==='c'?' me':'')+(m.f==='a'?' auto':'');
+  if(m.by&&m.f==='s'&&m.by!==LC.who){const b=document.createElement('small');b.className='m-by';b.textContent=m.by;el.appendChild(b)}
+  el.appendChild(document.createTextNode(m.t));msgs.appendChild(el)}
+function lcAll(){return [...LC.mine,...LC.staff.map(m=>({...m,f:'s'}))].sort((a,b)=>a.at-b.at)}
+function lcRender(){if(!panel.classList.contains('open'))return;msgs.innerHTML='';
+  add(`Hi! I'm ${LC.who} 👋 Looking for a new device? I can help you pick one.`);
+  lcAll().forEach(lcBubble);msgs.scrollTop=1e5;lcMarkSeen()}
+function lcLastStaff(){return LC.staff.reduce((a,m)=>Math.max(a,m.at||0),0)}
+function lcMarkSeen(){const t=lcLastStaff();if(t>(store.get('chatSeen',0)||0))store.set('chatSeen',t);$('#chatFab').classList.remove('has-new')}
+function lcStaffUpdate(list){const before=lcLastStaff();LC.staff=Array.isArray(list)?list:[];const after=lcLastStaff();
+  if(panel.classList.contains('open'))lcRender();
+  else if(after>(store.get('chatSeen',0)||0)){$('#chatFab').classList.add('has-new');if(after>before&&LC.ready){const m=LC.staff.find(x=>x.at===after);say(`💬 New reply from ${(m&&m.by)||LC.who}`)}}}
+function lcLoad(){if(!lcLive())return Promise.resolve();if(!LC.loadP)LC.loadP=(async()=>{LC.ready=true;
+  try{const uid=ADM.u?await ADM.u.id():null;if(!uid||!store.get('chatOn',false))return;LC.uid=uid;
+    const [c,r]=await Promise.all([ADM.db.doc('chats/'+uid).get(),ADM.db.doc('chatreplies/'+uid).get()]);
+    if(c.exists){const d=c.data()||{};LC.mine=d.msgs||[];if(d.who&&staff[d.who])LC.who=d.who}
+    lcStaffUpdate(r.exists?(r.data()||{}).msgs:[]);lcWatch()}catch(e){}})();return LC.loadP}
+function lcWatch(){if(LC.watching||!LC.uid)return;LC.watching=true;
+  try{ADM.db.doc('chatreplies/'+LC.uid).onSnapshot(sn=>{if(sn.exists)lcStaffUpdate((sn.data()||{}).msgs)},()=>{})}catch(e){}
+  const tick=async()=>{try{if(document.hidden)return;const r=await ADM.db.doc('chatreplies/'+LC.uid).get();if(r.exists){const l=(r.data()||{}).msgs||[];if(l.length!==LC.staff.length)lcStaffUpdate(l)}}catch(e){}};
+  clearInterval(LC.poll);LC.poll=setInterval(()=>{if(panel.classList.contains('open')||Date.now()%20000<6000)tick()},6000)}
+const lcAuto=t=>{const r=replies.find(([re])=>re.test(t));return r&&r[0].source!=='.*'&&!/stock/.test(r[0].source)?r[1]:null};
+openChat=function(n='June'){if(!lcLive()){return _openChat(n)}
+  if(!LC.mine.length&&staff[n])LC.who=n;else if(staff[n])LC.who=n;
+  $('#chatImg').src=staff[LC.who].img;$('#chatName').textContent=staff[LC.who].role;panel.classList.add('open');lcRender();lcLoad()};
+reply=async function(t){if(!lcLive()){return _demoReply(t)}
+  t=String(t).trim().slice(0,1000);if(!t)return;await lcLoad();const at=Date.now();LC.mine.push({f:'c',t,at});
+  const auto=lcAuto(t),acked=LC.mine.some(m=>m.ack);
+  if(auto)LC.mine.push({f:'a',t:auto,at:at+1});
+  else if(!acked)LC.mine.push({f:'a',ack:1,at:at+1,t:`Thanks! ${LC.who} will reply right here in a few minutes. Please share your name and phone number so we can reach you. If it's urgent, tap “Continue on WhatsApp”.`});
+  lcRender();
+  try{const uid=await PLUG_ENSURE_UID();if(!uid)throw new Error('no id');LC.uid=uid;
+    await ADM.db.doc('chats/'+uid).set({who:LC.who,msgs:LC.mine.slice(-200),lastAt:at,page:(location.hash||'#home').slice(0,40)});
+    store.set('chatOn',true);lcWatch()}
+  catch(e){add('Sorry, your message did not send. Please check your internet, or tap “Continue on WhatsApp”.')}};
+(function lcBoot(){if(ADM.ready){if(lcLive())lcLoad();return}setTimeout(lcBoot,700)})();
+
+/* ---- admin: Messages tab ---- */
+ADM.chats={};ADM.replies={};
+const MX={sel:null,draft:{},as:{},seenLocal:{},known:{},init:false,del:null};
+NAV.splice(NAV.findIndex(n=>n[0]==='orders')+1,0,['messages','Messages','M4 5h16v11H9l-5 4z']);
+const mxCust=id=>{const c=ADM.chats[id]||{},txt=(c.msgs||[]).filter(m=>m.f==='c').map(m=>m.t).join('  ');
+  const ph=(txt.match(/(\+?260|0)[\s-]?[79]\d[\s-]?\d{3}[\s-]?\d{4}/)||[])[0]||'';
+  const nm=(txt.match(/\b(?:my name is|name'?s|i am|i'm|this is)\s+([A-Za-z][a-z]+)/i)||[])[1]||'';
+  return {name:nm?nm[0].toUpperCase()+nm.slice(1):'Visitor '+id.slice(0,4).toUpperCase(),phone:ph.replace(/[\s-]/g,'')}};
+const mxLast=id=>{const c=ADM.chats[id]||{},r=ADM.replies[id]||{};return Math.max(c.lastAt||0,r.lastAt||0)};
+const mxUnread=id=>{const c=ADM.chats[id]||{},r=ADM.replies[id]||{};return (c.lastAt||0)>Math.max(r.seenAt||0,MX.seenLocal[id]||0)};
+const mxUnreadCount=()=>Object.keys(ADM.chats).filter(mxUnread).length;
+function mxThreadMsgs(id){const c=ADM.chats[id]||{},r=ADM.replies[id]||{};return [...(c.msgs||[]),...(r.msgs||[]).map(m=>({...m,f:'s'}))].sort((a,b)=>a.at-b.at)}
+function mxListHTML(){const ids=Object.keys(ADM.chats).sort((a,b)=>mxLast(b)-mxLast(a));
+  if(!ids.length)return `<div class="mx-empty"><b>No messages yet</b><p class="mut">When a customer uses the chat button on the website, the conversation shows here.</p></div>`;
+  return ids.map(id=>{const cu=mxCust(id),all=mxThreadMsgs(id),last=all[all.length-1]||{},un=mxUnread(id);
+    return `<button class="mx-it${id===MX.sel?' on':''}${un?' un':''}" data-cid="${esc(id)}"><span class="mx-av">${esc(cu.name[0])}</span><span class="mx-tx"><b>${esc(cu.name)}</b><small>${last.f==='s'?'You: ':last.f==='a'?'Auto: ':''}${esc((last.t||'').slice(0,60))}</small></span><span class="mx-tm">${last.at?lcTime(last.at):''}${un?'<i></i>':''}</span></button>`}).join('')}
+function mxMsgsHTML(id){return mxThreadMsgs(id).map(m=>`<div class="mx-m ${m.f==='c'?'cu':m.f==='a'?'au':'st'}">${m.f==='s'&&m.by?`<small>${esc(m.by)}</small>`:m.f==='a'?'<small>Automatic reply</small>':''}${esc(m.t)}<em>${lcTime(m.at)}</em></div>`).join('')}
+function mxThreadHTML(){const id=MX.sel;if(!id||!ADM.chats[id])return `<div class="mx-pick"><p class="mut">Choose a conversation to read it and reply.</p></div>`;
+  const c=ADM.chats[id],cu=mxCust(id),as=MX.as[id]||c.who||'June';
+  return `<div class="mx-top"><button class="btn btn-glass sm mx-back" id="mxBack">← All</button><div class="mx-who"><b>${esc(cu.name)}</b><span>${cu.phone?esc(cu.phone)+' · ':''}Chatting with ${esc(c.who||'June')} · from ${esc(c.page||'#home')}</span></div>
+    <div class="row-b">${cu.phone?`<a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(cu.phone)}" title="WhatsApp this customer">WA</a>`:''}<button class="btn btn-glass sm" id="mxDel">${MX.del===id?'Tap again to delete':'Delete chat'}</button></div></div>
+   <div class="mx-msgs" id="mxMsgs">${mxMsgsHTML(id)}</div>
+   <div class="mx-quick">${['Yes, it is in stock ✅','Let me check and get back to you shortly.','Please send your phone number and we will call you.','You can collect at Liberty Mall, Shop 31.'].map(q=>`<button data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+   <form class="mx-form" id="mxForm"><select id="mxAs" aria-label="Reply as">${Object.keys(staff).map(n=>`<option${n===as?' selected':''}>${n}</option>`).join('')}</select>
+     <textarea id="mxText" rows="2" maxlength="1000" placeholder="Type your reply…">${esc(MX.draft[id]||'')}</textarea><button class="btn btn-dark" type="submit">Send</button></form>`}
+function admMessages(){if(!isLive())return head('Messages','Live chat with website visitors')+`<div class="panel glass"><p class="mut">Live chat works on the live store. Sign in with your staff account to read and answer customer messages.</p></div>`;
+  return head('Messages',`Chats from the website. Your replies appear on the customer's screen straight away.`)+
+  `<div class="mx glass${MX.sel?' sel':''}" id="mxBox"><div class="mx-list" id="mxList">${mxListHTML()}</div><div class="mx-thread" id="mxThread">${mxThreadHTML()}</div></div>`}
+async function mxSeen(id){const c=ADM.chats[id];if(!c||!mxUnread(id))return;MX.seenLocal[id]=Date.now();const r=ADM.replies[id]||{};
+  try{await ADM.db.doc('chatreplies/'+id).set({msgs:r.msgs||[],lastAt:r.lastAt||0,seenAt:Date.now()});ADM.replies[id]={...r,seenAt:Date.now()}}catch(e){}}
+function mxOpen(id){MX.sel=id;MX.del=null;mxSeen(id);mxPaint(true)}
+function mxPaint(full){if(curAdm!=='messages'||!isLive())return;const L=$('#mxList');if(!L){renderAdm('messages');return}
+  L.innerHTML=mxListHTML();$('#mxBox').classList.toggle('sel',!!MX.sel);
+  if(full||!$('#mxMsgs')){$('#mxThread').innerHTML=mxThreadHTML();mxBindThread()}
+  else{const box=$('#mxMsgs'),atEnd=box.scrollHeight-box.scrollTop-box.clientHeight<60;box.innerHTML=mxMsgsHTML(MX.sel);if(atEnd)box.scrollTop=1e5}
+  mxBadge()}
+function mxBindThread(){const box=$('#mxMsgs');if(box)box.scrollTop=1e5;const id=MX.sel;if(!id)return;
+  const ta=$('#mxText'),f=$('#mxForm');if(!f)return;
+  ta.oninput=()=>{MX.draft[id]=ta.value};$('#mxAs').onchange=e=>{MX.as[id]=e.target.value};
+  ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();f.requestSubmit()}};
+  $$('.mx-quick [data-q]').forEach(b=>b.onclick=()=>{ta.value=(ta.value?ta.value+' ':'')+b.dataset.q;MX.draft[id]=ta.value;ta.focus()});
+  $('#mxBack').onclick=()=>{MX.sel=null;mxPaint(true)};
+  $('#mxDel').onclick=async()=>{if(MX.del!==id){MX.del=id;$('#mxDel').textContent='Tap again to delete';return}
+    try{await ADM.db.doc('chats/'+id).delete();await ADM.db.doc('chatreplies/'+id).delete().catch(()=>{});delete ADM.chats[id];delete ADM.replies[id];MX.sel=null;MX.del=null;say('Chat deleted');mxPaint(true)}catch(e){say('Could not delete. Try again.')}};
+  f.onsubmit=async e=>{e.preventDefault();const t=ta.value.trim().slice(0,1000);if(!t)return;const by=$('#mxAs').value,b=f.querySelector('button');b.disabled=true;
+    const r=ADM.replies[id]||{},now=Date.now(),list=[...(r.msgs||[]),{t,at:now,by}].slice(-200);
+    try{await ADM.db.doc('chatreplies/'+id).set({msgs:list,lastAt:now,seenAt:now});ADM.replies[id]={msgs:list,lastAt:now,seenAt:now};MX.draft[id]='';ta.value='';mxPaint(false);mxPaint(true)}
+    catch(err){say('Reply not sent. Check your connection and try again.')}b.disabled=false}}
+admMessages.bind=()=>{const L=$('#mxList');if(!L)return;L.onclick=e=>{const b=e.target.closest('[data-cid]');if(b)mxOpen(b.dataset.cid)};mxBindThread();mxBadge()};
+function mxBadge(){const n=mxUnreadCount(),b=document.querySelector('#admSide [data-at=messages]');
+  if(b){let s=b.querySelector('.nb');if(n){if(!s){s=document.createElement('em');s.className='nb';b.appendChild(s)}s.textContent=n}else if(s)s.remove()}
+  const base=document.title.replace(/^\(\d+\) /,'');document.title=n?`(${n}) ${base}`:base}
+function mxChanged(){
+  Object.keys(ADM.chats).forEach(id=>{const t=(ADM.chats[id]||{}).lastAt||0;if(MX.init&&t>(MX.known[id]||0)&&mxUnread(id)&&id!==MX.sel)say(`💬 New message from ${mxCust(id).name}`);MX.known[id]=t});MX.init=true;
+  if(MX.sel&&curAdm==='messages'&&mxUnread(MX.sel)&&!document.hidden)mxSeen(MX.sel);
+  if(curAdm==='messages')mxPaint(false);else mxBadge()}
+const _renderAdm=renderAdm;renderAdm=function(tab){_renderAdm(tab);mxBadge()};
+(function mxBoot(){if(!ADM.ready){setTimeout(mxBoot,800);return}if(!(ADM.admin&&ADM.db&&!ADM.demo))return;
+  const toMap=sn=>{const m={};sn.docs.forEach(d=>m[d.id]=d.data()||{});return m};
+  try{ADM.db.collection('chats').onSnapshot(sn=>{ADM.chats=toMap(sn);mxChanged()},()=>{});
+      ADM.db.collection('chatreplies').onSnapshot(sn=>{ADM.replies=toMap(sn);mxChanged()},()=>{})}catch(e){}
+  setInterval(async()=>{if(document.hidden)return;try{const [a,b]=await Promise.all([ADM.db.collection('chats').get(),ADM.db.collection('chatreplies').get()]);
+    const A=toMap(a),B=toMap(b);if(JSON.stringify(A)!==JSON.stringify(ADM.chats)||JSON.stringify(B)!==JSON.stringify(ADM.replies)){ADM.chats=A;ADM.replies=B;mxChanged()}}catch(e){}},curAdm==='messages'?6000:10000)})();
 
 })();
 
 /* ==== mobile speed (M&P): pause animations of sections that are off screen ==== */
-/* keep what staff typed in the sign-in form when the page refreshes the form (e.g. when the database finishes loading) */
-if(typeof renderAdmGate==='function'){const _rag=renderAdmGate;renderAdmGate=function(){const keep={};document.querySelectorAll('#admLogin input').forEach(i=>{keep[i.name]=i.value});const ae=document.activeElement,foc=ae&&ae.closest&&ae.closest('#admLogin')?ae.name:null;const out=_rag.apply(this,arguments);document.querySelectorAll('#admLogin input').forEach(i=>{if(keep[i.name])i.value=keep[i.name]});if(foc){const f=document.querySelector('#admLogin [name="'+foc+'"]');if(f)f.focus()}return out}}
 (()=>{if(!('IntersectionObserver' in window))return;const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('offv',!e.isIntersecting)),{rootMargin:'200px 0px'});document.querySelectorAll('section,footer').forEach(s=>io.observe(s))})();
 </script>
 </body>

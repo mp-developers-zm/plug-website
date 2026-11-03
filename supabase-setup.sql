@@ -47,18 +47,19 @@ drop policy if exists "admins see admins"      on public.admins;
 -- Anyone may read the catalogue, discount codes, store settings and order status.
 -- A customer may also read their own orders / newsletter sign-up.
 create policy "read public store data" on public.docs for select
-  using (collection in ('products','codes','config','orderstatus') or owner = auth.uid() or public.is_admin());
+  using (collection in ('products','codes','config','orderstatus') or owner = auth.uid() or public.is_admin()
+         or (collection = 'chatreplies' and id = auth.uid()::text));
 
 -- Staff (admins) can create, change and delete anything.
 create policy "admins do everything" on public.docs for all
   using (public.is_admin()) with check (public.is_admin());
 
--- A visitor can only write their OWN order list and newsletter sign-up.
+-- A visitor can only write their OWN order list, newsletter sign-up and support chat.
 create policy "customers add own" on public.docs for insert
-  with check (collection in ('orders','subscribers') and id = auth.uid()::text and owner = auth.uid());
+  with check (collection in ('orders','subscribers','chats') and id = auth.uid()::text and owner = auth.uid());
 create policy "customers update own" on public.docs for update
-  using (collection in ('orders','subscribers') and owner = auth.uid())
-  with check (collection in ('orders','subscribers') and id = auth.uid()::text and owner = auth.uid());
+  using (collection in ('orders','subscribers','chats') and owner = auth.uid())
+  with check (collection in ('orders','subscribers','chats') and id = auth.uid()::text and owner = auth.uid());
 
 -- Signed-in staff can see the admin list (to know their own role).
 create policy "admins see admins" on public.admins for select
