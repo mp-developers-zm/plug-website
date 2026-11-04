@@ -28,7 +28,10 @@
     signIn: function (e, p) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database. Check your internet and try again.'); return api.auth.signIn(e, p); }); },
     signOut: function () { return apiP.then(function (api) { return api && api.auth.signOut(); }); },
     reset: function (e) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database.'); return api.auth.reset(e); }); },
-    session: function () { return apiP.then(function (api) { return api ? api.auth.session() : null; }); }
+    session: function () { return apiP.then(function (api) { return api ? api.auth.session() : null; }); },
+    signUp: function (e, p, meta) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database. Check your internet and try again.'); return api.auth.signUp(e, p, meta); }); },
+    account: function () { return apiP.then(function (api) { return api ? api.auth.account() : null; }); },
+    setPassword: function (p) { return apiP.then(function (api) { if (!api) throw new Error('Cannot reach the database.'); return api.auth.setPassword(p); }); }
   };
 
   function boot(lib) {
@@ -100,6 +103,12 @@
             return sb.from('docs').upsert({ collection: col, id: id, data: data, owner: uid || null, updated_at: new Date().toISOString() }, { onConflict: 'collection,id' });
           }).then(fail).then(function () { refreshSoon(col); });
         },
+        // add a NEW document only (used for the locked transaction history: it can never overwrite)
+        create: function (data) {
+          return ensureUid().then(function (uid) {
+            return sb.from('docs').insert({ collection: col, id: id, data: data, owner: uid || null, updated_at: new Date().toISOString() });
+          }).then(fail).then(function () { refreshSoon(col); });
+        },
         delete: function () { return sb.from('docs').delete().eq('collection', col).eq('id', id).then(fail).then(function () { refreshSoon(col); }); },
         onSnapshot: function (fn, onErr) { return listen(col, function (rows) { fn(docSnap(rows.filter(function (r) { return r.id === id; })[0])); }, onErr); }
       };
@@ -149,7 +158,16 @@
       signIn: function (email, password) { return sb.auth.signInWithPassword({ email: email, password: password }).then(fail); },
       signOut: function () { return sb.auth.signOut(); },
       reset: function (email) { return sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname }).then(fail); },
-      session: function () { return sessionP; }
+      session: function () { return sessionP; },
+      // customer accounts (email + password)
+      signUp: function (email, password, meta) {
+        return sb.auth.signUp({ email: email, password: password, options: { data: meta || {}, emailRedirectTo: location.href.split('#')[0] } }).then(fail).then(function (r) {
+          var d = r.data || {}; if (d.user && Array.isArray(d.user.identities) && !d.user.identities.length) { throw new Error('User already registered'); }
+          return { session: !!d.session, uid: d.user ? d.user.id : null };
+        });
+      },
+      account: function () { return sessionP.then(function (s) { var u = s && s.user; return u && !u.is_anonymous ? { uid: u.id, email: u.email || '', meta: u.user_metadata || {} } : null; }); },
+      setPassword: function (p) { return sb.auth.updateUser({ password: p }).then(fail); }
     }
   };
   }

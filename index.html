@@ -1398,6 +1398,103 @@ html{overflow-x:clip}
   .fin-cf{overflow:hidden;border-radius:24px}
   .fin-rib{margin:28px -8px 0}
 }
+
+/* ==== payments, loyalty, colours & stock (M&P) ==== */
+.sw-row{display:flex;align-items:center;gap:4px;margin:7px 4px 0;min-height:14px;flex-wrap:wrap}
+.sw-row i{width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2),0 1px 2px rgba(0,0,0,.12)}
+.sw-row em{font-style:normal;font-size:11px;font-weight:700;color:var(--mute)}
+.sw-row span{font-size:11.5px;color:var(--mute);margin-left:4px}
+.pd-col{margin:14px 0 6px}
+.pd-col-h{font-size:14px;color:var(--ink2);display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}.pd-col-h span{font-size:12px;color:var(--mute);margin-left:auto}
+.pd-sw{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.pd-sw button{width:40px;height:40px;border-radius:50%;padding:3px;background:transparent;border:2px solid transparent;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s}
+.pd-sw button i{display:block;width:100%;height:100%;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2),inset 0 6px 10px rgba(255,255,255,.35)}
+.pd-sw button:hover{transform:translateY(-2px)}.pd-sw button.on{border-color:#0d0e10;transform:scale(1.06)}
+.cg{border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:14px;background:rgba(255,255,255,.65);margin-top:4px}
+.cg-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;font-size:14px}.cg-h span{font-size:12px;color:var(--mute)}
+.cg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:7px;max-height:236px;overflow:auto;padding:2px}
+.cg-s{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:12px;background:#fff;border:1.5px solid rgba(0,0,0,.08);font:inherit;font-size:12px;font-weight:600;text-align:left;color:var(--ink2);min-width:0;cursor:pointer;transition:transform .15s}
+.cg-s:active{transform:scale(.96)}.cg-s i{flex:0 0 18px;height:18px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.cg-s span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cg-s.on{border-color:#0d0e10;background:#0d0e10;color:#fff}
+.cg-own{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+.cg-own input[type=color]{width:46px;height:42px;padding:2px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff;flex:0 0 46px}
+.cg-own #cgName{flex:1;min-width:150px}
+.cg-sel{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.cg-sel span{display:inline-flex;align-items:center;gap:6px;padding:4px 5px 4px 8px;border-radius:99px;background:#fff;border:1px solid rgba(0,0,0,.1);font-size:12px;font-weight:600}
+.cg-sel span i{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.cg-sel button{width:20px;height:20px;border-radius:50%;background:#eceef1;font-size:13px;line-height:1;border:0;cursor:pointer}
+.pay-trk{margin:14px 0;padding:14px;border-radius:16px;background:rgba(255,255,255,.75);border:1px solid rgba(0,0,0,.06)}
+.pay-trk>div:first-child{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:600;font-size:14px;flex-wrap:wrap}
+.pay-info{margin:12px 0;padding:12px 14px;border-radius:14px;background:#fff7ed;border:1px solid #fed7aa;font-size:13.5px;text-align:left;color:#431407}
+.pay-info>b{display:block;margin-bottom:4px}.pay-info p{margin:0;line-height:1.55}
+.done-box .pay-info{max-width:420px;margin:14px auto}.done-box .pl-ref{max-width:420px;margin:0 auto 12px}
+.pl-ref{margin-top:10px}.pl-pp{display:inline-block;margin-top:4px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px}
+.seg button{height:38px;padding:0 14px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid #fff;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.seg button i{font-style:normal;font-size:11px;background:rgba(0,0,0,.08);border-radius:99px;padding:1px 7px;margin-left:4px}
+.seg button.on{background:#0d0e10;color:#fff;border-color:#0d0e10}.seg button.on i{background:rgba(255,255,255,.2)}
+.pl-seg2{display:flex;margin-bottom:4px}.pl-seg2 button{flex:1}
+.pl-tools{margin:16px 0;align-items:center}
+.kpis.pl-k4{grid-template-columns:repeat(4,1fr)}
+.kpi-s{display:block;font-style:normal;font-size:12px;color:var(--mute);margin-top:2px}
+.tbl td span.pl-noem{color:#b45309}.tbl td span.pl-mem-t{color:#b45309;font-weight:600}
+.pl-ref-b{display:inline!important;font-size:12.5px!important;font-family:ui-monospace,Menlo,monospace}
+.pl-warn a{color:inherit}
+.pl-will{list-style:none;padding:12px 14px;margin:4px 0;border-radius:14px;background:rgba(0,0,0,.035);font-size:13.5px;display:grid;gap:6px}
+.pl-lock{padding:12px 16px;border-radius:14px;background:#0d0e10;color:#fff;font-size:13.5px;margin-bottom:14px;line-height:1.5}
+.pl-tr{cursor:pointer}.pl-tr:hover td,.pl-tr:focus td{background:rgba(255,255,255,.55)}
+.neg{color:#b91c1c!important}
+.rcpt{max-height:58vh;overflow:auto;border-radius:16px;-webkit-overflow-scrolling:touch}
+.pl-ob{display:grid;gap:8px;margin-top:12px}
+.pl-obi{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.8);flex-wrap:wrap}
+.pl-obi>div:first-child{flex:1;min-width:170px}.pl-obi b{display:block;font-size:13.5px}.pl-obi span{font-size:12px;color:var(--mute)}
+.pl-obi .acts{display:flex;gap:6px;flex-wrap:wrap}
+.pl-add{margin:12px 0 6px}
+.pl-lines{border-radius:14px;background:rgba(255,255,255,.75);padding:4px 12px;margin:10px 0}
+.pl-lines>div{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px;animation:plIn .35s cubic-bezier(.2,.8,.2,1)}
+.pl-lines>div span{flex:1;min-width:0}.pl-lines em{font-style:normal;color:var(--mute)}
+.pl-lines .tot{border-bottom:0;font-weight:700;animation:none}
+.pl-lines .rm{width:28px;height:28px;border-radius:50%;background:#eceef1;border:0;font-size:15px;cursor:pointer;flex:0 0 28px;padding:0;text-decoration:none}
+@keyframes plIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pl-pts{display:grid;align-content:end;padding-bottom:8px}.pl-pts span{font-size:12px;color:var(--mute)}.pl-pts b{font-size:18px}
+.pl-ms{margin-bottom:10px;width:100%}
+.pl-mem{display:grid;gap:6px;max-height:520px;overflow:auto}
+.pl-mem>div{display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:rgba(255,255,255,.75);flex-wrap:wrap}
+.pl-mi{flex:1;min-width:110px}.pl-mi b{display:block;font-size:14px}.pl-mi span{font-size:12px;color:var(--mute);word-break:break-all}
+.pl-mp{font-size:16px;white-space:nowrap}.pl-mp small{font-size:11px;color:var(--mute);margin-left:3px;font-weight:600}
+.pl-mem .acts{display:flex;gap:6px}
+.pl-av{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:#0d0e10;color:#fff;font-weight:700;font-size:14px}
+.tier{font-style:normal;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.02em;white-space:nowrap}
+.tier.bronze{background:#f3e1d3;color:#8a4b22}.tier.silver{background:#e5e7eb;color:#374151}.tier.gold{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#5b3a00}
+.qr-wrap{text-align:center}
+.qr-card{display:inline-block;padding:14px 14px 10px;border-radius:26px;background:#fff;box-shadow:0 28px 60px -26px rgba(0,0,0,.5);margin:10px 0 6px;animation:qrIn .7s cubic-bezier(.2,.8,.2,1);transition:opacity .5s,transform .5s}
+.qr-card svg{display:block;width:min(260px,68vw);height:auto}
+.qr-brand{font-weight:800;font-size:15px;letter-spacing:-.3px;margin-top:2px}.qr-brand span{color:#e8641f}
+@keyframes qrIn{from{opacity:0;transform:perspective(800px) scale(.9) rotateX(24deg)}to{opacity:1;transform:none}}
+.qr-sum{display:grid;gap:2px;margin:8px 0}.qr-sum b{font-size:20px}.qr-sum span{color:var(--mute);font-size:13px}
+.qr-st{margin:12px auto;max-width:440px;padding:12px 14px;border-radius:16px;background:rgba(0,0,0,.045);font-size:14px;display:grid;gap:10px;justify-items:center}
+.qr-st p{margin:0}
+.spin{display:inline-block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(0,0,0,.15);border-top-color:#0d0e10;animation:plSpin .8s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes plSpin{to{transform:rotate(360deg)}}
+.qr-wrap.got .qr-card{opacity:.3;transform:scale(.9)}
+.qr-who{display:flex;gap:12px;align-items:center;text-align:left}.qr-who b{display:block}.qr-who span{font-size:12.5px;color:var(--mute);word-break:break-all}
+.claim-ban{position:relative;z-index:3;margin:0 auto 14px;max-width:440px;padding:12px 16px;border-radius:16px;background:linear-gradient(135deg,#fff7ed,#ffedd5);color:#7c2d12;font-size:14px;line-height:1.45;text-align:center;box-shadow:0 12px 30px -18px rgba(0,0,0,.5);animation:plIn .5s ease}
+.pl-claim{text-align:center;padding:14px 4px}.pl-claim h3{margin:6px 0}.pl-claim p{color:var(--ink2);line-height:1.5}
+.pl-claim .big{font-size:54px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin:8px 0 0;background:linear-gradient(135deg,#f59e0b,#e8641f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:plPop .8s cubic-bezier(.2,1.5,.4,1)}
+@keyframes plPop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+.pl-ring{display:grid;place-items:center;width:64px;height:64px;margin:4px auto 8px;border-radius:50%;background:rgba(0,0,0,.04)}.pl-ring .spin{width:26px;height:26px;margin:0;border-width:3px}
+.pl-ord{cursor:default}.pl-ord em{color:#b45309!important}
+.pl-tierbox{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:13px;color:var(--mute)}
+.pl-led{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px}.pl-led small{display:block;font-size:11.5px;color:var(--mute)}.pl-led b{white-space:nowrap}
+.sk-in{width:84px}.pl-chk{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.sk-diff{font-size:12.5px;font-weight:700}.sk-diff.up{color:#15803d}.sk-diff.dn{color:#b91c1c}
+.pl-stk-low td{background:rgba(254,226,226,.35)}
+.pl-lowbox{margin-top:14px;padding:12px 16px;border-radius:14px;background:#fef2f2;color:#7f1d1d;font-size:13.5px;line-height:1.5}
+.pl-add [hidden],.pl-ly [hidden]{display:none!important}.pl-lowt{color:#c2410c;font-weight:700}
+#admMain .btn:disabled,#sheet .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.bars .bar{padding:0;margin:0;font-size:inherit;color:inherit}.am-grid>*,#admMain>*{min-width:0}#admMain{grid-template-columns:minmax(0,1fr)}
+@media (max-width:820px){.kpis.pl-k4{grid-template-columns:1fr 1fr}.pl-tools .seg{width:100%}.pl-tools .seg button{flex:1 0 auto;padding:0 10px}.pl-tools .search{flex:1 1 100%}}
+@media (max-width:560px){.pd-sw button{width:44px;height:44px}.cg-grid{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}.pl-mem .acts{width:100%}.pl-mem .acts .btn{flex:1;justify-content:center}.qr-st .row-b .btn{width:100%;justify-content:center}}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -2094,12 +2191,12 @@ const FEAT0=['duo','ip18pm','s26u','fold7','ip17air','ps5','switch2','victus','i
 const DEF_PRODUCTS=products.map((p,i)=>({id:p.id,n:p.n,sp:p.sp,p:p.p,was:0,img:p.img,c:p.c,b:p.b||'',stock:'in',featured:FEAT0.includes(p.id),order:i}));
 const src=v=>/^(\/|data:|https?:|blob:)/.test(v||'')?v:`img/p/${v}.webp`;
 const byId={}, nameToId={};
-function setProducts(list){setTimeout(()=>window.plugCalcRefresh&&plugCalcRefresh(),0);products=list.map(x=>({stock:'in',was:0,b:'',...x}));products.forEach(p=>{p.p=+p.p||0;p.was=+p.was||0;if(!p.b&&p.was>p.p)p.b='Sale';p.pt=K(p.p);p.wa=waLink(p.n,p.sp,p.pt)});
+function setProducts(list){setTimeout(()=>window.plugCalcRefresh&&plugCalcRefresh(),0);products=list.map(x=>({stock:'in',was:0,b:'',...x}));products.forEach(p=>{if(p.qty!=null&&p.qty!==''&&!isNaN(+p.qty)&&+p.qty<=0&&p.stock==='in')p.stock='out';p.p=+p.p||0;p.was=+p.was||0;if(!p.b&&p.was>p.p)p.b='Sale';p.pt=K(p.p);p.wa=waLink(p.n,p.sp,p.pt)});
   Object.keys(byId).forEach(k=>delete byId[k]);products.forEach(p=>byId[p.id]=p);
   Object.keys(nameToId).forEach(k=>delete nameToId[k]);products.forEach(p=>nameToId[p.n]=p.id)}
 setProducts(DEF_PRODUCTS);
 const CATS={iphone:'iPhone',samsung:'Samsung',tablets:'Tablets',laptops:'Laptops',consoles:'Consoles',games:'Games',accessories:'Accessories',watches:'Smart Watches'};
-const stockHTML=(p,long)=>p.stock==='out'?`<div class="stock out"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Sold out</div>`:p.stock==='soon'?`<div class="stock soon"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Coming soon</div>`:`<div class="stock"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>In stock${long?' · Ready for delivery or pickup':''}</div>`;
+const stockHTML=(p,long)=>p.stock==='out'?`<div class="stock out"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Sold out</div>`:p.stock==='soon'?`<div class="stock soon"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Coming soon</div>`:`<div class="stock"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>${plLow(p)?`<span class="pl-lowt">${plLow(p)}</span>`:'In stock'}${long?' · Ready for delivery or pickup':''}</div>`;
 const notifyLink=p=>`https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Please let me know when the ${p.n} (${p.sp}) is available.`)}`;
 
 
@@ -2117,7 +2214,7 @@ $('#chips').innerHTML=filters.map(([k,n])=>`<button data-chip="${k}" class="${k=
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>';
 const esc=t=>String(t??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const cardHTML=p=>`<div class="pc glass"><div class="ph" data-open-p="${p.id}" role="button" tabindex="0" aria-label="View ${esc(p.n)}">${p.b?`<span class="bdg">${p.b}</span>`:''}<button class="heart${wish.has(p.id)?' on':''}" data-wish="${p.id}" aria-label="Add ${esc(p.n)} to wishlist"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0d0e10" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button><img src="${src(p.img)}" alt="${esc(p.n)}" loading="lazy"></div>
-    <b class="n" data-open-p="${p.id}">${esc(p.n)}</b><div class="sp">${esc(p.sp)}${SPECS[p.id]&&p.sp.length<24?`<br><span class="ks">${esc(SPECS[p.id].k)}</span>`:''}</div>${stockHTML(p)}<div class="pr">${p.pt}${p.was>p.p?`<s class="was">${K(p.was)}</s>`:''}</div>
+    <b class="n" data-open-p="${p.id}">${esc(p.n)}</b><div class="sp">${esc(p.sp)}${SPECS[p.id]&&p.sp.length<24?`<br><span class="ks">${esc(SPECS[p.id].k)}</span>`:''}</div>${swHTML(p)}${stockHTML(p)}<div class="pr">${p.pt}${p.was>p.p?`<s class="was">${K(p.was)}</s>`:''}</div>
     <div class="act">${p.stock==='out'?`<a class="btn btn-glass" href="${notifyLink(p)}" target="_blank" rel="noopener">Notify me</a>`:`<button class="btn btn-dark" data-add="${esc(p.n)}">Add to Cart</button>`}<a class="btn wa" href="${p.wa}" target="_blank" rel="noopener" aria-label="Order ${esc(p.n)} on WhatsApp">${waIcon}</a></div></div>`;
 function renderDeals(){$('#dealGrid1').innerHTML=products.filter(p=>p.p<10000&&p.c!=='games').sort((a,b)=>a.p-b.p).map(cardHTML).join('');$('#dealGrid2').innerHTML=products.filter(p=>p.c==='games').map(cardHTML).join('')}
 function renderGrid(){
@@ -2187,7 +2284,7 @@ $$('[data-wa]').forEach(a=>{const [n,sp,p]=a.dataset.wa.split('|');a.href=waLink
 const toast=$('#toast'); let tt;
 function say(t){toast.textContent=t;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200)}
 document.addEventListener('click',e=>{
-  const a=e.target.closest('[data-add]'); if(a){const id=nameToId[a.dataset.add];if(id)addToCart(id)}
+  const a=e.target.closest('[data-add]'); if(a){const id=nameToId[a.dataset.add];if(id){const cs=plColors(byId[id]);if(cs.length>1){productView(id);say('Choose your colour')}else addToCart(id,1,cs[0]?cs[0].n:'')}}
   const c=e.target.closest('[data-copy]'); if(c){const code=c.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>say(`Code ${code} copied`),()=>say(`Your code: ${code}`))}
   const ch=e.target.closest('[data-chat]'); if(ch){openChat(ch.dataset.chat)}
 });
@@ -2218,7 +2315,7 @@ const cartCount=()=>cartItems.reduce((a,i)=>a+i.qty,0);
 const subtotal=()=>cartItems.reduce((a,i)=>a+byId[i.id].p*i.qty,0);
 function syncBadge(pop){const b=$('#cartCount');b.textContent=cartCount();if(pop){b.classList.add('pop');setTimeout(()=>b.classList.remove('pop'),250)}}
 function saveCart(){store.set('cart',cartItems);syncBadge(true)}
-function addToCart(id,qty=1){if(byId[id]&&byId[id].stock==='out'){say(`${byId[id].n} is sold out`);return}const it=cartItems.find(i=>i.id===id);it?it.qty+=qty:cartItems.push({id,qty});saveCart();say(`✓ ${byId[id].n} added to your cart`)}
+function addToCart(id,qty=1,color=''){const p=byId[id];if(p&&p.stock==='out'){say(`${p.n} is sold out`);return}const it=cartItems.find(i=>i.id===id&&(i.color||'')===color);const have=cartItems.filter(i=>i.id===id).reduce((a,i)=>a+i.qty,0);if(p&&plTracked(p)&&have+qty>+p.qty){qty=Math.max(0,+p.qty-have);if(!qty){say(`Only ${+p.qty} of ${p.n} in stock`);return}say(`Only ${+p.qty} in stock, added ${qty}`)}it?it.qty+=qty:cartItems.push(color?{id,qty,color}:{id,qty});saveCart();say(`✓ ${p.n}${color?' ('+color+')':''} added to your cart`)}
 syncBadge();
 
 /* ---- sheet (modal / drawer) ---- */
@@ -2243,7 +2340,7 @@ function productView(id){
     <div class="pd-r">${p.b?`<span class="bdg2">${p.b}</span>`:''}
       <h3>${esc(p.n)}</h3><div class="pd-sp">${esc(p.sp)}${SPECS[p.id]&&p.sp.length<24?` · ${esc(SPECS[p.id].k)}`:''}</div>
       <div class="pd-pr">${p.pt}${p.was>p.p?` <s class="was big">${K(p.was)}</s> <span class="save">Save ${K(p.was-p.p)}</span>`:''}</div>
-      ${stockHTML(p,true)}
+      ${stockHTML(p,true)}${pdColorsHTML(p)}
       <div class="qty"><button data-q="-1" aria-label="Less">−</button><span id="pdQ">1</span><button data-q="1" aria-label="More">+</button></div>
       ${p.stock==='out'?`<a class="btn btn-dark full" href="${notifyLink(p)}" target="_blank" rel="noopener" style="margin-bottom:10px">Notify me when available</a>`:`<div class="pd-btns"><button class="btn btn-dark" id="pdAdd">Add to Cart</button><button class="btn btn-glass" id="pdBuy">Buy Now</button></div>`}
       <a class="btn wa full" href="${p.wa}" target="_blank" rel="noopener">${waSvg} Order on WhatsApp</a>
@@ -2252,11 +2349,11 @@ function productView(id){
     ${specHTML(p)}
     ${rel.length?`<h4 class="rel-h">You may also like</h4><div class="rel">${rel.map(r=>`<button class="rel-c" data-open-p="${r.id}"><span><img src="${src(r.img)}" alt="" loading="lazy"></span><b>${esc(r.n)}</b><em>${r.pt}</em></button>`).join('')}</div>`:''}`,'modal',true);
   let q=1; const im=$('#pdImg');
-  sheet.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{q=Math.max(1,Math.min(9,q+ +b.dataset.q));$('#pdQ').textContent=q});
+  sheet.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{q=Math.max(1,Math.min(plMaxQty(p),q+ +b.dataset.q));$('#pdQ').textContent=q});
   sheet.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{sheet.querySelectorAll('[data-g]').forEach(x=>x.classList.remove('on'));b.classList.add('on');im.querySelector('img').src=`${src(b.dataset.g)}`});
   if(!$('#pdAdd'))return;
-  $('#pdAdd').onclick=()=>{addToCart(id,q)};
-  $('#pdBuy').onclick=()=>{const it=cartItems.find(i=>i.id===id);if(!it)cartItems.push({id,qty:q});saveCart();checkout(1)};
+  $('#pdAdd').onclick=()=>{addToCart(id,q,pdColor())};
+  $('#pdBuy').onclick=()=>{const col=pdColor();const it=cartItems.find(i=>i.id===id&&(i.color||'')===col);if(!it)cartItems.push(col?{id,qty:q,color:col}:{id,qty:q});saveCart();checkout(1)};
   im.addEventListener('pointermove',e=>{const r=im.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;im.firstElementChild.style.transform=`perspective(700px) rotateY(${x*18}deg) rotateX(${-y*18}deg) scale(1.04)`});
   im.addEventListener('pointerleave',()=>im.firstElementChild.style.transform='');
 }
@@ -2264,7 +2361,7 @@ function productView(id){
 /* ---- cart drawer ---- */
 function cartView(){
   const st=subtotal();
-  const rows=cartItems.map(i=>{const p=byId[i.id];return`<div class="ci"><button class="ci-img" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt=""></button><div class="ci-m"><b>${esc(p.n)}</b><span>${esc(p.sp)}</span><em>${p.pt}</em></div><div class="ci-q"><div class="qty sm"><button data-cq="${p.id}|-1" aria-label="Less">−</button><span>${i.qty}</span><button data-cq="${p.id}|1" aria-label="More">+</button></div><button class="rm" data-rm="${p.id}">Remove</button></div></div>`}).join('');
+  const rows=cartItems.map((i,ix)=>{const p=byId[i.id];return`<div class="ci"><button class="ci-img" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt=""></button><div class="ci-m"><b>${esc(p.n)}</b><span>${esc(p.sp)}${i.color?' · '+esc(i.color):''}</span><em>${p.pt}</em></div><div class="ci-q"><div class="qty sm"><button data-cq="${ix}|-1" aria-label="Less">−</button><span>${i.qty}</span><button data-cq="${ix}|1" aria-label="More">+</button></div><button class="rm" data-rm="${ix}">Remove</button></div></div>`}).join('');
   openSheet(`<h3 class="sh-t">Your Cart <small>${cartCount()} item${cartCount()===1?'':'s'}</small></h3>
    ${cartItems.length?`<div class="ci-list">${rows}</div>
    <div class="sum"><div><span>Subtotal</span><b>${K(st)}</b></div><div><span>Delivery</span><b>Confirmed on WhatsApp</b></div><div class="tot2"><span>Total</span><b>${K(st)}</b></div><div class="earn">⭐ You'll earn ${ptsFor(st).toLocaleString()} Plug points</div></div>
@@ -2273,16 +2370,16 @@ function cartView(){
    :`<div class="emptyc"><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><b>Your cart is empty</b><p>Have a look at our phones, laptops and games.</p><a class="btn btn-dark" href="#all" data-close>Start shopping</a></div>`}`,'drawer');
   const tc=$('#toCheckout'); if(tc)tc.onclick=()=>checkout(1);
 }
-function cartWa(){return `https://wa.me/${WA}?text=${encodeURIComponent('Hi Plug! I\'d like to order:\n'+cartItems.map(i=>`• ${i.qty} × ${byId[i.id].n} (${byId[i.id].sp}) – ${byId[i.id].pt}`).join('\n')+`\nTotal: ${K(subtotal())}\nIs everything available?`)}`}
+function cartWa(){return `https://wa.me/${WA}?text=${encodeURIComponent('Hi Plug! I\'d like to order:\n'+cartItems.map(i=>`• ${i.qty} × ${itn(i)} (${byId[i.id].sp}) – ${byId[i.id].pt}`).join('\n')+`\nTotal: ${K(subtotal())}\nIs everything available?`)}`}
 document.addEventListener('click',e=>{
-  const cq=e.target.closest('[data-cq]'); if(cq){const [id,d]=cq.dataset.cq.split('|');const it=cartItems.find(i=>i.id===id);it.qty=Math.max(1,Math.min(9,it.qty+ +d));saveCart();cartView()}
-  const rm=e.target.closest('[data-rm]'); if(rm){cartItems=cartItems.filter(i=>i.id!==rm.dataset.rm);saveCart();cartView()}
+  const cq=e.target.closest('[data-cq]'); if(cq){const [id,d]=cq.dataset.cq.split('|');const it=cartItems[+id];if(!it)return;const others=cartItems.filter(x=>x!==it&&x.id===it.id).reduce((a,x)=>a+x.qty,0);it.qty=Math.max(1,Math.min(9,plTracked(byId[it.id])?Math.max(1,+byId[it.id].qty-others):9,it.qty+ +d));saveCart();cartView()}
+  const rm=e.target.closest('[data-rm]'); if(rm){cartItems=cartItems.filter((i,ix)=>ix!==+rm.dataset.rm);saveCart();cartView()}
   const op=e.target.closest('[data-open-p]'); if(op&&!e.target.closest('[data-wish]')){e.preventDefault();productView(op.dataset.openP)}
   const o=e.target.closest('[data-open]'); if(o){e.preventDefault();({cart:cartView,account:accountView,wish:wishView,track:()=>trackView('')})[o.dataset.open]()}
 });
 
 /* ---- checkout (3 steps) ---- */
-const co={method:'deliver',name:'',phone:'',city:'Lusaka',address:'',pay:'momo',momo:'',code:'',disc:0};
+const co={method:'deliver',name:'',phone:'',email:'',city:'Lusaka',address:'',pay:'momo',momo:'',ref:'',code:'',disc:0};
 const lusakaHour=()=>{try{return +new Intl.DateTimeFormat('en-GB',{hour:'numeric',hour12:false,timeZone:'Africa/Lusaka'}).format(new Date())}catch{return 12}};
 const inScope=(p,sc)=>!sc||sc==='all'||p.c===sc||(sc==='phones'&&(p.c==='iphone'||p.c==='samsung'));
 const scopeName=sc=>sc==='phones'?'phones':(CATS[sc]||'selected items');
@@ -2297,10 +2394,10 @@ function discountFor(code,st){code=code.trim().toUpperCase();const c=ADM.codes.f
   return[Math.round(d*100)/100,c.type==='fixed'?`${K(+c.value)} off`:`${+c.value}% off${c.scope&&c.scope!=='all'?' '+scopeName(c.scope):''}`]}
 function steps(n){return`<div class="steps">${['Delivery','Payment','Confirmation'].map((t,i)=>`<div class="${i+1<n?'done':i+1===n?'on':''}"><i>${i+1<n?'✓':i+1}</i>${t}</div>`).join('<span></span>')}</div>`}
 function summary(){const st=subtotal(),tot=Math.max(0,st-co.disc);const fee=co.method==='collect'?'Collect in store':'Confirmed on WhatsApp';
-  return`<div class="sum mini">${cartItems.map(i=>`<div><span>${i.qty} × ${esc(byId[i.id].n)}</span><b>${K(byId[i.id].p*i.qty)}</b></div>`).join('')}<div><span>Delivery</span><b>${fee}</b></div>${co.disc?`<div class="dsc"><span>Discount (${esc(co.code.toUpperCase())})</span><b>−${K(co.disc)}</b></div>`:''}<div class="tot2"><span>Total</span><b>${K(tot)}</b></div></div>`}
+  return`<div class="sum mini">${cartItems.map(i=>`<div><span>${i.qty} × ${esc(itn(i))}</span><b>${K(byId[i.id].p*i.qty)}</b></div>`).join('')}<div><span>Delivery</span><b>${fee}</b></div>${co.disc?`<div class="dsc"><span>Discount (${esc(co.code.toUpperCase())})</span><b>−${K(co.disc)}</b></div>`:''}<div class="tot2"><span>Total</span><b>${K(tot)}</b></div></div>`}
 function checkout(step){
   if(!cartItems.length&&step<3){cartView();return}
-  if(user){co.name=co.name||user.name;co.phone=co.phone||user.phone||''}
+  if(user){co.name=co.name||user.name;co.phone=co.phone||user.phone||'';co.email=co.email||user.email||''}
   if(step===1){
     const hr=lusakaHour(), same=hr<(+ADM.settings.cutoff||14);
     openSheet(`<h3 class="sh-t">Checkout</h3>${steps(1)}
@@ -2308,48 +2405,50 @@ function checkout(step){
       <div class="opt2 ${co.method==='deliver'?'sel':''}" data-m="deliver"><i class="rad"></i><div><b>Deliver to my address</b><span>Lusaka &amp; Ndola${same?' · same-day in Lusaka if you order now':' · next-day in Lusaka'}</span></div></div>
       <div class="opt2 ${co.method==='collect'?'sel':''}" data-m="collect"><i class="rad"></i><div><b>Collect from store</b><span>Liberty Mall, Shop 31, opposite the Chinese Embassy, Lusaka</span></div></div>
       <div class="two"><label>Full name<input name="name" value="${esc(co.name)}" required autocomplete="name"></label><label>Phone number<input name="phone" value="${esc(co.phone)}" required inputmode="tel" placeholder="097 / 096 / 077..." autocomplete="tel"></label></div>
+      <label>Email (we send your payment receipt here)<input name="email" type="email" value="${esc(co.email)}" placeholder="name@domain.com" autocomplete="email"></label>
       <div id="addr" ${co.method==='collect'?'hidden':''}><label>Town<select name="city">${['Lusaka','Ndola','Other town'].map(c=>`<option ${co.city===c?'selected':''}>${c}</option>`).join('')}</select></label>
       <label>Delivery address<textarea name="address" rows="2" placeholder="e.g. Plot 123, Meanwood">${esc(co.address)}</textarea></label></div>
       <div class="err" id="err1"></div>
       <button class="btn btn-dark full" type="submit">Continue to Payment →</button></form>
       <div>${summary()}</div></div>`,'modal',true);
     sheet.querySelectorAll('[data-m]').forEach(d=>d.onclick=()=>{co.method=d.dataset.m;sheet.querySelectorAll('[data-m]').forEach(x=>x.classList.toggle('sel',x===d));$('#addr').hidden=co.method==='collect'});
-    $('#f1').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);co.name=f.get('name').trim();co.phone=f.get('phone').trim();co.city=f.get('city')||co.city;co.address=(f.get('address')||'').trim();
-      const er=[];if(co.name.length<2)er.push('your name');if(co.phone.replace(/\D/g,'').length<9)er.push('a valid phone number');if(co.method==='deliver'&&co.address.length<4)er.push('your delivery address');
+    $('#f1').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);co.name=f.get('name').trim();co.phone=f.get('phone').trim();co.city=f.get('city')||co.city;co.address=(f.get('address')||'').trim();co.email=String(f.get('email')||'').trim().slice(0,80);
+      const er=[];if(co.name.length<2)er.push('your name');if(co.phone.replace(/\D/g,'').length<9)er.push('a valid phone number');if(co.method==='deliver'&&co.address.length<4)er.push('your delivery address');if(co.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(co.email))er.push('a valid email (or leave it empty)');
       if(er.length){$('#err1').textContent='Please add '+er.join(', ')+'.';return}checkout(2)};
   }
   if(step===2){
     openSheet(`<h3 class="sh-t">Checkout</h3>${steps(2)}
     <div class="co-grid"><form id="f2" class="co-f" novalidate>
       <div class="opt2 ${co.pay==='momo'?'sel':''}" data-p="momo"><i class="rad"></i><div><b>Mobile Money</b><span>Airtel Money or MTN MoMo</span></div><em class="pi2" style="background:linear-gradient(145deg,#ffd84d,#f5b800)">MoMo</em></div>
-      <div id="momoF" ${co.pay==='momo'?'':'hidden'}><label>Mobile Money number<input name="momo" value="${esc(co.momo||co.phone)}" inputmode="tel"></label></div>
-      <div class="opt2 ${co.pay==='card'?'sel':''}" data-p="card"><i class="rad"></i><div><b>Card payment</b><span>Visa or Mastercard, on a secure payment page</span></div></div>
+      <div id="momoF" ${co.pay==='momo'?'':'hidden'}><label>Mobile Money number you pay from<input name="momo" value="${esc(co.momo||co.phone)}" inputmode="tel"></label></div>
+      <div class="opt2 ${co.pay==='card'?'sel':''}" data-p="card"><i class="rad"></i><div><b>Card payment</b><span>Visa or Mastercard. Plug confirms how to pay on WhatsApp</span></div></div>
       <div class="opt2 ${co.pay==='bank'?'sel':''}" data-p="bank"><i class="rad"></i><div><b>Bank transfer</b><span>We'll send Plug's bank details with your order</span></div></div>
       ${co.method==='collect'?`<div class="opt2 ${co.pay==='store'?'sel':''}" data-p="store"><i class="rad"></i><div><b>Pay in store</b><span>Pay when you collect at Liberty Mall</span></div></div>`:''}
+      <div id="refF" ${co.pay==='momo'||co.pay==='bank'?'':'hidden'}><label>Already paid? Transaction ID from your SMS (optional)<input name="ref" maxlength="60" value="${esc(co.ref||'')}" placeholder="You can also add it after ordering"></label></div>
       <div class="code-row"><input id="code" placeholder="Discount code" value="${esc(co.code)}" aria-label="Discount code"><button type="button" class="btn btn-glass" id="applyCode">Apply</button></div><div class="hint" id="codeMsg">${co.disc?'✓ Code applied':''}</div>
       <div class="row-b"><button type="button" class="btn btn-glass" id="back1">← Back</button><button class="btn btn-dark" type="submit" style="flex:1;justify-content:center">Place Order →</button></div>
-      <p class="fine">By placing your order you agree to the <a href="#sale" data-close><u>Terms of Sale &amp; Returns</u></a> and <a href="#privacy" data-close><u>Privacy Policy</u></a>. You can still go back and change your order. Online orders can be cancelled within 7 days of delivery.</p><p class="fine" style="margin-top:6px">Online payment switches on once Plug connects its payment provider. Until then, your order is confirmed by the Plug team on WhatsApp.</p></form>
+      <p class="fine">By placing your order you agree to the <a href="#sale" data-close><u>Terms of Sale &amp; Returns</u></a> and <a href="#privacy" data-close><u>Privacy Policy</u></a>. You can still go back and change your order. Online orders can be cancelled within 7 days of delivery.</p><p class="fine" style="margin-top:6px">Plug checks every payment by hand. You get an email (and a WhatsApp) when your payment is confirmed.</p></form>
       <div id="sumBox">${summary()}</div></div>`,'modal',true);
-    sheet.querySelectorAll('[data-p]').forEach(d=>d.onclick=()=>{co.pay=d.dataset.p;sheet.querySelectorAll('[data-p]').forEach(x=>x.classList.toggle('sel',x===d));$('#momoF').hidden=co.pay!=='momo'});
+    sheet.querySelectorAll('[data-p]').forEach(d=>d.onclick=()=>{co.pay=d.dataset.p;sheet.querySelectorAll('[data-p]').forEach(x=>x.classList.toggle('sel',x===d));$('#momoF').hidden=co.pay!=='momo';const rf=$('#refF');if(rf)rf.hidden=!(co.pay==='momo'||co.pay==='bank')});
     $('#applyCode').onclick=()=>{const v=$('#code').value;const [d,m]=discountFor(v,subtotal());co.code=d?v:'';co.disc=d;$('#codeMsg').textContent=(d?'✓ ':'')+m;$('#codeMsg').className='hint'+(d?' ok':' bad');$('#sumBox').innerHTML=summary()};
     $('#back1').onclick=()=>checkout(1);
-    $('#f2').onsubmit=e=>{e.preventDefault();co.momo=(new FormData(e.target).get('momo')||'').trim();placeOrder()};
+    $('#f2').onsubmit=e=>{e.preventDefault();const f2=new FormData(e.target);co.momo=(f2.get('momo')||'').trim();co.ref=String(f2.get('ref')||'').trim().slice(0,60);placeOrder()};
   }
 }
 function placeOrder(){
   const st=subtotal(),tot=Math.max(0,st-co.disc);
-  const o={no:'PLG-'+String(Math.floor(10000+Math.random()*90000)),date:new Date().toISOString(),items:cartItems.map(i=>({id:i.id,qty:i.qty})),total:tot,method:co.method,city:co.city,address:co.address,name:co.name,phone:co.phone,pay:co.pay,code:co.disc?co.code.toUpperCase():''};
+  const o={no:'PLG-'+String(Math.floor(10000+Math.random()*90000)),date:new Date().toISOString(),items:cartItems.map(i=>i.color?{id:i.id,qty:i.qty,color:i.color,price:byId[i.id].p}:{id:i.id,qty:i.qty,price:byId[i.id].p}),total:tot,email:co.email||'',momo:co.pay==='momo'?co.momo:'',ref:co.ref||'',method:co.method,city:co.city,address:co.address,name:co.name,phone:co.phone,pay:co.pay,code:co.disc?co.code.toUpperCase():''};
   orders.unshift(o);store.set('orders',orders);syncMyOrders();
-  const earned=ptsFor(tot);if(user){points+=earned;store.set('points',points)}
-  cartItems=[];saveCart();co.disc=0;co.code='';
+  const earned=ptsFor(tot);if(user&&!user.uid){points+=earned;store.set('points',points)}
+  cartItems=[];saveCart();co.disc=0;co.code='';co.ref='';
   const payName={momo:'Mobile Money',card:'Card',bank:'Bank transfer',store:'Pay in store'}[o.pay];
-  const msg=`Hi Plug! New order ${o.no}\n`+o.items.map(i=>`• ${i.qty} × ${byId[i.id].n} (${byId[i.id].sp}) – ${byId[i.id].pt}`).join('\n')+`\nTotal: ${K(o.total)}${o.code?` (code ${o.code})`:''}\n${o.method==='collect'?'Collect from Liberty Mall':'Deliver to: '+o.address+', '+o.city}\nName: ${o.name}\nPhone: ${o.phone}\nPayment: ${payName}`;
+  const msg=`Hi Plug! New order ${o.no}\n`+o.items.map(i=>`• ${i.qty} × ${itn(i)} (${byId[i.id].sp}) – ${byId[i.id].pt}`).join('\n')+`\nTotal: ${K(o.total)}${o.code?` (code ${o.code})`:''}\n${o.method==='collect'?'Collect from Liberty Mall':'Deliver to: '+o.address+', '+o.city}\nName: ${o.name}\nPhone: ${o.phone}\nPayment: ${payName}`;
   openSheet(`<h3 class="sh-t">Checkout</h3>${steps(3)}
    <div class="done-box"><div class="tickb"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg></div>
-   <h3>Order received!</h3><p>Your order number is <b>${o.no}</b>.<br>Send it to Plug on WhatsApp so the team can confirm stock, payment and ${o.method==='collect'?'collection':'delivery'}.</p>
+   <h3>Order received!</h3><p>Your order number is <b>${o.no}</b>.<br>Send it to Plug on WhatsApp so the team can confirm stock, payment and ${o.method==='collect'?'collection':'delivery'}.</p>${payInfoHTML(o)}${o.ref?'':plRefForm(o)}
    <a class="btn wa" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">${waSvg} Send order on WhatsApp</a>
    <div class="row-b" style="justify-content:center;margin-top:12px"><button class="btn btn-glass" data-track="${o.no}">Track order</button><a class="btn btn-glass" href="#all" data-close>Keep shopping</a></div>
-   ${user?`<div class="earn" style="margin-top:16px">⭐ ${earned.toLocaleString()} points added to your Plug Rewards</div>`:`<div class="earn" style="margin-top:16px">⭐ <a href="#" data-open="account"><u>Create an account</u></a> to earn ${earned.toLocaleString()} points on orders like this</div>`}</div>`,'modal');
+   ${user?`<div class="earn" style="margin-top:16px">⭐ ${earned.toLocaleString()} points ${user.uid?'go into your Plug Rewards when your payment is confirmed':'added to your Plug Rewards'}</div>`:`<div class="earn" style="margin-top:16px">⭐ <a href="#" data-open="account"><u>Create an account</u></a> to earn ${earned.toLocaleString()} points on orders like this</div>`}</div>`,'modal');
 }
 document.addEventListener('click',e=>{const t=e.target.closest('[data-track]');if(t){e.preventDefault();trackView(t.dataset.track)}});
 
@@ -2363,8 +2462,8 @@ function trackView(no,fetched){
    <form class="code-row" id="tf"><input id="tno" placeholder="Order number, e.g. PLG-12345" value="${esc(no||'')}" aria-label="Order number"><button class="btn btn-dark">Track</button></form>
    ${o?`<div class="trk glass2"><div class="trk-h"><div><b>${o.no}</b><span>Placed ${new Date(o.date).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></div><b>${K(o.total)}</b></div>
       <div class="tl">${stepsT.map((s,i)=>`<div class="${i<=si?'on':''}"><i></i><span>${s}</span></div>`).join('')}</div>${(ADM.statuses[o.no]||{}).note?`<p class="fine">Note from Plug: ${esc(ADM.statuses[o.no].note)}</p>`:''}
-      <div class="trk-items">${o.items.map(i=>`<div><img loading="lazy" decoding="async" src="${src(byId[i.id].img)}" alt=""><span>${i.qty} × ${esc(byId[i.id].n)}</span></div>`).join('')}</div>
-      <p class="fine">Live status updates appear here once Plug's order system is connected. For now, the team updates you on WhatsApp.</p>
+      ${payTrackHTML(o)}<div class="trk-items">${o.items.map(i=>`<div><img loading="lazy" decoding="async" src="${src(byId[i.id].img)}" alt=""><span>${i.qty} × ${esc(itn(i))}</span></div>`).join('')}</div>
+      <p class="fine">Plug updates this page as your order moves along. You can always ask us on WhatsApp.</p>
       <a class="btn wa full" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Where is my order ${o.no}?`)}">${waSvg} Ask about this order</a></div>`
    :no?`<div class="emptyc"><b>We couldn't find ${esc(no)} on this device</b><p>Ask us on WhatsApp and we'll check for you.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Can you check my order ${no}?`)}">${waSvg} Ask on WhatsApp</a></div>`
    :orders.length?`<div class="hint" style="margin-top:14px">Your recent orders</div>${orders.slice(0,4).map(x=>`<button class="ord" data-track="${x.no}"><b>${x.no}</b><span>${x.items.length} item${x.items.length>1?'s':''} · ${K(x.total)}</span><em>Track →</em></button>`).join('')}`:'<p class="fine" style="margin-top:14px">Your order number is on your confirmation screen and in your WhatsApp chat with Plug.</p>'}`,'modal');
@@ -2463,7 +2562,7 @@ function dashView(tab='orders'){
    <div class="tab-b">${body}</div>
    <div class="qa"><button class="btn btn-dark" data-open="track">Track an order</button><a class="btn wa" href="https://wa.me/${WA}" target="_blank" rel="noopener">${waSvg} Support</a></div>`,'modal');
   sheet.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>dashView(b.dataset.tab));
-  const so=$('#signout');if(so)so.onclick=()=>{user=null;store.set('user',null);closeSheet();say('Signed out')};
+  const so=$('#signout');if(so)so.onclick=()=>plSignOut();
 }
 
 /* ---------- reveal on scroll + nav highlight ---------- */
@@ -2477,7 +2576,7 @@ const ADM={live:false,db:null,u:null,admin:false,owner:false,uid:null,name:'',se
   codes:[{code:'WELCOME10',type:'pct',value:10,min:500,scope:'all',first:true,active:true,expires:''},{code:'TECH25',type:'pct',value:25,min:0,scope:'games',first:false,active:true,expires:''}],
   settings:{wa:'260574541778',instagram:'https://www.instagram.com/plug_electronics_zm',facebook:'https://www.facebook.com/share/1CXKEpqzwe/',pointsPer:100,pointValue:0,announceOn:false,announce:'',freeTowns:'Lusaka & Ndola',cutoff:14,storeName:'Plug Electronics & More',bfOn:true,bfDate:'2026-11-27'},
   campaigns:[],orders:[],subs:[],statuses:{},raw:{products:null,codes:null}};
-const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0});
+const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0,colors:Array.isArray(p.colors)?p.colors.slice(0,30).map(c=>({n:String(c.n||'').slice(0,30),h:String(c.h||'')})).filter(c=>c.n):[],qty:p.qty===''||p.qty==null||isNaN(+p.qty)?null:Math.max(0,parseInt(p.qty,10)||0),low:+p.low||0});
 function localState(){return store.get('admin',null)}
 function localSave(){store.set('admin',{products:products.map(p=>({id:p.id,...cleanP(p)})),codes:ADM.codes,settings:ADM.settings,campaigns:ADM.campaigns,statuses:ADM.statuses})}
 function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
@@ -2534,7 +2633,7 @@ async function saveCode(c){const i=ADM.codes.findIndex(x=>x.code===c.code);if(i<
 async function deleteCode(code){ADM.codes=ADM.codes.filter(x=>x.code!==code);renderDealCodes();return wr(()=>ADM.db.doc('codes/'+code).delete(),'Code deleted')}
 async function saveSettings(){applySettings();return wr(()=>ADM.db.doc('config/store').set({...ADM.settings,seeded:true}),'Settings saved')}
 async function saveCampaign(c){c.id=c.id||('c'+Date.now().toString(36));const i=ADM.campaigns.findIndex(x=>x.id===c.id);if(i<0)ADM.campaigns.unshift(c);else ADM.campaigns[i]=c;const {id,...rest}=c;return wr(()=>ADM.db.doc('campaigns/'+id).set(rest))}
-async function setStatus(no,status,note){ADM.statuses[no]={status,note:note||'',at:Date.now()};return wr(()=>ADM.db.doc('orderstatus/'+no).set(ADM.statuses[no]),'Order updated')}
+async function setStatus(no,status,note){ADM.statuses[no]={...(ADM.statuses[no]||{}),status,note:note||'',at:Date.now()};return wr(()=>ADM.db.doc('orderstatus/'+no).set(ADM.statuses[no]),'Order updated')}
 async function downloadFile(name,text){let d=null;try{d=window.claude&&claude.use?await claude.use('downloads'):null}catch(e){}
   if(d){try{await d.save({filename:name,data:text});return}catch(e){if(e&&/declin|cancel/i.test(e.message||''))return}}
   try{await navigator.clipboard.writeText(text);say('Copied to clipboard (downloads are not available here)')}catch(e){say('Download is not available in this view')}}
@@ -2571,25 +2670,25 @@ function renderAdm(tab){curAdm=tab;
    <p class="as-lic">Admin system © 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More. Not for resale.</p>`;
   $('#admSide').querySelectorAll('[data-at]').forEach(b=>b.onclick=()=>{renderAdm(b.dataset.at);window.scrollTo(0,0)});
   $('#admExit').onclick=()=>{if(ADM.demo){store.set('demoOn',false)}exitAdmin()};
-  const T={overview:admOverview,products:admProducts,codes:admCodes,promos:admPromos,email:admEmail,orders:admOrders,customers:admCustomers,messages:admMessages,settings:admSettings};
+  const T={overview:admOverview,products:admProducts,codes:admCodes,promos:admPromos,email:admEmail,orders:admOrders,customers:admCustomers,messages:admMessages,settings:admSettings,payments:admPayments,transactions:admTxns,loyalty:admLoyalty,stock:admStock};
   $('#admMain').innerHTML=(ADM.demo?`<div class="demo-note">Demo mode: changes are saved on this device only. Share the site with staff as Editors to manage the live store.</div>`:'')+T[tab]();
   (T[tab].bind||(()=>{}))();
 }
 const head=(t,s,btn='')=>`<div class="am-h"><div><h2>${t}</h2>${s?`<p>${s}</p>`:''}</div>${btn}</div>`;
-const allOrders=()=>ADM.demo||!isLive()?orders.map(o=>({...o})):ADM.orders;
+const allOrders=()=>ADM.demo||!isLive()?orders.map(o=>({...o})):dedupeOrders(ADM.orders);
 const allSubs=()=>ADM.demo||!isLive()?store.get('subs',[]):ADM.subs;
 
 /* ---- overview ---- */
-function admOverview(){const os=allOrders(),rev=os.reduce((a,o)=>a+(+o.total||0),0),subs=allSubs();
+function admOverview(){const os=allOrders(),rev=revTotal(),paid=plPaidCount(),subs=allSubs();
   const days=[...Array(7)].map((_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-6+i);return d});
-  const byDay=days.map(d=>{const n=new Date(d);n.setDate(n.getDate()+1);return os.filter(o=>{const t=new Date(o.date);return t>=d&&t<n}).reduce((a,o)=>a+(+o.total||0),0)});
+  const byDay=days.map(d=>{const n=new Date(d);n.setDate(n.getDate()+1);return revBetween(d,n)});
   const mx=Math.max(...byDay,1);
   const qty={};os.forEach(o=>(o.items||[]).forEach(i=>qty[i.id]=(qty[i.id]||0)+i.qty));
   const top=Object.entries(qty).sort((a,b)=>b[1]-a[1]).slice(0,5);
   const out=products.filter(p=>p.stock==='out').length;
   return head('Overview',`Welcome back${ADM.name?', '+esc(ADM.name.split(' ')[0]):''}. Here's how the store is doing.`,`<div class="row-b"><button class="btn btn-dark" data-go="products" data-new="1">+ Add product</button><button class="btn btn-glass" data-go="codes">New code</button><button class="btn btn-glass" data-go="email">New email</button></div>`)+
-  `<div class="kpis">${[['Revenue',K(rev)],['Orders',os.length],['Average order',os.length?K(Math.round(rev/os.length)):'K0'],['Subscribers',subs.length],['Products',products.length],['Sold out',out]].map(([l,v])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b></div>`).join('')}</div>
-  <div class="am-grid"><div class="panel glass"><h3>Revenue, last 7 days</h3><div class="bars" role="img" aria-label="Revenue per day for the last 7 days">${byDay.map((v,i)=>`<div class="bar" tabindex="0"><i style="height:${Math.max(2,v/mx*100)}%"></i><em>${K(v)}</em><span>${days[i].toLocaleDateString('en-GB',{weekday:'short'})}</span></div>`).join('')}</div></div>
+  `<div class="kpis">${[['Revenue (confirmed)',K(rev)],['Orders',os.length],['Waiting payments',payPendingCount()],['Average sale',paid?K(Math.round(rev/paid)):'K0'],['Subscribers',subs.length],['Products',products.length],['Sold out',out]].map(([l,v])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b></div>`).join('')}</div>
+  <div class="am-grid"><div class="panel glass"><h3>Confirmed revenue, last 7 days</h3><div class="bars" role="img" aria-label="Revenue per day for the last 7 days">${byDay.map((v,i)=>`<div class="bar" tabindex="0"><i style="height:${Math.max(2,v/mx*100)}%"></i><em>${K(v)}</em><span>${days[i].toLocaleDateString('en-GB',{weekday:'short'})}</span></div>`).join('')}</div></div>
    <div class="panel glass"><h3>Best sellers</h3>${top.length?`<div class="lst">${top.map(([id,n])=>{const p=byId[id];return p?`<div><img loading="lazy" decoding="async" src="${src(p.img)}" alt=""><b>${esc(p.n)}</b><em>${n} sold</em></div>`:''}).join('')}</div>`:'<p class="mut">Sales will show here once orders come in.</p>'}</div></div>
   <div class="panel glass"><h3>Recent orders</h3>${os.length?ordTable(os.slice(0,5),true):'<p class="mut">No orders yet.</p>'}</div>`}
 admOverview.bind=()=>{$$('#admMain [data-go]').forEach(b=>b.onclick=()=>{renderAdm(b.dataset.go);if(b.dataset.new)productEditor()})};
@@ -2630,6 +2729,8 @@ function productEditor(id){const p=id?{...byId[id]}:{id:'',n:'',sp:'',p:'',was:0
     <div class="two"><label>Price (K)<input name="p" inputmode="decimal" value="${p.p}" required placeholder="e.g. 27999"></label><label>Was price (K, optional)<input name="was" inputmode="decimal" value="${p.was||''}" placeholder="For sales"></label></div>
     <div class="two"><label>Badge<select name="b">${['','New','Popular','Brand new','Limited'].map(b=>`<option value="${b}" ${p.b===b?'selected':''}>${b||'None'}</option>`).join('')}</select></label>
     <label class="chk" style="align-self:end;padding-bottom:12px"><input type="checkbox" name="featured" ${p.featured?'checked':''}> Feature in New Arrivals</label></div>
+    <div class="two"><label>Quantity in stock<input name="qty" inputmode="numeric" value="${plTracked(p)?+p.qty:''}" placeholder="Empty = not counted"></label><label>Warn me when stock is at<input name="low" inputmode="numeric" value="${p.low||''}" placeholder="3"></label></div>
+    ${colorGridHTML(p)}
    </div></div><div class="err" id="pErr"></div>
    <div class="row-b"><button class="btn btn-dark" type="submit" style="flex:1;justify-content:center">${id?'Save changes':'Add product'}</button>${id?`<button type="button" class="btn btn-glass" id="pDel">Delete</button>`:''}</div></form>`,'modal',true);
   let img=p.img;
@@ -2637,7 +2738,7 @@ function productEditor(id){const p=id?{...byId[id]}:{id:'',n:'',sp:'',p:'',was:0
     try{img=await uploadImage(f);$('#peImg').innerHTML=`<img loading="lazy" decoding="async" src="${src(img)}" alt="">`}catch(err){$('#peImg').innerHTML='<span>Upload failed. Try a smaller image.</span>'}};
   const del=$('#pDel');if(del)del.onclick=async()=>{if(del.dataset.sure){await deleteProduct(id);closeSheet();renderAdm('products')}else{del.dataset.sure=1;del.textContent='Tap again to delete';del.classList.add('danger')}};
   $('#pf').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
-    const np={...p,n:f.get('n').trim(),sp:f.get('sp').trim(),c:f.get('c'),stock:f.get('stock'),p:+String(f.get('p')).replace(/[^\d.]/g,'')||0,was:+String(f.get('was')).replace(/[^\d.]/g,'')||0,b:f.get('b'),featured:!!f.get('featured'),img};
+    const np={...p,n:f.get('n').trim(),sp:f.get('sp').trim(),c:f.get('c'),stock:f.get('stock'),p:+String(f.get('p')).replace(/[^\d.]/g,'')||0,was:+String(f.get('was')).replace(/[^\d.]/g,'')||0,b:f.get('b'),featured:!!f.get('featured'),img,colors:peColors(),qty:qtyIn(f.get('qty')),low:parseInt(f.get('low'),10)||0};if(np.qty===0&&np.stock==='in')np.stock='out';if(np.qty>0&&np.stock==='out')np.stock='in';
     if(np.n.length<2){$('#pErr').textContent='Add a product name.';return}if(!np.p){$('#pErr').textContent='Add a price.';return}if(!np.img){$('#pErr').textContent='Upload a product photo.';return}
     if(!np.id)np.id=(np.n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)||'item')+'-'+Math.random().toString(36).slice(2,6);
     if(await saveProduct(np)){say(`✓ ${np.n} saved`);closeSheet();renderAdm('products')}};
@@ -2738,8 +2839,8 @@ admEmail.bind=()=>{const prev=()=>{$('#ePrev').innerHTML=emailHTML(draft).replac
 /* ---- orders ---- */
 function ordTable(os,mini){return `<div class="tblw"><table class="tbl"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th>${mini?'':'<th>Delivery</th><th>Payment</th>'}<th>Status</th>${mini?'':'<th></th>'}</tr></thead><tbody>
   ${os.map(o=>{const si=(ADM.statuses[o.no]||{}).status||0,S=STAT(o);return`<tr><td><b>${esc(o.no)}</b><span>${new Date(o.date).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></td><td><b>${esc(o.name||'—')}</b><span>${esc(o.phone||'')}</span></td>
-   <td><span>${(o.items||[]).map(i=>`${i.qty} × ${esc((byId[i.id]||{}).n||i.id)}`).join('<br>')}</span></td><td><b>${K(+o.total||0)}</b>${o.code?`<span>Code ${esc(o.code)}</span>`:''}</td>
-   ${mini?'':`<td><span>${o.method==='collect'?'Collect in store':esc((o.address||'')+', '+(o.city||''))}</span></td><td><span>${({momo:'Mobile Money',card:'Card',bank:'Bank transfer',store:'Pay in store'})[o.pay]||'—'}</span></td>`}
+   <td><span>${(o.items||[]).map(i=>`${i.qty} × ${esc(itn(i))}`).join('<br>')}</span></td><td><b>${K(+o.total||0)}</b>${o.code?`<span>Code ${esc(o.code)}</span>`:''}</td>
+   ${mini?'':`<td><span>${o.method==='collect'?'Collect in store':esc((o.address||'')+', '+(o.city||''))}</span></td><td><span>${({momo:'Mobile Money',card:'Card',bank:'Bank transfer',store:'Pay in store'})[o.pay]||'—'}</span>${payPill(o)}</td>`}
    <td>${mini?`<em class="pill ${si>=3?'ok':si?'info':'mut'}">${S[si]}</em>`:`<select class="ai" data-ost="${esc(o.no)}">${S.map((s,i)=>`<option value="${i}" ${i===si?'selected':''}>${s}</option>`).join('')}</select>`}</td>
    ${mini?'':`<td class="acts"><a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(o.phone)}?text=${encodeURIComponent(`Hi ${o.name||''}, this is Plug about your order ${o.no}.`)}" aria-label="WhatsApp customer">${waIcon}</a></td>`}</tr>`}).join('')}</tbody></table></div>`}
 function admOrders(){const os=allOrders();
@@ -2774,13 +2875,14 @@ function admSettings(){const st=ADM.settings;
    <div class="two"><label>Registered business name<input name="legalName" value="${esc(st.legalName||'')}" placeholder="As registered with PACRA"></label><label>Business registration number<input name="regNo" value="${esc(st.regNo||'')}" placeholder="PACRA number"></label></div>
    <h3 style="margin-top:8px">Plug Rewards</h3>
    <div class="two"><label>Kwacha spent for 1 point<input name="pointsPer" inputmode="numeric" value="${esc(st.pointsPer)}"></label><label>Value of 100 points (K, 0 = not set)<input name="pointValue" inputmode="decimal" value="${esc(st.pointValue||0)}"></label></div>
+   ${plSettingsHTML()}
    <div class="err" id="stErr"></div><button class="btn btn-dark">Save settings</button></form>
    <div class="panel glass" style="max-width:720px"><h3>Who can use admin</h3><p class="mut">${isLive()?'Admins are the store owner and anyone the owner shares this site with as an <b>Editor</b>. Customers can never change products, prices or codes: the database blocks it.':'In demo mode nothing is shared. On the live store, admins are the owner and anyone shared as an Editor.'}</p></div>`}
 admSettings.bind=()=>{$('#sf').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),er=$('#stErr');const wa=String(f.get('wa')).replace(/\D/g,'');
   if(wa.length<10){er.textContent='Add the WhatsApp number with the country code, e.g. 260574541778.';return}const pp=+f.get('pointsPer');if(!(pp>0)){er.textContent='Points rule must be more than 0.';return}
   const cut=+f.get('cutoff');if(!(cut>=0&&cut<=23)){er.textContent='Cut-off hour must be between 0 and 23.';return}
   const okUrl=u=>!u||/^https:\/\/(www\.)?(instagram|facebook)\.com\//.test(u);const ig=String(f.get('instagram')).trim(),fb=String(f.get('facebook')).trim();if(!okUrl(ig)||!okUrl(fb)){er.textContent='Social links must start with https://www.instagram.com/ or https://www.facebook.com/';return}
-  Object.assign(ADM.settings,{wa,instagram:ig,facebook:fb,storeName:String(f.get('storeName')).trim(),freeTowns:String(f.get('freeTowns')).trim(),cutoff:cut,pointsPer:pp,pointValue:+f.get('pointValue')||0,legalName:String(f.get('legalName')||'').trim().slice(0,120),regNo:String(f.get('regNo')||'').trim().slice(0,60)});await saveSettings();renderAdm('settings')}};
+  Object.assign(ADM.settings,{wa,instagram:ig,facebook:fb,storeName:String(f.get('storeName')).trim(),freeTowns:String(f.get('freeTowns')).trim(),cutoff:cut,pointsPer:pp,pointValue:+f.get('pointValue')||0,legalName:String(f.get('legalName')||'').trim().slice(0,120),regNo:String(f.get('regNo')||'').trim().slice(0,60),...extraSettings(f)});await saveSettings();renderAdm('settings')}};
 
 
 function fillLegal(){try{const st=(typeof ADM!=='undefined'&&ADM.settings)||{};
@@ -3060,6 +3162,517 @@ const _renderAdm=renderAdm;renderAdm=function(tab){_renderAdm(tab);mxBadge()};
       ADM.db.collection('chatreplies').onSnapshot(sn=>{ADM.replies=toMap(sn);mxChanged()},()=>{})}catch(e){}
   setInterval(async()=>{if(document.hidden)return;try{const [a,b]=await Promise.all([ADM.db.collection('chats').get(),ADM.db.collection('chatreplies').get()]);
     const A=toMap(a),B=toMap(b);if(JSON.stringify(A)!==JSON.stringify(ADM.chats)||JSON.stringify(B)!==JSON.stringify(ADM.replies)){ADM.chats=A;ADM.replies=B;mxChanged()}}catch(e){}},curAdm==='messages'?6000:10000)})();
+
+/* Small QR code maker (byte mode, error correction M). (c) 2026 M&P Developers */
+function plugQR(text){
+ const data=new TextEncoder().encode(text);
+ const ECC=[-1,10,16,26,18,24,16,18,22,22,26,30,22,22,24,24,28,28,26,26,26];
+ const NB=[-1,1,1,1,2,2,4,4,4,5,5,5,8,9,9,10,10,11,13,14,16];
+ const raw=v=>{let r=(16*v+128)*v+64;if(v>=2){const n=Math.floor(v/7)+2;r-=(25*n-10)*n-55;if(v>=7)r-=36}return r};
+ const dcw=v=>Math.floor(raw(v)/8)-ECC[v]*NB[v];
+ let ver=1;for(;ver<=20;ver++){if(4+(ver<10?8:16)+data.length*8<=dcw(ver)*8)break}
+ if(ver>20)throw new Error('QR text too long');
+ const bits=[],push=(v,n)=>{for(let i=n-1;i>=0;i--)bits.push((v>>>i)&1)};
+ push(4,4);push(data.length,ver<10?8:16);data.forEach(b=>push(b,8));
+ const cap=dcw(ver)*8;push(0,Math.min(4,cap-bits.length));push(0,(8-bits.length%8)%8);
+ for(let p=0xEC;bits.length<cap;p^=0xEC^0x11)push(p,8);
+ const cw=[];for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=b<<1|bits[i+j];cw.push(b)}
+ const mul=(x,y)=>{let z=0;for(let i=7;i>=0;i--){z=(z<<1)^((z>>>7)*0x11D);z^=((y>>>i)&1)*x}return z};
+ const ne=ECC[ver],nb=NB[ver],rc=Math.floor(raw(ver)/8),ns=nb-rc%nb,sl=Math.floor(rc/nb);
+ const dv=Array(ne).fill(0);dv[ne-1]=1;let root=1;for(let i=0;i<ne;i++){for(let j=0;j<ne;j++){dv[j]=mul(dv[j],root);if(j+1<ne)dv[j]^=dv[j+1]}root=mul(root,2)}
+ const rem=d=>{const r=Array(ne).fill(0);for(const b of d){const f=b^r.shift();r.push(0);dv.forEach((c,i)=>r[i]^=mul(c,f))}return r};
+ const blocks=[];for(let i=0,k=0;i<nb;i++){const d=cw.slice(k,k+sl-ne+(i<ns?0:1));k+=d.length;const e=rem(d);if(i<ns)d.push(0);blocks.push(d.concat(e))}
+ const all=[];for(let i=0;i<blocks[0].length;i++)blocks.forEach((b,j)=>{if(i!==sl-ne||j>=ns)all.push(b[i])});
+ const N=ver*4+17,M=[...Array(N)].map(()=>Array(N).fill(false)),F=[...Array(N)].map(()=>Array(N).fill(false));
+ const sf=(x,y,d)=>{M[y][x]=d;F[y][x]=true};
+ for(let i=0;i<N;i++){sf(6,i,i%2===0);sf(i,6,i%2===0)}
+ [[3,3],[N-4,3],[3,N-4]].forEach(([x,y])=>{for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){const d=Math.max(Math.abs(dx),Math.abs(dy)),xx=x+dx,yy=y+dy;if(xx>=0&&xx<N&&yy>=0&&yy<N)sf(xx,yy,d!==2&&d!==4)}});
+ if(ver>1){const na=Math.floor(ver/7)+2,st=Math.ceil((ver*4+4)/(na*2-2))*2,ps=[6];for(let p=N-7;ps.length<na;p-=st)ps.splice(1,0,p);
+  for(let i=0;i<na;i++)for(let j=0;j<na;j++){if((i===0&&j===0)||(i===0&&j===na-1)||(i===na-1&&j===0))continue;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)sf(ps[i]+dx,ps[j]+dy,Math.max(Math.abs(dx),Math.abs(dy))!==1)}}
+ const fmt=mask=>{const d=(0<<3)|mask;let r=d;for(let i=0;i<10;i++)r=(r<<1)^((r>>>9)*0x537);const b=((d<<10)|r)^0x5412,g=i=>((b>>>i)&1)!==0;
+  for(let i=0;i<=5;i++)sf(8,i,g(i));sf(8,7,g(6));sf(8,8,g(7));sf(7,8,g(8));for(let i=9;i<15;i++)sf(14-i,8,g(i));
+  for(let i=0;i<8;i++)sf(N-1-i,8,g(i));for(let i=8;i<15;i++)sf(8,N-15+i,g(i));sf(8,N-8,true)};
+ fmt(0);
+ if(ver>=7){let r=ver;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);const b=(ver<<12)|r;for(let i=0;i<18;i++){const bt=((b>>>i)&1)!==0,a=N-11+i%3,c=Math.floor(i/3);sf(a,c,bt);sf(c,a,bt)}}
+ let k=0;for(let rt=N-1;rt>=1;rt-=2){if(rt===6)rt=5;for(let v=0;v<N;v++)for(let j=0;j<2;j++){const x=rt-j,up=((rt+1)&2)===0,y=up?N-1-v:v;if(!F[y][x]&&k<all.length*8){M[y][x]=((all[k>>>3]>>>(7-(k&7)))&1)!==0;k++}}}
+ const MK=[(x,y)=>(x+y)%2===0,(x,y)=>y%2===0,(x,y)=>x%3===0,(x,y)=>(x+y)%3===0,(x,y)=>(Math.floor(x/3)+Math.floor(y/2))%2===0,(x,y)=>x*y%2+x*y%3===0,(x,y)=>(x*y%2+x*y%3)%2===0,(x,y)=>((x+y)%2+x*y%3)%2===0];
+ const ap=m=>{for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(!F[y][x]&&MK[m](x,y))M[y][x]=!M[y][x]};
+ const pen=()=>{let p=0,dk=0;for(let y=0;y<N;y++){let rx=1,ry=1;for(let x=0;x<N;x++){if(M[y][x])dk++;
+   if(x>0){if(M[y][x]===M[y][x-1]){rx++;if(rx===5)p+=3;else if(rx>5)p++}else rx=1;if(M[x][y]===M[x-1][y]){ry++;if(ry===5)p+=3;else if(ry>5)p++}else ry=1}
+   if(x<N-1&&y<N-1&&M[y][x]===M[y][x+1]&&M[y][x]===M[y+1][x]&&M[y][x]===M[y+1][x+1])p+=3}}
+  return p+Math.floor(Math.abs(dk*20-N*N*10)/(N*N))*10};
+ let best=0,bp=1e9;for(let m=0;m<8;m++){ap(m);fmt(m);const p=pen();if(p<bp){bp=p;best=m}ap(m)}
+ ap(best);fmt(best);return M}
+function plugQRsvg(text,px){const M=plugQR(text),N=M.length,q=4;let d='';for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(M[y][x])d+=`M${x+q} ${y+q}h1v1h-1z`;
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${N+q*2} ${N+q*2}" width="${px||240}" height="${px||240}" shape-rendering="crispEdges" role="img" aria-label="QR code"><rect width="100%" height="100%" fill="#fff"/><path d="${d}" fill="#0d0e10"/></svg>`}
+
+
+
+/* ==== payments, loyalty, colours & stock (M&P) ==== */
+var PL={txns:null,profiles:{},custrec:{},emails:[],stocklog:[],mail:{},feeds:false,me:null,myrec:null,dashTab:'orders',
+  sale:{items:[],method:'cash',ref:'',bonus:0,draft:{}},pe:[],cnt:{},poll:0,claim:null,qrSeen:null,qrBusy:false,recovery:/type=recovery/.test(location.hash)};
+var PAYN={momo:'Mobile Money',card:'Card',bank:'Bank transfer',store:'Pay in store',cash:'Cash'};
+var PAYS={pending:['Waiting to check','mut'],confirmed:['Payment confirmed','ok'],declined:['Declined','bad'],refunded:['Refunded','info']};
+var TXN={payment:'Online payment',instore:'In-store sale',refund:'Refund',points:'Points change'};
+var SRCH='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+var TICK='<div class="tickb"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg></div>';
+
+/* ---------- small helpers ---------- */
+function plPalette(){return [['Black','#111214'],['White','#f4f4f2'],['Silver','#c9ccd1'],['Space Grey','#5d6066'],['Graphite','#3b3d41'],['Titanium','#b9b3a8'],['Desert Titanium','#c6a888'],['Gold','#d6b76c'],['Rose Gold','#e8b6a5'],['Cream','#efe5cf'],['Blue','#2f6fd6'],['Deep Blue','#1d3557'],['Sky Blue','#8ec5ff'],['Navy','#1f2a44'],['Teal','#1c8a8a'],['Green','#3a9d5d'],['Mint','#a8e6cf'],['Sage','#9caf88'],['Purple','#7b5cd6'],['Lavender','#c8b6ff'],['Pink','#f4a6c0'],['Red','#d62f2f'],['Orange','#f08a24'],['Cosmic Orange','#e4682a'],['Yellow','#f5d547'],['Brown','#7a5236']].map(([n,h])=>({n,h}))}
+function plHex(h){return /^#[0-9a-f]{6}$/i.test(h||'')?h:'#999999'}
+function plColors(p){return Array.isArray(p&&p.colors)?p.colors.filter(c=>c&&c.n).slice(0,30).map(c=>({n:String(c.n).slice(0,30),h:plHex(c.h)})):[]}
+function plTracked(p){return !!p&&p.qty!==null&&p.qty!==undefined&&p.qty!==''&&!isNaN(+p.qty)}
+function plLowAt(p){return +p.low||3}
+function plLow(p){return plTracked(p)&&+p.qty>0&&+p.qty<=plLowAt(p)?`Only ${+p.qty} left`:''}
+function plMaxQty(p){return plTracked(p)?Math.max(1,Math.min(9,+p.qty)):9}
+function plK(v){v=+v||0;return v<0?'−'+K(-v):K(v)}
+function plDt(v){try{return new Date(v).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}catch(e){return ''}}
+function plDay(v){try{return new Date(v).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}}
+function plIni(n){return esc(String(n||'?').split(' ').map(w=>w[0]||'').join('').slice(0,2).toUpperCase()||'?')}
+function plId(p){const a=new Uint8Array(4);crypto.getRandomValues(a);const d=new Date(),z=n=>String(n).padStart(2,'0');return p+String(d.getFullYear()).slice(2)+z(d.getMonth()+1)+z(d.getDate())+'-'+[...a].map(x=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[x%32]).join('')}
+function plTok(n){const a=new Uint8Array(n);crypto.getRandomValues(a);const c='abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';return [...a].map(x=>c[x%c.length]).join('')}
+function itn(i){const p=byId[i.id]||{};return (p.n||i.n||i.id||'Item')+(i.color?' ('+i.color+')':'')}
+function plLive(){return !!(window.PLUG_AUTH&&PLUG_AUTH.signUp)}
+
+/* ---------- colours on the shop ---------- */
+function swHTML(p){const cs=plColors(p);if(!cs.length)return '';return `<div class="sw-row" title="${esc(cs.map(c=>c.n).join(', '))}">${cs.slice(0,6).map(c=>`<i style="background:${c.h}"></i>`).join('')}${cs.length>6?`<em>+${cs.length-6}</em>`:''}<span>${cs.length} colour${cs.length>1?'s':''}</span></div>`}
+function pdColorsHTML(p){const cs=plColors(p);if(!cs.length)return '';return `<div class="pd-col"><div class="pd-col-h">Colour: <b id="pdColN">${esc(cs[0].n)}</b><span>${cs.length} available</span></div><div class="pd-sw" role="radiogroup" aria-label="Choose a colour">${cs.map((c,i)=>`<button type="button" role="radio" aria-checked="${i?'false':'true'}" class="${i?'':'on'}" data-col="${esc(c.n)}" style="--c:${c.h}" title="${esc(c.n)}" aria-label="${esc(c.n)}"><i></i></button>`).join('')}</div></div>`}
+function pdColor(){const b=document.querySelector('#sheet .pd-sw button.on');return b?b.dataset.col:''}
+document.addEventListener('click',e=>{const b=e.target.closest('.pd-sw button');if(!b)return;b.parentElement.querySelectorAll('button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-checked',x===b?'true':'false')});const n=document.getElementById('pdColN');if(n){n.textContent=b.dataset.col;n.animate([{opacity:.3,transform:'translateY(4px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'})}});
+
+/* ---------- payment helpers (customer + admin) ---------- */
+function payOf(o){return ((ADM.statuses||{})[o.no]||{}).pay||'pending'}
+function payPill(o){const s=PAYS[payOf(o)]||PAYS.pending;return `<em class="pill ${s[1]} pl-pp">${s[0]}</em>`}
+function payInfoHTML(o){const st=ADM.settings,amt=`<b>${K(+o.total||0)}</b>`,ref=`<b>${esc(o.no)}</b>`;let h='';
+  if(o.pay==='momo')h=st.momoNo?`Send ${amt} by Mobile Money to <b>${esc(st.momoNo)}</b>${st.momoName?` (${esc(st.momoName)})`:''}. Use ${ref} as the reference.`:`Plug will send you the Mobile Money number to pay ${amt} on WhatsApp.`;
+  else if(o.pay==='bank')h=st.bankAcc?`Pay ${amt} to ${esc(st.bankName||'the bank')}, account <b>${esc(st.bankAcc)}</b>${st.bankAccName?` (${esc(st.bankAccName)})`:''}${st.bankBranch?`, ${esc(st.bankBranch)} branch`:''}. Use ${ref} as the reference.`:`Plug will send you the bank details to pay ${amt}.`;
+  else if(o.pay==='card')h=`Plug will contact you on WhatsApp to take the card payment of ${amt}.`;
+  else h=`Pay ${amt} when you collect at Liberty Mall.`;
+  return `<div class="pay-info"><b>How to pay</b><p>${h}</p></div>`}
+function plRefForm(o){return (o.pay==='momo'||o.pay==='bank')?`<form class="code-row pl-ref" data-no="${esc(o.no)}"><input name="ref" maxlength="60" placeholder="Paid? Add the transaction ID from your SMS" value="${esc(o.ref||'')}" aria-label="Payment transaction ID"><button class="btn btn-dark">Send</button></form>`:''}
+function plBindRef(){document.querySelectorAll('#sheet .pl-ref').forEach(f=>f.onsubmit=e=>{e.preventDefault();const v=String(new FormData(f).get('ref')||'').trim().slice(0,60);if(v.length<4){say('Add the transaction ID from your payment SMS');return}
+  const o=orders.find(x=>x.no===f.dataset.no);if(!o)return;o.ref=v;store.set('orders',orders);syncMyOrders();say("✓ Sent to Plug. We'll check your payment soon.");const b=f.querySelector('button');b.textContent='Sent ✓';b.disabled=true})}
+function payTrackHTML(o){const s=ADM.statuses[o.no]||{},ps=s.pay||'pending',P=PAYS[ps]||PAYS.pending;
+  const msg={pending:o.pay==='store'?'You pay when you collect.':'Plug checks every payment by hand. You get an email once it is confirmed.',confirmed:'Thank you! Your receipt was sent'+(o.email?' to '+esc(o.email):' to you')+'.',declined:'We could not confirm this payment'+(s.payNote?': '+esc(s.payNote):'.')+' Please check and try again, or ask us on WhatsApp.',refunded:'Your refund has been processed.'}[ps]||'';
+  return `<div class="pay-trk"><div><span>Payment · ${esc(PAYN[o.pay]||'—')}</span><em class="pill ${P[1]}">${P[0]}</em></div><p class="fine">${msg}</p>${(ps==='pending'||ps==='declined')&&o.pay!=='store'?payInfoHTML(o)+plRefForm(o):''}</div>`}
+
+/* ---------- cart / product / checkout wrappers ---------- */
+{const _tv=trackView;trackView=function(no,f){_tv(no,f);plBindRef()}}
+{const _po=placeOrder;placeOrder=function(){_po();plBindRef()}}
+
+/* ---------- emails ---------- */
+function plMailOn(){const m=PL.mail||{};return !!(m.service&&m.template&&m.key)}
+function plMailWrap(title,big,body){const st=ADM.settings;return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;background:#fff;color:#0d0e10;border:1px solid #e6e8eb;border-radius:16px;overflow:hidden">
+<div style="background:#0d0e10;color:#fff;padding:22px 24px"><div style="font-size:24px;font-weight:800;letter-spacing:-.5px">Plug<span style="color:#e8641f">.</span></div><div style="font-size:12px;opacity:.75;margin-top:2px">${esc(st.storeName||'Plug Electronics & More')}</div></div>
+<div style="padding:22px 24px"><div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#888">${title}</div>${big?`<div style="font-size:28px;font-weight:800;margin:6px 0 4px">${big}</div>`:''}${body}
+<p style="font-size:13px;color:#555;margin:22px 0 0">Questions? WhatsApp us on +${esc(WA)}.</p></div>
+<div style="background:#f5f6f7;padding:14px 24px;font-size:11.5px;color:#888">Liberty Mall, Shop 31, opposite the Chinese Embassy, Lusaka${st.legalName?` · ${esc(st.legalName)}`:''}${st.regNo?` · Reg. ${esc(st.regNo)}`:''}</div></div>`}
+function rcptHTML(t){const row=(a,b,bold)=>`<tr><td style="padding:7px 0;color:#555">${a}</td><td style="padding:7px 0;text-align:right;${bold?'font-weight:700;color:#0d0e10;font-size:16px':''}">${b}</td></tr>`,c=t.cust||{};
+  const body=`<div style="font-size:13px;color:#555">${t.kind==='refund'?'Refunded':'Paid'} by ${esc(PAYN[t.method]||t.method||'—')} · ${plDt(t.at)}${t.kind==='instore'?' · In store':''}</div>
+<table style="width:100%;border-collapse:collapse;margin-top:18px;font-size:14px">${(t.items||[]).map(i=>`<tr><td style="padding:8px 0;border-top:1px solid #eee">${+i.qty||1} × ${esc(i.n||'Item')}${i.color?` <span style="color:#888">(${esc(i.color)})</span>`:''}</td><td style="padding:8px 0;border-top:1px solid #eee;text-align:right">${K((+i.price||0)*(+i.qty||1))}</td></tr>`).join('')}</table>
+<table style="width:100%;border-collapse:collapse;margin-top:6px;font-size:14px;border-top:2px solid #0d0e10">${row(t.kind==='refund'?'Refunded':'Total paid',plK(+t.amount||0),true)}${t.ref?row('Payment reference',esc(t.ref)):''}${row('Receipt number',esc(t.id||''))}${t.no?row('Order number',esc(t.no)):''}${t.pts?row('Plug points',(t.pts>0?'+':'')+(+t.pts).toLocaleString()):''}${t.bal!=null?row('Points balance',(+t.bal).toLocaleString()):''}${row('Customer',esc(c.name||'—'))}</table>
+<p style="font-size:14px;margin:20px 0 0">Thank you for shopping with Plug${c.name?', '+esc(String(c.name).split(' ')[0]):''}!</p>`;
+  return plMailWrap(t.kind==='refund'?'Refund receipt':'Payment receipt',plK(t.kind==='refund'?-Math.abs(+t.amount||0):+t.amount||0),body)}
+function rcptText(t){const c=t.cust||{};return `${ADM.settings.storeName||'Plug Electronics & More'} — ${t.kind==='refund'?'Refund':'Receipt'} ${t.id}\n${t.no?'Order '+t.no+' · ':''}${plDt(t.at)}\n`+(t.items||[]).map(i=>`${+i.qty||1} × ${i.n}${i.color?' ('+i.color+')':''} — ${K((+i.price||0)*(+i.qty||1))}`).join('\n')+`\n${t.kind==='refund'?'Refunded':'Total paid'}: ${plK(+t.amount||0)} (${PAYN[t.method]||t.method||''}${t.ref?', ref '+t.ref:''})${t.pts?`\nPlug points: ${t.pts>0?'+':''}${t.pts}`:''}${t.bal!=null?` · Balance: ${t.bal}`:''}\nThank you for shopping with Plug${c.name?', '+String(c.name).split(' ')[0]:''}!`}
+function plSave(col,id,data){if(isLive())return ADM.db.doc(col+'/'+id).set(data);const m=store.get('demo_'+col,{});m[id]=data;store.set('demo_'+col,m);return Promise.resolve()}
+function plList(col){return Object.values(store.get('demo_'+col,{})).sort((a,b)=>(b.at||0)-(a.at||0))}
+async function plDeliver(rec){if(!rec.to){rec.status='no-email'}else if(plMailOn()){try{const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id:PL.mail.service,template_id:PL.mail.template,user_id:PL.mail.key,template_params:{to_email:rec.to,to_name:rec.name||'',subject:rec.subject,message_html:rec.html,message_text:rec.text,store_name:ADM.settings.storeName||'Plug Electronics & More',reply_to:PL.mail.reply||''}})});rec.status=r.ok?'sent':'failed';rec.err=r.ok?'':(await r.text()).slice(0,160)}catch(e){rec.status='failed';rec.err='Network error'}}else rec.status='queued';
+  rec.tried=Date.now();try{await plSave('emails',rec.id,rec)}catch(e){}const i=PL.emails.findIndex(x=>x.id===rec.id);if(i<0)PL.emails.unshift(rec);else PL.emails[i]=rec;return rec.status}
+function plSendMail(m){return plDeliver({...m,id:plId('E'),at:Date.now(),by:ADM.name||''})}
+function plMailSay(s,to){return s==='sent'?`✓ Email sent to ${to}`:s==='failed'?'The email could not be sent. It is saved in the email outbox.':s==='no-email'?'This customer has no email address. Send the receipt on WhatsApp.':'The email is saved in the outbox (email sending is not set up yet).'}
+function plMailReceipt(t){const c=t.cust||{};return plSendMail({to:c.email||'',name:c.name||'',phone:c.phone||'',kind:t.kind==='refund'?'refund':'receipt',ref:t.id,subject:(t.kind==='refund'?'Your Plug refund ':'Your Plug receipt ')+t.id,html:rcptHTML(t),text:rcptText(t)})}
+function plMailDecline(o,reason,note){const body=`<p style="font-size:15px;line-height:1.55;margin:0">Hi ${esc(String(o.name||'there').split(' ')[0])}, we could not confirm the payment for your order <b>${esc(o.no)}</b> (${K(+o.total||0)}).</p>
+<p style="font-size:14px;line-height:1.55;color:#555"><b>Reason:</b> ${esc(reason)}${note?`<br>${esc(note)}`:''}</p>${payInfoHTML(o).replace('class="pay-info"','style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 14px;font-size:14px"')}
+<p style="font-size:14px;line-height:1.55;color:#555">If you have already paid, reply on WhatsApp with the transaction ID from your SMS and we will check again.</p>`;
+  return plSendMail({to:o.email||'',name:o.name||'',phone:o.phone||'',kind:'declined',ref:o.no,subject:`Payment not received for order ${o.no}`,html:plMailWrap('Payment update','Payment not confirmed',body),text:`Hi ${o.name||''}, we could not confirm the payment for your Plug order ${o.no} (${K(+o.total||0)}). Reason: ${reason}${note?'. '+note:''}. If you have already paid, send us the transaction ID on WhatsApp and we will check again.`})}
+function plPrint(html){const f=document.createElement('iframe');f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0';document.body.appendChild(f);const d=f.contentDocument;d.open();d.write(`<!doctype html><html><head><meta charset="utf-8"><title>Plug</title></head><body style="margin:20px">${html}</body></html>`);d.close();setTimeout(()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){}setTimeout(()=>f.remove(),2000)},300)}
+function rcptSheet(t){const c=t.cust||{};openSheet(`<h3 class="sh-t">Receipt <small>${esc(t.id)}</small></h3><div class="rcpt">${rcptHTML(t)}</div>
+  <div class="row-b" style="margin-top:14px"><button class="btn btn-dark" id="rcPrint">Print</button>${c.email?`<button class="btn btn-glass" id="rcMail">Email again</button>`:''}${c.phone?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(c.phone)}?text=${encodeURIComponent(rcptText(t))}">${waSvg} WhatsApp</a>`:''}</div>
+  <p class="fine">🔒 Locked entry. It can't be changed or deleted. To correct it, make a refund.</p>`,'modal');
+  $('#rcPrint').onclick=()=>plPrint(rcptHTML(t));const m=$('#rcMail');if(m)m.onclick=async()=>{m.disabled=true;const s=await plMailReceipt(t);say(plMailSay(s,c.email));m.disabled=false}}
+
+/* ---------- locked transaction history ---------- */
+function txAll(){return isLive()?(PL.txns||[]):store.get('demoTxns',[])}
+async function plAddTxn(t){t.id=t.id||plId(t.kind==='refund'?'R':t.kind==='points'?'P':'T');t.at=Date.now();t.by=ADM.name||'Staff';
+  if(isLive()){for(let k=0;;k++){try{await ADM.db.doc('txns/'+t.id).create(t);break}catch(e){if(e&&e.code==='23505'&&k<3){t.id=plId('T');continue}throw e}}}
+  else{const l=store.get('demoTxns',[]);l.unshift(t);store.set('demoTxns',l)}
+  if(PL.txns&&!PL.txns.find(x=>x.id===t.id))PL.txns.unshift(t);return t}
+function plMoney(t){return t.kind==='payment'||t.kind==='instore'||t.kind==='refund'}
+function revTotal(){return txAll().filter(plMoney).reduce((a,t)=>a+(+t.amount||0),0)}
+function revBetween(d,n){return txAll().filter(t=>plMoney(t)&&t.at>=+d&&t.at<+n).reduce((a,t)=>a+(+t.amount||0),0)}
+function plPaidCount(){return txAll().filter(t=>t.kind==='payment'||t.kind==='instore').length}
+function payPendingCount(){try{return allOrders().filter(o=>payOf(o)==='pending').length}catch(e){return 0}}
+function dedupeOrders(list){const P=(typeof PL!=='undefined'&&PL&&PL.profiles)||{},m={};const sc=x=>(P[x.uid]?2:0)+(x.ref?1:0);
+  (list||[]).forEach(o=>{if(!o||!o.no)return;const c=m[o.no];if(!c){m[o.no]=o;return}m[o.no]=sc(o)>sc(c)?{...c,...o}:{...o,...c}});
+  return Object.values(m).sort((a,b)=>(b.date||'').localeCompare(a.date||''))}
+function plSetPay(no,f){const s={status:0,note:'',...(ADM.statuses[no]||{}),...f,at:Date.now()};ADM.statuses[no]=s;return wr(()=>ADM.db.doc('orderstatus/'+no).set(s))}
+function plItemsOf(o){return (o.items||[]).map(i=>{const p=byId[i.id]||{};return {id:i.id,n:p.n||i.n||i.id,qty:+i.qty||1,price:+(i.price!=null?i.price:p.p)||0,color:i.color||''}})}
+
+/* ---------- customer points records (admin writes, customer reads their own) ---------- */
+async function plRec(uid,fn){let cur={points:0,ledger:[],purchases:[]};
+  if(isLive()){const s=await ADM.db.doc('custrec/'+uid).get();if(s.exists)cur={...cur,...s.data()}}else cur={...cur,...(store.get('demoRec',{})[uid]||{})};
+  cur.ledger=[...(cur.ledger||[])];cur.purchases=[...(cur.purchases||[])];fn(cur);cur.points=Math.max(0,Math.round(+cur.points||0));cur.ledger=cur.ledger.slice(-300);cur.purchases=cur.purchases.slice(-150);cur.at=Date.now();
+  if(isLive())await ADM.db.doc('custrec/'+uid).set(cur);else{const m=store.get('demoRec',{});m[uid]=cur;store.set('demoRec',m)}
+  PL.custrec[uid]=cur;return cur}
+function plRecs(){return isLive()?PL.custrec:store.get('demoRec',{})}
+function plMembers(){const P=isLive()?PL.profiles:{},R=plRecs(),ids=new Set([...Object.keys(P),...Object.keys(R)]);
+  return [...ids].map(id=>{const p=P[id]||{},r=R[id]||{};return {id,name:p.name||r.name||'Customer',phone:p.phone||r.phone||'',email:p.email||r.email||'',points:+r.points||0,life:(r.ledger||[]).reduce((a,l)=>a+Math.max(0,+l.pts||0),0),last:r.at||p.at||0}}).sort((a,b)=>b.points-a.points||b.last-a.last)}
+function plTier(life){return life>=2000?['Gold','gold']:life>=500?['Silver','silver']:['Bronze','bronze']}
+
+/* ---------- stock movements ---------- */
+async function plStockMove(items,kind,ref,sign){const ch=[];
+  for(const i of items||[]){const p=byId[i.id];if(!p||!plTracked(p))continue;const was=+p.qty,now=Math.max(0,was+sign*(+i.qty||1));const np={...p,qty:now};if(now<=0&&np.stock==='in')np.stock='out';if(now>0&&np.stock==='out')np.stock='in';await saveProduct(np);ch.push({id:p.id,n:p.n,was,now})}
+  if(ch.length){const id=plId('S'),e={kind,ref:ref||'',changes:ch,at:Date.now(),by:ADM.name||'Staff'};try{await plSave('stocklog',id,e)}catch(x){}PL.stocklog.unshift({id,...e})}return ch}
+
+/* ---------- payment actions ---------- */
+async function plConfirm(o,amt,method,ref,note,mail){
+  if(payOf(o)==='confirmed'){say('This payment is already confirmed');return null}
+  const items=plItemsOf(o),member=!!(o.uid&&PL.profiles[o.uid]),pts=member?ptsFor(amt):0;
+  const t=await plAddTxn({kind:'payment',no:o.no,amount:amt,method,ref,note,items,cust:{name:o.name||'',phone:o.phone||'',email:o.email||'',uid:o.uid||''},pts});
+  const cur=ADM.statuses[o.no]||{};await plSetPay(o.no,{pay:'confirmed',payAt:Date.now(),payTxn:t.id,payNote:'',status:Math.max(+cur.status||0,1)});
+  let bal=null;if(member&&pts){try{const r=await plRec(o.uid,c=>{c.points+=pts;c.ledger.push({at:Date.now(),pts,reason:'Online order '+o.no,ref:o.no,txn:t.id});c.name=o.name;c.phone=o.phone;c.email=o.email||c.email||''});bal=r.points}catch(e){say('Payment saved, but the points could not be added. Add them on the Loyalty page.')}}
+  try{await plStockMove(items,'sale',o.no,-1)}catch(e){}
+  let ms='';if(mail)ms=await plMailReceipt({...t,bal});return {t:{...t,bal},ms}}
+function plConfirmSheet(o){if(!o)return;const member=!!(o.uid&&PL.profiles[o.uid]);
+  openSheet(`<h3 class="sh-t">Confirm payment</h3><p class="mut">Order <b>${esc(o.no)}</b> · ${esc(o.name||'')} · ${K(+o.total||0)}</p>
+  <form id="pcF" class="co-f" novalidate><div class="two"><label>Amount received (K)<input name="amt" inputmode="decimal" value="${+o.total||0}"></label><label>Paid with<select name="m">${Object.entries(PAYN).map(([k,n])=>`<option value="${k}" ${o.pay===k?'selected':''}>${n}</option>`).join('')}</select></label></div>
+  <label>Payment reference<input name="ref" maxlength="60" value="${esc(o.ref||'')}" placeholder="Transaction ID from the SMS or bank statement"></label>
+  <label>Staff note (optional, only staff see it)<input name="note" maxlength="140"></label>
+  <ul class="pl-will"><li>✓ Adds the money to revenue and the transaction history</li><li>${member?`⭐ Adds ${ptsFor(+o.total||0).toLocaleString()} points to ${esc(o.name||'the customer')}'s account`:'⭐ No points: this customer has no Plug account'}</li><li>📦 Takes the items off your stock count</li></ul>
+  <label class="chk"><input type="checkbox" name="mail" ${o.email?'checked':'disabled'}> ${o.email?`Email the receipt to ${esc(o.email)}`:'No email address. You can send the receipt on WhatsApp after.'}</label>
+  <div class="err" id="pcErr"></div><button class="btn btn-dark full" type="submit">Confirm payment ✓</button></form>`,'modal');
+  $('#pcF').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),amt=+String(f.get('amt')).replace(/[^\d.]/g,'');if(!(amt>0)){$('#pcErr').textContent='Enter the amount you received.';return}
+    const b=e.target.querySelector('[type=submit]');b.disabled=true;b.textContent='Saving…';admBusy=true;
+    try{const r=await plConfirm(o,amt,f.get('m'),String(f.get('ref')||'').trim().slice(0,60),String(f.get('note')||'').trim().slice(0,140),!!f.get('mail'));admBusy=false;if(!r){closeSheet();return}
+      openSheet(`<div class="done-box">${TICK}<h3>Payment confirmed</h3><p>${K(amt)} from ${esc(o.name||'the customer')} is now in revenue.${r.ms?'<br>'+esc(plMailSay(r.ms,o.email)):''}</p><div class="row-b" style="justify-content:center"><button class="btn btn-dark" id="pcR">View receipt</button>${o.phone?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(o.phone)}?text=${encodeURIComponent(rcptText(r.t))}">${waSvg} WhatsApp receipt</a>`:''}</div></div>`,'modal');
+      $('#pcR').onclick=()=>rcptSheet(r.t);renderAdm(curAdm||'payments')}
+    catch(x){admBusy=false;b.disabled=false;b.textContent='Confirm payment ✓';$('#pcErr').textContent='Could not save. Check your internet and try again.'}}}
+function plDeclineSheet(o){if(!o)return;const R=['Payment not received','Amount is less than the order total','Reference does not match any payment','Card payment failed','Other reason'];
+  openSheet(`<h3 class="sh-t">Decline payment</h3><p class="mut">Order <b>${esc(o.no)}</b> · ${esc(o.name||'')} · ${K(+o.total||0)}</p>
+  <form id="pdF" class="co-f" novalidate><label>Reason (the customer sees this)<select name="r">${R.map(r=>`<option>${r}</option>`).join('')}</select></label>
+  <label>Message to the customer (optional)<input name="note" maxlength="160" placeholder="e.g. We received K5,000 of K6,000"></label>
+  <label class="chk"><input type="checkbox" name="mail" ${o.email?'checked':'disabled'}> ${o.email?`Email the customer at ${esc(o.email)}`:'No email address. Tell the customer on WhatsApp.'}</label>
+  <p class="fine">Declined payments do not count in revenue. You can still confirm it later if the money arrives.</p>
+  <div class="err" id="pdErr"></div><button class="btn btn-dark full danger" type="submit">Decline payment</button></form>`,'modal');
+  $('#pdF').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),r=f.get('r'),note=String(f.get('note')||'').trim().slice(0,160),b=e.target.querySelector('[type=submit]');b.disabled=true;admBusy=true;
+    try{await plSetPay(o.no,{pay:'declined',payAt:Date.now(),payNote:r+(note?' — '+note:'')});let ms='';if(f.get('mail'))ms=await plMailDecline(o,r,note);admBusy=false;
+      openSheet(`<div class="done-box"><h3>Payment declined</h3><p>${esc(o.no)} is marked as declined.${ms?'<br>'+esc(plMailSay(ms,o.email)):''}</p>${o.phone?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(o.phone)}?text=${encodeURIComponent(`Hi ${o.name||''}, this is Plug. We could not confirm the payment for your order ${o.no}: ${r}${note?'. '+note:''}. Please send us the transaction ID if you have paid.`)}">${waSvg} Tell them on WhatsApp</a>`:''}</div>`,'modal');renderAdm(curAdm||'payments')}
+    catch(x){admBusy=false;b.disabled=false;$('#pdErr').textContent='Could not save. Try again.'}}}
+function plRefundSheet(o){const pt=txAll().find(t=>t.kind==='payment'&&t.no===o.no);if(!pt){say('Original payment not found');return}
+  openSheet(`<h3 class="sh-t">Refund</h3><p class="mut">Order <b>${esc(o.no)}</b> · paid ${K(+pt.amount||0)} · receipt ${esc(pt.id)}</p>
+  <form id="prF" class="co-f" novalidate><div class="two"><label>Amount to refund (K)<input name="amt" inputmode="decimal" value="${+pt.amount||0}"></label><label>Refund by<select name="m">${Object.entries(PAYN).filter(([k])=>k!=='store').map(([k,n])=>`<option value="${k}" ${pt.method===k?'selected':''}>${n}</option>`).join('')}</select></label></div>
+  <label>Reason<input name="note" maxlength="140" placeholder="e.g. Item returned within 7 days"></label>
+  ${pt.pts?`<label class="chk"><input type="checkbox" name="pts" checked> Take back the ${(+pt.pts).toLocaleString()} points</label>`:''}
+  <label class="chk"><input type="checkbox" name="back"> Put the items back in stock</label>
+  <label class="chk"><input type="checkbox" name="mail" ${o.email?'checked':'disabled'}> ${o.email?`Email the refund receipt to ${esc(o.email)}`:'No email address'}</label>
+  <p class="fine">The original payment stays in the history. The refund is added as a new entry.</p>
+  <div class="err" id="prErr"></div><button class="btn btn-dark full" type="submit">Record refund</button></form>`,'modal');
+  $('#prF').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),amt=+String(f.get('amt')).replace(/[^\d.]/g,'');if(!(amt>0)||amt>+pt.amount){$('#prErr').textContent=`Enter an amount up to ${K(+pt.amount||0)}.`;return}
+    const b=e.target.querySelector('[type=submit]');b.disabled=true;admBusy=true;
+    try{const back=f.get('pts')?-(+pt.pts||0):0;const t=await plAddTxn({kind:'refund',no:o.no,of:pt.id,amount:-amt,method:f.get('m'),ref:'',note:String(f.get('note')||'').trim(),items:pt.items,cust:pt.cust,pts:back});
+      await plSetPay(o.no,{pay:'refunded',payAt:Date.now()});
+      if(back&&o.uid&&PL.profiles[o.uid]){try{await plRec(o.uid,c=>{c.points+=back;c.ledger.push({at:Date.now(),pts:back,reason:'Refund '+o.no,ref:o.no,txn:t.id})})}catch(x){}}
+      if(f.get('back'))try{await plStockMove(pt.items,'return',o.no,1)}catch(x){}
+      let ms='';if(f.get('mail'))ms=await plMailReceipt(t);admBusy=false;closeSheet();say('✓ Refund recorded'+(ms?'. '+plMailSay(ms,o.email):''));renderAdm(curAdm||'payments')}
+    catch(x){admBusy=false;b.disabled=false;$('#prErr').textContent='Could not save. Try again.'}}}
+function plOutbox(){return (isLive()?PL.emails:plList('emails')).filter(m=>m.status!=='sent')}
+function plOutboxSheet(){const all=(isLive()?PL.emails:plList('emails')).slice(0,60);
+  openSheet(`<h3 class="sh-t">Email outbox</h3><p class="mut">${plMailOn()?'Emails are sent automatically. Any that did not send are listed here.':'Email sending is not set up yet, so emails wait here. Open one in your mail app or WhatsApp to send it yourself.'}</p>
+  <div class="pl-ob">${all.map(m=>`<div class="pl-obi"><div><b>${esc(m.subject||'')}</b><span>${esc(m.to||'No email')} · ${plDt(m.at)}</span></div><em class="pill ${m.status==='sent'?'ok':m.status==='failed'?'bad':'mut'}">${({sent:'Sent',failed:'Failed',queued:'Waiting','no-email':'No email'})[m.status]||esc(m.status||'')}</em>
+   <div class="acts">${m.to&&m.status!=='sent'&&plMailOn()?`<button class="btn btn-dark sm" data-mre="${esc(m.id)}">Send now</button>`:''}${m.to&&m.status!=='sent'?`<a class="btn btn-glass sm" href="mailto:${encodeURIComponent(m.to)}?subject=${encodeURIComponent(m.subject||'')}&body=${encodeURIComponent(String(m.text||'').slice(0,1800))}">Mail app</a>`:''}${m.phone?`<a class="btn wa sm" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(m.phone)}?text=${encodeURIComponent(m.text||'')}" aria-label="WhatsApp">${waIcon}</a>`:''}</div></div>`).join('')||'<p class="mut">No emails yet.</p>'}</div>`,'modal',true);
+  document.querySelectorAll('#sheet [data-mre]').forEach(b=>b.onclick=async()=>{const m=all.find(x=>x.id===b.dataset.mre);if(!m)return;b.disabled=true;b.textContent='Sending…';const s=await plDeliver({...m});say(plMailSay(s,m.to));plOutboxSheet()})}
+
+/* ---------- ADMIN: payment processing ---------- */
+var payF='pending',payQ='';
+function admPayments(){const os=allOrders(),c={all:os.length,pending:0,confirmed:0,declined:0,refunded:0};os.forEach(o=>{c[payOf(o)]=(c[payOf(o)]||0)+1});
+  const list=os.filter(o=>(payF==='all'||payOf(o)===payF)&&(!payQ||[o.no,o.name,o.phone,o.email,o.ref,o.momo].join(' ').toLowerCase().includes(payQ)));
+  const sum=f=>os.filter(o=>payOf(o)===f).reduce((a,o)=>a+(+o.total||0),0),d0=new Date();d0.setHours(0,0,0,0);const ob=plOutbox().length;
+  return head('Payment processing','Check that the money arrived, then confirm or decline. Confirmed payments go into revenue and the transaction history, and the customer gets an email.',`<div class="row-b"><button class="btn btn-glass" id="payOut">Email outbox${ob?` (${ob})`:''}</button><button class="btn btn-glass" data-go2="transactions">Transaction history</button></div>`)+
+  (plMailOn()||!isLive()?'':`<div class="demo-note pl-warn">Emails wait in the outbox until email sending is set up. <a href="#" data-go2="settings"><u>Set it up in Settings</u></a></div>`)+
+  `<div class="kpis pl-k4">${[['Waiting to check',c.pending,K(sum('pending'))],['Confirmed today',K(revBetween(d0,Date.now()+1)),''],['Confirmed',c.confirmed,K(sum('confirmed'))],['Declined',c.declined,'']].map(([l,v,s])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b>${s?`<em class="kpi-s">${s}</em>`:''}</div>`).join('')}</div>
+  <div class="tools2 pl-tools"><div class="seg">${[['pending','Waiting'],['confirmed','Confirmed'],['declined','Declined'],['refunded','Refunded'],['all','All']].map(([k,n])=>`<button class="${payF===k?'on':''}" data-pf="${k}">${n} <i>${c[k]||0}</i></button>`).join('')}</div>
+   <label class="search s2">${SRCH}<input id="payQ" placeholder="Search order, name, phone or reference" value="${esc(payQ)}"></label></div>
+  <div class="tblw glass"><table class="tbl"><thead><tr><th>Order</th><th>Customer</th><th>Paid with</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody>
+  ${list.map(o=>{const ps=payOf(o),s=ADM.statuses[o.no]||{};return `<tr><td><b>${esc(o.no)}</b><span>${plDt(o.date)}</span></td><td><b>${esc(o.name||'—')}</b><span>${esc(o.phone||'')}</span>${o.email?`<span>${esc(o.email)}</span>`:'<span class="pl-noem">No email</span>'}${o.uid&&PL.profiles[o.uid]?'<span class="pl-mem-t">⭐ Plug member</span>':''}</td>
+   <td><b>${esc(PAYN[o.pay]||'—')}</b>${o.pay==='momo'&&o.momo?`<span>From ${esc(o.momo)}</span>`:''}${o.ref?`<span>Ref <b class="pl-ref-b">${esc(o.ref)}</b></span>`:o.pay==='store'?'':'<span>No reference yet</span>'}</td><td><b>${K(+o.total||0)}</b></td>
+   <td>${payPill(o)}${ps==='declined'&&s.payNote?`<span>${esc(s.payNote)}</span>`:''}${s.payAt&&ps!=='pending'?`<span>${plDt(s.payAt)}</span>`:''}</td>
+   <td class="acts">${ps==='pending'||ps==='declined'?`<button class="btn btn-dark sm" data-pok="${esc(o.no)}">Confirm</button>`:''}${ps==='pending'?`<button class="btn btn-glass sm" data-pno="${esc(o.no)}">Decline</button>`:''}${ps==='confirmed'||ps==='refunded'?`<button class="btn btn-glass sm" data-prc="${esc(o.no)}">Receipt</button>`:''}${ps==='confirmed'?`<button class="btn btn-glass sm" data-prf="${esc(o.no)}">Refund</button>`:''}</td></tr>`}).join('')||`<tr><td colspan="6" class="mut">${payF==='pending'?'Nothing waiting. New payments show here.':'Nothing here yet.'}</td></tr>`}
+  </tbody></table></div><p class="fine">Tip: match the reference on the customer's SMS with your Mobile Money or bank statement before you confirm.</p>`}
+admPayments.bind=()=>{const ord=no=>allOrders().find(o=>o.no===no);
+  $$('#admMain [data-pf]').forEach(b=>b.onclick=()=>{payF=b.dataset.pf;renderAdm('payments')});
+  const q=$('#payQ');if(q)q.oninput=e=>{payQ=e.target.value.trim().toLowerCase();const c=e.target.selectionStart;renderAdm('payments');const i=$('#payQ');i.focus();i.setSelectionRange(c,c)};
+  $$('#admMain [data-pok]').forEach(b=>b.onclick=()=>plConfirmSheet(ord(b.dataset.pok)));
+  $$('#admMain [data-pno]').forEach(b=>b.onclick=()=>plDeclineSheet(ord(b.dataset.pno)));
+  $$('#admMain [data-prf]').forEach(b=>b.onclick=()=>{const o=ord(b.dataset.prf);if(o)plRefundSheet(o)});
+  $$('#admMain [data-prc]').forEach(b=>b.onclick=()=>{const t=txAll().find(t=>t.no===b.dataset.prc&&t.kind==='payment');t?rcptSheet(t):say('Receipt not found')});
+  const ob=$('#payOut');if(ob)ob.onclick=plOutboxSheet;plGo2()};
+function plGo2(){$$('#admMain [data-go2]').forEach(b=>b.onclick=e=>{e.preventDefault();renderAdm(b.dataset.go2);window.scrollTo(0,0)})}
+
+/* ---------- ADMIN: transaction history (read-only) ---------- */
+var txF='all',txR='30',txQ='';
+function plTxFiltered(){const now=Date.now(),from=txR==='all'?0:txR==='today'?new Date().setHours(0,0,0,0):now-(+txR)*864e5;
+  return txAll().filter(t=>(txF==='all'||t.kind===txF)&&(t.at||0)>=from&&(!txQ||[t.id,t.no,(t.cust||{}).name,(t.cust||{}).phone,(t.cust||{}).email,t.ref,t.by].join(' ').toLowerCase().includes(txQ)))}
+function admTxns(){const L=plTxFiltered(),inn=L.filter(t=>plMoney(t)&&+t.amount>0).reduce((a,t)=>a+ +t.amount,0),out=L.filter(t=>t.kind==='refund').reduce((a,t)=>a+ +t.amount,0);
+  return head('Transaction history','Every confirmed payment, in-store sale, refund and points change, newest first. Tap a line to see the receipt.',`<button class="btn btn-glass" id="txCsv">Export CSV</button>`)+
+  `<div class="pl-lock"><b>🔒 Locked history.</b> Nobody can change or delete these entries, staff included. The database blocks it. Mistakes are fixed by adding a refund.</div>
+  <div class="kpis pl-k4">${[['Money in',K(inn)],['Refunds',K(Math.abs(out))],['Net',plK(inn+out)],['Entries',L.length]].map(([l,v])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b></div>`).join('')}</div>
+  <div class="tools2 pl-tools"><select class="sel" id="txF">${[['all','All types'],...Object.entries(TXN)].map(([k,n])=>`<option value="${k}" ${txF===k?'selected':''}>${n}</option>`).join('')}</select>
+   <select class="sel" id="txR">${[['today','Today'],['7','Last 7 days'],['30','Last 30 days'],['365','Last 12 months'],['all','All time']].map(([k,n])=>`<option value="${k}" ${txR===k?'selected':''}>${n}</option>`).join('')}</select>
+   <label class="search s2">${SRCH}<input id="txQ" placeholder="Search receipt, order, customer or reference" value="${esc(txQ)}"></label></div>
+  <div class="tblw glass"><table class="tbl"><thead><tr><th>Date</th><th>Receipt</th><th>Type</th><th>Customer</th><th>Paid with</th><th>Amount</th><th>Points</th><th>By</th></tr></thead><tbody>
+  ${L.slice(0,300).map(t=>{const c=t.cust||{};return `<tr class="pl-tr" data-tx="${esc(t.id)}" tabindex="0"><td><span>${plDt(t.at)}</span></td><td><b>${esc(t.id)}</b>${t.no?`<span>${esc(t.no)}</span>`:''}</td><td><em class="pill ${t.kind==='refund'?'bad':t.kind==='points'?'info':'ok'}">${TXN[t.kind]||esc(t.kind)}</em></td><td><b>${esc(c.name||'—')}</b><span>${esc(c.phone||'')}</span></td><td><span>${esc(PAYN[t.method]||t.method||'—')}${t.ref?'<br>Ref '+esc(t.ref):''}</span></td><td><b class="${+t.amount<0?'neg':''}">${plMoney(t)?plK(+t.amount):'—'}</b></td><td>${t.pts?`<b class="${t.pts<0?'neg':''}">${t.pts>0?'+':''}${(+t.pts).toLocaleString()}</b>`:'—'}</td><td><span>${esc(t.by||'')}</span></td></tr>`}).join('')||'<tr><td colspan="8" class="mut">No transactions in this period yet.</td></tr>'}
+  </tbody></table></div>${L.length>300?'<p class="fine">Showing the latest 300. Export CSV to see all of them.</p>':''}`}
+admTxns.bind=()=>{$('#txF').onchange=e=>{txF=e.target.value;renderAdm('transactions')};$('#txR').onchange=e=>{txR=e.target.value;renderAdm('transactions')};
+  const q=$('#txQ');q.oninput=e=>{txQ=e.target.value.trim().toLowerCase();const c=e.target.selectionStart;renderAdm('transactions');const i=$('#txQ');i.focus();i.setSelectionRange(c,c)};
+  $$('#admMain [data-tx]').forEach(r=>{const go=()=>{const t=txAll().find(x=>x.id===r.dataset.tx);if(t)rcptSheet(t)};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter')go()}});
+  $('#txCsv').onclick=()=>{const L=plTxFiltered();if(!L.length){say('Nothing to export');return}downloadFile('plug-transactions.csv',csv([['Receipt','Date','Type','Order','Customer','Phone','Email','Paid with','Reference','Amount (K)','Points','Items','Staff','Note'],...L.map(t=>{const c=t.cust||{};return [t.id,new Date(t.at).toISOString(),TXN[t.kind]||t.kind,t.no||'',c.name||'',c.phone||'',c.email||'',PAYN[t.method]||t.method||'',t.ref||'',plMoney(t)?t.amount:'',t.pts||'',(t.items||[]).map(i=>`${i.qty} x ${i.n}${i.color?' ('+i.color+')':''}`).join('; '),t.by||'',t.note||'']})]))}};
+
+/* ---------- ADMIN: loyalty (points + in-store QR) ---------- */
+var lyQ='';
+function plSaleTotal(){return PL.sale.items.reduce((a,i)=>a+(+i.price||0)*(+i.qty||1),0)}
+function plSalePts(){return ptsFor(plSaleTotal())+Math.max(0,+PL.sale.bonus||0)}
+function admLoyalty(){const M=plMembers(),now=Date.now(),T30=txAll().filter(t=>(t.at||0)>now-30*864e5),S=PL.sale,D=S.draft||{},tot=plSaleTotal();
+  const given=T30.reduce((a,t)=>a+Math.max(0,+t.pts||0),0),qr=T30.filter(t=>t.kind==='instore'&&t.claim).length;
+  const list=M.filter(m=>!lyQ||[m.name,m.phone,m.email].join(' ').toLowerCase().includes(lyQ));
+  const dp=byId[D.pid],cols=dp?plColors(dp):[];
+  const act=txAll().filter(t=>t.pts).slice(0,10);
+  return head('Loyalty','Give points for in-store sales with a QR code the customer scans, or add and remove points by hand.')+
+  (isLive()?'':`<div class="demo-note">The QR code works on the live store. In demo mode you can only try the sale and points by hand.</div>`)+
+  `<div class="kpis pl-k4">${[['Members',M.length],['Points held',M.reduce((a,m)=>a+m.points,0).toLocaleString()],['Points given (30 days)',given.toLocaleString()],['QR sales (30 days)',qr]].map(([l,v])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b></div>`).join('')}</div>
+  <div class="am-grid pl-ly"><div class="panel glass"><h3>In-store sale → QR code</h3><p class="mut">1. Add what the customer bought. 2. Tap "Show QR code". 3. The customer scans it, signs in or creates an account, and you confirm on this screen.</p>
+   <div class="co-f pl-add"><label>Product<select id="lsP"><option value="">Choose a product…</option>${products.map(p=>`<option value="${p.id}" ${D.pid===p.id?'selected':''}>${esc(p.n)} · ${p.pt}${plTracked(p)?` · ${+p.qty} in stock`:''}</option>`).join('')}<option value="__other" ${D.pid==='__other'?'selected':''}>Other item…</option></select></label>
+    <label ${D.pid==='__other'?'':'hidden'} id="lsNameW">Item name<input id="lsName" maxlength="60" placeholder="e.g. Phone case" value="${esc(D.name||'')}"></label>
+    <label ${cols.length?'':'hidden'} id="lsColW">Colour<select id="lsCol">${cols.map(c=>`<option ${D.col===c.n?'selected':''}>${esc(c.n)}</option>`).join('')}</select></label>
+    <div class="two"><label>Quantity<input id="lsQty" inputmode="numeric" value="${esc(D.qty||1)}"></label><label>Price each (K)<input id="lsPrice" inputmode="decimal" value="${esc(D.price!=null?D.price:(dp?dp.p:''))}" placeholder="0"></label></div>
+    <button type="button" class="btn btn-glass full" id="lsAdd">+ Add to sale</button></div>
+   ${S.items.length?`<div class="pl-lines">${S.items.map((i,ix)=>`<div><span>${i.qty} × ${esc(i.n)}${i.color?` <em>(${esc(i.color)})</em>`:''}</span><b>${K(i.price*i.qty)}</b><button class="rm" data-lsrm="${ix}" aria-label="Remove">×</button></div>`).join('')}<div class="tot"><span>Total</span><b>${K(tot)}</b></div></div>`:'<p class="fine pl-empty">No items added yet.</p>'}
+   <div class="co-f"><div class="two"><label>Paid with<select id="lsM">${['cash','momo','card','bank'].map(k=>`<option value="${k}" ${S.method===k?'selected':''}>${PAYN[k]}</option>`).join('')}</select></label><label>Payment reference (optional)<input id="lsRef" maxlength="60" value="${esc(S.ref)}"></label></div>
+    <div class="two"><label>Bonus points (optional)<input id="lsBonus" inputmode="numeric" value="${S.bonus||''}" placeholder="0"></label><div class="pl-pts"><span>Customer gets</span><b id="lsPts">⭐ ${plSalePts().toLocaleString()} points</b></div></div></div>
+   <div class="err" id="lsErr"></div>
+   <div class="row-b"><button class="btn btn-dark" id="lsQR" style="flex:1;justify-content:center" ${S.items.length?'':'disabled'}>Show QR code</button><button class="btn btn-glass" id="lsNoAcc" ${S.items.length?'':'disabled'}>Record sale only</button></div>
+   <p class="fine">"Record sale only" is for customers who don't want points. The sale still goes into revenue and the transaction history.</p></div>
+  <div class="panel glass"><h3>Members</h3><label class="search s2 pl-ms">${SRCH}<input id="lyQ" placeholder="Search name, phone or email" value="${esc(lyQ)}"></label>
+   ${list.length?`<div class="pl-mem">${list.slice(0,80).map(m=>{const [tn,tc]=plTier(m.life);return `<div><div class="pl-av">${plIni(m.name)}</div><div class="pl-mi"><b>${esc(m.name)}</b><span>${esc(m.phone||m.email||'')}</span></div><em class="tier ${tc}">${tn}</em><b class="pl-mp">${m.points.toLocaleString()}<small>pts</small></b><div class="acts"><button class="btn btn-dark sm" data-lyp="${esc(m.id)}">± Points</button><button class="btn btn-glass sm" data-lyh="${esc(m.id)}">History</button></div></div>`}).join('')}</div>`:`<p class="mut">${M.length?'No member matches.':'Customers appear here once they create a Plug account on the website.'}</p>`}
+   <h3 style="margin-top:18px">Recent points</h3>${act.length?`<div class="lst">${act.map(t=>`<div><b>${esc((t.cust||{}).name||'—')}</b><span>${TXN[t.kind]||''} · ${plDt(t.at)}</span><em class="${t.pts<0?'neg':''}">${t.pts>0?'+':''}${(+t.pts).toLocaleString()}</em></div>`).join('')}</div>`:'<p class="mut">Points given and taken show here.</p>'}
+  </div></div>`}
+admLoyalty.bind=()=>{const S=PL.sale;S.draft=S.draft||{};const D=S.draft;
+  const P=$('#lsP');P.onchange=()=>{D.pid=P.value;D.col='';D.price=null;D.name='';renderAdm('loyalty')};
+  [['lsName','name'],['lsQty','qty'],['lsPrice','price']].forEach(([i,k])=>{const el=$('#'+i);if(el)el.oninput=()=>{D[k]=el.value}});
+  const C=$('#lsCol');if(C)C.onchange=()=>{D.col=C.value};
+  $('#lsM').onchange=e=>{S.method=e.target.value};$('#lsRef').oninput=e=>{S.ref=e.target.value.trim().slice(0,60)};
+  $('#lsBonus').oninput=e=>{S.bonus=Math.max(0,parseInt(e.target.value,10)||0);$('#lsPts').textContent='⭐ '+plSalePts().toLocaleString()+' points'};
+  $('#lsAdd').onclick=()=>{const er=$('#lsErr');er.textContent='';const p=byId[D.pid],qty=Math.max(1,parseInt($('#lsQty').value,10)||1),price=+String($('#lsPrice').value).replace(/[^\d.]/g,'');
+    if(!D.pid){er.textContent='Choose a product first.';return}
+    const n=p?p.n:String($('#lsName').value||'').trim();if(!n){er.textContent='Type the item name.';return}if(!(price>0)){er.textContent='Add the price.';return}
+    if(p&&plTracked(p)&&qty>+p.qty)say(`Note: only ${+p.qty} in stock on the system`);
+    const color=p&&plColors(p).length?($('#lsCol').value||plColors(p)[0].n):'';S.items.push({id:p?p.id:'',n:n.slice(0,60),qty,price,color});S.draft={};renderAdm('loyalty')};
+  $$('#admMain [data-lsrm]').forEach(b=>b.onclick=()=>{S.items.splice(+b.dataset.lsrm,1);renderAdm('loyalty')});
+  $('#lsQR').onclick=plQR;
+  $('#lsNoAcc').onclick=async e=>{const b=e.target;b.disabled=true;admBusy=true;try{const r=await plFinishSale(null,'');admBusy=false;plSaleDone(r,null)}catch(x){admBusy=false;b.disabled=false;$('#lsErr').textContent='Could not save. Check your internet and try again.'}};
+  const q=$('#lyQ');q.oninput=e=>{lyQ=e.target.value.trim().toLowerCase();const c=e.target.selectionStart;renderAdm('loyalty');const i=$('#lyQ');i.focus();i.setSelectionRange(c,c)};
+  $$('#admMain [data-lyp]').forEach(b=>b.onclick=()=>plPtsSheet(b.dataset.lyp));
+  $$('#admMain [data-lyh]').forEach(b=>b.onclick=()=>plHistSheet(b.dataset.lyh))};
+function plMember(uid){return plMembers().find(m=>m.id===uid)||{id:uid,name:'Customer',points:0}}
+function plPtsSheet(uid){const m=plMember(uid),R=['In-store purchase','Birthday gift','Promotion or bonus','Points used for a discount','Correction','Other'];
+  openSheet(`<h3 class="sh-t">Points for ${esc(m.name)}</h3><p class="mut">Balance now: <b>${m.points.toLocaleString()} points</b>${+ADM.settings.pointValue?` (worth about ${K(m.points/100*(+ADM.settings.pointValue))})`:''}</p>
+  <form id="ppF" class="co-f" novalidate><div class="seg pl-seg2"><button type="button" class="on" data-pm="1">+ Add points</button><button type="button" data-pm="-1">− Remove points</button></div>
+  <div class="two"><label>Points<input name="n" inputmode="numeric" placeholder="e.g. 50" required></label><label>Reason<select name="r">${R.map(r=>`<option>${r}</option>`).join('')}</select></label></div>
+  <label>Note (optional)<input name="note" maxlength="120"></label><div class="err" id="ppErr"></div><button class="btn btn-dark full" type="submit" id="ppGo">Add points</button>
+  <p class="fine">Every change is saved in the locked transaction history.</p></form>`,'modal');
+  let sign=1;document.querySelectorAll('#sheet [data-pm]').forEach(b=>b.onclick=()=>{sign=+b.dataset.pm;document.querySelectorAll('#sheet [data-pm]').forEach(x=>x.classList.toggle('on',x===b));$('#ppGo').textContent=sign>0?'Add points':'Remove points'});
+  $('#ppF').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),n=parseInt(f.get('n'),10),er=$('#ppErr');if(!(n>0)){er.textContent='Enter how many points.';return}if(n>100000){er.textContent='That is too many points at once.';return}
+    if(sign<0&&n>m.points){er.textContent=`They only have ${m.points.toLocaleString()} points.`;return}
+    const b=$('#ppGo');b.disabled=true;admBusy=true;const pts=sign*n,reason=f.get('r')+(f.get('note')?' — '+String(f.get('note')).trim().slice(0,120):'');
+    try{const t=await plAddTxn({kind:'points',amount:0,pts,note:reason,items:[],cust:{name:m.name,phone:m.phone||'',email:m.email||'',uid}});
+      const r=await plRec(uid,c=>{c.points+=pts;c.ledger.push({at:Date.now(),pts,reason,txn:t.id})});admBusy=false;closeSheet();say(`✓ ${m.name} now has ${r.points.toLocaleString()} points`);renderAdm('loyalty')}
+    catch(x){admBusy=false;b.disabled=false;er.textContent='Could not save. Check your internet and try again.'}}}
+function plHistSheet(uid){const m=plMember(uid),r=plRecs()[uid]||{},L=(r.ledger||[]).slice().reverse(),P=(r.purchases||[]).slice().reverse();
+  openSheet(`<h3 class="sh-t">${esc(m.name)} <small>${m.points.toLocaleString()} points</small></h3><p class="mut">${esc([m.phone,m.email].filter(Boolean).join(' · '))}</p>
+  <div class="hint">Points history</div>${L.length?L.slice(0,40).map(l=>`<div class="pl-led"><span>${esc(l.reason||'Points')}<small>${plDt(l.at)}</small></span><b class="${l.pts<0?'neg':''}">${l.pts>0?'+':''}${(+l.pts).toLocaleString()}</b></div>`).join(''):'<p class="fine">No points yet.</p>'}
+  ${P.length?`<div class="hint" style="margin-top:14px">In-store purchases</div>${P.slice(0,20).map(p=>`<div class="pl-led"><span>${(p.items||[]).map(i=>`${i.qty} × ${esc(i.n)}`).join(', ')}<small>${plDt(p.date)} · ${esc(p.id)}</small></span><b>${K(+p.total||0)}</b></div>`).join('')}`:''}
+  <div class="row-b" style="margin-top:14px">${m.phone?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(m.phone)}">${waSvg} WhatsApp</a>`:''}<button class="btn btn-dark" id="hsPts">± Points</button></div>`,'modal');
+  $('#hsPts').onclick=()=>plPtsSheet(uid)}
+async function plFinishSale(req,token){const S=PL.sale,items=S.items.map(i=>({...i})),total=plSaleTotal(),pts=req?plSalePts():0;
+  const cust=req?{name:req.name||'',phone:req.phone||'',email:req.email||'',uid:req.uid}:{name:'Walk-in customer',phone:'',email:'',uid:''};
+  const t=await plAddTxn({kind:'instore',amount:total,method:S.method,ref:S.ref,items,cust,pts,claim:token||''});
+  let bal=null;if(req){const r=await plRec(req.uid,c=>{c.points+=pts;c.ledger.push({at:Date.now(),pts,reason:'In-store purchase',ref:token,txn:t.id});c.purchases.push({id:t.id,date:new Date().toISOString(),items,total,pts,method:S.method});c.name=cust.name;c.phone=cust.phone;c.email=cust.email});bal=r.points}
+  if(token&&isLive()){try{await ADM.db.doc('claims/'+token).set({...(PL.claim||{}),status:'done',uid:req?req.uid:'',txn:t.id,doneAt:Date.now()})}catch(e){}}
+  try{await plStockMove(items,'sale',t.id,-1)}catch(e){}
+  let ms='';if(cust.email)ms=await plMailReceipt({...t,bal});
+  PL.sale={items:[],method:'cash',ref:'',bonus:0,draft:{}};PL.claim=null;return {t:{...t,bal},ms,bal}}
+function plSaleDone(r,req){const c=r.t.cust||{};
+  openSheet(`<div class="done-box">${TICK}<h3>${req?'Points uploaded!':'Sale recorded'}</h3><p>${req?`<b>⭐ ${(+r.t.pts).toLocaleString()} points</b> and the purchase were added to ${esc(c.name)}'s account. New balance: <b>${(+r.bal||0).toLocaleString()}</b> points.`:`${K(+r.t.amount)} is in revenue and the transaction history.`}${r.ms?'<br>'+esc(plMailSay(r.ms,c.email)):''}</p>
+   <div class="row-b" style="justify-content:center"><button class="btn btn-dark" id="sdR">View receipt</button>${c.phone?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intlPhone(c.phone)}?text=${encodeURIComponent(rcptText(r.t))}">${waSvg} WhatsApp receipt</a>`:''}<button class="btn btn-glass" data-close>New sale</button></div></div>`,'modal');
+  $('#sdR').onclick=()=>rcptSheet(r.t);renderAdm('loyalty')}
+async function plQR(){const S=PL.sale;if(!S.items.length)return;if(!isLive()){say('The QR code works on the live store');return}
+  const token=plTok(20),total=plSaleTotal(),pts=plSalePts();PL.claim={token,items:S.items.map(i=>({...i})),total,pts,method:S.method,ref:S.ref,at:Date.now(),by:ADM.name||'',status:'open'};PL.qrSeen=null;
+  try{await ADM.db.doc('claims/'+token).set(PL.claim)}catch(e){say('Could not create the code. Check your internet.');return}
+  const url=new URL('./',location.href).href+'#claim='+token+'~'+pts+'~'+total+'~'+Date.now().toString(36);
+  openSheet(`<div class="qr-wrap" id="qrBox" data-t="${token}"><h3 class="sh-t">Scan to collect points</h3><p class="mut">Customer: open your phone camera and point it at this code.</p>
+   <div class="qr-card">${plugQRsvg(url,260)}<div class="qr-brand">Plug<span>.</span> Rewards</div></div>
+   <div class="qr-sum"><b>⭐ ${pts.toLocaleString()} points</b><span>${S.items.reduce((a,i)=>a+i.qty,0)} item(s) · ${K(total)}</span></div>
+   <div class="qr-st" id="qrSt"><div><i class="spin"></i>Waiting for the customer to scan and sign in… <b id="qrCd">15:00</b></div></div>
+   <div class="row-b" style="justify-content:center"><button class="btn btn-glass" id="qrCopy">Copy link</button><button class="btn btn-glass" id="qrX">Cancel code</button></div></div>`,'modal');
+  $('#qrCopy').onclick=async()=>{try{await navigator.clipboard.writeText(url);say('Link copied. Send it to the customer on WhatsApp.')}catch(e){say('Could not copy')}};
+  $('#qrX').onclick=async()=>{clearInterval(PL.poll);try{await ADM.db.doc('claims/'+token).set({...PL.claim,status:'cancelled'})}catch(e){}closeSheet();say('Code cancelled. The sale is still on the screen.')};
+  const end=Date.now()+15*60e3;let tick=0;clearInterval(PL.poll);
+  PL.poll=setInterval(async()=>{const box=document.getElementById('qrBox');if(!box||box.dataset.t!==token||ov.hidden){clearInterval(PL.poll);return}
+    const left=end-Date.now(),cd=document.getElementById('qrCd');if(cd){const s=Math.max(0,Math.ceil(left/1000));cd.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+    if(left<=0){clearInterval(PL.poll);try{await ADM.db.doc('claims/'+token).set({...PL.claim,status:'expired'})}catch(e){}const st=$('#qrSt');if(st){st.innerHTML='<div>This code has expired.</div><button class="btn btn-dark sm" id="qrNew">Make a new code</button>';$('#qrNew').onclick=plQR}return}
+    if(PL.qrSeen||PL.qrBusy||(tick++%3))return;PL.qrBusy=true;
+    try{const sn=await ADM.db.doc('claimreq/'+token).get();if(sn.exists&&!PL.qrSeen){PL.qrSeen=sn.data();plClaimPrompt(token,PL.qrSeen)}}catch(e){}PL.qrBusy=false},1000)}
+function plClaimPrompt(token,req){const st=$('#qrSt'),box=$('#qrBox');if(!st||!box)return;box.classList.add('got');const known=!!PL.profiles[req.uid];
+  st.innerHTML=`<div class="qr-who"><div class="pl-av">${plIni(req.name)}</div><div><b>${esc(req.name||'Customer')}</b><span>${esc([req.phone,req.email].filter(Boolean).join(' · '))}</span></div></div><p>signed in on their phone${known?'':' (new account)'}. Is this the customer in front of you?</p>
+   <div class="row-b" style="justify-content:center"><button class="btn btn-dark" id="qrYes">Yes, upload points &amp; purchase</button><button class="btn btn-glass" id="qrNo">No, not them</button></div>`;
+  st.animate([{transform:'scale(.96)',opacity:.4},{transform:'none',opacity:1}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'});
+  $('#qrYes').onclick=async e=>{const b=e.target;b.disabled=true;b.textContent='Uploading…';admBusy=true;
+    try{const r=await plFinishSale(req,token);admBusy=false;clearInterval(PL.poll);plSaleDone(r,req)}catch(x){admBusy=false;b.disabled=false;b.textContent='Try again';say('Could not save. Check your internet.')}};
+  $('#qrNo').onclick=async()=>{try{await ADM.db.doc('claimreq/'+token).delete()}catch(e){}PL.qrSeen=null;box.classList.remove('got');st.innerHTML='<div><i class="spin"></i>Waiting for the right customer to scan… <b id="qrCd"></b></div>'}}
+
+/* ---------- ADMIN: stock taking ---------- */
+var skQ='',skC='all',skL=false;
+function plStockLog(){return isLive()?PL.stocklog:plList('stocklog')}
+function admStock(){const all=products,tr=all.filter(plTracked),units=tr.reduce((a,p)=>a+ +p.qty,0),val=tr.reduce((a,p)=>a+ +p.qty*p.p,0),low=tr.filter(p=>+p.qty<=plLowAt(p)),nc=all.length-tr.length,nd=Object.keys(PL.cnt).length;
+  const list=all.filter(p=>(skC==='all'||p.c===skC)&&(!skQ||(p.n+' '+p.sp).toLowerCase().includes(skQ))&&(!skL||(plTracked(p)&&+p.qty<=plLowAt(p))));
+  const lg=plStockLog().slice(0,12);
+  return head('Stock taking','Count what is on the shelf, type the number in "Counted", then tap Save. Sales take items off by themselves when a payment is confirmed.',`<div class="row-b"><button class="btn btn-dark" id="skSave" ${nd?'':'disabled'}>Save stock take${nd?` (${nd})`:''}</button><button class="btn btn-glass" id="skPrint">Print count sheet</button><button class="btn btn-glass" id="skCsv">Export CSV</button></div>`)+
+  `<div class="kpis pl-k4">${[['Units in stock',units.toLocaleString()],['Stock value',K(val)],['Low stock',low.length],['Not counted yet',nc]].map(([l,v])=>`<div class="kpi glass"><span>${l}</span><b>${v}</b></div>`).join('')}</div>
+  ${low.length?`<div class="pl-lowbox">⚠️ <b>Low stock:</b> ${low.slice(0,6).map(p=>`${esc(p.n)} (${+p.qty})`).join(', ')}${low.length>6?` and ${low.length-6} more`:''}</div>`:''}
+  <div class="tools2 pl-tools"><label class="search s2">${SRCH}<input id="skQ" placeholder="Search products" value="${esc(skQ)}"></label>
+   <select class="sel" id="skC"><option value="all">All categories</option>${Object.entries(CATS).map(([k,n])=>`<option value="${k}" ${skC===k?'selected':''}>${n}</option>`).join('')}</select>
+   <label class="chk pl-chk"><input type="checkbox" id="skL" ${skL?'checked':''}> Low stock only</label></div>
+  <div class="tblw glass"><table class="tbl"><thead><tr><th></th><th>Product</th><th>On system</th><th>Counted</th><th>Difference</th><th>Warn me at</th><th>Value</th></tr></thead><tbody>
+  ${list.map(p=>{const t=plTracked(p),c=PL.cnt[p.id],d=c!=null&&t?c-(+p.qty):null,cs=plColors(p);return `<tr data-sk="${p.id}" class="${t&&+p.qty<=plLowAt(p)?'pl-stk-low':''}"><td><img loading="lazy" decoding="async" class="th" src="${src(p.img)}" alt=""></td><td><b>${esc(p.n)}</b><span>${esc(p.sp)}${cs.length?` · ${cs.length} colours`:''}</span></td>
+   <td><b>${t?(+p.qty).toLocaleString():'—'}</b><span>${STOCK[p.stock]||''}</span></td><td><input class="ai sk-in" data-skc inputmode="numeric" value="${c!=null?c:''}" placeholder="${t?+p.qty:'Count'}" aria-label="Counted quantity for ${esc(p.n)}"></td>
+   <td><span class="sk-diff ${d>0?'up':d<0?'dn':''}">${d==null?'':(d>0?'+':'')+d}</span></td><td><input class="ai sk-in" data-skl inputmode="numeric" value="${p.low||''}" placeholder="3" aria-label="Low stock alert for ${esc(p.n)}"></td><td><span>${t?K(+p.qty*p.p):'—'}</span></td></tr>`}).join('')||'<tr><td colspan="7" class="mut">No products match.</td></tr>'}
+  </tbody></table></div><p class="fine">Leave "Counted" empty for products you did not count. A count of 0 marks the product as Sold out on the website.</p>
+  <div class="panel glass" style="margin-top:18px"><h3>Recent stock changes</h3>${lg.length?`<div class="lst">${lg.map(l=>`<div><b>${l.kind==='count'?'Stock take':l.kind==='return'?'Returned '+esc(l.ref||''):'Sold · '+esc(l.ref||'')}</b><span>${(l.changes||[]).slice(0,4).map(c=>`${esc(c.n)} ${c.was}→${c.now}`).join(', ')}${(l.changes||[]).length>4?'…':''}</span><em>${plDt(l.at)} · ${esc(l.by||'')}</em></div>`).join('')}</div>`:'<p class="mut">Stock takes and sales show here.</p>'}</div>`}
+admStock.bind=()=>{const q=$('#skQ');q.oninput=e=>{skQ=e.target.value.trim().toLowerCase();const c=e.target.selectionStart;renderAdm('stock');const i=$('#skQ');i.focus();i.setSelectionRange(c,c)};
+  $('#skC').onchange=e=>{skC=e.target.value;renderAdm('stock')};$('#skL').onchange=e=>{skL=e.target.checked;renderAdm('stock')};
+  const upd=()=>{const n=Object.keys(PL.cnt).length,b=$('#skSave');b.disabled=!n;b.textContent='Save stock take'+(n?` (${n})`:'')};
+  $$('#admMain tr[data-sk]').forEach(tr=>{const id=tr.dataset.sk,p=byId[id];
+    tr.querySelector('[data-skc]').oninput=e=>{const v=e.target.value.replace(/\D/g,'');if(e.target.value!==v)e.target.value=v;if(v==='')delete PL.cnt[id];else PL.cnt[id]=+v;const d=tr.querySelector('.sk-diff'),t=plTracked(p),x=v!==''&&t?(+v)-(+p.qty):null;d.textContent=x==null?'':(x>0?'+':'')+x;d.className='sk-diff '+(x>0?'up':x<0?'dn':'');upd()};
+    tr.querySelector('[data-skl]').onchange=async e=>{const v=parseInt(e.target.value,10)||0;admBusy=true;await saveProduct({...byId[id],low:v});admBusy=false;say(`✓ Alert for ${p.n} set to ${v||3}`)}});
+  $('#skSave').onclick=async e=>{const ids=Object.keys(PL.cnt);if(!ids.length)return;const b=e.target;b.disabled=true;b.textContent='Saving…';admBusy=true;const ch=[];
+    try{for(const id of ids){const p=byId[id];if(!p)continue;const now=PL.cnt[id],was=plTracked(p)?+p.qty:null,np={...p,qty:now};if(now<=0&&np.stock==='in')np.stock='out';if(now>0&&np.stock==='out')np.stock='in';await saveProduct(np);ch.push({id,n:p.n,was:was==null?'—':was,now})}
+      const lid=plId('S'),le={kind:'count',ref:'',changes:ch,at:Date.now(),by:ADM.name||'Staff'};await plSave('stocklog',lid,le);PL.stocklog.unshift({id:lid,...le});PL.cnt={};admBusy=false;say(`✓ Stock take saved for ${ch.length} product${ch.length===1?'':'s'}`);renderAdm('stock')}
+    catch(x){admBusy=false;b.disabled=false;b.textContent='Save stock take';say('Could not save everything. Check your internet and try again.')}};
+  $('#skCsv').onclick=()=>downloadFile('plug-stock.csv',csv([['Product','Details','Category','Colours','Quantity','Warn at','Price (K)','Value (K)','Status'],...products.map(p=>[p.n,p.sp,CATS[p.c]||p.c,plColors(p).map(c=>c.n).join('; '),plTracked(p)?+p.qty:'',p.low||3,p.p,plTracked(p)?+p.qty*p.p:'',STOCK[p.stock]||''])]));
+  $('#skPrint').onclick=()=>plPrint(`<div style="font-family:Arial,sans-serif"><h2 style="margin:0">Plug stock count</h2><p style="color:#666;margin:4px 0 16px">${plDay(Date.now())} · Counted by: ____________________</p><table style="width:100%;border-collapse:collapse;font-size:13px"><tr>${['Product','Colours','On system','Counted','Notes'].map(h=>`<th style="text-align:left;border-bottom:2px solid #000;padding:6px">${h}</th>`).join('')}</tr>${products.map(p=>`<tr><td style="border-bottom:1px solid #ccc;padding:8px 6px">${esc(p.n)}<br><small style="color:#777">${esc(p.sp)}</small></td><td style="border-bottom:1px solid #ccc;padding:6px">${esc(plColors(p).map(c=>c.n).join(', '))}</td><td style="border-bottom:1px solid #ccc;padding:6px">${plTracked(p)?+p.qty:'—'}</td><td style="border-bottom:1px solid #ccc;padding:6px;width:90px"></td><td style="border-bottom:1px solid #ccc;padding:6px;width:160px"></td></tr>`).join('')}</table></div>`)};
+
+/* ---------- ADMIN: product editor colour grid ---------- */
+function colorGridHTML(p){const sel=plColors(p);PL.pe=sel.map(c=>({...c}));const on=n=>PL.pe.some(c=>c.n===n);
+  return `<div class="cg"><div class="cg-h"><b>Colours customers can choose</b><span id="cgN">${sel.length?sel.length+' chosen':'None chosen'}</span></div>
+  <div class="cg-grid">${plPalette().map(c=>`<button type="button" class="cg-s ${on(c.n)?'on':''}" data-cn="${esc(c.n)}" data-ch="${c.h}" style="--c:${c.h}" aria-pressed="${on(c.n)}"><i></i><span>${esc(c.n)}</span></button>`).join('')}</div>
+  <div class="cg-own"><input type="color" id="cgHex" value="#888888" aria-label="Pick a colour"><input id="cgName" maxlength="30" placeholder="Other colour, e.g. Ultramarine"><button type="button" class="btn btn-glass sm" id="cgAdd">Add colour</button></div>
+  <div class="cg-sel" id="cgSel"></div><p class="fine">The first colour is the one picked for customers at the start. Leave empty if the product has one colour.</p></div>`}
+function cgPaint(){const s=$('#cgSel');if(!s)return;s.innerHTML=PL.pe.map((c,i)=>`<span style="--c:${c.h}"><i></i>${esc(c.n)}<button type="button" data-cgx="${i}" aria-label="Remove ${esc(c.n)}">×</button></span>`).join('');
+  $('#cgN').textContent=PL.pe.length?PL.pe.length+' chosen':'None chosen';
+  document.querySelectorAll('#sheet .cg-s').forEach(b=>{const on=PL.pe.some(c=>c.n===b.dataset.cn);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
+  s.querySelectorAll('[data-cgx]').forEach(b=>b.onclick=()=>{PL.pe.splice(+b.dataset.cgx,1);cgPaint()})}
+{const _pe=productEditor;productEditor=function(id){_pe(id);if(!$('#sheet .cg'))return;cgPaint();
+  document.querySelectorAll('#sheet .cg-s').forEach(b=>b.onclick=()=>{const i=PL.pe.findIndex(c=>c.n===b.dataset.cn);if(i<0){if(PL.pe.length>=30){say('Up to 30 colours');return}PL.pe.push({n:b.dataset.cn,h:b.dataset.ch})}else PL.pe.splice(i,1);cgPaint()});
+  $('#cgAdd').onclick=()=>{const n=$('#cgName').value.trim().slice(0,30),h=plHex($('#cgHex').value);if(!n){say('Type the colour name');return}if(PL.pe.some(c=>c.n.toLowerCase()===n.toLowerCase())){say('That colour is already added');return}PL.pe.push({n,h});$('#cgName').value='';cgPaint()}}}
+function peColors(){return PL.pe.map(c=>({n:c.n,h:plHex(c.h)}))}
+function qtyIn(v){v=String(v??'').trim();return v===''?null:Math.max(0,parseInt(v,10)||0)}
+
+/* ---------- ADMIN: settings additions ---------- */
+function plSettingsHTML(){const st=ADM.settings;return `<h3 style="margin-top:8px">Where customers pay</h3><p class="mut" style="margin:-4px 0 4px;font-size:13px">Shown to customers after they order, so they know where to send the money.</p>
+  <div class="two"><label>Mobile Money number<input name="momoNo" value="${esc(st.momoNo||'')}" inputmode="tel" placeholder="e.g. 097 1234567"></label><label>Mobile Money name<input name="momoName" value="${esc(st.momoName||'')}" placeholder="Name the customer sees"></label></div>
+  <div class="two"><label>Bank name<input name="bankName" value="${esc(st.bankName||'')}"></label><label>Account name<input name="bankAccName" value="${esc(st.bankAccName||'')}"></label></div>
+  <div class="two"><label>Account number<input name="bankAcc" value="${esc(st.bankAcc||'')}" inputmode="numeric"></label><label>Branch<input name="bankBranch" value="${esc(st.bankBranch||'')}"></label></div>`}
+function extraSettings(f){const g=k=>String(f.get(k)||'').trim().slice(0,80);return {momoNo:g('momoNo'),momoName:g('momoName'),bankName:g('bankName'),bankAccName:g('bankAccName'),bankAcc:g('bankAcc'),bankBranch:g('bankBranch')}}
+function plMailPanel(){const m=PL.mail||{};return `<form class="panel glass co-f" id="mailF" novalidate style="max-width:720px"><h3>Email sending (receipts and payment updates) <em class="pill ${plMailOn()?'ok':'mut'}">${plMailOn()?'On':'Off'}</em></h3>
+  <p class="mut">Uses EmailJS, which is free for 200 emails a month. Until this is filled in, emails wait in the outbox on the Payments page. Only staff can see these keys.</p>
+  <div class="two"><label>Service ID<input name="service" value="${esc(m.service||'')}" placeholder="service_xxxxxxx"></label><label>Template ID<input name="template" value="${esc(m.template||'')}" placeholder="template_xxxxxxx"></label></div>
+  <div class="two"><label>Public key<input name="key" value="${esc(m.key||'')}" placeholder="From Account → General"></label><label>Reply-to email (optional)<input name="reply" type="email" value="${esc(m.reply||'')}" placeholder="e.g. plug@gmail.com"></label></div>
+  <label>Send a test email to<input name="test" type="email" placeholder="your email"></label>
+  <div class="err" id="mlErr"></div><div class="row-b"><button class="btn btn-dark" type="submit">Save email settings</button><button type="button" class="btn btn-glass" id="mlTest">Send test email</button></div></form>`}
+{const _sb=admSettings.bind;admSettings.bind=()=>{_sb();const sf=$('#sf');if(sf&&!$('#mailF'))sf.insertAdjacentHTML('afterend',plMailPanel());const mf=$('#mailF');if(!mf)return;
+  mf.onsubmit=async e=>{e.preventDefault();const f=new FormData(mf),g=k=>String(f.get(k)||'').trim().slice(0,80);const m={service:g('service'),template:g('template'),key:g('key'),reply:g('reply')};PL.mail=m;
+    try{if(isLive())await ADM.db.doc('adminconfig/email').set(m);else store.set('demoMail',m);say('✓ Email settings saved');renderAdm('settings')}catch(x){$('#mlErr').textContent='Could not save. Try again.'}};
+  $('#mlTest').onclick=async()=>{const to=String(new FormData(mf).get('test')||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)){$('#mlErr').textContent='Type the email address to send the test to.';return}if(!plMailOn()){$('#mlErr').textContent='Save the three keys first.';return}
+    $('#mlErr').textContent='Sending…';const s=await plSendMail({to,name:'Plug staff',kind:'test',ref:'test',subject:'Plug test email',html:plMailWrap('Test','It works! ✓','<p style="font-size:14px">Receipts and payment updates will look like this.</p>'),text:'Plug test email: it works!'});$('#mlErr').textContent=s==='sent'?'✓ Test email sent. Check the inbox (and spam).':'Could not send. Check the three keys and that Gmail is connected in EmailJS.'}}}
+
+/* ---------- ADMIN: menu + live data ---------- */
+{const ix=k=>NAV.findIndex(n=>n[0]===k);
+ NAV.splice(ix('products')+1,0,['stock','Stock taking','M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10']);
+ NAV.splice(ix('orders')+1,0,['payments','Payment processing','M3 6h18v12H3zM3 10h18M7 15h4'],['transactions','Transactions','M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z']);
+ NAV.splice(ix('customers')+1,0,['loyalty','Loyalty','M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z']);}
+function plBadge(){const n=payPendingCount(),b=document.querySelector('#admSide [data-at=payments]');if(b){let s=b.querySelector('.nb');if(n){if(!s){s=document.createElement('em');s.className='nb';b.appendChild(s)}s.textContent=n}else if(s)s.remove()}}
+{const _ra=renderAdm;renderAdm=function(tab){_ra(tab);plBadge()}}
+function plFeedRefresh(){if(curAdm&&!admBusy&&['overview','payments','transactions','loyalty','stock','orders','customers'].includes(curAdm))admRefresh();else plBadge()}
+function plStartAdmin(){if(PL.feeds||!ADM.db)return;PL.feeds=true;const db=ADM.db;PL.txns=PL.txns||[];
+  db.collection('txns').onSnapshot(sn=>{PL.txns=sn.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>(b.at||0)-(a.at||0));plFeedRefresh()},()=>{});
+  db.collection('profiles').onSnapshot(sn=>{const m={};sn.docs.forEach(d=>m[d.id]=d.data()||{});PL.profiles=m;plFeedRefresh()},()=>{});
+  db.collection('custrec').onSnapshot(sn=>{const m={};sn.docs.forEach(d=>m[d.id]=d.data()||{});PL.custrec=m;plFeedRefresh()},()=>{});
+  db.collection('emails').onSnapshot(sn=>{PL.emails=sn.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>(b.at||0)-(a.at||0))},()=>{});
+  db.collection('stocklog').onSnapshot(sn=>{PL.stocklog=sn.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>(b.at||0)-(a.at||0))},()=>{});
+  db.doc('adminconfig/email').onSnapshot(sn=>{PL.mail=sn.exists?(sn.data()||{}):{}},()=>{})}
+
+/* ---------- CUSTOMER: real accounts ---------- */
+function plWantClaim(){const m=/^#claim=([A-Za-z0-9]{12,40})(?:~(\d+))?(?:~([\d.]+))?(?:~([a-z0-9]+))?/.exec(location.hash);if(m)return {t:m[1],pts:+m[2]||0,tot:+m[3]||0,at:m[4]?parseInt(m[4],36):0};
+  const s=store.get('claimPending',null);return s&&Date.now()-(s.saved||0)<20*60e3?s:null}
+{const _ba=bindAuth;bindAuth=function(mode){_ba(mode);if(!plLive())return;const a=$('#auth');if(!a)return;
+  a.querySelectorAll('.lor,.lsoc').forEach(x=>x.remove());
+  if(mode==='in'){const l=a.querySelector('input[name=id]');if(l){l.type='email';l.placeholder='name@domain.com';const sp=l.closest('.lf').querySelector('span');if(sp)sp.textContent='Email'}}
+  else{const l=a.querySelector('input[name=email]');if(l){l.required=true;const sp=l.closest('.lf').querySelector('span');if(sp)sp.textContent='Email (for receipts)'}}
+  const fg=$('#forgot');if(fg)fg.onclick=async e=>{e.preventDefault();const em=String((a.querySelector('input[name=id]')||{}).value||'').trim(),er=$('#aerr');if(!/@/.test(em)){er.textContent='Type your email above first, then tap "Forgot password?".';return}
+    try{await PLUG_AUTH.reset(em);er.textContent='';say('Check your email for a link to reset your password')}catch(x){er.textContent='Could not send the reset email. Try again later.'}};
+  $('#af').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),er=$('#aerr'),b=e.target.querySelector('.lbtn');er.textContent='';const g=k=>String(f.get(k)||'').trim();
+    const busy=on=>{b.disabled=on;b.style.opacity=on?.6:''};
+    if(mode==='in'){const em=g('id');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){er.textContent='Enter the email you signed up with.';return}if(!f.get('pw')){er.textContent='Enter your password.';return}
+      busy(true);try{await PLUG_AUTH.signIn(em,String(f.get('pw')));lgAnim(()=>location.reload(),'out')}catch(x){busy(false);const m=x&&x.message||'';er.textContent=/confirm/i.test(m)?'Please confirm your email first (check your inbox), then sign in.':/invalid/i.test(m)?'Wrong email or password.':'Could not sign in. Check your internet and try again.'}}
+    else{const name=g('name'),phone=g('phone'),em=g('email'),pw=String(f.get('pw')||'');
+      if(name.length<2){er.textContent='Please add your name.';return}if(phone.replace(/\D/g,'').length<9){er.textContent='Please add a valid phone number.';return}
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){er.textContent='Please add your email. Your receipts are sent there.';return}
+      if(pw.length<6){er.textContent='Use at least 6 characters for your password.';return}if(pw!==f.get('pw2')){er.textContent='Passwords do not match.';return}if(!f.get('ok')){er.textContent='Please accept the terms.';return}
+      busy(true);try{const r=await PLUG_AUTH.signUp(em,pw,{name:name.slice(0,60),phone:phone.slice(0,20)});
+        if(r.session){lgAnim(()=>location.reload(),'out')}else{busy(false);er.style.color='#15803d';er.textContent='Almost done! We sent a link to '+em+'. Open it to confirm your account, then sign in.'}}
+      catch(x){busy(false);const m=x&&x.message||'';er.textContent=/registered|exists/i.test(m)?'There is already an account with this email. Sign in instead.':/password/i.test(m)?m:'Could not create the account. Check your internet and try again.'}}}}}
+{const _av=accountView;accountView=function(){_av();if(user||!plLive())return;const n=document.querySelector('#sheet .lg-note');if(n)n.textContent='Your Plug account keeps your orders, receipts and points safe on any device.';
+  const c=plWantClaim(),lg=document.querySelector('#sheet .lg2');if(c&&lg&&!lg.querySelector('.claim-ban'))lg.insertAdjacentHTML('afterbegin',`<div class="claim-ban">⭐ Sign in, or tap <b>Sign Up</b> to create a free account.<br>Then <b>${(+c.pts||0).toLocaleString()} points</b>${c.tot?` for your ${K(+c.tot)} purchase`:''} go straight into it.</div>`)}}
+{const _dv=dashView;dashView=function(tab){tab=tab||'orders';PL.dashTab=tab;_dv(tab);if(!user||!user.uid)return;const tb=document.querySelector('#sheet .tab-b');if(!tb)return;const r=PL.myrec||{};
+  const P=(r.purchases||[]).slice().reverse(),L=(r.ledger||[]).slice().reverse(),sv=document.querySelectorAll('#sheet .stats b');
+  if(sv[0])sv[0].textContent=orders.length+P.length;if(sv[1])sv[1].textContent=K(orders.reduce((a,o)=>a+(+o.total||0),0)+P.reduce((a,p)=>a+(+p.total||0),0));
+  if(tab==='orders'&&P.length){const em=tb.querySelector('.emptyc');if(em)em.remove();tb.insertAdjacentHTML('afterbegin',`<div class="hint">In-store purchases</div>${P.slice(0,20).map(p=>`<div class="ord pl-ord"><b>${esc(p.id)}</b><span>${plDay(p.date)} · ${(p.items||[]).map(i=>`${i.qty} × ${esc(i.n)}${i.color?' ('+esc(i.color)+')':''}`).join(', ')} · ${K(+p.total||0)}</span><em>+${(+p.pts||0).toLocaleString()} pts</em></div>`).join('')}${orders.length?'<div class="hint" style="margin-top:12px">Online orders</div>':''}`)}
+  if(tab==='rewards'){const life=L.reduce((a,l)=>a+Math.max(0,+l.pts||0),0),[tn,tc]=plTier(life);
+    tb.insertAdjacentHTML('beforeend',`<div class="pl-tierbox"><em class="tier ${tc}">${tn} member</em><span>${tc==='gold'?'Top level. Thank you!':`${((tc==='silver'?2000:500)-life).toLocaleString()} more points to reach ${tc==='silver'?'Gold':'Silver'}`}</span></div><div class="hint" style="margin-top:12px">Points history</div>${L.length?L.slice(0,20).map(l=>`<div class="pl-led"><span>${esc(l.reason||'Points')}<small>${plDay(l.at)}</small></span><b class="${l.pts<0?'neg':''}">${l.pts>0?'+':''}${(+l.pts).toLocaleString()}</b></div>`).join(''):'<p class="fine">Points you earn show here. Buying in store? Ask staff for the QR code.</p>'}`)}}}
+async function plSignOut(){const live=user&&user.uid;user=null;store.set('user',null);if(live){orders=[];store.set('orders',[]);points=0;store.set('points',0);try{await PLUG_AUTH.signOut()}catch(e){}location.reload();return}closeSheet();say('Signed out')}
+async function plCustInit(){if(window.ADMIN_ONLY||!plLive()||!ADM.db||ADM.demo)return;let a=null;try{a=await PLUG_AUTH.account()}catch(e){}
+  if(!a){if(user){user=null;store.set('user',null)}if(plWantClaim())plClaimStart();return}
+  PL.me=a;ADM.uid=a.uid;let prof=null;try{const s=await ADM.db.doc('profiles/'+a.uid).get();prof=s.exists?s.data():null}catch(e){}
+  if(!prof){const m=a.meta||{};prof={name:String(m.name||a.email.split('@')[0]).slice(0,60),phone:String(m.phone||'').slice(0,20),email:a.email,at:Date.now()};try{await ADM.db.doc('profiles/'+a.uid).set(prof)}catch(e){}}
+  user={name:prof.name||'Plug customer',phone:prof.phone||'',email:a.email||prof.email||'',uid:a.uid};store.set('user',user);
+  try{const s=await ADM.db.doc('orders/'+a.uid).get(),cloud=s.exists?((s.data()||{}).list||[]):[],m={};[...cloud,...orders].forEach(o=>{if(o&&o.no&&!m[o.no])m[o.no]=o});const merged=Object.values(m).sort((x,y)=>(y.date||'').localeCompare(x.date||''));const more=merged.length>cloud.length;orders=merged;store.set('orders',orders);if(more)syncMyOrders()}catch(e){}
+  ADM.db.doc('custrec/'+a.uid).onSnapshot(sn=>{PL.myrec=sn.exists?(sn.data()||{}):null;points=PL.myrec?+PL.myrec.points||0:0;store.set('points',points);if(!ov.hidden&&document.querySelector('#sheet .dash-h'))dashView(PL.dashTab)},()=>{});
+  if(PL.recovery)plNewPassword();else if(plWantClaim())plClaimStart()}
+function plNewPassword(){PL.recovery=false;openSheet(`<h3 class="sh-t">Choose a new password</h3><form id="npF" class="co-f" novalidate><label>New password<input name="pw" type="password" autocomplete="new-password" required></label><label>Type it again<input name="pw2" type="password" autocomplete="new-password" required></label><div class="err" id="npErr"></div><button class="btn btn-dark full">Save password</button></form>`,'modal');
+  $('#npF').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),pw=String(f.get('pw')||'');if(pw.length<6){$('#npErr').textContent='Use at least 6 characters.';return}if(pw!==f.get('pw2')){$('#npErr').textContent='Passwords do not match.';return}
+    try{await PLUG_AUTH.setPassword(pw);closeSheet();say('✓ Password changed');history.replaceState(null,'',location.pathname+location.search)}catch(x){$('#npErr').textContent='Could not change the password. Ask for a new reset link.'}}}
+
+/* ---------- CUSTOMER: scan the in-store QR code ---------- */
+function plClaimView(html){openSheet(`<div class="pl-claim">${html}</div>`,'modal')}
+async function plClaimStart(){const c=plWantClaim();if(!c||PL.claimBusy)return;
+  if(c.at&&Date.now()-c.at>20*60e3){store.set('claimPending',null);history.replaceState(null,'',location.pathname+location.search);plClaimView(`<h3>This code has expired</h3><p>Ask Plug staff to show you a new QR code.</p>`);return}
+  store.set('claimPending',{...c,saved:Date.now()});
+  if(!user||!user.uid){accountView();return}
+  PL.claimBusy=true;plClaimView(`<div class="pl-ring"><i class="spin"></i></div><h3>Sending to Plug staff…</h3>`);
+  let ok=false;try{await ADM.db.doc('claimreq/'+c.t).set({uid:user.uid,name:user.name,phone:user.phone||'',email:user.email||'',at:Date.now()});ok=true}catch(e){try{const s=await ADM.db.doc('claimreq/'+c.t).get();ok=s.exists&&(s.data()||{}).uid===user.uid}catch(x){}}
+  if(!ok){PL.claimBusy=false;store.set('claimPending',null);history.replaceState(null,'',location.pathname+location.search);plClaimView(`<h3>This code was already used</h3><p>Ask Plug staff to show you a new QR code.</p>`);return}
+  plClaimView(`<div class="pl-ring"><i class="spin"></i></div><h3>Almost there, ${esc(user.name.split(' ')[0])}!</h3><p>Plug staff are confirming on their screen.<br>Your <b>${(+c.pts||0).toLocaleString()} points</b> appear in a moment.</p>`);
+  const end=Date.now()+15*60e3;const iv=setInterval(async()=>{if(Date.now()>end){clearInterval(iv);PL.claimBusy=false;plClaimView('<h3>Still waiting</h3><p>Ask the staff member to confirm on their screen, then open your account.</p>');return}
+    try{const s=await ADM.db.doc('custrec/'+user.uid).get(),r=s.exists?s.data():null,hit=r&&(r.ledger||[]).find(l=>l.ref===c.t);
+      if(hit){clearInterval(iv);PL.claimBusy=false;PL.myrec=r;points=+r.points||0;store.set('points',points);store.set('claimPending',null);history.replaceState(null,'',location.pathname+location.search);
+        plClaimView(`<div class="big">+${(+hit.pts).toLocaleString()}</div><h3>points added!</h3><p>Your balance is now <b>${points.toLocaleString()} points</b>.<br>Your purchase is saved in your account.</p><div class="row-b" style="justify-content:center;margin-top:14px"><button class="btn btn-dark" data-open="account">Open my account</button><a class="btn btn-glass" href="#shop" data-close>Keep shopping</a></div>`);return}
+      const q=await ADM.db.doc('claimreq/'+c.t).get();if(!q.exists){clearInterval(iv);PL.claimBusy=false;store.set('claimPending',null);history.replaceState(null,'',location.pathname+location.search);plClaimView('<h3>Staff cancelled this</h3><p>Ask them to show you a new QR code.</p>')}}catch(e){}},3000)}
+addEventListener('hashchange',()=>{if(/^#claim=/.test(location.hash)&&ADM.db)plCustInit()});
+
+/* ---------- start ---------- */
+(function plWait(){if(!ADM.ready){setTimeout(plWait,300);return}
+  if(!ADM.db||ADM.demo){PL.mail=store.get('demoMail',{});if(!window.ADMIN_ONLY&&plWantClaim()&&!plLive())plClaimView('<h3>QR codes work on the live store</h3>');return}
+  if(ADM.u&&ADM.u.canEdit)ADM.u.canEdit().then(a=>{if(a)plStartAdmin()}).catch(()=>{});
+  plCustInit()})();
 
 })();
 

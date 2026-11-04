@@ -65,6 +65,48 @@ create policy "customers update own" on public.docs for update
 create policy "admins see admins" on public.admins for select
   using (user_id = auth.uid() or public.is_admin());
 
+-- 3b) Payments, loyalty points, in-store QR codes, stock (M&P Developers)
+-- Customers may read their own points record and their own chat replies.
+drop policy if exists "read public store data" on public.docs;
+create policy "read public store data" on public.docs for select
+  using (collection in ('products','codes','config','orderstatus') or owner = auth.uid() or public.is_admin()
+         or (collection in ('chatreplies','custrec') and id = auth.uid()::text));
+-- Staff can do everything EXCEPT change the transaction history.
+drop policy if exists "admins do everything" on public.docs;
+create policy "admins do everything" on public.docs for all
+  using (public.is_admin() and collection <> 'txns') with check (public.is_admin() and collection <> 'txns');
+-- Staff can only ADD to the transaction history (never change or delete).
+drop policy if exists "admins add transactions" on public.docs;
+create policy "admins add transactions" on public.docs for insert
+  with check (collection = 'txns' and public.is_admin());
+-- A visitor can write their OWN order list, newsletter sign-up, support chat and profile.
+drop policy if exists "customers add own" on public.docs;
+create policy "customers add own" on public.docs for insert
+  with check (collection in ('orders','subscribers','chats','profiles') and id = auth.uid()::text and owner = auth.uid());
+drop policy if exists "customers update own" on public.docs;
+create policy "customers update own" on public.docs for update
+  using (collection in ('orders','subscribers','chats','profiles') and owner = auth.uid())
+  with check (collection in ('orders','subscribers','chats','profiles') and id = auth.uid()::text and owner = auth.uid());
+-- A signed-in customer (with a real account) can answer an in-store QR code once.
+drop policy if exists "customers answer qr code" on public.docs;
+create policy "customers answer qr code" on public.docs for insert
+  with check (collection = 'claimreq' and owner = auth.uid() and data->>'uid' = auth.uid()::text
+              and coalesce((auth.jwt()->>'is_anonymous')::boolean, false) = false);
+-- Lock: nobody (staff, owner, or the database dashboard) can change or delete a transaction.
+create or replace function public.plug_lock_txns() returns trigger language plpgsql as $$
+begin
+  if tg_op = 'TRUNCATE' then raise exception 'Transaction history is locked: it cannot be emptied.'; end if;
+  if (tg_op = 'DELETE' and old.collection = 'txns') or (tg_op = 'UPDATE' and (old.collection = 'txns' or new.collection = 'txns')) then
+    raise exception 'Transaction history is locked: entries cannot be changed or deleted.';
+  end if;
+  if tg_op = 'DELETE' then return old; end if;
+  return new;
+end $$;
+drop trigger if exists plug_lock_txns on public.docs;
+create trigger plug_lock_txns before update or delete on public.docs for each row execute function public.plug_lock_txns();
+drop trigger if exists plug_lock_txns_truncate on public.docs;
+create trigger plug_lock_txns_truncate before truncate on public.docs for each statement execute function public.plug_lock_txns();
+
 -- 4) Live updates -------------------------------------------------------------
 do $$ begin
   alter publication supabase_realtime add table public.docs;
