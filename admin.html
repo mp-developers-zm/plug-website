@@ -3687,7 +3687,7 @@ async function plClaimStart(){const c=plWantClaim();if(!c||PL.claimBusy)return;
   store.set('claimPending',{...c,saved:Date.now()});
   if(!user||!user.uid){accountView();return}
   PL.claimBusy=true;plClaimView(`<div class="pl-ring"><i class="spin"></i></div><h3>Sending to Plug staff…</h3>`);
-  let ok=false;try{await ADM.db.doc('claimreq/'+c.t).set({uid:user.uid,name:user.name,phone:user.phone||'',email:user.email||'',at:Date.now()});ok=true}catch(e){try{const s=await ADM.db.doc('claimreq/'+c.t).get();ok=s.exists&&(s.data()||{}).uid===user.uid}catch(x){}}
+  let ok=false;try{await ADM.db.doc('claimreq/'+c.t).create({uid:user.uid,name:user.name,phone:user.phone||'',email:user.email||'',at:Date.now()});ok=true}catch(e){try{const s=await ADM.db.doc('claimreq/'+c.t).get();ok=s.exists&&(s.data()||{}).uid===user.uid}catch(x){}}
   if(!ok){PL.claimBusy=false;store.set('claimPending',null);history.replaceState(null,'',location.pathname+location.search);plClaimView(`<h3>This code was already used</h3><p>Ask Plug staff to show you a new QR code.</p>`);return}
   plClaimView(`<div class="pl-ring"><i class="spin"></i></div><h3>Almost there, ${esc(user.name.split(' ')[0])}!</h3><p>Plug staff are confirming on their screen.<br>Your <b>${(+c.pts||0).toLocaleString()} points</b> appear in a moment.</p>`);
   const end=Date.now()+15*60e3;const iv=setInterval(async()=>{if(Date.now()>end){clearInterval(iv);PL.claimBusy=false;plClaimView('<h3>Still waiting</h3><p>Ask the staff member to confirm on their screen, then open your account.</p>');return}
