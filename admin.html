@@ -1925,19 +1925,6 @@ body.fa-lock{overflow:hidden}
   .fa-orb{bottom:250px}.fa-orb-r img{width:58px;left:-29px;top:-29px;transform:rotateY(var(--a)) translateZ(165px) rotateY(calc(var(--a)*-1))}.fa-ped:before{width:340px}
   .fa-band{padding:32px 24px;border-radius:26px}.fa-band-in b{font-size:38px}.fa-band .row-b .btn{flex:1;justify-content:center}}
 
-/* the real watch: the liquid becomes Plug's PINDU iced-out piece at the end */
-.fa-w-real{position:absolute;left:50%;top:45%;height:74%;width:auto;max-width:92%;object-fit:contain;transform:translate(-50%,-50%) scale(.93);opacity:0;pointer-events:none;z-index:2;filter:drop-shadow(0 34px 30px rgba(20,22,28,.28)) drop-shadow(0 6px 8px rgba(20,22,28,.12));transition:opacity 1.2s ease,transform 1.6s cubic-bezier(.2,.8,.2,1)}
-.fa-w-stage canvas{transition:opacity 1s ease}
-.fa-w-stage.real .fa-w-real{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.fa-w-stage.real canvas{opacity:0}
-.fa-w-stage.no-gl.real .fa-w-fb{display:none}
-.fa-w-stage.real .fa-w-hint{opacity:0}
-.fa-w-tag{position:absolute;left:50%;bottom:6%;z-index:3;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 8px 0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 14px 30px -16px rgba(20,24,32,.35);font:600 12.5px/1 var(--body);color:#0d0e10;cursor:pointer;white-space:nowrap;opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:opacity .6s .5s,transform .8s .5s cubic-bezier(.2,.8,.2,1)}
-.fa-w-tag i{width:7px;height:7px;border-radius:50%;background:#2fb86a;box-shadow:0 0 0 4px rgba(47,184,106,.18)}
-.fa-w-tag b{display:inline-grid;place-items:center;height:28px;padding:0 12px;border-radius:99px;background:#0d0e10;color:#fff;font-weight:600}
-.fa-w-stage.real .fa-w-tag{opacity:1;transform:translate(-50%,0);pointer-events:auto}
-@media (max-width:600px){.fa-w-tag{font-size:11.5px;height:36px}.fa-w-real{height:68%}}
-@media (prefers-reduced-motion:reduce){.fa-w-real,.fa-w-tag,.fa-w-stage canvas{transition:none}}
 /* Plug's own fashion photos (img/p/fa-*): shown whole, as photographed in the shop */
 .pc .ph img[src*="img/p/fa-"]{position:absolute;inset:0;max-width:none;max-height:none;width:100%;height:100%;object-fit:cover}
 .pd-img img[src*="img/p/fa-"]{max-width:100%;max-height:100%;height:100%;width:auto;object-fit:contain;border-radius:20px;filter:none}
@@ -1947,6 +1934,76 @@ body.fa-lock{overflow:hidden}
 
 /* keep each product in view when its photo is cropped to the card */
 img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-greenauto."]{object-position:48% 52%}img[src*="img/p/fa-hbgalaxy."]{object-position:50% 49%}img[src*="img/p/fa-exgraffiti."]{object-position:50% 55%}img[src*="img/p/fa-oblvlo."]{object-position:46% 45%}img[src*="img/p/fa-hbr986."]{object-position:50% 49%}img[src*="img/p/fa-cronus."]{object-position:48% 48%}img[src*="img/p/fa-pindurainbow."]{object-position:50% 53%}img[src*="img/p/fa-pinduskull."]{object-position:52% 47%}img[src*="img/p/fa-pinduiced."]{object-position:48% 49%}img[src*="img/p/fa-haloring."]{object-position:46% 55%}img[src*="img/p/fa-panda."]{object-position:52% 51%}img[src*="img/p/fa-bafelli."]{object-position:51% 49%}img[src*="img/p/fa-exboston."]{object-position:52% 64%}img[src*="img/p/fa-lvkeepall."]{object-position:50% 48%}img[src*="img/p/fa-lvtote."]{object-position:51% 57%}img[src*="img/p/fa-lvminitote."]{object-position:50% 50%}img[src*="img/p/fa-elephant."]{object-position:52% 53%}img[src*="img/p/fa-bearblack."]{object-position:34% 48%}img[src*="img/p/fa-bearorange."]{object-position:46% 45%}img[src*="img/p/fa-vanity."]{object-position:52% 52%}img[src*="img/p/fa-owlsquare."]{object-position:50% 51%}img[src*="img/p/fa-backpack."]{object-position:51% 56%}img[src*="img/p/fa-library."]{object-position:51% 54%}img[src*="img/p/fa-kdaiou."]{object-position:53% 57%}img[src*="img/p/fa-silvercat."]{object-position:49% 53%}img[src*="img/p/fa-owlround."]{object-position:56% 58%}img[src*="img/p/fa-bucket."]{object-position:53% 53%}
+
+/* ==== hero v2: a wall of Plug's real pieces + a featured piece (light on the GPU: only transforms and opacity animate) ==== */
+.fa-hero2{background:#120b07}
+.fa-hero2 .fa-hero-in{grid-template-columns:minmax(0,1fr) minmax(0,430px);gap:56px}
+.fa-wall{position:absolute;top:-6%;bottom:-6%;right:-2%;width:64%;display:flex;gap:16px;z-index:-2;opacity:.42;pointer-events:none;transform-origin:50% 50%;will-change:transform}
+.fa-wcol{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent)}
+.fa-wcol-in{display:flex;flex-direction:column;gap:16px;animation:faWall var(--wd,80s) linear infinite;animation-direction:var(--wdir,normal);will-change:transform}
+.fa-wcol:nth-child(2){margin-top:-60px}.fa-wcol:nth-child(4){margin-top:-120px}
+.fa-wcell{display:block;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#2a1b12;box-shadow:inset 0 0 0 1px rgba(255,236,214,.08)}
+.fa-wcell img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes faWall{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+.fa-wall-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#120b07 0%,#120b07 34%,rgba(18,11,7,.82) 50%,rgba(18,11,7,.35) 72%,rgba(18,11,7,.55) 100%),linear-gradient(180deg,rgba(18,11,7,.6),rgba(18,11,7,0) 22%,rgba(18,11,7,0) 78%,#110a07)}
+.fa-hero2 .fa-glow{z-index:-1}
+.fa-hero.off .fa-wcol-in{animation-play-state:paused}
+.fa-hero2 .fa-fl img{filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.fa-hero2 .fa-float{will-change:transform}
+/* category chips with a real piece in each */
+.fa-cats{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;transform:none}
+.fa-cats .fa-cat{flex-direction:row;justify-content:flex-start;align-items:center;gap:11px;min-height:0;height:58px;padding:6px 16px 6px 6px;border-radius:99px;background:rgba(255,244,230,.07);border:1px solid rgba(255,236,214,.16);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;transition:background .3s,border-color .3s,transform .3s}
+.fa-cats .fa-cat:hover,.fa-cats .fa-cat:focus-visible{transform:translateY(-2px);background:rgba(255,244,230,.14);border-color:rgba(255,236,214,.34);box-shadow:none}
+.fa-cats .fa-cat:after{display:none}
+.fa-cats .fa-cat>img,.fa-cat-all,.fa-cat-ic{width:46px;height:46px;max-width:none;margin:0;flex:none;border-radius:50%;object-fit:cover;filter:none;transform:none!important}
+.fa-cat-all,.fa-cat-ic{display:grid;place-items:center;background:linear-gradient(160deg,#f6ead9,#c9a985);color:#1b120c;font:700 15px/1 var(--head);font-style:normal}
+.fa-cat-ic{background:rgba(255,244,230,.1)}.fa-cat-ic img{width:34px;height:34px;object-fit:contain}
+.fa-cats .fa-cat span{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left}
+.fa-cats .fa-cat b{font-size:13.5px}.fa-cats .fa-cat small{display:block;font-size:11px}
+/* the featured piece */
+.fa-spot{position:relative;justify-self:end;width:100%;max-width:430px;padding:12px;border-radius:30px;background:linear-gradient(165deg,rgba(52,36,26,.96),rgba(24,15,10,.97));border:1px solid rgba(255,236,214,.2);box-shadow:0 50px 90px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.18)}
+.fa-spot-frame{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#2a1b12;cursor:pointer}
+.fa-spot-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:0;transform:scale(1.06)}
+.fa-spot-imgs img.prev{opacity:1;z-index:1;transform:scale(1)}
+.fa-spot-imgs img.on{opacity:1;z-index:2;transform:scale(1);transition:opacity 1s ease,transform 5.5s ease-out}
+.fa-spot-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(12,7,4,.55));pointer-events:none}
+.fa-spot-badge{position:absolute;left:14px;top:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 13px;border-radius:99px;background:rgba(18,11,7,.62);color:#f6efe7;font:600 10.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase}
+.fa-spot-badge i{width:7px;height:7px;border-radius:50%;background:#46d483;box-shadow:0 0 0 4px rgba(70,212,131,.2)}
+.fa-spot-cap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 8px 6px 10px}
+.fa-spot-t{min-width:0}.fa-spot-t small{display:block;font:600 10.5px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:#cdb79c;margin-bottom:7px}
+.fa-spot-t b{display:block;font:500 25px/1.08 var(--serif);color:#fbf4ea;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fa-spot.swap .fa-spot-t{animation:faSwap .5s cubic-bezier(.2,.8,.2,1)}
+.fa .fa-spot-go{height:44px;padding:0 20px;font-size:13.5px;flex:none}
+.fa-spot-dots{display:flex;gap:6px;padding:8px 10px 4px}
+.fa-spot-dots button{flex:1;height:3px;border-radius:3px;background:rgba(255,236,214,.2);transition:background .3s}
+.fa-spot-dots button.on{background:#f3e3cd}
+@media (max-width:1100px){.fa-hero2 .fa-hero-in{grid-template-columns:1fr;gap:40px}.fa-spot{justify-self:start}.fa-wall{width:100%;opacity:.28}.fa-wall-shade{background:linear-gradient(180deg,rgba(18,11,7,.7),rgba(18,11,7,.55) 50%,#110a07)}}
+@media (max-width:600px){.fa-cats{gap:8px;margin-top:26px}.fa-cats .fa-cat{height:50px;padding-right:12px}.fa-cats .fa-cat>img,.fa-cat-all,.fa-cat-ic{width:38px;height:38px}.fa-spot{max-width:none}.fa-spot-t b{font-size:21px}.fa-wcol-in{animation-duration:120s}}
+@media (prefers-reduced-motion:reduce){.fa-wcol-in{animation:none}.fa-spot-imgs img{transition:opacity .3s}}
+
+/* ==== bags: a lit glass case on the plinth with Plug's real bags taking turns ==== */
+.fa-case{position:absolute;left:50%;bottom:170px;width:250px;margin-left:-125px;aspect-ratio:3/4;z-index:2;border-radius:18px;overflow:hidden;cursor:pointer;background:#2a1b12;box-shadow:0 40px 60px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,236,214,.18);animation:faCaseBob 7s ease-in-out infinite alternate;will-change:transform}
+.fa-case-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:0}
+.fa-case-imgs img.prev{opacity:1;z-index:1}
+.fa-case-imgs img.on{opacity:1;z-index:2;transition:opacity .9s ease}
+.fa-case-glass{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.08));box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+@keyframes faCaseBob{from{transform:translateY(-6px)}to{transform:translateY(8px)}}
+.fa-bags.off .fa-case{animation-play-state:paused}
+.fa-case-cap{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:12px;white-space:nowrap;z-index:3;height:40px;padding:0 6px 0 16px;border-radius:99px;background:rgba(255,244,230,.09);border:1px solid rgba(255,236,214,.18);color:#f3e7d8;font-size:13px}
+.fa-case-cap b{font-weight:600;max-width:240px;overflow:hidden;text-overflow:ellipsis}
+.fa-case-cap button{height:28px;padding:0 13px;border-radius:99px;background:#f6ebdc;color:#1b120c;font:600 12px/1 var(--body)}
+.fa-ped.empty .fa-case,.fa-ped.empty .fa-case-cap{display:none}
+.fa-bag-strip{display:flex;gap:10px;margin:26px 0 0;flex-wrap:wrap}
+.fa-bag-strip button{width:58px;height:58px;border-radius:16px;overflow:hidden;padding:0;border:1px solid rgba(255,236,214,.2);background:#2a1b12;transition:transform .3s,border-color .3s}
+.fa-bag-strip button:hover{transform:translateY(-3px);border-color:rgba(255,236,214,.5)}
+.fa-bag-strip img{width:100%;height:100%;object-fit:cover;display:block}
+.fa-bag-strip .more{display:grid;place-items:center;color:#f3e7d8;font:600 13px/1 var(--body)}
+.fa-bag-strip:empty{display:none}
+@media (max-width:600px){.fa-case{width:200px;margin-left:-100px;bottom:150px}}
+@media (prefers-reduced-motion:reduce){.fa-case{animation:none}}
+
+.fa-rail h2,.fa-rail p,.fa-pills{-webkit-user-select:none;user-select:none}
+@media (max-width:700px){.fa-hero2 .fa-float{display:none}}
 
 @media (min-width:821px){.cat-grid.cat-img{grid-template-columns:repeat(5,1fr)}}
 .cat-grid.cat-img .cat2:last-child{grid-column:span 2;aspect-ratio:auto!important;height:auto;align-self:stretch}
@@ -2289,57 +2346,25 @@ html{overflow-x:clip}
   <!-- FASHION PAGE (M&P): AR boutique in a walnut walk-in closet, floating liquid-glass clay icons (Plug's own artwork),
        a frosted-glass rail of pieces, a 3D try view, and the Watch Room where black liquid pours itself into a watch.
        Shows every product whose category is "fashion" (Admin > Products > Category: Fashion). -->
-  <section class="fa-hero" id="fashion-top">
-    <div class="fa-scene" id="faScene" aria-hidden="true">
-      <div class="fa-cam" id="faCam"><div class="fa-room">
-        <div class="fa-w fa-back">
-          <div class="fa-cab"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
-            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG2"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg><svg viewBox="0 0 120 200"><use href="#faG3"/></svg></div>
-            <div class="fa-fold"><i></i><i></i><i></i></div></div>
-          <div class="fa-cab wide"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
-            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG1"/></svg><svg viewBox="0 0 120 200"><use href="#faG4"/></svg><svg viewBox="0 0 120 200"><use href="#faG2"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg></div>
-            <div class="fa-shoes"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fa-cab"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
-            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG3"/></svg><svg viewBox="0 0 120 200"><use href="#faG4"/></svg></div>
-            <div class="fa-fold"><i></i><i></i></div></div>
-        </div>
-        <div class="fa-w fa-left"><i class="fa-strip"></i><div class="fa-cab side"><i class="fa-led r"></i><div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG4"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg></div></div></div>
-        <div class="fa-w fa-right"><i class="fa-mirror"></i><i class="fa-strip"></i></div>
-        <div class="fa-w fa-floor"></div>
-        <div class="fa-w fa-ceil"><i></i><i></i><i></i></div>
-      </div></div>
-      <svg width="0" height="0" style="position:absolute"><defs>
-        <linearGradient id="faCl1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9e2d8"/><stop offset="1" stop-color="#9c9184"/></linearGradient>
-        <linearGradient id="faCl2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d5852"/><stop offset="1" stop-color="#26231f"/></linearGradient>
-        <linearGradient id="faCl3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9a48a"/><stop offset="1" stop-color="#6e5a44"/></linearGradient>
-        <symbol id="faHg" viewBox="0 0 120 200"><path d="M60 4c6 0 8 6 4 9l-4 4v6M60 23 22 40h76z" fill="none" stroke="#c9b9a3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-        <symbol id="faG1" viewBox="0 0 120 200"><use href="#faHg"/><path d="M24 40 44 33q16 10 32 0l20 7 14 42-14 4-6-20v116H30V66l-6 20-14-4z" fill="url(#faCl1)"/></symbol>
-        <symbol id="faG2" viewBox="0 0 120 200"><use href="#faHg"/><path d="M26 40 46 32q14 8 28 0l20 8-8 40 18 110H16l18-110z" fill="url(#faCl2)"/></symbol>
-        <symbol id="faG3" viewBox="0 0 120 200"><use href="#faHg"/><path d="M20 40 44 32 60 70 76 32l24 8 12 70-14 3-6-38v115H34V75l-6 38-14-3z" fill="url(#faCl3)"/></symbol>
-        <symbol id="faG4" viewBox="0 0 120 200"><use href="#faHg"/><path d="M30 40h60l4 22H26zM28 62h64l10 128H18z" fill="url(#faCl1)" opacity=".92"/></symbol>
-      </defs></svg>
-      <i class="fa-glow"></i><i class="fa-vig"></i>
-    </div>
-
+  <section class="fa-hero fa-hero2" id="fashion-top">
+    <div class="fa-wall" id="faWall" aria-hidden="true"></div>
+    <i class="fa-wall-shade" aria-hidden="true"></i><i class="fa-glow" aria-hidden="true"></i>
     <div class="fa-float" id="faFloat" aria-hidden="true"></div>
-
     <div class="wrap fa-hero-in">
       <div class="fa-copy">
         <span class="fa-eyebrow"><i></i>Plug Fashion</span>
         <h1 class="fa-h"><span class="ln"><span>Wear the</span></span><span class="ln"><span><em>moment.</em></span></span></h1>
-        <p class="fa-lead">Watches, bags and the finishing touches, picked by the Plug team. Step into the boutique, take a piece off the rail and turn it in 3D before you buy.</p>
+        <p class="fa-lead">Watches, bags and the finishing touches, in store now at Plug, Liberty Mall. Take a piece off the rail and see it up close before you buy.</p>
         <div class="fa-ctas"><a class="btn fa-btn-w" href="#fa-rail">Explore the rail</a><a class="btn fa-btn-o" href="#fa-watch">The Watch Room</a></div>
+        <div class="fa-tiles fa-cats" id="faTiles"></div>
       </div>
-      <div class="fa-ui" id="faUi">
-        <div class="fa-coll">
-          <div class="fa-tabs"><span class="on">Collections</span><span>Explore</span></div>
-          <div class="fa-coll-art"><i class="fa-sun"></i><img class="a1" src="img/fa/bag.webp" alt="" loading="lazy" decoding="async"><img class="a2" src="img/fa/watch.webp" alt="" loading="lazy" decoding="async"><img class="a3" src="img/fa/gem.webp" alt="" loading="lazy" decoding="async">
-            <div class="fa-coll-t"><small>Featured collection</small><b>New season,<br><em>new statement.</em></b></div></div>
-        </div>
-        <div class="fa-tiles" id="faTiles"></div>
+      <div class="fa-spot" id="faSpot">
+        <div class="fa-spot-frame"><div class="fa-spot-imgs" id="faSpotImgs"></div><span class="fa-spot-badge"><i></i>In store now</span></div>
+        <div class="fa-spot-cap"><div class="fa-spot-t"><small id="faSpotK">Featured</small><b id="faSpotN">Plug Fashion</b></div><button type="button" class="btn fa-btn-w fa-spot-go" id="faSpotGo">View</button></div>
+        <div class="fa-spot-dots" id="faSpotDots"></div>
       </div>
     </div>
-    <div class="fa-corner l">Plug · Boutique</div><div class="fa-corner r" id="faYear">2026</div>
+    <span id="faYear" hidden>2026</span>
   </section>
 
   <section class="fa-rail" id="fa-rail">
@@ -2360,15 +2385,13 @@ html{overflow-x:clip}
       <div class="fa-w-copy reveal">
         <span class="fa-eyebrow dk"><i></i>The Watch Room</span>
         <h2>Time, poured<br><em>into form.</em></h2>
-        <p>Liquid takes shape and becomes the real thing: our PINDU iced-out automatic, in store now. Drag to turn the 3D model; its hands show your time right now.</p>
+        <p>Every watch starts as an idea. Watch this one take shape, then drag it round to see it from every side. The hands show your time right now.</p>
         <div class="fa-w-time"><i></i><span id="faTime">Showing your time</span></div>
         <div class="fa-ctas"><button type="button" class="btn fa-btn-k" data-fa-go="watches">Shop watches</button><button type="button" class="btn fa-btn-g" id="faReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg>Replay</button></div>
       </div>
       <div class="fa-w-stage" id="faWStage">
         <img class="fa-w-fb" src="img/fa/watch.webp" alt="" loading="lazy" decoding="async">
         <canvas id="faWatchGl" aria-label="A 3D watch forming from liquid" role="img"></canvas>
-        <img class="fa-w-real" id="faWReal" src="img/fa/real_watch.webp" alt="PINDU iced-out twin open-heart automatic watch, in store at Plug" loading="lazy" decoding="async">
-        <button type="button" class="fa-w-tag" id="faWTag" data-open-p="fa-pinduiced" hidden><i></i>In store now · PINDU Iced-Out Automatic<b>View</b></button>
         <span class="fa-w-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 12h8M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Drag to turn</span>
         <i class="fa-w-prog" id="faWProg"></i>
       </div>
@@ -2377,16 +2400,17 @@ html{overflow-x:clip}
 
   <section class="fa-bags" id="fa-bags">
     <div class="wrap fa-bags-in">
-      <div class="fa-ped" id="faPed" aria-hidden="true">
-        <div class="fa-orb"><div class="fa-orb-r"><img src="img/fa/lock.webp" alt=""><img src="img/fa/links.webp" alt=""><img src="img/fa/star.webp" alt=""><img src="img/fa/perfume.webp" alt=""><img src="img/fa/shades.webp" alt=""><img src="img/fa/heart.webp" alt=""></div></div>
-        <img class="fa-ped-bag" src="img/fa/bag.webp" alt="" loading="lazy" decoding="async">
+      <div class="fa-ped" id="faPed">
+        <div class="fa-case" id="faCase"><div class="fa-case-imgs" id="faCaseImgs"></div><i class="fa-case-glass"></i></div>
         <i class="fa-ped-top"></i><i class="fa-ped-col"></i><i class="fa-ped-sh"></i>
+        <div class="fa-case-cap"><b id="faCaseN"></b><button type="button" id="faCaseGo">View</button></div>
       </div>
       <div class="fa-bags-copy reveal">
         <span class="fa-eyebrow"><i></i>Bags</span>
         <h2>Carry the<br><em>moment.</em></h2>
         <p>Totes for the office, clutches for the evening and everyday bags that go with everything. Ask us for colours and what's in store today.</p>
         <ul class="fa-ticks"><li>Checked by our team before it leaves the shop</li><li>Same-day delivery in Lusaka before 14:00</li><li>Pay on delivery or chat and order on WhatsApp</li></ul>
+        <div class="fa-bag-strip" id="faBagStrip"></div>
         <div class="fa-ctas"><button type="button" class="btn fa-btn-w" data-fa-go="bags">Shop bags</button><a class="btn fa-btn-o" id="faBagWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
       </div>
     </div>
@@ -4175,34 +4199,48 @@ function faWatch(cv,o){o=o||{};
   let fontDone=false;const faFont=()=>{if(fontDone)return;fontDone=true;const l=document.createElement('link');l.rel='stylesheet';
     l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap';document.head.appendChild(l)};
 
-  /* ---------- the boutique (CSS 3D room) + floating clay icons ---------- */
-  const hero=$('.fa-hero'),scene=$('#faScene'),cam=$('#faCam'),ui=$('#faUi'),flt=$('#faFloat');
-  const FL=[ // icon, left %, top %, width px, depth (parallax), class
-    ['bag',58,6,124,1.2,'fa-near'],['watch',88,16,118,1.4,'fa-near'],['gem',47,72,70,.6,''],['star',36,12,46,.4,'fa-far m-hide'],
-    ['ring',92,68,92,1.1,'fa-near'],['shades',70,84,108,.9,'m-hide'],['mono',4,80,74,.5,'fa-far'],['perfume',26,82,66,.7,'fa-far m-hide'],
-    ['heart',80,4,52,.5,'fa-far'],['lock',2,10,58,.5,'fa-far m-hide'],['links',50,40,50,.3,'fa-far m-hide'],['hanger',38,90,80,.6,'fa-far m-hide']];
-  flt.innerHTML=FL.map(([k,x,y,s,z,c],i)=>`<div class="fa-fl ${c}" style="--x:${x}%;--y:${y}%;--s:${s}px;--z:${z};--i:${i};--d:${(5+((i*7)%5)*.9).toFixed(1)}s;--dl:${(-i*.7).toFixed(1)}s;--r:${(3+(i*5)%7)}deg"><img src="${img(k)}" alt="" loading="lazy" decoding="async"></div>`).join('');
-  const fls=[...flt.children];
-  const H={tx:0,ty:0,cx:0,cy:0,raf:0,last:0,vis:false,t:0};
-  function faRoomSize(){const w=hero.clientWidth||innerWidth;scene.style.setProperty('--rs',Math.max(.62,Math.min(1.5,w/1440)).toFixed(3))}
-  function faHeroPaint(){const sw=faRM?0:Math.sin(H.t*.35),sw2=faRM?0:Math.sin(H.t*.23+1);
-    const ry=H.cx*5+sw*2.2,rx=-H.cy*2.4+sw2*.8;cam.style.setProperty('--ry',ry.toFixed(3)+'deg');cam.style.setProperty('--rx',rx.toFixed(3)+'deg');
-    ui.style.setProperty('--uy',(H.cx*6).toFixed(2)+'deg');ui.style.setProperty('--ux',(-H.cy*4).toFixed(2)+'deg');
-    const px=-(H.cx*34+sw*10),py=-(H.cy*22+sw2*6);
-    fls.forEach(f=>{const z=+f.style.getPropertyValue('--z');f.style.transform=`translate3d(${(px*z).toFixed(1)}px,${(py*z).toFixed(1)}px,0)`})}
-  function faHeroLoop(now){H.raf=0;if(!H.vis||!faOn())return;const dt=Math.min(.05,(now-(H.last||now))/1000);H.last=now;H.t+=dt;
-    const k=Math.min(1,dt*3.2);H.cx+=(H.tx-H.cx)*k;H.cy+=(H.ty-H.cy)*k;faHeroPaint();
-    if(faLite&&Math.abs(H.tx-H.cx)<.002&&Math.abs(H.ty-H.cy)<.002)return; /* phones: only move while the finger/mouse moves */
-    H.raf=requestAnimationFrame(faHeroLoop)}
-  const faHeroKick=()=>{if(faRM){faHeroPaint();return}if(!H.raf&&H.vis&&faOn()){H.last=0;H.raf=requestAnimationFrame(faHeroLoop)}};
-  hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=hero.getBoundingClientRect();H.tx=((e.clientX-r.left)/r.width-.5)*2;H.ty=((e.clientY-r.top)/r.height-.5)*2;faHeroKick()});
+  /* ---------- hero: a slow wall of Plug's real pieces, a featured piece, a few floating clay icons ---------- */
+  const hero=$('.fa-hero'),wall=$('#faWall'),flt=$('#faFloat'),tiles=$('#faTiles');
+  const thumb=p=>/^fa-[a-z0-9-]+$/.test(p.img||'')?`img/p/t/${p.img}.webp`:src(p.img);
+  const FL=[['bag',47,8,96,1.1],['watch',93,10,92,1.3],['ring',95,74,72,1],['gem',46,84,58,.7],['shades',62,92,84,.8]];
+  flt.innerHTML=FL.map(([k,x,y,s,z],i)=>`<div class="fa-fl" style="--x:${x}%;--y:${y}%;--s:${s}px;--i:${i};--d:${(6+i*.8).toFixed(1)}s;--dl:${(-i*1.3).toFixed(1)}s;--r:${3+i*2}deg"><img src="${img(k)}" alt="" loading="lazy" decoding="async"></div>`).join('');
+  const H={tx:0,ty:0,cx:0,cy:0,raf:0,vis:false};
+  function faRoomSize(){}
+  function faHeroPaint(){flt.style.transform=`translate3d(${(-H.cx*18).toFixed(1)}px,${(-H.cy*12).toFixed(1)}px,0)`;wall.style.transform=`translate3d(${(H.cx*8).toFixed(1)}px,${(H.cy*6).toFixed(1)}px,0)`}
+  function faHeroLoop(){H.raf=0;H.cx+=(H.tx-H.cx)*.14;H.cy+=(H.ty-H.cy)*.14;faHeroPaint();if(Math.abs(H.tx-H.cx)>.003||Math.abs(H.ty-H.cy)>.003)H.raf=requestAnimationFrame(faHeroLoop)}
+  const faHeroKick=()=>{if(faRM||faLite)return;if(!H.raf&&H.vis&&faOn())H.raf=requestAnimationFrame(faHeroLoop)};
+  hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=hero.getBoundingClientRect();H.tx=((e.clientX-r.left)/r.width-.5)*2;H.ty=((e.clientY-r.top)/r.height-.5)*2;faHeroKick()},{passive:true});
   hero.addEventListener('pointerleave',()=>{H.tx=H.ty=0;faHeroKick()});
-  if('IntersectionObserver' in window)new IntersectionObserver(es=>{H.vis=es[0].isIntersecting;hero.classList.toggle('off',!H.vis);faHeroKick()},{rootMargin:'40px'}).observe(hero);else H.vis=true;
-
-  /* ---------- the AR category tiles ---------- */
-  const tiles=$('#faTiles');const TT=['bags','watches','eyewear','jewellery','fragrance','clothing','accessories','all'];
-  tiles.innerHTML=TT.map(k=>`<button type="button" class="fa-tile" data-fa-go="${k}"><img src="${img(FAI[k])}" alt="" loading="lazy" decoding="async"><b>${k==='all'?'All pieces':FAN[k]}</b><small data-fa-n="${k}">0 pieces</small></button>`).join('');
-  if(!faRM)$$('.fa-tile').forEach(t=>{t.addEventListener('pointermove',e=>{const r=t.getBoundingClientRect();t.style.setProperty('--gx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');t.style.setProperty('--gy',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')})});
+  if('IntersectionObserver' in window)new IntersectionObserver(es=>{H.vis=es[0].isIntersecting;hero.classList.toggle('off',!H.vis);faSpotRun()},{rootMargin:'40px'}).observe(hero);else H.vis=true;
+  let wallKey='';
+  function faWallFill(){const L=faAll.filter(p=>p.img&&faType(p)!=='watches');const key=L.map(p=>p.id+p.img).join();if(key===wallKey)return;wallKey=key;
+    if(!L.length){wall.innerHTML='';return}
+    const n=innerWidth<700?2:innerWidth<1100?3:4,cols=[...Array(n)].map(()=>[]);
+    L.forEach((p,i)=>cols[i%n].push(p));
+    wall.innerHTML=cols.map((c,ci)=>{while(c.length<5)c.push(...c.slice(0,5-c.length));const cell=c.map(p=>`<span class="fa-wcell"><img src="${thumb(p)}" alt="" loading="lazy" decoding="async"></span>`).join('');
+      return `<div class="fa-wcol" style="--wd:${70+ci*14}s;--wdir:${ci%2?'reverse':'normal'}"><div class="fa-wcol-in">${cell}${cell}</div></div>`}).join('')}
+  /* the featured piece */
+  const spot=$('#faSpot'),spotImgs=$('#faSpotImgs'),spotDots=$('#faSpotDots');const S={list:[],i:0,timer:0,key:'',hold:false};
+  const SPOT_PICK=['fa-lvkeepall','fa-bafelli','fa-library','fa-elephant','fa-exboston','fa-catsplash','fa-panda','fa-silvercat'];
+  const noW=p=>faType(p)!=='watches';
+  function faSpotFill(){let L=faAll.filter(p=>p.featured&&p.stock!=='out'&&noW(p));if(L.length<3)L=[...L,...SPOT_PICK.map(id=>faAll.find(p=>p.id===id)).filter(p=>p&&!L.includes(p))];
+    if(L.length<3)L=[...L,...faAll.filter(p=>noW(p)&&!L.includes(p))];L=L.slice(0,6);const key=L.map(p=>p.id+p.img+p.n).join();spot.hidden=!L.length;if(key===S.key)return;S.key=key;S.list=L;S.i=0;
+    spotImgs.innerHTML=L.map((p,i)=>`<img src="${src(p.img)}" alt="${esc(p.n)}" ${i?'loading="lazy"':''} decoding="async" class="${i?'':'on'}">`).join('');
+    spotDots.innerHTML=L.map((p,i)=>`<button type="button" class="${i?'':'on'}" aria-label="Show ${esc(p.n)}"></button>`).join('');faSpotShow(0)}
+  function faSpotShow(i){const L=S.list;if(!L.length)return;S.i=(i+L.length)%L.length;const p=L[S.i];
+    const pv=S.prev;[...spotImgs.children].forEach((m,k)=>{m.classList.toggle('prev',k===pv&&k!==S.i);m.classList.toggle('on',k===S.i)});S.prev=S.i;[...spotDots.children].forEach((d,k)=>d.classList.toggle('on',k===S.i));
+    $('#faSpotK').textContent=FAN[faType(p)]||'Featured';$('#faSpotN').textContent=p.n;$('#faSpotGo').dataset.openP=p.id;spot.classList.remove('swap');void spot.offsetWidth;spot.classList.add('swap')}
+  function faSpotRun(){clearInterval(S.timer);if(faRM||!H.vis||!faOn()||S.list.length<2)return;S.timer=setInterval(()=>{if(!S.hold&&!document.hidden)faSpotShow(S.i+1)},4200)}
+  spotDots.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;faSpotShow([...spotDots.children].indexOf(b));faSpotRun()});
+  spot.addEventListener('pointerenter',()=>S.hold=true);spot.addEventListener('pointerleave',()=>S.hold=false);
+  $('.fa-spot-frame').addEventListener('click',()=>{const p=S.list[S.i];if(p)productView(p.id)});
+  /* the category chips: only what's in store */
+  function faTilesFill(){const cnt=k=>k==='all'?faAll.length:faAll.filter(p=>faType(p)===k).length;
+    const ks=['bags','watches','jewellery','eyewear','fragrance','clothing','shoes','accessories'].filter(k=>cnt(k));if(faAll.length)ks.push('all');
+    tiles.innerHTML=ks.map(k=>{const p=k==='all'||k==='watches'?null:faAll.find(x=>faType(x)===k&&x.img);
+      return `<button type="button" class="fa-tile fa-cat" data-fa-go="${k}">${p?`<img src="${thumb(p)}" alt="" loading="lazy" decoding="async">`:k==='watches'?`<i class="fa-cat-ic"><img src="${img('watch')}" alt=""></i>`:`<i class="fa-cat-all">${faAll.length}</i>`}<span><b>${k==='all'?'All pieces':FAN[k]}</b><small>${cnt(k)} ${cnt(k)===1?'piece':'pieces'}</small></span></button>`}).join('');
+    tiles.hidden=!ks.length}
+  function faHeroFill(){faWallFill();faSpotFill();faTilesFill();faSpotRun()}
   faPage.addEventListener('click',e=>{const g=e.target.closest('[data-fa-go]');if(!g)return;const k=g.dataset.faGo;
     if(g.closest('.fa-tiles')){faRailSet(k);const s=$('#fa-rail');if(s)s.scrollIntoView({behavior:faRM?'auto':'smooth',block:'start'})}
     else{faGridSet(k);const s=$('#fa-shop');if(s)s.scrollIntoView({behavior:faRM?'auto':'smooth',block:'start'})}});
@@ -4213,6 +4251,7 @@ function faWatch(cv,o){o=o||{};
   function faRailItems(){const L=faAll.filter(p=>railType==='all'||faType(p)===railType)
       .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||(a.stock==='out')-(b.stock==='out')||b.p-a.p);
     if(L.length)return L;
+    if(faAll.length)return faAll.slice(); /* never show placeholders when Plug has real pieces */
     return['eyewear','jewellery','bags','watches','fragrance','clothing','accessories'].map(k=>({demo:true,id:'demo-'+k,k,n:FAN[k],sp:'Arriving soon at Plug',icon:FAI[k]}))}
   function faRailSet(k){railType=k;$$('#faPills button').forEach(b=>b.classList.toggle('on',b.dataset.fa===k));faRailBuild(true)}
   pills.innerHTML=FAT.filter(([k])=>k!=='shoes'||1).map(([k,n])=>`<button type="button" role="tab" data-fa="${k}" class="${k==='all'?'on':''}">${n}<i data-fa-pc="${k}"></i></button>`).join('');
@@ -4279,30 +4318,35 @@ function faWatch(cv,o){o=o||{};
 
   /* ---------- the Watch Room ---------- */
   const wst=$('#faWStage'),wcv=$('#faWatchGl'),wprog=$('#faWProg');let WR=null,wInit=false,wVis=false;
-  let wReal=false,wHeld=false,wBack=0;
-  function faReal(on){wReal=!!on;wst.classList.toggle('real',wReal)}
   function faWatchInit(){if(wInit)return;wInit=true;
-    WR=faWatch(wcv,{lite:faLite,reduce:faRM,focal:1.85,onTime:(t,end)=>{wprog.style.setProperty('--p',Math.min(1,t/end).toFixed(3));if(t>=6.6&&!wst.classList.contains('ready'))wst.classList.add('ready');if(t>=end-.15&&!wHeld&&!wReal)faReal(1)},onLost:()=>{wst.classList.add('no-gl','ready');faReal(1)}});
-    if(!WR){wst.classList.add('no-gl','ready');faReal(1);return}
+    WR=faWatch(wcv,{lite:faLite,reduce:faRM,focal:1.85,onTime:(t,end)=>{wprog.style.setProperty('--p',Math.min(1,t/end).toFixed(3));if(t>=6.6&&!wst.classList.contains('ready'))wst.classList.add('ready')},onLost:()=>{wst.classList.add('no-gl','ready')}});
+    if(!WR){wst.classList.add('no-gl','ready');return}
     WR.layout(.47);
-    if(faRM){wst.classList.add('ready');faReal(1)}
-    const fz=parseFloat((location.search.match(/[?&]fawt=([\d.]+)/)||[])[1]);if(!isNaN(fz)){WR.freeze(fz);if(fz>=6.6)wst.classList.add('ready');if(fz>=7.1)faReal(1)} /* testing: ?fawt=7 shows the watch at 7 s */
+    if(faRM)wst.classList.add('ready');
+    const fz=parseFloat((location.search.match(/[?&]fawt=([\d.]+)/)||[])[1]);if(!isNaN(fz)){WR.freeze(fz);if(fz>=6.6)wst.classList.add('ready')} /* testing: ?fawt=7 shows the watch at 7 s */
     WR.visible(wVis);WR.active(faOn())}
   if('IntersectionObserver' in window){
     new IntersectionObserver(es=>{if(es[0].isIntersecting)faWatchInit()},{rootMargin:'400px 0px'}).observe(wst);
     new IntersectionObserver(es=>{wVis=es[0].isIntersecting;if(WR)WR.visible(wVis);faTimeTick()},{threshold:.35}).observe(wst);
   }else{wVis=true;faWatchInit()}
-  /* the real watch fades in at the end; dragging brings the 3D model back to turn, then the real one returns */
-  wcv.addEventListener('pointerdown',()=>{if(wst.classList.contains('ready'))wst.classList.add('turned');if(wst.classList.contains('ready')){wHeld=true;clearTimeout(wBack);faReal(0)}});
-  addEventListener('pointerup',()=>{if(!wHeld)return;wHeld=false;clearTimeout(wBack);wBack=setTimeout(()=>{if(!wHeld)faReal(1)},2600)});
-  $('#faReplay').onclick=()=>{if(!WR)return;clearTimeout(wBack);faReal(0);wst.classList.remove('ready','turned');WR.replay()};
+  wcv.addEventListener('pointerdown',()=>{if(wst.classList.contains('ready'))wst.classList.add('turned');});
+  $('#faReplay').onclick=()=>{if(!WR)return;wst.classList.remove('ready','turned');WR.replay()};
   let tTimer=0;function faTimeTick(){clearInterval(tTimer);const run=()=>{const d=new Date();$('#faTime').textContent='Showing your time · '+pad2(d.getHours())+':'+pad2(d.getMinutes())};run();
     if(wVis&&faOn())tTimer=setInterval(run,5000)}
   if('ResizeObserver' in window)new ResizeObserver(()=>{if(WR)WR.resize()}).observe(wst);
 
   /* ---------- bags: orbiting icons ---------- */
-  $$('.fa-orb-r img').forEach((m,i)=>m.style.setProperty('--a',(i*60)+'deg'));
-  const bags=$('.fa-bags');if('IntersectionObserver' in window)new IntersectionObserver(es=>bags.classList.toggle('off',!es[0].isIntersecting)).observe(bags);
+  /* the bag on the plinth: Plug's real bags take turns in a lit glass case */
+  const caseImgs=$('#faCaseImgs'),bagStrip=$('#faBagStrip');const B={list:[],i:0,timer:0,key:''};
+  function faBagsFill(){const L=faAll.filter(p=>faType(p)==='bags'&&p.img);const key=L.map(p=>p.id+p.img).join();if(key===B.key)return;B.key=key;B.list=L.slice(0,8);B.i=0;
+    $('#faPed').classList.toggle('empty',!L.length);
+    caseImgs.innerHTML=B.list.map((p,i)=>`<img src="${src(p.img)}" alt="${esc(p.n)}" ${i?'loading="lazy"':''} decoding="async" class="${i?'':'on'}">`).join('');
+    bagStrip.innerHTML=L.slice(0,5).map(p=>`<button type="button" data-open-p="${p.id}" aria-label="${esc(p.n)}"><img src="${thumb(p)}" alt="" loading="lazy" decoding="async"></button>`).join('')+(L.length>5?`<button type="button" class="more" data-fa-go="bags">+${L.length-5}</button>`:'');
+    faCaseShow(0)}
+  function faCaseShow(i){if(!B.list.length)return;B.i=(i+B.list.length)%B.list.length;const p=B.list[B.i];const pv=B.prev;[...caseImgs.children].forEach((m,k)=>{m.classList.toggle('prev',k===pv&&k!==B.i);m.classList.toggle('on',k===B.i)});B.prev=B.i;$('#faCaseN').textContent=p.n;$('#faCaseGo').dataset.openP=p.id}
+  let bagsVis=false;function faCaseRun(){clearInterval(B.timer);if(faRM||!bagsVis||!faOn()||B.list.length<2)return;B.timer=setInterval(()=>{if(!document.hidden)faCaseShow(B.i+1)},3600)}
+  $('#faCase').addEventListener('click',()=>{const p=B.list[B.i];if(p)productView(p.id)});
+  const bags=$('.fa-bags');if('IntersectionObserver' in window)new IntersectionObserver(es=>{bagsVis=es[0].isIntersecting;bags.classList.toggle('off',!bagsVis);faCaseRun()}).observe(bags);else{bagsVis=true}
 
   /* ---------- filters + product grid ---------- */
   const grid=$('#faGrid'),chips=$('#faChips'),em=$('#faEmpty');
@@ -4319,11 +4363,11 @@ function faWatch(cv,o){o=o||{};
     const cnt=k=>k==='all'?faAll.length:faAll.filter(p=>faType(p)===k).length;
     $$('[data-fa-n]').forEach(el=>{const n=cnt(el.dataset.faN);el.textContent=n?n+(n===1?' piece':' pieces'):'Coming soon'});
     $$('[data-fa-pc]').forEach(el=>{const n=cnt(el.dataset.faPc);el.textContent=n||''});
-    $$('#faPills button').forEach(b=>{if(b.dataset.fa!=='all'&&b.dataset.fa!=='shoes')return;b.hidden=b.dataset.fa==='shoes'&&!cnt('shoes')});
+    $$('#faPills button').forEach(b=>{b.hidden=b.dataset.fa!=='all'&&!cnt(b.dataset.fa)&&(faAll.length>0||b.dataset.fa==='shoes')});if(railType!=='all'&&faAll.length&&!cnt(railType))faRailSet('all');
     $$('#faChips button').forEach(b=>{b.hidden=b.dataset.fa!=='all'&&!cnt(b.dataset.fa)&&faAll.length>0});
     $('#faWa').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi Plug! I'd like some help choosing a watch or a bag.")}`;
     $('#faBagWa').href=`https://wa.me/${WA}?text=${encodeURIComponent('Hi Plug! What bags do you have in store today?')}`;
-    const wt=$('#faWTag');if(wt)wt.hidden=!byId['fa-pinduiced'];
+    faHeroFill();faBagsFill();
     faGrid();faRailBuild()}
   window.plugFashionRefresh=faRender;
   document.addEventListener('click',e=>{if(e.target.closest('[data-wish]')&&curView==='fashion')setTimeout(()=>{R.key='';faRailBuild();faRailPaint()},40)});
