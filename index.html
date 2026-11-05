@@ -2057,6 +2057,51 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
 
 @media (min-width:821px){.cat-grid.cat-img{grid-template-columns:repeat(5,1fr)}}
 .cat-grid.cat-img .cat2:last-child{grid-column:span 2;aspect-ratio:auto!important;height:auto;align-self:stretch}
+
+/* ==== nav clean-up (M&P, 5 Nov 2026): Deals inside Shop, help inside the chat bubble, Vehicles page ==== */
+.deals-sec{padding-top:10px;scroll-margin-top:84px}
+.chat-panel{background:rgba(255,255,255,.9)}
+body.fs-dark .chat-panel,body.au-dark .chat-panel,html.lite .chat-panel{background:rgba(250,250,251,.97)}
+@media (min-width:821px){.chat-panel{width:372px}}
+.cp-tabs{display:flex;gap:4px;padding:4px;margin:0 0 12px;border-radius:99px;background:rgba(13,14,16,.06)}
+.cp-tabs button{flex:1;height:34px;border-radius:99px;font-size:13px;font-weight:600;color:var(--mute);transition:background .25s,color .25s}
+.cp-tabs button.on{background:#fff;color:var(--ink);box-shadow:0 4px 12px -6px rgba(0,0,0,.3)}
+.cp-help{max-height:min(470px,calc(100vh - 230px));overflow-y:auto;overscroll-behavior:contain;margin:0 -6px;padding:0 6px 4px;scrollbar-width:thin}
+.cp-help[hidden],.cp-chat[hidden]{display:none}
+.cp-help h4{margin:16px 2px 8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.cp-team{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cp-team button{display:flex;align-items:center;gap:10px;padding:8px;border-radius:16px;background:rgba(255,255,255,.7);border:1px solid #fff;text-align:left;transition:transform .2s}
+.cp-team button:hover{transform:translateY(-2px)}
+.cp-team img{width:38px;height:38px;border-radius:50%;object-fit:cover;background:#e5e7ea}
+.cp-team b{display:block;font-size:14px}.cp-team small{font-size:11.5px;color:var(--mute)}
+.cp-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.cp-act{display:flex;align-items:center;gap:9px;padding:10px;border-radius:16px;background:rgba(255,255,255,.7);border:1px solid #fff;text-align:left;font:inherit;color:inherit;transition:transform .2s}
+.cp-act:hover{transform:translateY(-2px)}
+.cp-act i{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:15px;background:#eef0f3}
+.cp-act i.w{background:linear-gradient(180deg,#2ad06c,#16a34a);color:#fff;font-size:10px;font-weight:800}
+.cp-act b{display:block;font-size:13px}.cp-act small{display:block;font-size:11px;color:var(--mute);line-height:1.3}
+.cp-deliv{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cp-deliv div{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.6);border:1px solid #fff}
+.cp-deliv b{display:block;font-size:13px}.cp-deliv span{font-size:11.5px;color:var(--mute);line-height:1.35}
+.cp-faq details{border-radius:14px;background:rgba(255,255,255,.6);border:1px solid #fff;margin-bottom:6px}
+.cp-faq summary{cursor:pointer;padding:11px 14px;font-size:13.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.cp-faq summary::-webkit-details-marker{display:none}
+.cp-faq summary:after{content:"+";color:var(--mute);font-weight:500;transition:transform .2s}
+.cp-faq details[open] summary:after{transform:rotate(45deg)}
+.cp-faq p{margin:0;padding:0 14px 12px;font-size:13px;line-height:1.55;color:var(--ink2)}
+.cp-promise{margin:12px 2px 2px;font-size:11.5px;color:var(--mute);text-align:center}
+html.lite .cp-team button,html.lite .cp-act,html.lite .cp-deliv div,html.lite .cp-faq details{background:#fff}
+.vh-hero{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center;padding:44px 44px 36px;border-radius:32px;overflow:hidden}
+.vh-hero .pg-h{font-size:clamp(40px,5.4vw,72px)}
+.vh-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.vh-art{position:relative}
+.vh-car{width:100%;height:auto;animation:vhFloat 6s ease-in-out infinite;filter:drop-shadow(0 26px 30px rgba(13,14,16,.18))}
+.vh-sheen{animation:vhSheen 5.5s ease-in-out infinite}
+.vh-floor{position:absolute;left:6%;right:6%;bottom:-6%;height:24%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));pointer-events:none}
+@keyframes vhFloat{50%{transform:translateY(-8px)}}
+@keyframes vhSheen{0%,35%{transform:translateX(0) skewX(-20deg)}75%,100%{transform:translateX(980px) skewX(-20deg)}}
+@media (max-width:820px){.vh-hero{grid-template-columns:1fr;padding:26px 20px 22px}.vh-art{order:-1}.vh-cta .btn{flex:1;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.vh-car,.vh-sheen{animation:none}}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -2104,7 +2149,7 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
 <header class="glass" id="top">
   <a href="#home"><img fetchpriority="high" decoding="async" class="logo" src="img/logo.webp" alt="Plug — Electronics &amp; More"></a>
   <nav class="links">
-    <a class="on" href="#home">Home</a><a href="#shop">Shop</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#loyalty">Loyalty</a><a href="#support">Support</a>
+    <a href="#shop">Shop</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#vehicles">Vehicles</a><a href="#finance">Finance</a><a href="#loyalty">Loyalty</a>
   </nav>
   <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="Search for products..." aria-label="Search"></label>
   <div class="icons">
@@ -2287,6 +2332,21 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
     </div>
   </section>
 
+  <!-- DEALS (part of Shop since 5 Nov 2026) -->
+  <section class="all deals-sec" id="deals">
+    <div class="wrap">
+      <div class="all-head reveal"><div><span class="eyebrow glass">Deals</span><h2 style="margin-top:14px">Deals &amp; offers</h2><p class="lead" style="margin:10px 0 0">Discount codes, best-value picks and game deals. Prices in Kwacha.</p></div></div>
+      <div class="deal-band reveal" style="margin-top:26px"><div><b>Same-day delivery in Lusaka</b><span>Order before 14:00 for same-day delivery in Lusaka</span></div><a class="btn btn-glass" href="#all">See all products ↑</a></div>
+      <a class="fin-link glass reveal" href="#finance"><span><b>Pay over time</b> with Zanaco Gadget Finance, through Plug with Zanaco &amp; Line-Age</span><span>See finance →</span></a>
+      <h2 class="sub-h reveal">Discount codes</h2>
+      <div class="codes codes-row" id="dealCodes"></div>
+      <p class="fine">Use codes at checkout.</p>
+      <h2 class="sub-h reveal">Best value under K10,000</h2>
+      <div class="pgrid" id="dealGrid1"></div>
+      <h2 class="sub-h reveal">Game deals</h2>
+      <div class="pgrid" id="dealGrid2"></div>
+    </div>
+  </section>
   </div>
   <div class="view" data-view="finance" hidden>
   <!-- FINANCE PAGE: Zanaco Gadget Finance with Line-Age, offered through Plug -->
@@ -2497,20 +2557,42 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
     </div>
   </div>
   </div>
-  <div class="view" data-view="deals" hidden>
-  <!-- DEALS PAGE -->
-  <section class="pg" id="deals-top">
+<div class="view" data-view="vehicles" hidden>
+  <!-- VEHICLES PAGE (M&P, 5 Nov 2026): shows every product whose category is "vehicles" (Admin > Products > Category: Vehicles). -->
+  <section class="pg vh" id="vehicles-top">
     <div class="wrap">
-      <div class="pg-head reveal"><span class="eyebrow glass">Deals</span><h1 class="pg-h">Deals &amp; offers</h1><p class="lead">Discount codes, best-value picks and game deals. Prices in Kwacha.</p></div>
-      <div class="deal-band reveal"><div><b>Same-day delivery in Lusaka</b><span>Order before 14:00 for same-day delivery in Lusaka</span></div><a class="btn btn-glass" href="#shop">Shop all products →</a></div>
-      <a class="fin-link glass reveal" href="#finance"><span><b>Pay over time</b> with Zanaco Gadget Finance, through Plug with Zanaco &amp; Line-Age</span><span>See finance →</span></a>
-      <h2 class="sub-h reveal">Discount codes</h2>
-      <div class="codes codes-row" id="dealCodes"></div>
-      <p class="fine">Use codes at checkout.</p>
-      <h2 class="sub-h reveal">Best value under K10,000</h2>
-      <div class="pgrid" id="dealGrid1"></div>
-      <h2 class="sub-h reveal">Game deals</h2>
-      <div class="pgrid" id="dealGrid2"></div>
+      <div class="vh-hero glass reveal">
+        <div class="vh-tx">
+          <span class="eyebrow glass">Vehicles</span>
+          <h1 class="pg-h">Drive something new.</h1>
+          <p class="lead">Vehicles from Plug, with the same genuine-only promise. Photos and prices are on the way.</p>
+          <div class="vh-cta"><a class="btn btn-dark" id="vhAsk" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask June about vehicles</a><a class="btn btn-glass" href="#vh-list">See vehicles ↓</a></div>
+        </div>
+        <div class="vh-art" aria-hidden="true">
+          <svg viewBox="0 0 640 260" class="vh-car"><defs>
+            <linearGradient id="vhBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9dde2"/><stop offset=".55" stop-color="#8f969f"/><stop offset=".62" stop-color="#eef0f3"/><stop offset="1" stop-color="#9aa1aa"/></linearGradient>
+            <linearGradient id="vhGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2e34"/><stop offset=".5" stop-color="#0d0f12"/><stop offset="1" stop-color="#3a3f46"/></linearGradient>
+            <radialGradient id="vhRim" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#b8bec6"/><stop offset="1" stop-color="#5b6168"/></radialGradient>
+            <radialGradient id="vhShadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(13,14,16,.35)"/><stop offset="1" stop-color="rgba(13,14,16,0)"/></radialGradient>
+            <linearGradient id="vhSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <clipPath id="vhClip"><path d="M44 178c-2-20 8-34 34-40l92-16c30-32 74-54 130-58 54-3 104 10 142 34 22 14 40 24 70 28 40 6 66 18 74 40 3 9 3 18 0 26-4 8-12 12-22 12H64c-12 0-19-10-20-26Z"/></clipPath></defs>
+            <ellipse cx="320" cy="214" rx="290" ry="20" fill="url(#vhShadow)"/>
+            <path d="M44 178c-2-20 8-34 34-40l92-16c30-32 74-54 130-58 54-3 104 10 142 34 22 14 40 24 70 28 40 6 66 18 74 40 3 9 3 18 0 26-4 8-12 12-22 12H64c-12 0-19-10-20-26Z" fill="url(#vhBody)" stroke="#6b7178" stroke-width="1.2"/>
+            <path d="M188 122c26-28 62-44 108-46 44-2 86 8 118 28l-6 16H182Z" fill="url(#vhGlass)"/>
+            <path d="M300 78v42" stroke="#c9ced4" stroke-width="5"/>
+            <path d="M70 160h500" stroke="#ffffff" stroke-opacity=".7" stroke-width="2"/>
+            <path d="M560 156c10 2 18 6 22 12l-26-2Z" fill="#fff" opacity=".95"/>
+            <path d="M52 150l20-4v14H50Z" fill="#c2412d" opacity=".85"/>
+            <g clip-path="url(#vhClip)"><rect class="vh-sheen" x="-200" y="40" width="160" height="200" fill="url(#vhSheen)" transform="skewX(-20)"/></g>
+            <g class="vh-wheel"><circle cx="168" cy="200" r="38" fill="#121417"/><circle cx="168" cy="200" r="24" fill="url(#vhRim)"/><circle cx="168" cy="200" r="6" fill="#30343a"/><path d="M168 178v44M146 200h44M152 184l32 32M184 184l-32 32" stroke="#6b7178" stroke-width="3"/></g>
+            <g class="vh-wheel"><circle cx="482" cy="200" r="38" fill="#121417"/><circle cx="482" cy="200" r="24" fill="url(#vhRim)"/><circle cx="482" cy="200" r="6" fill="#30343a"/><path d="M482 178v44M460 200h44M466 184l32 32M498 184l-32 32" stroke="#6b7178" stroke-width="3"/></g>
+          </svg>
+          <span class="vh-floor"></span>
+        </div>
+      </div>
+      <div class="all-head reveal" id="vh-list" style="margin-top:56px"><div><h2>All vehicles</h2><p class="lead" style="margin:10px 0 0">Prices in Kwacha · tap a vehicle for details</p></div></div>
+      <div class="pgrid" id="vhGrid"></div>
+      <div class="empty glass" id="vhEmpty" hidden><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><div><b>Vehicles are arriving soon</b><br><span>Photos are being added. Ask June on WhatsApp what's available today.</span></div><a class="btn wa" id="vhEmptyWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
     </div>
   </section>
   </div>
@@ -2557,69 +2639,6 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
           <div class="row-b"><button class="btn btn-dark shine" data-open="account">Join for free</button><button class="btn btn-glass" data-open="account">Check my points</button></div>
           <p class="fine">Reward rules are set by Plug and may change.</p>
         </div>
-      </div>
-    </div>
-  </section>
-  </div>
-  <div class="view" data-view="support" hidden>
-  <!-- SUPPORT PAGE -->
-  <section class="pg" id="support-top">
-    <div class="wrap">
-      <div class="pg-head reveal"><span class="eyebrow glass">Support</span><h1 class="pg-h">We're here to help</h1><p class="lead">Questions about a device, an order or delivery? Talk to the Plug team.</p></div>
-      <div class="help-grid">
-        <div class="help glass reveal"><div class="hi wa"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg></div><b>Chat on WhatsApp</b><p>+260 574 541 778<br>The fastest way to reach us.</p><a class="btn wa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Open WhatsApp</a></div>
-        <div class="help glass reveal"><div class="hi">📍</div><b>Visit the store</b><p>Liberty Mall, Shop 31<br>Opposite the Chinese Embassy, Lusaka</p><button class="btn btn-glass" data-chat="June">Ask for directions</button></div>
-        <div class="help glass reveal"><div class="hi">💬</div><b>Follow Plug</b><p>New arrivals, deals and giveaways first on our socials.</p><div class="socials"><a data-social="ig" href="https://www.instagram.com/plug_electronics_zm" target="_blank" rel="noopener" aria-label="Plug on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>Instagram</span></a><a data-social="fb" href="https://www.facebook.com/share/1CXKEpqzwe/" target="_blank" rel="noopener" aria-label="Plug on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8H16l.6-4h-3.1V9c0-.6.4-1 1-1Z"/></svg><span>Facebook</span></a></div></div>
-        <div class="help glass reveal"><div class="hi">📦</div><b>Track an order</b><p>Use the order number from your confirmation screen.</p><button class="btn btn-dark" data-open="track">Track my order</button></div>
-      </div>
-      <div class="deliv-info glass reveal">
-        <h3>Delivery &amp; collection</h3>
-        <div class="di-grid"><div><b>🚚 Delivery</b><span>Lusaka &amp; Ndola</span></div><div><b>⚡ Same-day</b><span>In Lusaka, if you order before 14:00</span></div><div><b>🏬 Collect</b><span>Liberty Mall, Shop 31</span></div><div><b>🗺️ Other towns</b><span>Ask us on WhatsApp</span></div></div>
-      </div>
-    </div>
-  </section>
-  <!-- TEAM -->
-  <section class="team" id="team">
-    <div class="wrap">
-      <div class="reveal"><h2>Meet the Plug team</h2><p class="lead">Real people, ready to help you choose the right device.</p></div>
-      <div class="team-grid">
-        <article class="pro duo reveal" style="--d:0">
-          <div class="pro-stage">
-            <span class="pro-word w1" aria-hidden="true">June</span><span class="pro-word w2" aria-hidden="true">Sasha</span>
-            <i class="pro-spot"></i>
-            <img src="img/team_uniform.webp" alt="June (Sales) and Sasha (Plug Support) in Plug uniforms" loading="lazy">
-            <span class="pro-no">THE PLUG TEAM</span>
-          </div>
-          <div class="pro-info duo-info">
-            <div class="who"><span class="pro-role">01 · Sales</span><h3>June</h3><button class="pro-btn" data-chat="June">Chat with June<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button></div>
-            <div class="who r"><span class="pro-role">02 · Plug Support</span><h3>Sasha</h3><button class="pro-btn" data-chat="Sasha">Chat with Sasha<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button></div>
-          </div>
-        </article>
-        <aside class="promise glass reveal" style="--d:2">
-          <span class="pro-role dark">The Plug promise</span>
-          <h3>More than a store.<br><em>A smarter way to shop.</em></h3>
-          <ul>
-            <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Genuine products only</b><small>Brand new devices you can trust</small></div></li>
-            <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><div><b>Same-day delivery in Lusaka</b><small>Order before 14:00</small></div></li>
-            <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.4A9 9 0 1 1 21 12Z"/></svg></span><div><b>Order online or on WhatsApp</b><small>+260 574 541 778</small></div></li>
-            <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>Liberty Mall, Shop 31</b><small>Opposite the Chinese Embassy, Lusaka</small></div></li>
-          </ul>
-          <button class="btn btn-dark shine" data-chat="June">Ask us anything</button>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-sec">
-    <div class="wrap">
-      <h2 class="sub-h reveal">Questions people ask</h2>
-      <div class="faq">
-        <details class="glass reveal"><summary>How do I order?</summary><p>Add products to your cart and check out on the website, or tap the green WhatsApp button on any product to order in a chat.</p></details>
-        <details class="glass reveal"><summary>Do you deliver?</summary><p>Yes. We deliver in Lusaka and Ndola. Order before 14:00 for same-day delivery in Lusaka. For other towns, message us on WhatsApp.</p></details>
-        <details class="glass reveal"><summary>How can I pay?</summary><p>Mobile Money (Airtel or MTN), card, or bank transfer. If you collect from the store, you can also pay in store.</p></details>
-        <details class="glass reveal"><summary>Can I collect my order?</summary><p>Yes. Choose "Collect from store" at checkout and pick it up at Liberty Mall, Shop 31, opposite the Chinese Embassy, Lusaka.</p></details>
-        <details class="glass reveal"><summary>How do Plug Rewards points work?</summary><p>Create a free account and earn 1 point for every K100 you spend. Use your points for money off future orders.</p></details>
-        <details class="glass reveal"><summary>What about warranty?</summary><p>Ask our team on WhatsApp about warranty for the product you're interested in.</p></details>
       </div>
     </div>
   </section>
@@ -2759,8 +2778,8 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
     <div class="glass">
       <div><img loading="lazy" decoding="async" src="img/logo.webp" alt="Plug" style="height:46px"><div class="tagline">Your Tech. Our Priority.</div><div style="color:var(--ink2);font-size:14px;line-height:1.6">Liberty Mall, Shop 31<br>Opposite the Chinese Embassy, Lusaka<br>WhatsApp: +260 574 541 778</div><a class="btn wa" style="height:44px;margin-top:14px;display:inline-flex;color:#fff" href="https://wa.me/260574541778" target="_blank" rel="noopener">Chat on WhatsApp</a><div class="socials"><a data-social="ig" href="https://www.instagram.com/plug_electronics_zm" target="_blank" rel="noopener" aria-label="Plug on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>Instagram</span></a><a data-social="fb" href="https://www.facebook.com/share/1CXKEpqzwe/" target="_blank" rel="noopener" aria-label="Plug on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8H16l.6-4h-3.1V9c0-.6.4-1 1-1Z"/></svg><span>Facebook</span></a></div></div>
       <div><h5>Shop</h5><a href="#all" data-f="iphone">iPhone</a><a href="#all" data-f="samsung">Samsung</a><a href="#all" data-f="tablets">Tablets</a><a href="#all" data-f="laptops">Laptops</a><a href="#all" data-f="gaming">Gaming</a></div>
-      <div><h5>Delivery</h5><a href="#support">Lusaka &amp; Ndola</a><a href="#support">Same-day in Lusaka (before 14:00)</a><a href="#support">Collect at Liberty Mall</a><a href="#" data-open="track">Track my order</a></div>
-      <div><h5>Plug</h5><a href="#" data-open="account">My account</a><a href="#loyalty">Plug Rewards</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#support">Meet the team</a><a href="#support">Help &amp; FAQs</a></div>
+      <div><h5>Delivery</h5><a href="#help">Lusaka &amp; Ndola</a><a href="#help">Same-day in Lusaka (before 14:00)</a><a href="#help">Collect at Liberty Mall</a><a href="#" data-open="track">Track my order</a></div>
+      <div><h5>Plug</h5><a href="#" data-open="account">My account</a><a href="#loyalty">Plug Rewards</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#vehicles">Vehicles</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#help">Meet the team</a><a href="#help">Help &amp; FAQs</a></div>
     </div>
     <div class="bar"><span>© 2026 Plug · Electronics &amp; More</span><span class="legal-links"><a href="#terms">Terms of Use</a><a href="#sale">Terms of Sale &amp; Returns</a><a href="#privacy">Privacy</a><a href="#cookies">Cookies</a><a href="#licence">Website licence</a></span></div>
     <div class="bar dev"><span>Website designed and developed by <b>M&amp;P Developers</b>. Licensed to Plug Electronics &amp; More. All rights reserved.</span></div>
@@ -2797,24 +2816,46 @@ img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-green
   </div>
 </div>
 <!-- chat -->
-<button class="chat-fab glass" id="chatFab"><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><i class="on"></i><span class="txt">Chat with June</span></button>
+<button class="chat-fab glass" id="chatFab"><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><i class="on"></i><span class="txt">Chat &amp; help</span></button>
 <div class="chat-panel glass" id="chatPanel" role="dialog" aria-label="Chat with Plug">
   <div class="who"><img loading="lazy" decoding="async" id="chatImg" src="img/june_face.webp" alt=""><div><b id="chatName">June · Sales</b><span>● Online now</span></div><button id="chatClose" style="margin-left:auto;font-size:22px" aria-label="Close">×</button></div>
+  <div class="cp-tabs" role="tablist"><button type="button" role="tab" class="on" data-cp="chat" aria-selected="true">Chat</button><button type="button" role="tab" data-cp="help" aria-selected="false">Help &amp; info</button></div>
+  <div class="cp-help" id="cpHelp" hidden>
+    <div class="cp-team"><button type="button" data-chat="June"><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><span><b>June</b><small>Sales</small></span></button><button type="button" data-chat="Sasha"><img loading="lazy" decoding="async" src="img/sasha_face.webp" alt=""><span><b>Sasha</b><small>Plug Support</small></span></button></div>
+    <div class="cp-acts">
+      <a class="cp-act" href="https://wa.me/260574541778" target="_blank" rel="noopener"><i class="w">WA</i><span><b>WhatsApp</b><small>+260 574 541 778</small></span></a>
+      <button type="button" class="cp-act" data-open="track"><i>📦</i><span><b>Track an order</b><small>Use your order number</small></span></button>
+      <button type="button" class="cp-act" data-chat="June" data-ask="Hi June, how do I get to the store?"><i>📍</i><span><b>Visit the store</b><small>Liberty Mall, Shop 31</small></span></button>
+      <a class="cp-act" href="https://www.instagram.com/plug_electronics_zm" target="_blank" rel="noopener"><i>✦</i><span><b>Follow Plug</b><small>Instagram · Facebook</small></span></a>
+    </div>
+    <h4>Delivery &amp; collection</h4>
+    <div class="cp-deliv"><div><b>🚚 Delivery</b><span>Lusaka &amp; Ndola</span></div><div><b>⚡ Same-day</b><span>Lusaka, order before 14:00</span></div><div><b>🏬 Collect</b><span>Liberty Mall, Shop 31, opposite the Chinese Embassy</span></div><div><b>🗺️ Other towns</b><span>Ask us on WhatsApp</span></div></div>
+    <h4>Questions people ask</h4>
+    <div class="cp-faq">
+      <details><summary>How do I order?</summary><p>Add products to your cart and check out on the website, or tap the green WhatsApp button on any product to order in a chat.</p></details>
+      <details><summary>Do you deliver?</summary><p>Yes. We deliver in Lusaka and Ndola. Order before 14:00 for same-day delivery in Lusaka. For other towns, message us on WhatsApp.</p></details>
+      <details><summary>How can I pay?</summary><p>Mobile Money (Airtel or MTN), card, or bank transfer. If you collect from the store, you can also pay in store.</p></details>
+      <details><summary>Can I collect my order?</summary><p>Yes. Choose "Collect from store" at checkout and pick it up at Liberty Mall, Shop 31, opposite the Chinese Embassy, Lusaka.</p></details>
+      <details><summary>How do Plug Rewards points work?</summary><p>Create a free account and earn 1 point for every K100 you spend. Use your points for money off future orders.</p></details>
+      <details><summary>What about warranty?</summary><p>Ask our team on WhatsApp about warranty for the product you're interested in.</p></details>
+    </div>
+    <p class="cp-promise">Genuine products only · Order online or on WhatsApp</p>
+  </div>
+  <div class="cp-chat" id="cpChat">
   <div class="msgs" id="msgs"></div>
   <div class="quick" id="quick"><button>Is the iPhone 17 Pro Max in stock?</button><button>Do you deliver?</button><button>How do points work?</button></div>
   <a class="btn wa" id="chatWa" href="https://wa.me/260574541778" target="_blank" rel="noopener" style="height:40px;font-size:13px;width:100%;justify-content:center;margin-bottom:10px;color:#fff">Continue on WhatsApp</a>
   <form class="chat-in" id="chatForm"><input id="chatInput" placeholder="Type your message..." aria-label="Message"><button aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></form>
+  </div>
 </div>
 
 <nav class="mnav glass">
-  <a class="on" href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg>Home</a>
   <a href="#shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Shop</a>
   <a href="#audio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="7" rx="2"/><rect x="16.5" y="14" width="4.5" height="7" rx="2"/></svg>Audio</a>
   <a href="#fashion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 9h14l-1.2 11H6.2Z"/><path d="M9 9V7.5a3 3 0 0 1 6 0V9"/></svg>Fashion</a>
+  <a href="#vehicles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16H4a1 1 0 0 1-1-1v-2.6a2 2 0 0 1 .3-1L5 8.6A2 2 0 0 1 6.7 7.6h8.8a2 2 0 0 1 1.5.7l2.6 3 1.5.4a1 1 0 0 1 .8 1V15a1 1 0 0 1-1 1h-1"/><circle cx="7.5" cy="16.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/><path d="M9.5 16.5h5M6 11h13"/></svg>Vehicles</a>
   <a href="#finance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg>Finance</a>
-  <a href="#deals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V4h8l10 10-8 8Z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg>Deals</a>
   <a href="#loyalty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.6 5.5 6 .7-4.4 4.1 1.2 6L12 16.4 6.6 19.3l1.2-6L3.4 9.2l6-.7Z"/></svg>Loyalty</a>
-  <a href="#support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5v.7M12 17h.01"/></svg>Support</a>
 </nav>
 
 <div class="toast" id="toast"></div>
@@ -3049,7 +3090,7 @@ function setProducts(list){setTimeout(()=>window.plugCalcRefresh&&plugCalcRefres
   Object.keys(byId).forEach(k=>delete byId[k]);products.forEach(p=>byId[p.id]=p);
   Object.keys(nameToId).forEach(k=>delete nameToId[k]);products.forEach(p=>nameToId[p.n]=p.id)}
 setProducts(DEF_PRODUCTS);
-const CATS={iphone:'iPhone',samsung:'Samsung',tablets:'Tablets',laptops:'Laptops',consoles:'Consoles',games:'Games',audio:'Audio',fashion:'Fashion',accessories:'Accessories',watches:'Smart Watches'};
+const CATS={iphone:'iPhone',samsung:'Samsung',tablets:'Tablets',laptops:'Laptops',consoles:'Consoles',games:'Games',audio:'Audio',fashion:'Fashion',vehicles:'Vehicles',accessories:'Accessories',watches:'Smart Watches'};
 const stockHTML=(p,long)=>p.stock==='out'?`<div class="stock out"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Sold out</div>`:p.stock==='soon'?`<div class="stock soon"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Coming soon</div>`:`<div class="stock"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>${plLow(p)?`<span class="pl-lowt">${plLow(p)}</span>`:'In stock'}${long?' · Ready for delivery or pickup':''}</div>`;
 const notifyLink=p=>`https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Please let me know when the ${p.n} (${p.sp}) is available.`)}`;
 
@@ -3062,7 +3103,7 @@ function buildOrbit(){items.forEach(el=>el.remove());let f=products.filter(p=>p.
   orbit.appendChild(el);return el})}
 
 /* shop-all grid with filters, search and sort */
-const filters=[['all','All'],['iphone','iPhone'],['samsung','Samsung'],['tablets','Tablets'],['laptops','Laptops'],['audio','Audio'],['fashion','Fashion'],['consoles','Consoles'],['games','Games']];
+const filters=[['all','All'],['iphone','iPhone'],['samsung','Samsung'],['tablets','Tablets'],['laptops','Laptops'],['audio','Audio'],['fashion','Fashion'],['vehicles','Vehicles'],['consoles','Consoles'],['games','Games']];
 let fcat='all', q='', sort='f'; const wish=new Set(store.get('wish',[]));
 $('#chips').innerHTML=filters.map(([k,n])=>`<button data-chip="${k}" class="${k==='all'?'on':''}">${n}</button>`).join('');
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>';
@@ -3433,7 +3474,7 @@ const ADM={live:false,db:null,u:null,admin:false,owner:false,uid:null,name:'',se
 const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0,colors:Array.isArray(p.colors)?p.colors.slice(0,30).map(c=>({n:String(c.n||'').slice(0,30),h:String(c.h||'')})).filter(c=>c.n):[],qty:p.qty===''||p.qty==null||isNaN(+p.qty)?null:Math.max(0,parseInt(p.qty,10)||0),low:+p.low||0});
 function localState(){return store.get('admin',null)}
 function localSave(){store.set('admin',{products:products.map(p=>({id:p.id,...cleanP(p)})),codes:ADM.codes,settings:ADM.settings,campaigns:ADM.campaigns,statuses:ADM.statuses})}
-function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(window.plugAudioRefresh)plugAudioRefresh();if(window.plugFashionRefresh)plugFashionRefresh();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
+function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(window.plugAudioRefresh)plugAudioRefresh();if(window.plugFashionRefresh)plugFashionRefresh();if(window.plugVehiclesRefresh)plugVehiclesRefresh();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
 function renderDealCodes(){const el=$('#dealCodes');if(!el)return;const now=new Date();
   const list=ADM.codes.filter(c=>c.active!==false&&!(c.expires&&new Date(c.expires+'T23:59:59')<now));
   el.innerHTML=list.length?list.map(c=>`<div class="code glass"><div class="tick">${c.type==='fixed'?'K'+(+c.value):(+c.value)+'%'}</div><div><b>${esc(c.code)}</b><p>${esc(codeDesc(c))}</p></div><button class="btn btn-dark" data-copy="${esc(c.code)}">Copy code</button></div>`).join(''):'<p class="lead">No codes running right now. Check back soon.</p>'}
@@ -3851,6 +3892,7 @@ const views=$$('[data-view]'); let curView='home';
 function route(){
   let h=window.ADMIN_ONLY?'admin':(decodeURIComponent(location.hash.slice(1))||'home');
   if(!window.ADMIN_ONLY&&(h==='admin'||h==='staff')){location.href='admin.html';return}
+  if(!window.ADMIN_ONLY&&/^(support|team|help|faq)$/.test(h)){const back=route.done?curView:'home';history.replaceState(null,'',back==='home'?location.pathname+location.search:'#'+back);setTimeout(()=>window.plugOpenHelp&&plugOpenHelp(),80);if(route.done)return;h='home'}
   let v=views.find(x=>x.dataset.view===h), target=null;
   if(!v){const el=document.getElementById(h); if(el){v=el.closest('[data-view]');target=el}}
   if(!v)v=views[0];
@@ -3860,7 +3902,7 @@ function route(){
   $$('.mnav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+curView));
   stage.style.display=curView==='home'?'':'none';
   document.body.classList.toggle('in-admin',curView==='admin');if(curView==='admin'&&!curAdm)renderAdmGate();
-  document.title=({home:'Plug — Electronics & More',shop:'Shop · Plug',finance:'Finance · Plug',audio:'Audio · Plug',fashion:'Fashion · Plug',deals:'Deals · Plug',loyalty:'Plug Rewards',support:'Support · Plug',legal:'Legal & Policies · Plug',admin:'Admin · Plug'})[curView];if(curView==='legal')fillLegal();
+  document.title=({home:'Plug — Electronics & More',shop:'Shop · Plug',finance:'Finance · Plug',audio:'Audio · Plug',fashion:'Fashion · Plug',vehicles:'Vehicles · Plug',deals:'Deals · Plug',loyalty:'Plug Rewards',support:'Support · Plug',legal:'Legal & Policies · Plug',admin:'Admin · Plug'})[curView];if(curView==='legal')fillLegal();
   if(target){requestAnimationFrame(()=>target.scrollIntoView({behavior:changed?'auto':'smooth',block:'start'}))} else window.scrollTo(0,0);
   setTimeout(measure,60);
 }
@@ -4503,6 +4545,27 @@ function faWatch(cv,o){o=o||{};
   let faRz=0;addEventListener('resize',()=>{clearTimeout(faRz);faRz=setTimeout(()=>{faRoomSize();faRailPaint()},150)});
   faRoomSize();faRender();faHeroPaint();
   setTimeout(()=>{if(curView==='fashion')faWake()},0);
+ }
+}
+
+
+/* ==== nav clean-up (M&P, 5 Nov 2026) ====
+   Chat bubble: "Chat" and "Help & info" tabs (help = the old Support page). #support/#team/#help open the help tab.
+   Vehicles page: every product whose category is "vehicles". */
+{const cpPanel=document.getElementById('chatPanel'),cpHelp=document.getElementById('cpHelp'),cpChat=document.getElementById('cpChat');
+ if(cpPanel&&cpHelp&&cpChat){
+  const cpTab=t=>{cpHelp.hidden=t!=='help';cpChat.hidden=t==='help';cpPanel.querySelectorAll('.cp-tabs button').forEach(b=>{const on=b.dataset.cp===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)})};
+  cpPanel.querySelector('.cp-tabs').addEventListener('click',e=>{const b=e.target.closest('[data-cp]');if(b)cpTab(b.dataset.cp)});
+  document.addEventListener('click',e=>{const c=e.target.closest('[data-chat]');if(c){cpTab('chat');if(c.dataset.ask){setTimeout(()=>{const i=document.getElementById('chatInput');if(i){i.value=c.dataset.ask;i.focus()}},60)}}},true);
+  cpHelp.addEventListener('click',e=>{if(e.target.closest('[data-open]'))cpPanel.classList.remove('open')});
+  window.plugOpenHelp=()=>{if(!cpPanel.classList.contains('open'))openChat('June');cpTab('help');cpHelp.scrollTop=0};
+  const fab=document.querySelector('#chatFab .txt');if(fab)fab.textContent='Chat & help';
+ }
+ const vGrid=document.getElementById('vhGrid'),vEmpty=document.getElementById('vhEmpty');
+ if(vGrid){const vWa=`https://wa.me/${WA}?text=${encodeURIComponent("Hi June! Which vehicles do you have at Plug?")}`;
+  document.getElementById('vhAsk').href=vWa;document.getElementById('vhEmptyWa').href=vWa;
+  window.plugVehiclesRefresh=()=>{const list=products.filter(p=>p.c==='vehicles');vGrid.innerHTML=list.map(cardHTML).join('');vGrid.hidden=!list.length;vEmpty.hidden=!!list.length};
+  plugVehiclesRefresh();
  }
 }
 
