@@ -4202,7 +4202,7 @@ function faWatch(cv,o){o=o||{};
   /* ---------- hero: a slow wall of Plug's real pieces, a featured piece, a few floating clay icons ---------- */
   const hero=$('.fa-hero'),wall=$('#faWall'),flt=$('#faFloat'),tiles=$('#faTiles');
   const thumb=p=>/^fa-[a-z0-9-]+$/.test(p.img||'')?`img/p/t/${p.img}.webp`:src(p.img);
-  const FL=[['bag',47,8,96,1.1],['watch',93,10,92,1.3],['ring',95,74,72,1],['gem',46,84,58,.7],['shades',62,92,84,.8]];
+  const FL=[['bag',45,7,124,1.1],['watch',92,8,116,1.3],['ring',94,70,92,1],['gem',44,80,76,.7],['shades',60,90,108,.8],['perfume',30,88,70,.6]];
   flt.innerHTML=FL.map(([k,x,y,s,z],i)=>`<div class="fa-fl" style="--x:${x}%;--y:${y}%;--s:${s}px;--i:${i};--d:${(6+i*.8).toFixed(1)}s;--dl:${(-i*1.3).toFixed(1)}s;--r:${3+i*2}deg"><img src="${img(k)}" alt="" loading="lazy" decoding="async"></div>`).join('');
   const H={tx:0,ty:0,cx:0,cy:0,raf:0,vis:false};
   function faRoomSize(){}
