@@ -1647,6 +1647,309 @@ header.glass,header .logo,.mnav{transition:background .4s,border-color .4s,filte
 }
 html.lite .au2-card{-webkit-box-reflect:none}html.lite .au2-btn-o{-webkit-backdrop-filter:none;backdrop-filter:none}html.lite .au2-halo{filter:none}
 @media (prefers-reduced-motion:reduce){.au2-h .ln>span,.au2-lead,.au2-ctas,.au2-meta,.au2-stage{animation:none!important;transform:none!important;opacity:1!important}.au2-bg .l1,.au2-ring-r,.au2-fallback,.au2-scroll i,.au2-band-l,.au2-k-ic .cone,.au2-np i{animation:none!important}.au2-grid-3d .pc{opacity:1;transform:none;transition:none}}
+/* ==== fashion page (M&P): AR boutique in a walnut closet + the Watch Room ==== */
+.fa{--fa-tx:#f6efe7;--fa-mu:#bba996;--fa-led:#ffe2b8;--serif:'Cormorant Garamond','Bodoni 72',Didot,'Playfair Display',Georgia,'Times New Roman',serif}
+.fa .wrap{position:relative}
+.fa-eyebrow{display:inline-flex;align-items:center;gap:14px;font:600 11.5px/1 var(--body);letter-spacing:.34em;text-transform:uppercase;color:#d9c4aa}
+.fa-eyebrow i{width:34px;height:1px;background:linear-gradient(90deg,rgba(255,226,184,0),rgba(255,226,184,.8))}
+.fa-eyebrow.dk{color:var(--mute)}.fa-eyebrow.dk i{background:linear-gradient(90deg,rgba(13,14,16,0),rgba(13,14,16,.6))}
+.fa em,.fa-try em{font-style:italic;font-family:var(--serif);font-weight:500}
+.fa .btn,.fa-try .btn{height:54px;padding:0 28px;font-size:14.5px;letter-spacing:.01em}
+.fa .btn svg{width:18px;height:18px;margin-left:-6px}
+.fa-btn-w{background:linear-gradient(180deg,#fffaf3,#eadfce);color:#170f0a;box-shadow:0 14px 30px -14px rgba(255,226,184,.45),inset 0 -1px 0 rgba(0,0,0,.08)}
+.fa-btn-w:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(255,226,184,.55),inset 0 -1px 0 rgba(0,0,0,.08)}
+.fa-btn-o{background:rgba(255,255,255,.05);color:var(--fa-tx);border:1px solid rgba(255,236,214,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.fa-btn-o:hover{background:rgba(255,255,255,.12);border-color:rgba(255,236,214,.55)}
+.fa-btn-k{background:#0d0e10;color:#fff;box-shadow:0 16px 30px -16px rgba(0,0,0,.6)}.fa-btn-k:hover{transform:translateY(-2px)}
+.fa-btn-g{background:rgba(255,255,255,.6);color:#0d0e10;border:1px solid #fff;box-shadow:0 10px 24px -14px rgba(0,0,0,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.fa-btn-g:hover{background:#fff}
+.fa-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* ---- hero: the boutique ---- */
+.fa-hero{position:relative;overflow:hidden;isolation:isolate;color:var(--fa-tx);background:#120b07;min-height:min(100vh,960px);padding:122px 0 96px;display:flex;align-items:center}
+.fa-hero:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(14,8,5,.82) 0%,rgba(14,8,5,.5) 36%,rgba(14,8,5,0) 62%)}
+.fa-scene{position:absolute;inset:0;z-index:-2;overflow:hidden;perspective:calc(1000px*var(--rs,1));perspective-origin:50% 44%;--W:calc(1700px*var(--rs,1));--H:calc(1060px*var(--rs,1));--D:calc(1500px*var(--rs,1))}
+.fa-cam{position:absolute;left:50%;top:46%;width:0;height:0;transform-style:preserve-3d;transform:translateZ(calc(var(--rs,1)*260px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.fa-room{position:absolute;transform-style:preserve-3d}
+.fa-w{position:absolute;left:0;top:0;background:#1a0f09}
+.fa-back{width:var(--W);height:var(--H);transform:translate(-50%,-50%) translateZ(calc(var(--D)*-.75));display:flex;gap:4%;padding:5% 7% 9%;
+  background:linear-gradient(180deg,rgba(8,5,3,.55),rgba(8,5,3,.2) 40%,rgba(8,5,3,.62)),url(img/fa/walnut.webp) 0 0/calc(240px*var(--rs,1)) auto}
+.fa-left,.fa-right{width:var(--D);height:var(--H);background:linear-gradient(90deg,rgba(8,5,3,.15),rgba(8,5,3,.72)),url(img/fa/walnut.webp) 0 0/calc(240px*var(--rs,1)) auto}
+.fa-left{transform:translate(-50%,-50%) translate3d(calc(var(--W)*-.5),0,calc(var(--D)*-.25)) rotateY(90deg)}
+.fa-right{transform:translate(-50%,-50%) translate3d(calc(var(--W)*.5),0,calc(var(--D)*-.25)) rotateY(-90deg);background:linear-gradient(270deg,rgba(8,5,3,.15),rgba(8,5,3,.72)),url(img/fa/walnut.webp) 0 0/calc(240px*var(--rs,1)) auto}
+.fa-floor{width:var(--W);height:var(--D);transform:translate(-50%,-50%) translate3d(0,calc(var(--H)*.5),calc(var(--D)*-.25)) rotateX(90deg);
+  background:radial-gradient(60% 50% at 50% 30%,rgba(255,200,140,.16),rgba(0,0,0,0) 70%),linear-gradient(0deg,rgba(6,3,2,.2),rgba(6,3,2,.75)),url(img/fa/floor.webp) 0 0/calc(300px*var(--rs,1)) auto}
+.fa-ceil{width:var(--W);height:var(--D);transform:translate(-50%,-50%) translate3d(0,calc(var(--H)*-.5),calc(var(--D)*-.25)) rotateX(-90deg);background:#0c0705}
+.fa-ceil i{position:absolute;width:12%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,#fff6e8,rgba(255,214,160,.5) 35%,rgba(255,200,140,0));top:40%}
+.fa-ceil i:nth-child(1){left:18%}.fa-ceil i:nth-child(2){left:44%}.fa-ceil i:nth-child(3){left:70%}
+.fa-cab{position:relative;flex:1;border-radius:3px;overflow:hidden;background:linear-gradient(180deg,#2b1d14,#1a110c 55%,#110b07);box-shadow:inset 0 0 0 2px rgba(255,220,180,.07),inset 0 40px 70px rgba(0,0,0,.55),0 0 0 calc(10px*var(--rs,1)) rgba(30,18,11,.7)}
+.fa-cab.wide{flex:1.5}
+.fa-cab:after{content:"";position:absolute;inset:0;background:linear-gradient(112deg,rgba(255,255,255,.09),rgba(255,255,255,0) 32%,rgba(255,255,255,0) 58%,rgba(255,255,255,.05) 64%,rgba(255,255,255,0) 72%);pointer-events:none}
+.fa-led{position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(#fff6e6,#ffd9a6);box-shadow:0 0 12px 3px rgba(255,205,140,.6),0 0 46px 12px rgba(255,190,120,.2)}
+.fa-led.l{left:5px}.fa-led.r{right:5px}
+.fa-shelf{position:absolute;left:0;right:0;top:12%;height:5px;background:linear-gradient(#ffe9c9,#a8835e);box-shadow:0 0 18px 4px rgba(255,210,150,.35),0 14px 20px rgba(0,0,0,.5)}
+.fa-hang{position:absolute;left:7%;right:7%;top:15%;height:56%;display:flex;justify-content:space-around;align-items:flex-start}
+.fa-hang:before{content:"";position:absolute;left:-4%;right:-4%;top:1.5%;height:3px;border-radius:3px;background:linear-gradient(#e7d4bb,#7e6650)}
+.fa-hang svg{width:30%;max-width:34%;height:100%;filter:drop-shadow(0 12px 14px rgba(0,0,0,.55)) brightness(.92)}
+.fa-hang svg:nth-child(even){transform:translateX(-8%) scale(.96)}
+.fa-fold{position:absolute;left:10%;right:10%;bottom:6%;display:flex;gap:6%;align-items:flex-end}
+.fa-fold i{flex:1;height:calc(46px*var(--rs,1));border-radius:3px;background:repeating-linear-gradient(180deg,#cdbca6 0 8px,#a8957e 8px 10px);box-shadow:0 -14px 20px -10px rgba(255,210,150,.25)}
+.fa-fold i:nth-child(2){background:repeating-linear-gradient(180deg,#5a524a 0 8px,#3d3731 8px 10px)}
+.fa-shoes{position:absolute;left:8%;right:8%;bottom:7%;display:flex;gap:5%;align-items:flex-end}
+.fa-shoes i{flex:1;height:calc(26px*var(--rs,1));border-radius:40% 60% 8px 8px/70% 90% 8px 8px;background:linear-gradient(160deg,#efe6da,#8c7e6d);box-shadow:0 8px 10px rgba(0,0,0,.5)}
+.fa-shoes i:nth-child(odd){background:linear-gradient(160deg,#4b4440,#1d1916)}
+.fa-cab.side{position:absolute;left:52%;width:32%;top:8%;bottom:14%;flex:none}
+.fa-strip{position:absolute;top:0;bottom:0;left:30%;width:4px;background:linear-gradient(#fff3df,#ffcf92);box-shadow:0 0 22px 6px rgba(255,200,130,.45),0 0 80px 22px rgba(255,190,120,.16)}
+.fa-right .fa-strip{left:auto;right:30%}
+.fa-mirror{position:absolute;left:34%;width:34%;top:8%;bottom:20%;border-radius:4px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 40%,rgba(255,255,255,.06)),#0f0b08;box-shadow:0 0 0 4px #ffe8c8,0 0 34px 8px rgba(255,210,150,.5),0 0 120px 30px rgba(255,190,120,.15)}
+.fa-glow{position:absolute;inset:0;background:radial-gradient(40% 30% at 52% 86%,rgba(255,196,130,.18),rgba(0,0,0,0) 70%),radial-gradient(30% 50% at 88% 40%,rgba(255,206,150,.12),rgba(0,0,0,0) 70%);pointer-events:none}
+.fa-vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 55% 45%,rgba(0,0,0,0) 45%,rgba(8,4,2,.75) 100%),linear-gradient(180deg,rgba(17,10,7,0) 72%,#110a07 100%)}
+.fa-hero-in{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:center}
+.fa-h{font-family:var(--serif);font-weight:500;font-size:clamp(58px,8.4vw,124px);line-height:.9;letter-spacing:-.02em;margin:22px 0 0}
+.fa-h .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.fa-h .ln>span{display:inline-block}
+.fa-h em{background:linear-gradient(100deg,#fff4e4 0%,#e6c9a2 40%,#fff 55%,#d4b089 80%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.fa.enter .fa-h .ln>span{animation:faUp 1.05s cubic-bezier(.2,.8,.2,1) both}
+.fa.enter .fa-h .ln:nth-child(2)>span{animation-delay:.12s}
+@keyframes faUp{from{transform:translateY(105%)}to{transform:none}}
+.fa-lead{max-width:470px;margin:24px 0 0;color:#d7c8b8;font-size:17px;line-height:1.6}
+.fa-ui{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:14px;transform-style:preserve-3d;transform:perspective(1600px) rotateY(calc(-15deg + var(--uy,0deg))) rotateX(calc(3deg + var(--ux,0deg)))}
+.fa.enter .fa-ui{animation:faUiIn 1.3s cubic-bezier(.2,.8,.2,1) .15s both}
+@keyframes faUiIn{from{opacity:0;transform:perspective(1600px) rotateY(-34deg) translateX(60px) translateZ(-120px)}}
+.fa-coll{position:relative;display:flex;flex-direction:column;border-radius:26px;padding:12px;background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(16px) saturate(1.15);backdrop-filter:blur(16px) saturate(1.15);box-shadow:0 40px 80px -30px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.4)}
+.fa-tabs{display:flex;gap:6px;padding:2px 2px 10px}
+.fa-tabs span{height:28px;padding:0 13px;display:inline-flex;align-items:center;border-radius:99px;font:600 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:#e9dccb;border:1px solid rgba(255,255,255,.2)}
+.fa-tabs span.on{background:rgba(255,255,255,.85);color:#1b120c;border-color:transparent}
+.fa-coll-art{position:relative;flex:1;min-height:340px;border-radius:18px;overflow:hidden;background:linear-gradient(170deg,#f1d7b5 0%,#c38c5f 38%,#6b432b 70%,#2a1810 100%)}
+.fa-sun{position:absolute;width:70%;aspect-ratio:1;right:-14%;top:-18%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,250,240,.95),rgba(255,226,184,.35) 55%,rgba(255,226,184,0))}
+.fa-coll-art img{position:absolute;filter:drop-shadow(0 24px 22px rgba(40,18,6,.45));animation:faBob 6s ease-in-out infinite alternate}
+.fa-coll-art .a1{width:66%;left:-2%;bottom:20%;--r:4deg}
+.fa-coll-art .a2{width:52%;right:-4%;bottom:30%;--r:-6deg;animation-duration:7.5s;animation-delay:-2s}
+.fa-coll-art .a3{width:30%;right:24%;top:6%;--r:8deg;animation-duration:5s;animation-delay:-1s}
+.fa-coll-t{position:absolute;left:18px;right:18px;bottom:16px;color:#fff}
+.fa-coll-t small{display:block;font:600 10px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.fa-coll-t b{display:block;font:500 31px/1 var(--serif);letter-spacing:-.01em;text-shadow:0 4px 18px rgba(30,12,4,.5)}
+.fa-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;transform-style:preserve-3d}
+.fa-tile{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;padding:10px 6px 11px;min-height:96px;border-radius:18px;color:#f7efe6;
+  background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 22px 40px -24px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .45s cubic-bezier(.2,.8,.2,1),background .3s,box-shadow .3s;transform:translateZ(0)}
+.fa-tile img{width:62%;max-width:84px;margin:-4px 0 2px;filter:drop-shadow(0 10px 10px rgba(0,0,0,.4));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.fa-tile b{font:600 12.5px/1.1 var(--head);letter-spacing:.01em}
+.fa-tile small{font-size:10.5px;color:#cdbba7}
+.fa-tile:hover,.fa-tile:focus-visible{transform:translateZ(26px);background:linear-gradient(160deg,rgba(255,255,255,.32),rgba(255,255,255,.1));box-shadow:0 30px 50px -22px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.5)}
+.fa-tile:hover img{transform:translateY(-6px) rotate(-6deg) scale(1.08)}
+.fa-tile:after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.22),rgba(255,255,255,0) 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.fa-tile:hover:after{opacity:1}
+.fa-float{position:absolute;inset:0;pointer-events:none}
+.fa-fl{position:absolute;left:var(--x);top:var(--y);width:var(--s);z-index:1;will-change:transform}
+.fa-fl.fa-near{z-index:5}
+.fa-fl img{display:block;width:100%;filter:drop-shadow(0 22px 24px rgba(0,0,0,.5));animation:faBob var(--d,6s) ease-in-out var(--dl,0s) infinite alternate}
+.fa-fl.fa-far img{filter:blur(2.4px) brightness(.72) drop-shadow(0 10px 12px rgba(0,0,0,.4));opacity:.75}
+.fa-fl.fa-near img{filter:drop-shadow(0 30px 30px rgba(0,0,0,.55))}
+@keyframes faBob{0%{transform:translateY(-12px) rotate(calc(var(--r,6deg)*-1)) perspective(500px) rotateY(-16deg)}100%{transform:translateY(14px) rotate(var(--r,6deg)) perspective(500px) rotateY(16deg)}}
+.fa-hero.off .fa-fl img,.fa-hero.off .fa-coll-art img{animation-play-state:paused}
+.fa.enter .fa-fl{animation:faFlIn 1.4s cubic-bezier(.2,.8,.2,1) calc(.25s + var(--i,0)*.06s) both}
+@keyframes faFlIn{from{opacity:0;scale:.6}}
+.fa-corner{position:absolute;bottom:22px;z-index:4;font:600 10.5px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,236,214,.55)}
+.fa-corner.l{left:26px}.fa-corner.r{right:26px}
+
+/* ---- the rail ---- */
+.fa-rail{position:relative;overflow:hidden;color:var(--fa-tx);padding:86px 0 84px;background:radial-gradient(60% 50% at 50% 55%,rgba(255,196,130,.1),rgba(0,0,0,0) 70%),linear-gradient(180deg,#110a07 0%,#1b120c 45%,#130c08 100%)}
+.fa-rail:before{content:"";position:absolute;inset:0;opacity:.18;background:url(img/fa/walnut.webp) 0 0/280px auto;-webkit-mask:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);pointer-events:none}
+.fa-rail:after{content:"";position:absolute;left:4%;right:4%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,226,184,.35),transparent);box-shadow:0 0 30px 6px rgba(255,200,140,.12);pointer-events:none}
+.fa-sec-h{text-align:center;max-width:640px;margin:0 auto;position:relative;z-index:1}
+.fa-sec-h h2{font:500 clamp(40px,5.6vw,68px)/1 var(--serif);letter-spacing:-.015em;margin:18px 0 12px}
+.fa-sec-h p{color:var(--fa-mu);margin:0;font-size:16px}
+.fa-pills{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px}
+.fa-pills button{height:38px;padding:0 17px;border-radius:99px;font:600 13px/1 var(--body);color:#eadccb;background:rgba(255,255,255,.06);border:1px solid rgba(255,236,214,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,color .25s,border-color .25s}
+.fa-pills button:hover{background:rgba(255,255,255,.12)}
+.fa-pills button.on{background:#f6efe7;color:#1a110b;border-color:#f6efe7}
+.fa-pills button i{font-style:normal;opacity:.55;margin-left:6px;font-weight:500}
+.fa-flow{position:relative;z-index:1;height:480px;margin-top:22px;perspective:1500px;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.fa-flow.drag{cursor:grabbing}
+.fa-flow-t{position:absolute;left:50%;top:0;width:0;height:100%;transform-style:preserve-3d}
+.fa-card{--cw:252px;position:absolute;left:calc(var(--cw)/-2);top:30px;width:var(--cw);height:400px;border-radius:24px;padding:12px;display:flex;flex-direction:column;color:#fff;
+  background:linear-gradient(165deg,rgba(255,255,255,.22),rgba(255,255,255,.06)),rgba(58,40,29,.55);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  box-shadow:0 40px 70px -34px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .5s;will-change:transform}
+.fa-flow.drag .fa-card,.fa-flow.snap .fa-card{transition:opacity .5s,filter .5s}
+.fa-card-im{position:relative;flex:1;border-radius:16px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(80% 70% at 50% 40%,rgba(255,255,255,.55),rgba(255,255,255,.12) 70%)}
+.fa-card-im img{max-width:84%;max-height:86%;object-fit:contain;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fa-card.demo .fa-card-im{background:radial-gradient(80% 70% at 50% 40%,rgba(255,236,214,.35),rgba(255,255,255,.04) 70%)}
+.fa-card.demo .fa-card-im img{max-width:70%}
+.fa-card.on .fa-card-im img{transform:scale(1.06) translateY(-4px)}
+.fa-card .heart{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.75);z-index:2}
+.fa-card .heart.on svg path{fill:#0d0e10}
+.fa-card-n{font:600 15px/1.25 var(--head);margin:12px 4px 2px;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fa-card-s{font-size:12px;color:#d8c9b8;margin:0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fa-card-f{display:flex;align-items:center;justify-content:space-between;margin:10px 4px 2px}
+.fa-card-f b{font:700 16px/1 var(--head)}
+.fa-dots{display:flex;gap:5px}.fa-dots i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.fa-card-tap{position:absolute;right:10px;bottom:10px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;transform:scale(.6);transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.fa-card-tap:before,.fa-card-tap:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(255,255,255,.5);animation:faPing 2.2s ease-out infinite}
+.fa-card-tap:after{animation-delay:1.1s}
+.fa-card-tap svg{width:18px;height:18px;color:#fff}
+.fa-card.on .fa-card-tap{opacity:1;transform:none}
+@keyframes faPing{from{transform:scale(.7);opacity:.9}to{transform:scale(1.6);opacity:0}}
+.fa-arr{position:absolute;top:50%;z-index:3;width:52px;height:52px;margin-top:-26px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,236,214,.28);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,transform .25s}
+.fa-arr:hover{background:rgba(255,255,255,.18);transform:scale(1.06)}
+.fa-arr svg{width:20px;height:20px}
+.fa-arr.p{left:max(16px,calc(50% - 600px))}.fa-arr.n{right:max(16px,calc(50% - 600px))}
+.fa-bar{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:26px;margin:6px auto 0;max-width:980px;padding:16px 16px 16px 26px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,236,214,.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.fa-bar-t{min-width:0}.fa-bar-t small{display:block;font:600 10.5px/1 var(--body);letter-spacing:.24em;color:#bba996;margin-bottom:7px}
+.fa-bar-t b{display:block;font:600 19px/1.2 var(--head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fa-bar-t span{display:block;font-size:13px;color:#cdbca9;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fa-bar-p{text-align:right}.fa-bar-p b{display:block;font:700 22px/1 var(--head)}.fa-bar-p s{font-size:13px;color:#a8988a}
+.fa-bar-a{display:flex;gap:10px}.fa-bar .btn{height:48px;padding:0 22px;font-size:14px}
+.fa-bar.swap .fa-bar-t,.fa-bar.swap .fa-bar-p{animation:faSwap .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes faSwap{from{opacity:0;transform:translateY(8px)}}
+
+/* ---- the Watch Room ---- */
+.fa-watch{position:relative;overflow:hidden;color:var(--ink);padding:96px 0 80px;background:radial-gradient(90% 70% at 68% 42%,#fff 0%,#f1f2f4 46%,#e0e3e7 100%)}
+.fa-watch:before{content:"";position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,rgba(19,12,8,.12),rgba(19,12,8,0));pointer-events:none}
+.fa-watch-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px;align-items:center}
+.fa-w-copy h2{font:500 clamp(46px,6vw,84px)/.95 var(--serif);letter-spacing:-.02em;margin:20px 0 18px}
+.fa-w-copy h2 em{color:#3d4048}
+.fa-w-copy p{color:var(--mute);font-size:16.5px;line-height:1.6;max-width:430px;margin:0}
+.fa-w-time{display:inline-flex;align-items:center;gap:10px;margin-top:22px;height:34px;padding:0 15px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid #fff;font:600 12.5px/1 var(--body);color:#2a2d33;box-shadow:0 8px 20px -14px rgba(0,0,0,.3)}
+.fa-w-time i{width:7px;height:7px;border-radius:50%;background:#1f8f4e;box-shadow:0 0 0 3px rgba(31,143,78,.18);animation:faLive 1s steps(2) infinite}
+@keyframes faLive{50%{opacity:.35}}
+.fa-w-stage{position:relative;aspect-ratio:1/.92;max-height:720px;margin-right:-4%}
+.fa-w-stage canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.fa-w-stage.ready canvas{cursor:grab}.fa-w-stage canvas.drag{cursor:grabbing}
+.fa-w-fb{display:none;position:absolute;left:50%;top:48%;width:58%;transform:translate(-50%,-50%);filter:drop-shadow(0 40px 30px rgba(0,0,0,.25));animation:faBob 6s ease-in-out infinite alternate;--r:3deg}
+.fa-w-stage.no-gl .fa-w-fb{display:block}.fa-w-stage.no-gl canvas{display:none}
+.fa-w-hint{position:absolute;left:50%;bottom:6%;transform:translate(-50%,10px);display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 15px;border-radius:99px;background:rgba(255,255,255,.75);border:1px solid #fff;font:600 12px/1 var(--body);color:#30333a;opacity:0;transition:opacity .6s,transform .6s;pointer-events:none;box-shadow:0 10px 24px -16px rgba(0,0,0,.35)}
+.fa-w-hint svg{width:16px;height:16px}
+.fa-w-stage.ready .fa-w-hint{opacity:1;transform:translate(-50%,0)}
+.fa-w-stage.ready.turned .fa-w-hint{opacity:0}
+.fa-w-prog{position:absolute;left:22%;right:22%;bottom:2.5%;height:2px;border-radius:2px;background:rgba(13,14,16,.08);overflow:hidden}
+.fa-w-prog:after{content:"";position:absolute;inset:0;background:#0d0e10;transform-origin:left;transform:scaleX(var(--p,0))}
+.fa-w-stage.ready .fa-w-prog{opacity:0;transition:opacity .8s .4s}
+
+/* ---- bags ---- */
+.fa-bags{position:relative;overflow:hidden;color:var(--fa-tx);padding:110px 0 100px;background:radial-gradient(50% 60% at 28% 50%,rgba(255,200,140,.14),rgba(0,0,0,0) 70%),linear-gradient(180deg,#1b120c,#0f0905)}
+.fa-bags:before{content:"";position:absolute;inset:0;opacity:.22;background:url(img/fa/walnut.webp) 0 0/300px auto;pointer-events:none}
+.fa-bags-in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.fa-bags-copy h2{font:500 clamp(46px,6vw,84px)/.95 var(--serif);letter-spacing:-.02em;margin:20px 0 18px}
+.fa-bags-copy p{color:#d2c2b0;font-size:16.5px;line-height:1.6;max-width:440px;margin:0}
+.fa-ticks{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.fa-ticks li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:#eadccb}
+.fa-ticks li:before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:rgba(255,236,214,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m6 10.5 2.6 2.6L14.5 7' fill='none' stroke='%23ffe2b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;border:1px solid rgba(255,236,214,.3)}
+.fa-ped{position:relative;height:540px;perspective:1100px}
+.fa-ped:before{content:"";position:absolute;left:50%;top:-110px;width:460px;height:640px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,232,200,.28),rgba(255,226,184,0) 85%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);filter:blur(8px);pointer-events:none}
+.fa-ped-col{position:absolute;left:50%;bottom:40px;width:280px;height:150px;transform:translateX(-50%);border-radius:0 0 140px 140px/0 0 34px 34px;background:linear-gradient(90deg,#24170f,#5b3e2a 28%,#8d6849 50%,#5b3e2a 72%,#24170f)}
+.fa-ped-top{position:absolute;left:50%;bottom:160px;width:280px;height:68px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(60% 70% at 50% 40%,#fbf1e4,#d9c1a4 60%,#a88866);box-shadow:0 0 50px 6px rgba(255,214,160,.25),inset 0 -6px 12px rgba(80,50,30,.4)}
+.fa-ped-sh{position:absolute;left:50%;bottom:20px;width:420px;height:60px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.fa-ped-bag{position:absolute;left:50%;bottom:196px;width:300px;margin-left:-150px;z-index:2;filter:drop-shadow(0 34px 26px rgba(0,0,0,.5));animation:faBob 7s ease-in-out infinite alternate;--r:3deg}
+.fa-orb{position:absolute;left:50%;bottom:300px;width:0;height:0;transform-style:preserve-3d;transform:rotateX(-14deg);z-index:3}
+.fa-orb-r{position:absolute;transform-style:preserve-3d;animation:faSpin 26s linear infinite}
+.fa-orb-r img{position:absolute;width:78px;max-width:none;left:-39px;top:-39px;transform:rotateY(var(--a)) translateZ(230px) rotateY(calc(var(--a)*-1));filter:drop-shadow(0 14px 14px rgba(0,0,0,.45))}
+@keyframes faSpin{to{transform:rotateY(360deg)}}
+.fa-bags.off .fa-orb-r,.fa-bags.off .fa-ped-bag{animation-play-state:paused}
+
+/* ---- all fashion + band ---- */
+.fa-all{padding-top:70px}
+.fa-grid.fa3d .pc{opacity:0;transform:perspective(900px) rotateY(-18deg) translateY(30px);transition:opacity .6s calc(var(--i,0)*.07s),transform .8s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*.07s)}
+.fa-grid.fa3d .pc.in{opacity:1;transform:none}
+.fa-band{position:relative;overflow:hidden;border-radius:32px;padding:46px 46px;margin:10px 0 18px;color:var(--fa-tx);background:linear-gradient(120deg,#1d130d,#2d1e14 50%,#160e09)}
+.fa-band:before{content:"";position:absolute;inset:0;opacity:.25;background:url(img/fa/walnut.webp) 0 0/260px auto}
+.fa-band-l{position:absolute;top:-40%;bottom:-40%;width:30%;left:-40%;background:linear-gradient(90deg,rgba(255,226,184,0),rgba(255,226,184,.18),rgba(255,226,184,0));transform:skewX(-18deg);animation:faSweep 6s ease-in-out infinite}
+@keyframes faSweep{0%,40%{left:-40%}100%{left:130%}}
+.fa-band-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.fa-band-in b{display:block;font:500 46px/1 var(--serif);margin:14px 0 10px}
+.fa-band-in span{color:#d6c6b4;max-width:520px;display:block}
+.fa-band .row-b{display:flex;gap:10px;flex-wrap:wrap}
+.fa-fine{margin:6px 4px 40px}
+
+/* ---- 3D try view ---- */
+.fa-try{--fa-tx:#f6efe7;--serif:'Cormorant Garamond','Bodoni 72',Didot,'Playfair Display',Georgia,'Times New Roman',serif;position:fixed;inset:0;z-index:79;display:grid;place-items:center;color:var(--fa-tx)}
+.fa-try[hidden]{display:none}
+.fa-try-bg{position:absolute;inset:0;background:radial-gradient(80% 70% at 42% 45%,rgba(62,40,26,.94),rgba(12,7,4,.98)),#0d0805;animation:faFade .4s both}
+.fa-try-bg:before{content:"";position:absolute;inset:0;opacity:.14;background:url(img/fa/walnut.webp) 0 0/300px auto}
+@keyframes faFade{from{opacity:0}}
+.fa-try-in{position:relative;width:min(1120px,94vw);height:min(760px,92vh);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:24px;animation:faTryIn .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes faTryIn{from{opacity:0;transform:scale(.94) translateY(20px)}}
+.fa-try-stage{position:relative;height:100%;min-height:360px}
+.fa-try-obj{position:absolute;left:50%;top:45%;width:min(430px,74%);z-index:2;transform:translate(-50%,-50%);transform-style:preserve-3d;perspective:1000px}
+.fa-try-obj img{display:block;width:100%;max-height:52vh;object-fit:contain;filter:drop-shadow(0 40px 34px rgba(0,0,0,.55));animation:faTurn 8s ease-in-out infinite alternate;transition:scale .6s cubic-bezier(.2,.8,.2,1)}
+.fa-try-obj img.refl{position:absolute;left:0;top:100%;margin-top:6px;transform-origin:top;opacity:.22;-webkit-mask:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%);mask:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%);filter:blur(1px);animation-name:faTurnR}
+@keyframes faTurn{0%{transform:rotateY(-24deg) translateY(-8px)}100%{transform:rotateY(24deg) translateY(8px)}}
+@keyframes faTurnR{0%{transform:scaleY(-1) rotateY(-24deg) translateY(-8px)}100%{transform:scaleY(-1) rotateY(24deg) translateY(8px)}}
+.fa-try-stage.zoom .fa-try-obj img:not(.refl){scale:1.35}
+.fa-try-ring{position:absolute;left:50%;top:64%;width:min(560px,92%);aspect-ratio:1;transform:translate(-50%,-50%) perspective(900px) rotateX(78deg);border-radius:50%;pointer-events:none}
+.fa-try-ring:before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(255,232,204,.5);box-shadow:0 0 34px rgba(255,210,150,.35),inset 0 0 40px rgba(255,210,150,.2)}
+.fa-try-ring:after{content:"";position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,244,228,.95) 30deg,rgba(255,255,255,0) 70deg);-webkit-mask:radial-gradient(closest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(closest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));animation:faSpinZ 3.2s linear infinite}
+@keyframes faSpinZ{to{transform:rotate(360deg)}}
+.fa-try-ring.fa-bk{z-index:1;clip-path:inset(0 0 50% 0)}
+.fa-try-ring.fa-fr{z-index:3;clip-path:inset(50% 0 0 0)}
+.fa-try-pulse{position:absolute;left:50%;top:64%;width:120px;height:30px;margin:-15px 0 0 -60px;border-radius:50%;border:1px solid rgba(255,232,204,.6);animation:faPulse 2.6s ease-out infinite;pointer-events:none}
+@keyframes faPulse{from{transform:scale(.6);opacity:1}to{transform:scale(4.2);opacity:0}}
+.fa-try-info{position:relative;z-index:4;padding:28px;border-radius:26px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.fa-try-info small{display:block;font:600 10.5px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:#d9c4aa}
+.fa-try-info b{display:block;font:500 38px/1.02 var(--serif);margin:14px 0 8px}
+.fa-try-info span{display:block;color:#d2c2b0;font-size:14px}
+.fa-try-info em{display:block;font:700 26px/1 var(--head);font-style:normal;margin:18px 0 0}
+.fa-try-a{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.fa-try-a .btn{height:50px;padding:0 22px}
+.fa-tool{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:5;display:flex;gap:6px;padding:6px;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.fa-tool button{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;transition:background .2s}
+.fa-tool button:hover,.fa-tool button[aria-pressed="true"],.fa-tool button.on{background:rgba(255,255,255,.2)}
+.fa-tool button.on svg path{fill:#fff}
+.fa-tool svg{width:20px;height:20px}
+body.fa-lock{overflow:hidden}
+
+/* ---- lighter work for slower phones ---- */
+.lite .fa-coll,.lite .fa-tile,.lite .fa-card,.lite .fa-bar,.lite .fa-pills button,.lite .fa-try-info,.lite .fa-tool,.lite .fa-arr{-webkit-backdrop-filter:none;backdrop-filter:none}
+.lite .fa-card{background:linear-gradient(165deg,rgba(92,68,52,.92),rgba(52,36,26,.94))}
+.lite .fa-coll,.lite .fa-tile{background:linear-gradient(160deg,rgba(110,84,64,.7),rgba(60,42,30,.72))}
+.lite .fa-fl.fa-far img{filter:brightness(.7);opacity:.6}
+@media (prefers-reduced-motion:reduce){.fa-fl img,.fa-coll-art img,.fa-orb-r,.fa-ped-bag,.fa-band-l,.fa-try-obj img,.fa-try-ring:after,.fa-try-pulse,.fa-card-tap:before,.fa-card-tap:after,.fa-w-fb{animation:none!important}.fa.enter .fa-ui,.fa.enter .fa-fl,.fa.enter .fa-h .ln>span{animation:none}}
+
+@media (max-width:1100px){.fa-hero-in{grid-template-columns:1fr;gap:40px}.fa-ui{max-width:720px;transform:perspective(1600px) rotateY(calc(-8deg + var(--uy,0deg))) rotateX(calc(2deg + var(--ux,0deg)))}
+  .fa-hero:before{background:linear-gradient(180deg,rgba(14,8,5,.75) 0%,rgba(14,8,5,.35) 45%,rgba(14,8,5,.2))}
+  .fa-watch-in{grid-template-columns:1fr}.fa-w-stage{margin:0 auto;width:min(100%,640px)}
+  .fa-bags-in{grid-template-columns:1fr}.fa-ped{order:2}}
+@media (max-width:820px){.fa-ui{grid-template-columns:1fr}.fa-coll-art{min-height:250px}.fa-tiles{grid-template-columns:repeat(4,1fr);gap:8px}.fa-tile{min-height:88px;border-radius:15px}.fa-tile small{display:none}
+  .fa-bar{grid-template-columns:1fr auto;gap:12px 16px;padding:14px 16px}.fa-bar-a{grid-column:1/-1}.fa-bar-a .btn{flex:1;justify-content:center}
+  .fa-try-in{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;height:100%;width:100%;padding:16px 16px calc(16px + env(safe-area-inset-bottom));gap:12px;align-items:stretch}
+  .fa-try-stage{min-height:0}.fa-tool{bottom:4px}.fa-try-info{padding:18px 20px}.fa-try-info b{font-size:28px;margin:10px 0 6px}.fa-try-info em{font-size:22px;margin-top:12px}.fa-try-a{margin-top:14px}.fa-try-a .btn{flex:1;justify-content:center;height:48px}
+  .fa-try-obj{top:44%}.fa-try-obj img{max-height:36vh}.fa-try-ring{top:62%}.fa-try-pulse{top:62%}}
+@media (max-width:600px){.fa-hero{padding:96px 0 70px;min-height:0}.fa-h{font-size:clamp(54px,16vw,76px)}.fa-lead{font-size:15.5px}
+  .fa .btn{height:50px;padding:0 22px;font-size:14px}
+  .fa-fl.m-hide{display:none}
+  .fa-coll{padding:10px;border-radius:22px}.fa-coll-art{min-height:210px}.fa-coll-t b{font-size:25px}
+  .fa-tile{min-height:78px;padding:8px 4px 9px}.fa-tile img{width:70%}.fa-tile b{font-size:11px}
+  .fa-corner{display:none}
+  .fa-rail{padding:64px 0 60px}.fa-flow{height:420px}.fa-card{--cw:212px;height:350px}.fa-arr{display:none}
+  .fa-watch{padding:70px 0 50px}.fa-w-stage{aspect-ratio:1/1.08;margin:0 -10px}
+  .fa-bags{padding:72px 0 64px}.fa-ped{height:420px}.fa-ped-bag{width:230px;margin-left:-115px;bottom:166px}.fa-ped-top,.fa-ped-col{width:220px}.fa-ped-top{bottom:140px;height:56px}.fa-ped-col{height:130px}
+  .fa-orb{bottom:250px}.fa-orb-r img{width:58px;left:-29px;top:-29px;transform:rotateY(var(--a)) translateZ(165px) rotateY(calc(var(--a)*-1))}.fa-ped:before{width:340px}
+  .fa-band{padding:32px 24px;border-radius:26px}.fa-band-in b{font-size:38px}.fa-band .row-b .btn{flex:1;justify-content:center}}
+
+/* the real watch: the liquid becomes Plug's PINDU iced-out piece at the end */
+.fa-w-real{position:absolute;left:50%;top:45%;height:74%;width:auto;max-width:92%;object-fit:contain;transform:translate(-50%,-50%) scale(.93);opacity:0;pointer-events:none;z-index:2;filter:drop-shadow(0 34px 30px rgba(20,22,28,.28)) drop-shadow(0 6px 8px rgba(20,22,28,.12));transition:opacity 1.2s ease,transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.fa-w-stage canvas{transition:opacity 1s ease}
+.fa-w-stage.real .fa-w-real{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.fa-w-stage.real canvas{opacity:0}
+.fa-w-stage.no-gl.real .fa-w-fb{display:none}
+.fa-w-stage.real .fa-w-hint{opacity:0}
+.fa-w-tag{position:absolute;left:50%;bottom:6%;z-index:3;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 8px 0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 14px 30px -16px rgba(20,24,32,.35);font:600 12.5px/1 var(--body);color:#0d0e10;cursor:pointer;white-space:nowrap;opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:opacity .6s .5s,transform .8s .5s cubic-bezier(.2,.8,.2,1)}
+.fa-w-tag i{width:7px;height:7px;border-radius:50%;background:#2fb86a;box-shadow:0 0 0 4px rgba(47,184,106,.18)}
+.fa-w-tag b{display:inline-grid;place-items:center;height:28px;padding:0 12px;border-radius:99px;background:#0d0e10;color:#fff;font-weight:600}
+.fa-w-stage.real .fa-w-tag{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+@media (max-width:600px){.fa-w-tag{font-size:11.5px;height:36px}.fa-w-real{height:68%}}
+@media (prefers-reduced-motion:reduce){.fa-w-real,.fa-w-tag,.fa-w-stage canvas{transition:none}}
+/* Plug's own fashion photos (img/p/fa-*): shown whole, as photographed in the shop */
+.pc .ph img[src*="img/p/fa-"]{position:absolute;inset:0;max-width:none;max-height:none;width:100%;height:100%;object-fit:cover}
+.pd-img img[src*="img/p/fa-"]{max-width:100%;max-height:100%;height:100%;width:auto;object-fit:contain;border-radius:20px;filter:none}
+.fa-card-im img[src*="img/p/fa-"]{position:absolute;inset:0;max-width:none;max-height:none;width:100%;height:100%;object-fit:cover;filter:none;border-radius:inherit}
+.fa-try-obj img[src*="img/p/fa-"]{width:auto;max-width:100%;max-height:56vh;margin:0 auto;border-radius:22px;box-shadow:0 40px 60px -30px rgba(0,0,0,.6);filter:none;animation:none}
+@media (max-width:600px){.fa-try-obj img[src*="img/p/fa-"]{max-height:40vh}}
+
+/* keep each product in view when its photo is cropped to the card */
+img[src*="img/p/fa-catsplash."]{object-position:46% 62%}img[src*="img/p/fa-greenauto."]{object-position:48% 52%}img[src*="img/p/fa-hbgalaxy."]{object-position:50% 49%}img[src*="img/p/fa-exgraffiti."]{object-position:50% 55%}img[src*="img/p/fa-oblvlo."]{object-position:46% 45%}img[src*="img/p/fa-hbr986."]{object-position:50% 49%}img[src*="img/p/fa-cronus."]{object-position:48% 48%}img[src*="img/p/fa-pindurainbow."]{object-position:50% 53%}img[src*="img/p/fa-pinduskull."]{object-position:52% 47%}img[src*="img/p/fa-pinduiced."]{object-position:48% 49%}img[src*="img/p/fa-haloring."]{object-position:46% 55%}img[src*="img/p/fa-panda."]{object-position:52% 51%}img[src*="img/p/fa-bafelli."]{object-position:51% 49%}img[src*="img/p/fa-exboston."]{object-position:52% 64%}img[src*="img/p/fa-lvkeepall."]{object-position:50% 48%}img[src*="img/p/fa-lvtote."]{object-position:51% 57%}img[src*="img/p/fa-lvminitote."]{object-position:50% 50%}img[src*="img/p/fa-elephant."]{object-position:52% 53%}img[src*="img/p/fa-bearblack."]{object-position:34% 48%}img[src*="img/p/fa-bearorange."]{object-position:46% 45%}img[src*="img/p/fa-vanity."]{object-position:52% 52%}img[src*="img/p/fa-owlsquare."]{object-position:50% 51%}img[src*="img/p/fa-backpack."]{object-position:51% 56%}img[src*="img/p/fa-library."]{object-position:51% 54%}img[src*="img/p/fa-kdaiou."]{object-position:53% 57%}img[src*="img/p/fa-silvercat."]{object-position:49% 53%}img[src*="img/p/fa-owlround."]{object-position:56% 58%}img[src*="img/p/fa-bucket."]{object-position:53% 53%}
+
+@media (min-width:821px){.cat-grid.cat-img{grid-template-columns:repeat(5,1fr)}}
+.cat-grid.cat-img .cat2:last-child{grid-column:span 2;aspect-ratio:auto!important;height:auto;align-self:stretch}
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -1699,7 +2002,7 @@ html{overflow-x:clip}
 <header class="glass" id="top">
   <a href="#home"><img fetchpriority="high" decoding="async" class="logo" src="img/logo.webp" alt="Plug — Electronics &amp; More"></a>
   <nav class="links">
-    <a class="on" href="#home">Home</a><a href="#shop">Shop</a><a href="#audio">Audio</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#loyalty">Loyalty</a><a href="#support">Support</a>
+    <a class="on" href="#home">Home</a><a href="#shop">Shop</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#loyalty">Loyalty</a><a href="#support">Support</a>
   </nav>
   <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="Search for products..." aria-label="Search"></label>
   <div class="icons">
@@ -1982,6 +2285,149 @@ html{overflow-x:clip}
     <p class="fine au2-fine">The sound on this page is made live in your browser. It only plays when you tap Listen, and stops when you leave the page.</p>
   </div>
   </div>
+  <div class="view fa" data-view="fashion" hidden>
+  <!-- FASHION PAGE (M&P): AR boutique in a walnut walk-in closet, floating liquid-glass clay icons (Plug's own artwork),
+       a frosted-glass rail of pieces, a 3D try view, and the Watch Room where black liquid pours itself into a watch.
+       Shows every product whose category is "fashion" (Admin > Products > Category: Fashion). -->
+  <section class="fa-hero" id="fashion-top">
+    <div class="fa-scene" id="faScene" aria-hidden="true">
+      <div class="fa-cam" id="faCam"><div class="fa-room">
+        <div class="fa-w fa-back">
+          <div class="fa-cab"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
+            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG2"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg><svg viewBox="0 0 120 200"><use href="#faG3"/></svg></div>
+            <div class="fa-fold"><i></i><i></i><i></i></div></div>
+          <div class="fa-cab wide"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
+            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG1"/></svg><svg viewBox="0 0 120 200"><use href="#faG4"/></svg><svg viewBox="0 0 120 200"><use href="#faG2"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg></div>
+            <div class="fa-shoes"><i></i><i></i><i></i><i></i></div></div>
+          <div class="fa-cab"><i class="fa-led l"></i><i class="fa-led r"></i><i class="fa-shelf"></i>
+            <div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG3"/></svg><svg viewBox="0 0 120 200"><use href="#faG4"/></svg></div>
+            <div class="fa-fold"><i></i><i></i></div></div>
+        </div>
+        <div class="fa-w fa-left"><i class="fa-strip"></i><div class="fa-cab side"><i class="fa-led r"></i><div class="fa-hang"><svg viewBox="0 0 120 200"><use href="#faG4"/></svg><svg viewBox="0 0 120 200"><use href="#faG1"/></svg></div></div></div>
+        <div class="fa-w fa-right"><i class="fa-mirror"></i><i class="fa-strip"></i></div>
+        <div class="fa-w fa-floor"></div>
+        <div class="fa-w fa-ceil"><i></i><i></i><i></i></div>
+      </div></div>
+      <svg width="0" height="0" style="position:absolute"><defs>
+        <linearGradient id="faCl1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9e2d8"/><stop offset="1" stop-color="#9c9184"/></linearGradient>
+        <linearGradient id="faCl2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d5852"/><stop offset="1" stop-color="#26231f"/></linearGradient>
+        <linearGradient id="faCl3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9a48a"/><stop offset="1" stop-color="#6e5a44"/></linearGradient>
+        <symbol id="faHg" viewBox="0 0 120 200"><path d="M60 4c6 0 8 6 4 9l-4 4v6M60 23 22 40h76z" fill="none" stroke="#c9b9a3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="faG1" viewBox="0 0 120 200"><use href="#faHg"/><path d="M24 40 44 33q16 10 32 0l20 7 14 42-14 4-6-20v116H30V66l-6 20-14-4z" fill="url(#faCl1)"/></symbol>
+        <symbol id="faG2" viewBox="0 0 120 200"><use href="#faHg"/><path d="M26 40 46 32q14 8 28 0l20 8-8 40 18 110H16l18-110z" fill="url(#faCl2)"/></symbol>
+        <symbol id="faG3" viewBox="0 0 120 200"><use href="#faHg"/><path d="M20 40 44 32 60 70 76 32l24 8 12 70-14 3-6-38v115H34V75l-6 38-14-3z" fill="url(#faCl3)"/></symbol>
+        <symbol id="faG4" viewBox="0 0 120 200"><use href="#faHg"/><path d="M30 40h60l4 22H26zM28 62h64l10 128H18z" fill="url(#faCl1)" opacity=".92"/></symbol>
+      </defs></svg>
+      <i class="fa-glow"></i><i class="fa-vig"></i>
+    </div>
+
+    <div class="fa-float" id="faFloat" aria-hidden="true"></div>
+
+    <div class="wrap fa-hero-in">
+      <div class="fa-copy">
+        <span class="fa-eyebrow"><i></i>Plug Fashion</span>
+        <h1 class="fa-h"><span class="ln"><span>Wear the</span></span><span class="ln"><span><em>moment.</em></span></span></h1>
+        <p class="fa-lead">Watches, bags and the finishing touches, picked by the Plug team. Step into the boutique, take a piece off the rail and turn it in 3D before you buy.</p>
+        <div class="fa-ctas"><a class="btn fa-btn-w" href="#fa-rail">Explore the rail</a><a class="btn fa-btn-o" href="#fa-watch">The Watch Room</a></div>
+      </div>
+      <div class="fa-ui" id="faUi">
+        <div class="fa-coll">
+          <div class="fa-tabs"><span class="on">Collections</span><span>Explore</span></div>
+          <div class="fa-coll-art"><i class="fa-sun"></i><img class="a1" src="img/fa/bag.webp" alt="" loading="lazy" decoding="async"><img class="a2" src="img/fa/watch.webp" alt="" loading="lazy" decoding="async"><img class="a3" src="img/fa/gem.webp" alt="" loading="lazy" decoding="async">
+            <div class="fa-coll-t"><small>Featured collection</small><b>New season,<br><em>new statement.</em></b></div></div>
+        </div>
+        <div class="fa-tiles" id="faTiles"></div>
+      </div>
+    </div>
+    <div class="fa-corner l">Plug · Boutique</div><div class="fa-corner r" id="faYear">2026</div>
+  </section>
+
+  <section class="fa-rail" id="fa-rail">
+    <div class="wrap"><div class="fa-sec-h reveal"><span class="fa-eyebrow"><i></i>The rail</span><h2>Take it off the rail.</h2><p>Swipe through the pieces. Tap the one in front to see it turn in 3D.</p></div>
+      <div class="fa-pills" id="faPills" role="tablist" aria-label="Fashion type"></div></div>
+    <div class="fa-flow" id="faFlow"><div class="fa-flow-t" id="faFlowT"></div>
+      <button type="button" class="fa-arr p" id="faPrev" aria-label="Previous piece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="fa-arr n" id="faNext" aria-label="Next piece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    <div class="wrap"><div class="fa-bar" id="faBar">
+      <div class="fa-bar-t"><small id="faBarI">01 / 01</small><b id="faBarN"></b><span id="faBarS"></span></div>
+      <div class="fa-bar-p"><b id="faBarP"></b><s id="faBarW"></s></div>
+      <div class="fa-bar-a"><button type="button" class="btn fa-btn-o" id="faBar3d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg>View in 3D</button><button type="button" class="btn fa-btn-w" id="faBarAdd">Add to Cart</button></div>
+    </div></div>
+  </section>
+
+  <section class="fa-watch" id="fa-watch">
+    <div class="wrap fa-watch-in">
+      <div class="fa-w-copy reveal">
+        <span class="fa-eyebrow dk"><i></i>The Watch Room</span>
+        <h2>Time, poured<br><em>into form.</em></h2>
+        <p>Liquid takes shape and becomes the real thing: our PINDU iced-out automatic, in store now. Drag to turn the 3D model; its hands show your time right now.</p>
+        <div class="fa-w-time"><i></i><span id="faTime">Showing your time</span></div>
+        <div class="fa-ctas"><button type="button" class="btn fa-btn-k" data-fa-go="watches">Shop watches</button><button type="button" class="btn fa-btn-g" id="faReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg>Replay</button></div>
+      </div>
+      <div class="fa-w-stage" id="faWStage">
+        <img class="fa-w-fb" src="img/fa/watch.webp" alt="" loading="lazy" decoding="async">
+        <canvas id="faWatchGl" aria-label="A 3D watch forming from liquid" role="img"></canvas>
+        <img class="fa-w-real" id="faWReal" src="img/fa/real_watch.webp" alt="PINDU iced-out twin open-heart automatic watch, in store at Plug" loading="lazy" decoding="async">
+        <button type="button" class="fa-w-tag" id="faWTag" data-open-p="fa-pinduiced" hidden><i></i>In store now · PINDU Iced-Out Automatic<b>View</b></button>
+        <span class="fa-w-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 12h8M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Drag to turn</span>
+        <i class="fa-w-prog" id="faWProg"></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="fa-bags" id="fa-bags">
+    <div class="wrap fa-bags-in">
+      <div class="fa-ped" id="faPed" aria-hidden="true">
+        <div class="fa-orb"><div class="fa-orb-r"><img src="img/fa/lock.webp" alt=""><img src="img/fa/links.webp" alt=""><img src="img/fa/star.webp" alt=""><img src="img/fa/perfume.webp" alt=""><img src="img/fa/shades.webp" alt=""><img src="img/fa/heart.webp" alt=""></div></div>
+        <img class="fa-ped-bag" src="img/fa/bag.webp" alt="" loading="lazy" decoding="async">
+        <i class="fa-ped-top"></i><i class="fa-ped-col"></i><i class="fa-ped-sh"></i>
+      </div>
+      <div class="fa-bags-copy reveal">
+        <span class="fa-eyebrow"><i></i>Bags</span>
+        <h2>Carry the<br><em>moment.</em></h2>
+        <p>Totes for the office, clutches for the evening and everyday bags that go with everything. Ask us for colours and what's in store today.</p>
+        <ul class="fa-ticks"><li>Checked by our team before it leaves the shop</li><li>Same-day delivery in Lusaka before 14:00</li><li>Pay on delivery or chat and order on WhatsApp</li></ul>
+        <div class="fa-ctas"><button type="button" class="btn fa-btn-w" data-fa-go="bags">Shop bags</button><a class="btn fa-btn-o" id="faBagWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="all fa-all" id="fa-shop">
+    <div class="wrap">
+      <div class="all-head reveal"><div><span class="fa-eyebrow dk"><i></i>Shop</span><h2>All fashion</h2><p class="lead" style="margin:10px 0 0">Prices in Kwacha · tap a product for details</p></div></div>
+      <div class="chips" id="faChips"></div>
+      <div class="pgrid fa-grid" id="faGrid"></div>
+      <div class="empty glass" id="faEmpty" hidden><img loading="lazy" decoding="async" src="img/sasha_face.webp" alt=""><div><b>New pieces are on the way</b><br><span>Ask Sasha on WhatsApp what's in the boutique today.</span></div><a class="btn wa" id="faEmptyWa" target="_blank" rel="noopener" href="https://wa.me/260574541778">Ask on WhatsApp</a></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="fa-band reveal"><i class="fa-band-l"></i>
+      <div class="fa-band-in"><div><span class="fa-eyebrow"><i></i>Personal styling</span><b>Style, sorted.</b><span>Tell us the occasion and your budget. We'll put a few pieces together for you.</span></div>
+        <div class="row-b"><a class="btn fa-btn-w" id="faWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">WhatsApp Plug</a><button class="btn fa-btn-o" type="button" id="faAsk">Ask Sasha</button></div></div>
+    </div>
+    <p class="fine fa-fine">The 3D icons and the watch on this page are Plug's own artwork. Product photos show the pieces we sell.</p>
+  </div>
+
+  <div class="fa-try" id="faTry" hidden role="dialog" aria-modal="true" aria-label="3D view">
+    <div class="fa-try-bg" data-fa-close></div>
+    <div class="fa-try-in">
+      <div class="fa-try-stage" id="faTryStage">
+        <i class="fa-try-ring fa-bk"></i>
+        <div class="fa-try-obj" id="faTryObj"><img id="faTryImg" alt=""><img class="refl" id="faTryRefl" alt=""></div>
+        <i class="fa-try-ring fa-fr"></i><i class="fa-try-pulse"></i>
+        <div class="fa-tool" role="toolbar" aria-label="3D view tools">
+        <button type="button" data-fa-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <button type="button" id="faTryLike" aria-label="Add to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
+        <button type="button" id="faTryShare" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></button>
+        <button type="button" id="faTryZoom" aria-label="Zoom" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5M11 8.5v5M8.5 11h5"/></svg></button>
+      </div>
+      </div>
+      <div class="fa-try-info"><small id="faTryK"></small><b id="faTryN"></b><span id="faTryS"></span><em id="faTryP"></em>
+        <div class="fa-try-a"><button type="button" class="btn fa-btn-w" id="faTryAdd">Add to Cart</button><a class="btn fa-btn-o" id="faTryWa" target="_blank" rel="noopener" href="https://wa.me/260574541778">WhatsApp</a></div></div>
+    </div>
+  </div>
+  </div>
   <div class="view" data-view="deals" hidden>
   <!-- DEALS PAGE -->
   <section class="pg" id="deals-top">
@@ -2251,7 +2697,7 @@ html{overflow-x:clip}
       <div><img loading="lazy" decoding="async" src="img/logo.webp" alt="Plug" style="height:46px"><div class="tagline">Your Tech. Our Priority.</div><div style="color:var(--ink2);font-size:14px;line-height:1.6">Liberty Mall, Shop 31<br>Opposite the Chinese Embassy, Lusaka<br>WhatsApp: +260 574 541 778</div><a class="btn wa" style="height:44px;margin-top:14px;display:inline-flex;color:#fff" href="https://wa.me/260574541778" target="_blank" rel="noopener">Chat on WhatsApp</a><div class="socials"><a data-social="ig" href="https://www.instagram.com/plug_electronics_zm" target="_blank" rel="noopener" aria-label="Plug on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>Instagram</span></a><a data-social="fb" href="https://www.facebook.com/share/1CXKEpqzwe/" target="_blank" rel="noopener" aria-label="Plug on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8H16l.6-4h-3.1V9c0-.6.4-1 1-1Z"/></svg><span>Facebook</span></a></div></div>
       <div><h5>Shop</h5><a href="#all" data-f="iphone">iPhone</a><a href="#all" data-f="samsung">Samsung</a><a href="#all" data-f="tablets">Tablets</a><a href="#all" data-f="laptops">Laptops</a><a href="#all" data-f="gaming">Gaming</a></div>
       <div><h5>Delivery</h5><a href="#support">Lusaka &amp; Ndola</a><a href="#support">Same-day in Lusaka (before 14:00)</a><a href="#support">Collect at Liberty Mall</a><a href="#" data-open="track">Track my order</a></div>
-      <div><h5>Plug</h5><a href="#" data-open="account">My account</a><a href="#loyalty">Plug Rewards</a><a href="#audio">Audio</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#support">Meet the team</a><a href="#support">Help &amp; FAQs</a><a href="#admin">Staff admin</a></div>
+      <div><h5>Plug</h5><a href="#" data-open="account">My account</a><a href="#loyalty">Plug Rewards</a><a href="#audio">Audio</a><a href="#fashion">Fashion</a><a href="#finance">Finance</a><a href="#deals">Deals</a><a href="#support">Meet the team</a><a href="#support">Help &amp; FAQs</a><a href="#admin">Staff admin</a></div>
     </div>
     <div class="bar"><span>© 2026 Plug · Electronics &amp; More</span><span class="legal-links"><a href="#terms">Terms of Use</a><a href="#sale">Terms of Sale &amp; Returns</a><a href="#privacy">Privacy</a><a href="#cookies">Cookies</a><a href="#licence">Website licence</a></span></div>
     <div class="bar dev"><span>Website designed and developed by <b>M&amp;P Developers</b>. Licensed to Plug Electronics &amp; More. All rights reserved.</span></div>
@@ -2301,6 +2747,7 @@ html{overflow-x:clip}
   <a class="on" href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg>Home</a>
   <a href="#shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Shop</a>
   <a href="#audio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="7" rx="2"/><rect x="16.5" y="14" width="4.5" height="7" rx="2"/></svg>Audio</a>
+  <a href="#fashion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 9h14l-1.2 11H6.2Z"/><path d="M9 9V7.5a3 3 0 0 1 6 0V9"/></svg>Fashion</a>
   <a href="#finance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg>Finance</a>
   <a href="#deals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V4h8l10 10-8 8Z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg>Deals</a>
   <a href="#loyalty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.6 5.5 6 .7-4.4 4.1 1.2 6L12 16.4 6.6 19.3l1.2-6L3.4 9.2l6-.7Z"/></svg>Loyalty</a>
@@ -2343,8 +2790,8 @@ const icons={
 
 /* trust row + categories + spec icons */
 $('#trust').innerHTML=[["lock", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4.5\" y=\"10.5\" width=\"15\" height=\"10\" rx=\"2.5\"/><path class=\"shk\" d=\"M8 10.5V7.5a4 4 0 0 1 8 0v3\"/><circle cx=\"12\" cy=\"15.5\" r=\"1.3\" fill=\"currentColor\"/></svg>", "Secure payments", "Mobile Money, card or bank"], ["truck", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><g class=\"trk\"><path d=\"M2.5 6.5h11v9h-11z\"/><path d=\"M13.5 9.5h4l3 3v3h-7\"/><circle cx=\"6.5\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"17\" cy=\"17.5\" r=\"1.8\"/></g><path class=\"spd\" d=\"M0 9h1.5M0 12h1\"/></svg>", "Same-day delivery", "Lusaka, order before 14:00"], ["shield", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.8 4.5 5.6v5.8c0 4.6 3.1 8.6 7.5 9.8 4.4-1.2 7.5-5.2 7.5-9.8V5.6Z\"/><path class=\"tick\" d=\"m8.6 12.2 2.4 2.4 4.6-4.9\"/></svg>", "Genuine products", "Brand new devices"], ["help", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 13v-1a8 8 0 0 1 16 0v1\"/><rect x=\"2.8\" y=\"13\" width=\"4\" height=\"6\" rx=\"1.6\"/><rect x=\"17.2\" y=\"13\" width=\"4\" height=\"6\" rx=\"1.6\"/><path class=\"wv\" d=\"M10 21h2.5\"/></svg>", "Real support", "June &amp; Sasha on WhatsApp"]].map(([k,svg,t,sub],i)=>`<div class="tc glass tc-${k}" style="--i:${i}"><span class="tc-ic">${svg}</span><span class="tc-tx"><b>${t}</b><small>${sub}</small></span></div>`).join('');
-const cats=[['phones','Phones','#all'],['laptops','Laptops','#all'],['tablets','Tablets','#all'],['audio','Audio','#audio'],['accessories','Accessories','#all'],['watches','Smart Watches','#all'],['consoles','Consoles','#all'],['offers','Special Offers','#deals']];
-$('#catGrid').innerHTML=cats.map(([f,n,h])=>`<a href="${h}" ${h==='#all'?`data-f="${f}"`:''} class="cat cat2 reveal" aria-label="${n}">${f==='offers'?`<picture><source media="(max-width:1100px)" srcset="img/cat/offers_wide.webp?v=2"><img loading="lazy" decoding="async" src="img/cat/offers.webp?v=2" alt=""></picture>`:`<img loading="lazy" decoding="async" src="img/cat/${f}.webp?v=2" alt="">`}<span class="cat-t"><b>${n}</b><small>${f==='offers'?'See Deals':'Shop Now'} <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></small></span><i class="sweep"></i></a>`).join('');
+const cats=[['phones','Phones','#all'],['laptops','Laptops','#all'],['tablets','Tablets','#all'],['audio','Audio','#audio'],['fashion','Fashion','#fashion'],['accessories','Accessories','#all'],['watches','Smart Watches','#all'],['consoles','Consoles','#all'],['offers','Special Offers','#deals']];
+$('#catGrid').innerHTML=cats.map(([f,n,h])=>`<a href="${h}" ${h==='#all'?`data-f="${f}"`:''} class="cat cat2 reveal" aria-label="${n}">${f==='offers'?`<picture><source srcset="img/cat/offers_wide.webp?v=2"><img loading="lazy" decoding="async" src="img/cat/offers.webp?v=2" alt=""></picture>`:`<img loading="lazy" decoding="async" src="img/cat/${f}.webp?v=2" alt="">`}<span class="cat-t"><b>${n}</b><small>${f==='offers'?'See Deals':'Shop Now'} <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></small></span><i class="sweep"></i></a>`).join('');
 $$('.si').forEach(e=>e.innerHTML=icons[e.dataset.i]());
 // 3D tilt on category tiles
 $$('.cat').forEach(el=>{
@@ -2447,11 +2894,11 @@ const FEAT0=['duo','ip18pm','s26u','fold7','ip17air','ps5','switch2','victus','i
 const DEF_PRODUCTS=products.map((p,i)=>({id:p.id,n:p.n,sp:p.sp,p:p.p,was:0,img:p.img,c:p.c,b:p.b||'',stock:'in',featured:FEAT0.includes(p.id),order:i}));
 const src=v=>/^(\/|data:|https?:|blob:)/.test(v||'')?v:`img/p/${v}.webp`;
 const byId={}, nameToId={};
-function setProducts(list){setTimeout(()=>window.plugCalcRefresh&&plugCalcRefresh(),0);products=list.map(x=>({stock:'in',was:0,b:'',...x}));products.forEach(p=>{if(p.qty!=null&&p.qty!==''&&!isNaN(+p.qty)&&+p.qty<=0&&p.stock==='in')p.stock='out';p.p=+p.p||0;p.was=+p.was||0;if(!p.b&&p.was>p.p)p.b='Sale';p.pt=K(p.p);p.wa=waLink(p.n,p.sp,p.pt)});
+function setProducts(list){setTimeout(()=>window.plugCalcRefresh&&plugCalcRefresh(),0);products=list.map(x=>({stock:'in',was:0,b:'',...x}));products.forEach(p=>{if(p.qty!=null&&p.qty!==''&&!isNaN(+p.qty)&&+p.qty<=0&&p.stock==='in')p.stock='out';p.p=+p.p||0;p.was=+p.was||0;if(!p.b&&p.was>p.p)p.b='Sale';p.pt=p.p>0?K(p.p):'Price on request';p.wa=waLink(p.n,p.sp,p.p>0?p.pt:'')});
   Object.keys(byId).forEach(k=>delete byId[k]);products.forEach(p=>byId[p.id]=p);
   Object.keys(nameToId).forEach(k=>delete nameToId[k]);products.forEach(p=>nameToId[p.n]=p.id)}
 setProducts(DEF_PRODUCTS);
-const CATS={iphone:'iPhone',samsung:'Samsung',tablets:'Tablets',laptops:'Laptops',consoles:'Consoles',games:'Games',audio:'Audio',accessories:'Accessories',watches:'Smart Watches'};
+const CATS={iphone:'iPhone',samsung:'Samsung',tablets:'Tablets',laptops:'Laptops',consoles:'Consoles',games:'Games',audio:'Audio',fashion:'Fashion',accessories:'Accessories',watches:'Smart Watches'};
 const stockHTML=(p,long)=>p.stock==='out'?`<div class="stock out"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Sold out</div>`:p.stock==='soon'?`<div class="stock soon"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>Coming soon</div>`:`<div class="stock"${long?'':' style="margin:6px 4px 0;font-size:12px"'}><i></i>${plLow(p)?`<span class="pl-lowt">${plLow(p)}</span>`:'In stock'}${long?' · Ready for delivery or pickup':''}</div>`;
 const notifyLink=p=>`https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Please let me know when the ${p.n} (${p.sp}) is available.`)}`;
 
@@ -2460,19 +2907,19 @@ const notifyLink=p=>`https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! Ple
 const orbit=$('#orbit'); let items=[];
 function buildOrbit(){items.forEach(el=>el.remove());let f=products.filter(p=>p.featured&&p.stock!=='out');if(f.length<3)f=products.filter(p=>p.stock!=='out').slice(0,9);f=f.slice(0,12);
  items=f.map(p=>{const el=document.createElement('div');el.className='oi';
-  el.innerHTML=`<div class="card glass"><div class="art" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt="${esc(p.n)}" draggable="false"></div><div class="meta"><b>${esc(p.n)}</b><span>${esc(p.sp)}</span><div class="pr">${p.pt}</div></div><button class="btn btn-dark add" data-add="${esc(p.n)}">Add to Cart</button></div>`;
+  el.innerHTML=`<div class="card glass"><div class="art" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt="${esc(p.n)}" draggable="false"></div><div class="meta"><b>${esc(p.n)}</b><span>${esc(p.sp)}</span><div class="pr">${p.pt}</div></div><button class="btn btn-dark add" data-add="${esc(p.n)}">${p.p>0?'Add to Cart':'Ask price'}</button></div>`;
   orbit.appendChild(el);return el})}
 
 /* shop-all grid with filters, search and sort */
-const filters=[['all','All'],['iphone','iPhone'],['samsung','Samsung'],['tablets','Tablets'],['laptops','Laptops'],['audio','Audio'],['consoles','Consoles'],['games','Games']];
+const filters=[['all','All'],['iphone','iPhone'],['samsung','Samsung'],['tablets','Tablets'],['laptops','Laptops'],['audio','Audio'],['fashion','Fashion'],['consoles','Consoles'],['games','Games']];
 let fcat='all', q='', sort='f'; const wish=new Set(store.get('wish',[]));
 $('#chips').innerHTML=filters.map(([k,n])=>`<button data-chip="${k}" class="${k==='all'?'on':''}">${n}</button>`).join('');
 const waIcon='<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>';
 const esc=t=>String(t??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const cardHTML=p=>`<div class="pc glass"><div class="ph" data-open-p="${p.id}" role="button" tabindex="0" aria-label="View ${esc(p.n)}">${p.b?`<span class="bdg">${p.b}</span>`:''}<button class="heart${wish.has(p.id)?' on':''}" data-wish="${p.id}" aria-label="Add ${esc(p.n)} to wishlist"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0d0e10" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button><img src="${src(p.img)}" alt="${esc(p.n)}" loading="lazy"></div>
     <b class="n" data-open-p="${p.id}">${esc(p.n)}</b><div class="sp">${esc(p.sp)}${SPECS[p.id]&&p.sp.length<24?`<br><span class="ks">${esc(SPECS[p.id].k)}</span>`:''}</div>${swHTML(p)}${stockHTML(p)}<div class="pr">${p.pt}${p.was>p.p?`<s class="was">${K(p.was)}</s>`:''}</div>
-    <div class="act">${p.stock==='out'?`<a class="btn btn-glass" href="${notifyLink(p)}" target="_blank" rel="noopener">Notify me</a>`:`<button class="btn btn-dark" data-add="${esc(p.n)}">Add to Cart</button>`}<a class="btn wa" href="${p.wa}" target="_blank" rel="noopener" aria-label="Order ${esc(p.n)} on WhatsApp">${waIcon}</a></div></div>`;
-function renderDeals(){$('#dealGrid1').innerHTML=products.filter(p=>p.p<10000&&p.c!=='games').sort((a,b)=>a.p-b.p).map(cardHTML).join('');$('#dealGrid2').innerHTML=products.filter(p=>p.c==='games').map(cardHTML).join('')}
+    <div class="act">${p.stock==='out'?`<a class="btn btn-glass" href="${notifyLink(p)}" target="_blank" rel="noopener">Notify me</a>`:`<button class="btn btn-dark" data-add="${esc(p.n)}">${p.p>0?'Add to Cart':'Ask price'}</button>`}<a class="btn wa" href="${p.wa}" target="_blank" rel="noopener" aria-label="Order ${esc(p.n)} on WhatsApp">${waIcon}</a></div></div>`;
+function renderDeals(){$('#dealGrid1').innerHTML=products.filter(p=>p.p>0&&p.p<10000&&p.c!=='games').sort((a,b)=>a.p-b.p).map(cardHTML).join('');$('#dealGrid2').innerHTML=products.filter(p=>p.c==='games').map(cardHTML).join('')}
 function renderGrid(){
   const inCat=p=>fcat==='all'||p.c===fcat||(fcat==='phones'&&(p.c==='iphone'||p.c==='samsung'));
   let list=products.filter(p=>inCat(p)&&(!q||(p.n+' '+p.sp+' '+p.c).toLowerCase().includes(q)));
@@ -2571,7 +3018,7 @@ const cartCount=()=>cartItems.reduce((a,i)=>a+i.qty,0);
 const subtotal=()=>cartItems.reduce((a,i)=>a+byId[i.id].p*i.qty,0);
 function syncBadge(pop){const b=$('#cartCount');b.textContent=cartCount();if(pop){b.classList.add('pop');setTimeout(()=>b.classList.remove('pop'),250)}}
 function saveCart(){store.set('cart',cartItems);syncBadge(true)}
-function addToCart(id,qty=1,color=''){const p=byId[id];if(p&&p.stock==='out'){say(`${p.n} is sold out`);return}const it=cartItems.find(i=>i.id===id&&(i.color||'')===color);const have=cartItems.filter(i=>i.id===id).reduce((a,i)=>a+i.qty,0);if(p&&plTracked(p)&&have+qty>+p.qty){qty=Math.max(0,+p.qty-have);if(!qty){say(`Only ${+p.qty} of ${p.n} in stock`);return}say(`Only ${+p.qty} in stock, added ${qty}`)}it?it.qty+=qty:cartItems.push(color?{id,qty,color}:{id,qty});saveCart();say(`✓ ${p.n}${color?' ('+color+')':''} added to your cart`)}
+function addToCart(id,qty=1,color=''){const p=byId[id];if(p&&!(p.p>0)){say(`Ask us for the price of ${p.n}`);window.open(p.wa,'_blank','noopener');return}if(p&&p.stock==='out'){say(`${p.n} is sold out`);return}const it=cartItems.find(i=>i.id===id&&(i.color||'')===color);const have=cartItems.filter(i=>i.id===id).reduce((a,i)=>a+i.qty,0);if(p&&plTracked(p)&&have+qty>+p.qty){qty=Math.max(0,+p.qty-have);if(!qty){say(`Only ${+p.qty} of ${p.n} in stock`);return}say(`Only ${+p.qty} in stock, added ${qty}`)}it?it.qty+=qty:cartItems.push(color?{id,qty,color}:{id,qty});saveCart();say(`✓ ${p.n}${color?' ('+color+')':''} added to your cart`)}
 syncBadge();
 
 /* ---- sheet (modal / drawer) ---- */
@@ -2598,7 +3045,7 @@ function productView(id){
       <div class="pd-pr">${p.pt}${p.was>p.p?` <s class="was big">${K(p.was)}</s> <span class="save">Save ${K(p.was-p.p)}</span>`:''}</div>
       ${stockHTML(p,true)}${pdColorsHTML(p)}
       <div class="qty"><button data-q="-1" aria-label="Less">−</button><span id="pdQ">1</span><button data-q="1" aria-label="More">+</button></div>
-      ${p.stock==='out'?`<a class="btn btn-dark full" href="${notifyLink(p)}" target="_blank" rel="noopener" style="margin-bottom:10px">Notify me when available</a>`:`<div class="pd-btns"><button class="btn btn-dark" id="pdAdd">Add to Cart</button><button class="btn btn-glass" id="pdBuy">Buy Now</button></div>`}
+      ${p.stock==='out'?`<a class="btn btn-dark full" href="${notifyLink(p)}" target="_blank" rel="noopener" style="margin-bottom:10px">Notify me when available</a>`:`<div class="pd-btns"><button class="btn btn-dark" id="pdAdd">${p.p>0?'Add to Cart':'Ask for the price'}</button><button class="btn btn-glass" id="pdBuy">${p.p>0?'Buy Now':'Order on WhatsApp'}</button></div>`}
       <a class="btn wa full" href="${p.wa}" target="_blank" rel="noopener">${waSvg} Order on WhatsApp</a>
       <ul class="perks"><li>🚚 Delivery in Lusaka &amp; Ndola</li><li>⚡ Same-day in Lusaka if you order before 14:00</li><li>🏬 Collect at Liberty Mall, Shop 31</li><li>⭐ Earn ${ptsFor(p.p).toLocaleString()} Plug points</li></ul>
     </div></div>
@@ -2609,7 +3056,7 @@ function productView(id){
   sheet.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{sheet.querySelectorAll('[data-g]').forEach(x=>x.classList.remove('on'));b.classList.add('on');im.querySelector('img').src=`${src(b.dataset.g)}`});
   if(!$('#pdAdd'))return;
   $('#pdAdd').onclick=()=>{addToCart(id,q,pdColor())};
-  $('#pdBuy').onclick=()=>{const col=pdColor();const it=cartItems.find(i=>i.id===id&&(i.color||'')===col);if(!it)cartItems.push(col?{id,qty:q,color:col}:{id,qty:q});saveCart();checkout(1)};
+  $('#pdBuy').onclick=()=>{if(!(byId[id].p>0)){window.open(byId[id].wa,'_blank','noopener');return}const col=pdColor();const it=cartItems.find(i=>i.id===id&&(i.color||'')===col);if(!it)cartItems.push(col?{id,qty:q,color:col}:{id,qty:q});saveCart();checkout(1)};
   im.addEventListener('pointermove',e=>{const r=im.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;im.firstElementChild.style.transform=`perspective(700px) rotateY(${x*18}deg) rotateX(${-y*18}deg) scale(1.04)`});
   im.addEventListener('pointerleave',()=>im.firstElementChild.style.transform='');
 }
@@ -2729,7 +3176,7 @@ function trackView(no,fetched){
 /* ---- wishlist drawer ---- */
 function wishView(){
   const list=[...wish].map(i=>byId[i]).filter(Boolean);
-  openSheet(`<h3 class="sh-t">Wishlist <small>${list.length}</small></h3>${list.length?`<div class="ci-list">${list.map(p=>`<div class="ci"><button class="ci-img" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt=""></button><div class="ci-m"><b>${esc(p.n)}</b><span>${esc(p.sp)}</span><em>${p.pt}</em></div><div class="ci-q"><button class="btn btn-dark" style="height:38px;font-size:12px;padding:0 14px" data-add="${esc(p.n)}">Add to Cart</button><button class="rm" data-unwish="${p.id}">Remove</button></div></div>`).join('')}</div>`:`<div class="emptyc"><b>No saved items yet</b><p>Tap the ♥ on any product to save it here.</p><a class="btn btn-dark" href="#all" data-close>Browse products</a></div>`}`,'drawer');
+  openSheet(`<h3 class="sh-t">Wishlist <small>${list.length}</small></h3>${list.length?`<div class="ci-list">${list.map(p=>`<div class="ci"><button class="ci-img" data-open-p="${p.id}"><img loading="lazy" decoding="async" src="${src(p.img)}" alt=""></button><div class="ci-m"><b>${esc(p.n)}</b><span>${esc(p.sp)}</span><em>${p.pt}</em></div><div class="ci-q"><button class="btn btn-dark" style="height:38px;font-size:12px;padding:0 14px" data-add="${esc(p.n)}">${p.p>0?'Add to Cart':'Ask price'}</button><button class="rm" data-unwish="${p.id}">Remove</button></div></div>`).join('')}</div>`:`<div class="emptyc"><b>No saved items yet</b><p>Tap the ♥ on any product to save it here.</p><a class="btn btn-dark" href="#all" data-close>Browse products</a></div>`}`,'drawer');
 }
 document.addEventListener('click',e=>{const u=e.target.closest('[data-unwish]');if(u){wish.delete(u.dataset.unwish);store.set('wish',[...wish]);renderGrid();wishView()}});
 
@@ -2835,7 +3282,7 @@ const ADM={live:false,db:null,u:null,admin:false,owner:false,uid:null,name:'',se
 const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0,colors:Array.isArray(p.colors)?p.colors.slice(0,30).map(c=>({n:String(c.n||'').slice(0,30),h:String(c.h||'')})).filter(c=>c.n):[],qty:p.qty===''||p.qty==null||isNaN(+p.qty)?null:Math.max(0,parseInt(p.qty,10)||0),low:+p.low||0});
 function localState(){return store.get('admin',null)}
 function localSave(){store.set('admin',{products:products.map(p=>({id:p.id,...cleanP(p)})),codes:ADM.codes,settings:ADM.settings,campaigns:ADM.campaigns,statuses:ADM.statuses})}
-function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(window.plugAudioRefresh)plugAudioRefresh();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
+function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(window.plugAudioRefresh)plugAudioRefresh();if(window.plugFashionRefresh)plugFashionRefresh();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
 function renderDealCodes(){const el=$('#dealCodes');if(!el)return;const now=new Date();
   const list=ADM.codes.filter(c=>c.active!==false&&!(c.expires&&new Date(c.expires+'T23:59:59')<now));
   el.innerHTML=list.length?list.map(c=>`<div class="code glass"><div class="tick">${c.type==='fixed'?'K'+(+c.value):(+c.value)+'%'}</div><div><b>${esc(c.code)}</b><p>${esc(codeDesc(c))}</p></div><button class="btn btn-dark" data-copy="${esc(c.code)}">Copy code</button></div>`).join(''):'<p class="lead">No codes running right now. Check back soon.</p>'}
@@ -2843,7 +3290,7 @@ const codeDesc=c=>`${c.type==='fixed'?K(+c.value)+' off':(+c.value)+'% off'} ${c
 function applySettings(){const st=ADM.settings;WA=String(st.wa||'260574541778').replace(/\D/g,'');
   $$('a[href^="https://wa.me/"]').forEach(a=>{a.href=a.href.replace(/wa\.me\/\d+/,'wa.me/'+WA)});
   $$('[data-social=ig]').forEach(a=>{if(st.instagram)a.href=st.instagram});$$('[data-social=fb]').forEach(a=>{if(st.facebook)a.href=st.facebook});
-  products.forEach(p=>{p.wa=waLink(p.n,p.sp,p.pt)});
+  products.forEach(p=>{p.wa=waLink(p.n,p.sp,p.p>0?p.pt:'')});
   if(window.plugBFsync)setTimeout(window.plugBFsync,0);const an=$('#announce');if(st.announceOn&&st.announce){an.textContent=st.announce;an.hidden=false;document.body.classList.add('has-ann')}else{an.hidden=true;document.body.classList.remove('has-ann')}}
 function syncMyOrders(){if(ADM.db&&!ADM.demo){(ADM.uid?Promise.resolve(ADM.uid):(window.PLUG_ENSURE_UID?PLUG_ENSURE_UID():Promise.resolve(null))).then(uid=>{if(uid){ADM.uid=uid;return ADM.db.doc('orders/'+uid).set({list:orders.slice(0,40),at:Date.now()})}}).catch(()=>{})}}
 function addSubscriber(email,topics){if(!email)return;const subs=store.get('subs',[]);if(!subs.find(x=>x.email===email)){subs.unshift({email,topics,at:Date.now()});store.set('subs',subs)}
@@ -3007,7 +3454,7 @@ function productEditor(id){const p=id?{...byId[id]}:{id:'',n:'',sp:'',p:'',was:0
   const del=$('#pDel');if(del)del.onclick=async()=>{if(del.dataset.sure){await deleteProduct(id);closeSheet();renderAdm('products')}else{del.dataset.sure=1;del.textContent='Tap again to delete';del.classList.add('danger')}};
   $('#pf').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
     const np={...p,n:f.get('n').trim(),sp:f.get('sp').trim(),c:f.get('c'),stock:f.get('stock'),p:+String(f.get('p')).replace(/[^\d.]/g,'')||0,was:+String(f.get('was')).replace(/[^\d.]/g,'')||0,b:f.get('b'),featured:!!f.get('featured'),img,colors:peColors(),qty:qtyIn(f.get('qty')),low:parseInt(f.get('low'),10)||0};if(np.qty===0&&np.stock==='in')np.stock='out';if(np.qty>0&&np.stock==='out')np.stock='in';
-    if(np.n.length<2){$('#pErr').textContent='Add a product name.';return}if(!np.p){$('#pErr').textContent='Add a price.';return}if(!np.img){$('#pErr').textContent='Upload a product photo.';return}
+    if(np.n.length<2){$('#pErr').textContent='Add a product name.';return}if(!np.img){$('#pErr').textContent='Upload a product photo.';return}
     if(!np.id)np.id=(np.n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)||'item')+'-'+Math.random().toString(36).slice(2,6);
     if(await saveProduct(np)){say(`✓ ${np.n} saved`);closeSheet();renderAdm('products')}};
 }
@@ -3274,7 +3721,7 @@ function route(){
   $$('.mnav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+curView));
   stage.style.display=curView==='home'?'':'none';
   document.body.classList.toggle('in-admin',curView==='admin');if(curView==='admin'&&!curAdm)renderAdmGate();
-  document.title=({home:'Plug — Electronics & More',shop:'Shop · Plug',finance:'Finance · Plug',audio:'Audio · Plug',deals:'Deals · Plug',loyalty:'Plug Rewards',support:'Support · Plug',legal:'Legal & Policies · Plug',admin:'Admin · Plug'})[curView];if(curView==='legal')fillLegal();
+  document.title=({home:'Plug — Electronics & More',shop:'Shop · Plug',finance:'Finance · Plug',audio:'Audio · Plug',fashion:'Fashion · Plug',deals:'Deals · Plug',loyalty:'Plug Rewards',support:'Support · Plug',legal:'Legal & Policies · Plug',admin:'Admin · Plug'})[curView];if(curView==='legal')fillLegal();
   if(target){requestAnimationFrame(()=>target.scrollIntoView({behavior:changed?'auto':'smooth',block:'start'}))} else window.scrollTo(0,0);
   setTimeout(measure,60);
 }
@@ -3522,6 +3969,381 @@ document.addEventListener('click',e=>{if(e.defaultPrevented)return;const a=e.tar
   $('#auAsk').onclick=()=>{openChat('June');const i=$('#chatInput');if(i){i.value="Hi June, I'm looking for headphones or a speaker. Can you help me choose?";i.focus()}};
   renderAudio();
   setTimeout(()=>{if(curView==='audio'){glKick();buildRing();orbLayout();orbKick()}},0);
+ }
+}
+
+/* ==== fashion page (M&P) ====
+   Shows every product whose category is "fashion" (Admin > Products > Category: Fashion).
+   Types (bags / watches / eyewear / jewellery / fragrance / clothing / shoes / accessories) come from the product name and short spec.
+   3D: a walnut walk-in closet in CSS 3D, floating liquid-glass clay icons (Plug's own artwork), a frosted-glass coverflow rail,
+   a 3D try view, and the Watch Room (faWatch, plain WebGL). Everything pauses when it is off screen or another page is open. */
+{const faPage=document.querySelector('[data-view="fashion"]');
+ if(faPage){
+  /* ---------- The Watch Room: black liquid that pours itself into a watch (plain WebGL, ray-marched, no library) ----------
+   An original watch design (no brand marks): polished steel case, ceramic bezel, midnight sunburst dial,
+   H-link bracelet. The hands show the visitor's real time once the watch has formed. */
+function faWatch(cv,o){o=o||{};
+ const lite=!!o.lite,reduce=!!o.reduce;
+ let gl=null,U={},raf=0,t0=0,last=0,vis=false,on=true,hi=false,scale=lite?.55:.8,slow=0,frames=0,frozen=null,played=false;
+ const W={yaw:0,pitch:-.1,vy:0,drag:null,user:0,cyF:.5};
+ const VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+ const FS=`precision highp float;
+ uniform vec2 uR;uniform float uT,uPud,uRise,uSpk,uDisc,uForm,uLen,uMat,uDial,uSpin,uHa,uMa,uSa,uCy,uM,uF,uLA;uniform mat3 uRot,uRotT;
+ const vec3 C=vec3(0.,1.1,0.);float gId;
+ mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,s,-s,c);}
+ float sdE(vec3 p,vec3 r){float k0=length(p/r),k1=length(p/(r*r));return k0*(k0-1.)/k1;}
+ float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}
+ float rbox(vec3 p,vec3 b,float r){vec3 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.)-r;}
+ float rbox2(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}
+ float cylZ(vec3 p,float r,float h,float rr){vec2 d=vec2(length(p.xy)-r+rr,abs(p.z)-h+rr);return min(max(d.x,d.y),0.)+length(max(d,0.))-rr;}
+ float cap(vec3 p,vec3 a,vec3 b,float r){vec3 pa=p-a,ba=b-a;float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.);return length(pa-ba*h)-r;}
+ /* the liquid: a rising drop with ferrofluid spikes that flattens into a disc */
+ float body(vec3 p){vec3 q=p-vec3(0.,1.1*uRise,0.);q.xz=rot(-uSpin)*q.xz;
+   float r=mix(.05,.58,uRise);
+   float wob=.035*sin(5.*q.x+2.7*uT)*sin(4.*q.y+3.1*uT)*sin(5.*q.z+2.3*uT)*uRise*(1.-uDisc);
+   vec3 dn=q/max(length(q),1e-4);float s=.5+.5*sin(9.*dn.x)*sin(9.*dn.y+1.3)*sin(9.*dn.z+.7);
+   float blob=length(q)-r-wob-pow(s,6.)*.6*uSpk+.05*uSpk;
+   float disc=cylZ(q,.5,.12,.06);
+   float b=mix(blob,disc,uDisc);
+   float nr=(.05+.13*sin(3.14159*min(uRise*1.15,1.)))*(1.-uDisc)*step(.01,uRise);
+   if(nr>.001){vec2 cy=vec2(length(p.xz),p.y);float h=1.1*uRise;float tt=clamp(cy.y/h,0.,1.);b=smin(b,length(vec2(cy.x,cy.y-h*tt))-nr*(1.-.55*sin(3.14159*tt)),.18);}
+   return b;}
+ float watchD(vec3 q){float r=length(q.xy);
+   float cs=cylZ(q,.5,.12,.06);cs=max(cs,-cylZ(q-vec3(0.,0.,.16),.405,.12,0.));
+   float bz=rbox2(vec2(r-.462,q.z-.13),vec2(.062,.04),.024);
+   float d=cs;gId=0.;if(bz<d){d=bz;gId=1.;}
+   vec3 cq=q-vec3(.545,0.,0.);vec2 dd=vec2(length(cq.yz)-.068-.004*sin(atan(cq.y,cq.z)*26.),abs(cq.x)-.05);
+   float cr=min(max(dd.x,dd.y),0.)+length(max(dd,0.))-.012;if(cr<d){d=cr;gId=0.;}
+   vec3 lq=vec3(abs(q.x)-.29,abs(q.y),q.z);float lg=cap(lq,vec3(0.,.38,-.02),vec3(0.,.555,-.19),.058);
+   if(lg<d+.04){d=smin(d,lg,.05);gId=0.;}
+   if(r<.42&&q.z<.13){float a=atan(q.x,q.y),sc=6.28318/12.,aa=mod(a+sc*.5,sc)-sc*.5;vec2 u=vec2(r*cos(aa),r*sin(aa));
+     float ix=rbox(vec3(u.x-.31,u.y,q.z-.044),vec3(.055,.014,.012),.006);if(ix<d){d=ix;gId=3.;}
+     float sink=(1.-uDial)*.05;
+     vec2 h1=rot(uHa)*q.xy,h2=rot(uMa)*q.xy,h3=rot(uSa)*q.xy;
+     float hd=rbox(vec3(h1.x,h1.y-.085,q.z-.054+sink),vec3(.024,.135,.006),.008);
+     hd=min(hd,rbox(vec3(h2.x,h2.y-.135,q.z-.066+sink),vec3(.015,.205,.005),.006));
+     hd=min(hd,rbox(vec3(h3.x,h3.y-.11,q.z-.078+sink),vec3(.005,.27,.003),.003));
+     hd=min(hd,cylZ(q-vec3(0.,0.,.074-sink),.026,.014,.006));
+     if(hd<d){d=hd;gId=3.;}}
+   float RW=.9,cz=(q.z+.02)/.74+RW;float rr=length(vec2(q.y,cz))-RW;float th=atan(abs(q.y),cz);
+   float s=(th-.66)*RW,smax=uLen>.995?1e3:uLen*(3.14159-.66)*RW+.001;
+   if(abs(rr)<.3&&abs(q.x)<.4){float per=.165,lm=mod(s,per)-per*.5,lm2=mod(s+per*.5,per)-per*.5;
+     float w=1.-.12*smoothstep(0.,.7,s);
+     float ou=rbox(vec3(abs(q.x)-.165*w,lm,rr),vec3(.055*w,per*.5-.007,.048),.018);
+     float ce=rbox(vec3(q.x,lm2,rr-.004),vec3(.08*w,per*.5-.007,.05),.018);
+     float core=rbox(vec3(q.x,0.,rr+.018),vec3(.226*w,1.,.038),.018);core=max(core,max(-s+.004,s-smax+.003));ou=min(ou,core);
+     float clip=max(-s+.01,s-smax);ou=max(ou,clip);ce=max(ce,clip);
+     if(ou<d){d=ou;gId=4.;}if(ce<d){d=ce;gId=5.;}}
+   else d=min(d,max(abs(rr)-.07,abs(q.x)-.24)*.74);
+   return d;}
+ float scene(vec3 p){float b=uForm<1.?body(p):1e3;float d=b;
+   if(uForm>0.){float w=watchD(uRot*(p-C));d=uForm<1.?mix(b,w,uForm):w;}
+   if(uPud<.003)return d;float pr=1.15*uPud;return smin(sdE(p,vec3(pr,.055*min(1.,uPud*3.),pr)),d,.5*(1.-uDisc)+.03);}
+ vec3 nrm(vec3 p){vec2 e=vec2(.0024,-.0024);return normalize(e.xyy*scene(p+e.xyy)+e.yyx*scene(p+e.yyx)+e.yxy*scene(p+e.yxy)+e.xxx*scene(p+e.xxx));}
+ vec3 env(vec3 r){
+   float top=smoothstep(.56,.62,r.y)*(1.-smoothstep(.62,.7,abs(r.x)));
+   float s1=(1.-smoothstep(.1,.14,abs(r.y-.22)))*smoothstep(.8,.85,r.x);
+   float s2=(1.-smoothstep(.14,.18,abs(r.y-.18)))*smoothstep(.86,.9,-r.x);
+   float bk=smoothstep(.62,.68,-r.z)*(1.-smoothstep(.0,.08,abs(r.y-.35)));
+   vec3 room=r.y<0.?vec3(.8,.81,.83):mix(vec3(.74,.75,.77),vec3(.94,.95,.96),clamp(r.y*1.6,0.,1.));
+   return room+vec3(5.)*top+vec3(3.4)*s1+vec3(2.6)*s2+vec3(1.6)*bk;}
+ vec3 envM(vec3 r){vec3 e=env(r);float fl=smoothstep(.05,-.25,r.y);float flag=exp(-pow((r.y-.05)*7.,2.))*smoothstep(.2,.7,abs(r.x));
+   return e*mix(1.,.28,fl)*(1.-.55*flag)*mix(.62,1.,smoothstep(-.1,.5,r.y));}
+ bool hitB(vec3 ro,vec3 rd){vec3 oc=ro-vec3(0.,.95,0.);float b=dot(oc,rd),c=dot(oc,oc)-2.6;return b*b-c>0.&&(b<0.||c<0.);}
+ float march(vec3 ro,vec3 rd,int n,float sc){float t=0.,d=1.;for(int i=0;i<160;i++){if(i>=n)break;d=scene(ro+rd*t);if(d<.0009*(1.+t*.3))return t;t+=d*sc;if(t>9.)break;}return (t<9.&&d<.012)?t:-1.;}
+ vec3 metal(vec3 p,vec3 n,vec3 rd){vec3 q=uRot*(p-C),nl=uRot*n;vec3 r=reflect(rd,n);float ndv=max(dot(n,-rd),0.),fr=pow(1.-ndv,5.);
+   float rad=length(q.xy),a=atan(q.x,q.y);vec3 steel=vec3(.9,.91,.93);
+   if(gId<.5){
+     if(rad<.407&&q.z<.06){ /* dial: midnight sunburst + minute track */
+       float sh=pow(.5+.5*cos(2.*(a-uLA)),3.);vec3 c=vec3(.012,.03,.085)*(.55+1.9*sh)+vec3(.05,.08,.16)*sh*sh;
+       c+=envM(r)*(.03+.5*fr);float m60=abs(fract(a/6.28318*60.)-.5);
+       c=mix(c,vec3(.82,.84,.88),step(.43,m60)*step(.365,rad)*step(rad,.392)*uDial);
+       return mix(vec3(.01,.012,.02),c,.25+.75*uDial);}
+     return envM(r)*steel*(.6+.4*pow(1.-ndv,2.));}
+   if(gId<1.5){ /* bezel: polished sides, black ceramic top with markers */
+     if(nl.z>.55&&rad>.425){float m12=abs(fract(a/6.28318*12.)-.5),m60=abs(fract(a/6.28318*60.)-.5);
+       vec3 c=vec3(.012)+envM(r)*(.05+.9*fr);
+       float tick=step(.44,m12)*step(.445,rad)*step(rad,.5);
+       tick=max(tick,step(.465,m60)*step(.47,rad)*step(rad,.497));
+       float tri=step(abs(a),.06-(rad-.44)*.6)*step(.44,rad)*step(rad,.5);
+       return mix(c,vec3(.86,.87,.9),max(tick,tri)*.9);}
+     return envM(r)*steel*(.6+.4*pow(1.-ndv,2.));}
+   if(gId<3.5)return envM(r)*vec3(.96,.97,1.)*.85+vec3(.1);
+   if(gId<4.5)return mix(min(envM(r),vec3(1.5)),vec3(.5,.51,.54),.45)*steel*.9;
+   return envM(r)*steel*(.6+.4*pow(1.-ndv,2.));}
+ void main(){vec2 uv=(gl_FragCoord.xy-vec2(.5*uR.x,uR.y*(1.-uCy)))/uM;
+   vec3 ro=vec3(0.,1.55,5.),ta=vec3(0.,.92,0.);vec3 fw=normalize(ta-ro),rt=normalize(cross(fw,vec3(0.,1.,0.))),up=cross(rt,fw);
+   vec3 rd=normalize(uv.x*rt+uv.y*up+uF*fw);
+   float sc=mix(.9,.3,uSpk)*mix(1.,.66,uForm);
+   float t=hitB(ro,rd)?march(ro,rd,160,sc):-1.;float tf=rd.y<0.?-ro.y/rd.y:1e9;
+   if(t>0.&&t<tf){vec3 p=ro+rd*t,n=nrm(p);scene(p);float id=gId;
+     float ndv=max(dot(n,-rd),0.),fr=.045+.955*pow(1.-ndv,5.);
+     vec3 liq=env(reflect(rd,n))*fr+vec3(.012,.013,.015);
+     vec3 col=liq;
+     if(uMat>0.){gId=id;vec3 m=metal(p,n,rd);col=mix(liq,m,uMat);
+       float sw=exp(-pow(((uRot*(p-C)).y-mix(1.6,-1.6,uMat))*5.,2.))*step(.001,uMat)*step(uMat,.999);col+=vec3(1.4)*sw;}
+     float ao=clamp(scene(p+n*.1)/.1,0.,1.);col*=.6+.4*ao;
+     if(uMat>0.){vec3 rl=uRot*(ro-C),dl=uRot*rd;float tc=(.205-rl.z)/dl.z;vec3 cp=rl+dl*tc;
+       if(tc>0.&&dl.z<0.&&length(cp.xy)<.41){float cf=.04+.96*pow(1.-abs(dl.z),5.);vec3 rr=uRotT*reflect(dl,vec3(0.,0.,1.));
+         col=col*(1.-cf*.5)+env(rr)*cf*.9*uMat+vec3(.06)*uMat*smoothstep(.3,.41,length(cp.xy));}}
+     col=col/(1.+col*.25)*1.08;gl_FragColor=vec4(min(col,1.),1.);return;}
+   if(tf<1e8){vec3 fp=ro+rd*tf;float d=scene(fp);float a=exp(-max(d,0.)*4.5)*.38*clamp(uRise+uPud,0.,1.)*(1.-uForm);
+     if(uForm>0.){float res=1.,st=.04;for(int i=0;i<28;i++){float h=scene(fp+vec3(0.,1.,.15)*st);res=min(res,4.5*h/st);st+=clamp(h,.03,.25);if(res<.02||st>2.6)break;}
+       a=max(a,(1.-clamp(res,0.,1.))*.34*uForm);}
+     vec3 rr=reflect(rd,vec3(0.,1.,0.));if(hitB(fp+rr*.01,rr)){float tr=march(fp+rr*.01,rr,40,.85);if(tr>0.)a=max(a,.06*exp(-tr*.9)*(1.-uForm));}
+     vec2 sq=gl_FragCoord.xy/uR;float ef=smoothstep(0.,.14,sq.x)*smoothstep(1.,.86,sq.x)*smoothstep(0.,.1,sq.y);
+     gl_FragColor=vec4(vec3(0.),a*ef*(1.-smoothstep(3.5,7.,tf)));return;}
+   gl_FragColor=vec4(0.);}`;
+ const N=['uR','uT','uPud','uRise','uSpk','uDisc','uForm','uLen','uMat','uDial','uSpin','uHa','uMa','uSa','uCy','uM','uF','uLA','uRot','uRotT'];
+ function init(){try{gl=cv.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:false,powerPreference:'high-performance'})}catch(e){}
+   if(!gl)return false;const sh=(k,s)=>{const x=gl.createShader(k);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(x));return null}return x};
+   const v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f){gl=null;return false}const p=gl.createProgram();gl.attachShader(p,v);gl.attachShader(p,f);gl.linkProgram(p);
+   if(!gl.getProgramParameter(p,gl.LINK_STATUS)){gl=null;return false}gl.useProgram(p);
+   const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+   const al=gl.getAttribLocation(p,'a');gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
+   N.forEach(k=>U[k]=gl.getUniformLocation(p,k));gl.clearColor(0,0,0,0);
+   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();gl=null;if(o.onLost)o.onLost()});return true}
+ function size(){if(!gl)return;const r=cv.getBoundingClientRect();if(!r.width)return;const dpr=devicePixelRatio||1;
+   const d=hi?Math.min(dpr,lite?1.25:1.75,Math.sqrt((lite?7e5:1.6e6)/(r.width*r.height))):Math.min(dpr*scale,Math.sqrt((lite?2.2e5:8e5)*scale/.8/(r.width*r.height)));
+   const w=Math.max(2,Math.round(r.width*d)),h=Math.max(2,Math.round(r.height*d));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}gl.viewport(0,0,w,h)}
+ const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),oc=x=>1-Math.pow(1-x,3),io=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,ob=x=>{const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+ const TAU=Math.PI*2,S37=3.7*.5+2.0,SEND=Math.ceil(S37/TAU+1)*TAU,END=7.2;
+ function state(t){const s0=t*.5+oc(seg(t,2.2,3.7))*2.0;
+   return{pud:oc(seg(t,.2,1.2))*(1-io(seg(t,4.4,5.6))),rise:io(seg(t,.9,2.3)),spk:Math.max(0,ob(seg(t,2.25,2.8))*(1-io(seg(t,3.35,3.95)))),disc:io(seg(t,3.7,4.5)),
+     spin:t<3.7?s0:S37+(SEND-S37)*io(seg(t,3.7,4.6)),form:io(seg(t,4.35,5.05)),len:io(seg(t,4.8,6.0)),mat:io(seg(t,5.5,6.5)),dial:io(seg(t,6.1,6.9))}}
+ function hands(){const d=o.now?o.now():new Date(),s=d.getSeconds()+d.getMilliseconds()/1000,m=d.getMinutes()+s/60,h=d.getHours()%12+m/60;return[h/12*TAU,m/60*TAU,(reduce?Math.floor(s):s)/60*TAU]}
+ function rotM(y,p){const cy=Math.cos(y),sy=Math.sin(y),cp=Math.cos(p),sp=Math.sin(p);
+   /* local = Rx(-p)·Ry(-y)·world, written column-major */
+   const m=[[cy,0,sy],[sy*sp,cp,-cy*sp],[-sy*cp,sp,cy*cp]];/* rows */
+   const col=[m[0][0],m[1][0],m[2][0],m[0][1],m[1][1],m[2][1],m[0][2],m[1][2],m[2][2]];
+   const colT=[m[0][0],m[0][1],m[0][2],m[1][0],m[1][1],m[1][2],m[2][0],m[2][1],m[2][2]];return[col,colT]}
+ function draw(t){if(!gl)return;const s=state(t),w=cv.width,h=cv.height;gl.clear(gl.COLOR_BUFFER_BIT);
+   const settle=io(seg(t,6.0,7.4));const yaw=W.yaw+settle*(.34+.14*Math.sin((t-6)*.45))*(1-W.user),pit=W.pitch;
+   const [R,RT]=rotM(yaw,pit),[ha,ma,sa]=hands(),k=s.dial;
+   gl.uniform2f(U.uR,w,h);gl.uniform1f(U.uT,t);gl.uniform1f(U.uPud,s.pud);gl.uniform1f(U.uRise,s.rise);gl.uniform1f(U.uSpk,s.spk);gl.uniform1f(U.uDisc,s.disc);
+   gl.uniform1f(U.uForm,s.form);gl.uniform1f(U.uLen,s.len);gl.uniform1f(U.uMat,s.mat);gl.uniform1f(U.uDial,k);gl.uniform1f(U.uSpin,s.spin);
+   gl.uniform1f(U.uHa,ha*k+TAU*(1-k)*.0);gl.uniform1f(U.uMa,ma*k);gl.uniform1f(U.uSa,sa*k);gl.uniform1f(U.uLA,-yaw*1.6+.6);
+   gl.uniform1f(U.uCy,W.cyF);gl.uniform1f(U.uM,Math.min(w,h));gl.uniform1f(U.uF,o.focal||2.05);
+   gl.uniformMatrix3fv(U.uRot,false,R);gl.uniformMatrix3fv(U.uRotT,false,RT);gl.drawArrays(gl.TRIANGLES,0,3)}
+ let tNow=0;
+ function loop(now){raf=0;if(!gl||!vis||!on)return;if(!t0)t0=now-tNow*1000;const dt=Math.min(.05,(now-(last||now))/1000);last=now;
+   tNow=(now-t0)/1000;if(tNow>=4.9&&!hi){hi=true;size()}
+   if(!W.drag&&W.user){W.yaw+=W.vy*dt;W.vy*=Math.pow(.08,dt)}
+   draw(tNow);if(o.onTime)o.onTime(tNow,END);
+   if(++frames<50){if(now-(loop.l||now)>45)slow++;if(slow>8&&scale>.4){scale=Math.max(.4,scale*.75);slow=0;size()}}loop.l=now;
+   if(tNow>END+1.5&&lite&&!W.drag){/* phones: settle to a still frame after the show, redraw each second for the ticking hands */
+     setTimeout(()=>{if(!raf&&vis&&on)raf=requestAnimationFrame(loop)},1000);return}
+   raf=requestAnimationFrame(loop)}
+ function kick(){if(!gl)return;size();if(frozen!=null){draw(frozen);return}if(reduce){hi=true;size();draw(END+1);if(!raf&&vis&&on)setTimeout(()=>{raf=0;if(vis&&on)kick()},1000);return}
+   if(!played&&vis){played=true;tNow=0;t0=0}if(!raf&&vis&&on&&played){last=0;t0=0;raf=requestAnimationFrame(loop)}}
+ if(!init())return null;
+ /* drag to turn once it has formed */
+ let px=0,pt=0;
+ cv.addEventListener('pointerdown',e=>{if(tNow<6)return;W.drag={id:e.pointerId};if(!W.user){W.user=1;W.yaw=.34+.14*Math.sin((tNow-6)*.45)}px=e.clientX;pt=performance.now();W.vy=0;cv.classList.add('drag')});
+ addEventListener('pointermove',e=>{if(!W.drag||e.pointerId!==W.drag.id)return;const n=performance.now(),dx=e.clientX-px;W.yaw+=dx*.009;W.vy=dx*.009/Math.max(.008,(n-pt)/1000)*.5;px=e.clientX;pt=n;if(!raf)draw(tNow)});
+ const up=()=>{if(W.drag){W.drag=null;cv.classList.remove('drag');kick()}};addEventListener('pointerup',up);addEventListener('pointercancel',up);
+ return{
+  replay(){if(!gl)return;played=true;tNow=0;t0=0;hi=false;W.user=0;W.yaw=0;size();cancelAnimationFrame(raf);raf=0;kick()},
+  visible(v){vis=v;kick()},
+  active(v){on=v;if(!v){cancelAnimationFrame(raf);raf=0}else kick()},
+  resize(){size();if(!raf)draw(tNow)},
+  freeze(t){frozen=t;hi=t>=4.9;size();draw(t)},
+  layout(cyF){W.cyF=cyF},
+  get done(){return tNow>=END}
+ }}
+
+  const faRM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const faLite=document.documentElement.classList.contains('lite');
+  const faOn=()=>curView==='fashion'&&!document.hidden;
+  const FAT=[['all','All'],['bags','Bags'],['watches','Watches'],['eyewear','Eyewear'],['jewellery','Jewellery'],['fragrance','Fragrance'],['clothing','Clothing'],['shoes','Shoes'],['accessories','Accessories']];
+  const FAN=Object.fromEntries(FAT);
+  const FAI={bags:'bag',watches:'watch',eyewear:'shades',jewellery:'ring',fragrance:'perfume',clothing:'hanger',shoes:'star',accessories:'links',all:'gem'};
+  const faType=p=>{const s=(p.n+' '+(p.sp||'')).toLowerCase();
+    if(/sunglass|eyewear|eyeglass|\bshades\b|spectacle|\bglasses\b/.test(s))return'eyewear';
+    if(/\bwatch|chronograph|timepiece|wristwatch/.test(s))return'watches';
+    if(/\bbag|handbag|tote|clutch|purse|backpack|satchel|crossbody|duffel|luggage|suitcase/.test(s))return'bags';
+    if(/perfume|fragrance|cologne|parfum|eau de|\bedp\b|\bedt\b|body mist/.test(s))return'fragrance';
+    if(/\bring\b|necklace|bracelet|earring|pendant|chain|jewel|bangle|anklet|brooch/.test(s))return'jewellery';
+    if(/sneaker|trainer|\bshoe|heel|boot|loafer|sandal|slide|slipper|mule/.test(s))return'shoes';
+    if(/shirt|tee\b|t-shirt|hoodie|jacket|dress|jean|pant|trouser|skirt|short|sweater|jumper|coat|suit|tracksuit|\bcap\b|\bhat\b|beanie/.test(s))return'clothing';
+    return'accessories'};
+  const pad2=n=>String(n).padStart(2,'0');
+  const img=k=>`img/fa/${k}.webp`;
+  let faAll=[],railType='all',gridType='all';
+
+  /* ---------- lazy serif for the headings (only loaded when the page opens) ---------- */
+  let fontDone=false;const faFont=()=>{if(fontDone)return;fontDone=true;const l=document.createElement('link');l.rel='stylesheet';
+    l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap';document.head.appendChild(l)};
+
+  /* ---------- the boutique (CSS 3D room) + floating clay icons ---------- */
+  const hero=$('.fa-hero'),scene=$('#faScene'),cam=$('#faCam'),ui=$('#faUi'),flt=$('#faFloat');
+  const FL=[ // icon, left %, top %, width px, depth (parallax), class
+    ['bag',58,6,124,1.2,'fa-near'],['watch',88,16,118,1.4,'fa-near'],['gem',47,72,70,.6,''],['star',36,12,46,.4,'fa-far m-hide'],
+    ['ring',92,68,92,1.1,'fa-near'],['shades',70,84,108,.9,'m-hide'],['mono',4,80,74,.5,'fa-far'],['perfume',26,82,66,.7,'fa-far m-hide'],
+    ['heart',80,4,52,.5,'fa-far'],['lock',2,10,58,.5,'fa-far m-hide'],['links',50,40,50,.3,'fa-far m-hide'],['hanger',38,90,80,.6,'fa-far m-hide']];
+  flt.innerHTML=FL.map(([k,x,y,s,z,c],i)=>`<div class="fa-fl ${c}" style="--x:${x}%;--y:${y}%;--s:${s}px;--z:${z};--i:${i};--d:${(5+((i*7)%5)*.9).toFixed(1)}s;--dl:${(-i*.7).toFixed(1)}s;--r:${(3+(i*5)%7)}deg"><img src="${img(k)}" alt="" loading="lazy" decoding="async"></div>`).join('');
+  const fls=[...flt.children];
+  const H={tx:0,ty:0,cx:0,cy:0,raf:0,last:0,vis:false,t:0};
+  function faRoomSize(){const w=hero.clientWidth||innerWidth;scene.style.setProperty('--rs',Math.max(.62,Math.min(1.5,w/1440)).toFixed(3))}
+  function faHeroPaint(){const sw=faRM?0:Math.sin(H.t*.35),sw2=faRM?0:Math.sin(H.t*.23+1);
+    const ry=H.cx*5+sw*2.2,rx=-H.cy*2.4+sw2*.8;cam.style.setProperty('--ry',ry.toFixed(3)+'deg');cam.style.setProperty('--rx',rx.toFixed(3)+'deg');
+    ui.style.setProperty('--uy',(H.cx*6).toFixed(2)+'deg');ui.style.setProperty('--ux',(-H.cy*4).toFixed(2)+'deg');
+    const px=-(H.cx*34+sw*10),py=-(H.cy*22+sw2*6);
+    fls.forEach(f=>{const z=+f.style.getPropertyValue('--z');f.style.transform=`translate3d(${(px*z).toFixed(1)}px,${(py*z).toFixed(1)}px,0)`})}
+  function faHeroLoop(now){H.raf=0;if(!H.vis||!faOn())return;const dt=Math.min(.05,(now-(H.last||now))/1000);H.last=now;H.t+=dt;
+    const k=Math.min(1,dt*3.2);H.cx+=(H.tx-H.cx)*k;H.cy+=(H.ty-H.cy)*k;faHeroPaint();
+    if(faLite&&Math.abs(H.tx-H.cx)<.002&&Math.abs(H.ty-H.cy)<.002)return; /* phones: only move while the finger/mouse moves */
+    H.raf=requestAnimationFrame(faHeroLoop)}
+  const faHeroKick=()=>{if(faRM){faHeroPaint();return}if(!H.raf&&H.vis&&faOn()){H.last=0;H.raf=requestAnimationFrame(faHeroLoop)}};
+  hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=hero.getBoundingClientRect();H.tx=((e.clientX-r.left)/r.width-.5)*2;H.ty=((e.clientY-r.top)/r.height-.5)*2;faHeroKick()});
+  hero.addEventListener('pointerleave',()=>{H.tx=H.ty=0;faHeroKick()});
+  if('IntersectionObserver' in window)new IntersectionObserver(es=>{H.vis=es[0].isIntersecting;hero.classList.toggle('off',!H.vis);faHeroKick()},{rootMargin:'40px'}).observe(hero);else H.vis=true;
+
+  /* ---------- the AR category tiles ---------- */
+  const tiles=$('#faTiles');const TT=['bags','watches','eyewear','jewellery','fragrance','clothing','accessories','all'];
+  tiles.innerHTML=TT.map(k=>`<button type="button" class="fa-tile" data-fa-go="${k}"><img src="${img(FAI[k])}" alt="" loading="lazy" decoding="async"><b>${k==='all'?'All pieces':FAN[k]}</b><small data-fa-n="${k}">0 pieces</small></button>`).join('');
+  if(!faRM)$$('.fa-tile').forEach(t=>{t.addEventListener('pointermove',e=>{const r=t.getBoundingClientRect();t.style.setProperty('--gx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');t.style.setProperty('--gy',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')})});
+  faPage.addEventListener('click',e=>{const g=e.target.closest('[data-fa-go]');if(!g)return;const k=g.dataset.faGo;
+    if(g.closest('.fa-tiles')){faRailSet(k);const s=$('#fa-rail');if(s)s.scrollIntoView({behavior:faRM?'auto':'smooth',block:'start'})}
+    else{faGridSet(k);const s=$('#fa-shop');if(s)s.scrollIntoView({behavior:faRM?'auto':'smooth',block:'start'})}});
+
+  /* ---------- the rail: a frosted-glass coverflow ---------- */
+  const flow=$('#faFlow'),track=$('#faFlowT'),bar=$('#faBar'),pills=$('#faPills');
+  const R={list:[],pos:0,i:0,cards:[],sp:200,drag:null,key:''};
+  function faRailItems(){const L=faAll.filter(p=>railType==='all'||faType(p)===railType)
+      .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||(a.stock==='out')-(b.stock==='out')||b.p-a.p);
+    if(L.length)return L;
+    return['eyewear','jewellery','bags','watches','fragrance','clothing','accessories'].map(k=>({demo:true,id:'demo-'+k,k,n:FAN[k],sp:'Arriving soon at Plug',icon:FAI[k]}))}
+  function faRailSet(k){railType=k;$$('#faPills button').forEach(b=>b.classList.toggle('on',b.dataset.fa===k));faRailBuild(true)}
+  pills.innerHTML=FAT.filter(([k])=>k!=='shoes'||1).map(([k,n])=>`<button type="button" role="tab" data-fa="${k}" class="${k==='all'?'on':''}">${n}<i data-fa-pc="${k}"></i></button>`).join('');
+  pills.addEventListener('click',e=>{const b=e.target.closest('[data-fa]');if(b)faRailSet(b.dataset.fa)});
+  function faRailBuild(force){const L=faRailItems();const key=L.map(p=>p.id+(p.p||'')+(p.img||'')+(p.stock||'')+(wish.has(p.id)?1:0)).join('|')+railType;
+    if(!force&&key===R.key)return;R.key=key;R.list=L;
+    track.innerHTML=L.map((p,i)=>{
+      if(p.demo)return`<div class="fa-card demo" data-i="${i}"><div class="fa-card-im"><img src="${img(p.icon)}" alt="" draggable="false" loading="lazy" decoding="async"><span class="fa-card-tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg></span></div><div class="fa-card-n">${esc(p.n)}</div><div class="fa-card-s">${esc(p.sp)}</div><div class="fa-card-f"><b>Ask us</b></div></div>`;
+      const dots=(Array.isArray(p.colors)?p.colors:[]).filter(c=>c&&c.h).slice(0,4).map(c=>`<i style="background:${esc(c.h)}" title="${esc(c.n)}"></i>`).join('');
+      return`<div class="fa-card" data-i="${i}"><button class="heart${wish.has(p.id)?' on':''}" data-wish="${p.id}" aria-label="Add ${esc(p.n)} to wishlist"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#0d0e10" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button><div class="fa-card-im"><img src="${src(p.img)}" alt="${esc(p.n)}" draggable="false" loading="lazy" decoding="async"><span class="fa-card-tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg></span></div><div class="fa-card-n">${esc(p.n)}</div><div class="fa-card-s">${esc(p.sp||'')}</div><div class="fa-card-f"><b>${p.pt}</b><span class="fa-dots">${dots}</span></div></div>`}).join('');
+    R.cards=[...track.children];
+    let start=L.length>2?Math.floor((L.length-1)/2):0;if(L[0]&&L[0].demo)start=Math.max(0,L.findIndex(p=>p.k===(railType==='all'?'watches':railType)));
+    R.pos=R.i=Math.min(start,L.length-1);R.i=-1;flow.classList.add('snap');faRailPaint();requestAnimationFrame(()=>flow.classList.remove('snap'))}
+  function faRailPaint(){const n=R.cards.length;if(!n)return;const vw=innerWidth;R.sp=vw<600?172:vw<980?226:272;
+    R.cards.forEach((c,i)=>{const o=i-R.pos,a=Math.abs(o);
+      const x=o*R.sp*(a>1?(1-.06*(Math.min(a,3)-1)):1),z=-Math.min(a,4)*120,ry=Math.max(-30,Math.min(30,-o*11));
+      c.style.transform=`translate3d(${x.toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg)`;
+      c.style.opacity=a>3.4?0:(1-a*.14).toFixed(3);c.style.filter=a<.5?'none':`brightness(${(1-Math.min(a,3)*.16).toFixed(2)})`;
+      c.style.zIndex=200-Math.round(a*10);c.style.pointerEvents=a>3.4?'none':''});
+    const f=Math.max(0,Math.min(n-1,Math.round(R.pos)));if(f!==R.i){R.i=f;R.cards.forEach((c,i)=>c.classList.toggle('on',i===f));faBarPaint()}}
+  function faBarPaint(){const p=R.list[R.i];if(!p)return;const real=R.list.filter(x=>!x.demo).length;
+    $('#faBarI').textContent=p.demo?'COMING SOON':pad2(R.i+1)+' / '+pad2(R.list.length);$('#faBarN').textContent=p.demo?FAN[p.k]+' at Plug':p.n;
+    $('#faBarS').textContent=p.demo?'New pieces are on the way. Ask us what is in store today.':[p.sp,p.stock==='out'?'Sold out':(p.qty!=null&&+p.qty>0&&+p.qty<=2?'Only '+(+p.qty)+' left':'In stock'),FAN[faType(p)]].filter(Boolean).join(' · ');
+    $('#faBarP').textContent=p.demo?'':p.pt;$('#faBarW').textContent=!p.demo&&p.was>p.p?K(p.was):'';
+    const add=$('#faBarAdd');delete add.dataset.add;delete add.dataset.notify;delete add.dataset.wa;
+    if(p.demo){add.textContent='Ask on WhatsApp';add.dataset.wa=p.k}else if(p.stock==='out'){add.textContent='Notify me';add.dataset.notify=p.id}else{add.textContent=p.p>0?'Add to Cart':'Ask price';add.dataset.add=p.n}
+    bar.classList.remove('swap');void bar.offsetWidth;bar.classList.add('swap');void real}
+  const faGo=k=>{const n=R.cards.length;if(!n)return;const t=Math.max(0,Math.min(n-1,k));R.pos=t;faRailPaint()};
+  $('#faPrev').onclick=()=>faGo(R.i-1);$('#faNext').onclick=()=>faGo(R.i+1);
+  flow.tabIndex=0;flow.setAttribute('aria-label','Fashion rail. Use the arrow keys to move.');
+  flow.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();faGo(R.i-1)}else if(e.key==='ArrowRight'){e.preventDefault();faGo(R.i+1)}else if(e.key==='Enter'){faTryOpen(R.list[R.i])}});
+  {let sx=0,lx=0,lt=0,v=0,moved=0,p0=0;
+   flow.addEventListener('pointerdown',e=>{if(e.button||e.target.closest('.heart,.fa-arr'))return;R.drag={id:e.pointerId};sx=lx=e.clientX;lt=performance.now();v=0;moved=0;p0=R.pos;flow.classList.add('drag')});
+   addEventListener('pointermove',e=>{if(!R.drag||e.pointerId!==R.drag.id)return;const t=performance.now(),dx=e.clientX-lx;moved=Math.max(moved,Math.abs(e.clientX-sx));
+     v=-dx/R.sp/Math.max(.008,(t-lt)/1000);lx=e.clientX;lt=t;R.pos=Math.max(-.4,Math.min(R.cards.length-.6,p0-(e.clientX-sx)/R.sp));faRailPaint()});
+   const end=e=>{if(!R.drag||(e&&e.pointerId!==R.drag.id))return;R.drag=null;flow.classList.remove('drag');
+     if(moved<6){const el=e&&document.elementFromPoint(e.clientX,e.clientY),c=el&&el.closest&&el.closest('.fa-card');
+       if(c){const i=+c.dataset.i;if(i===R.i){faTryOpen(R.list[i]);R.pos=i;faRailPaint();return}faGo(i);return}}
+     faGo(Math.round(R.pos+Math.max(-2,Math.min(2,v*.18))))};
+   addEventListener('pointerup',end);addEventListener('pointercancel',end)}
+  bar.addEventListener('click',e=>{const b=e.target.closest('#faBarAdd');if(b){if(b.dataset.notify){const p=byId[b.dataset.notify];if(p)window.open(notifyLink(p),'_blank','noopener')}
+      else if(b.dataset.wa){window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`Hi Plug! What ${FAN[b.dataset.wa].toLowerCase()} do you have in store today?`)}`,'_blank','noopener')}}
+    if(e.target.closest('#faBar3d'))faTryOpen(R.list[R.i])});
+
+  /* ---------- 3D try view ---------- */
+  const tryEl=$('#faTry'),tryStage=$('#faTryStage');document.body.appendChild(tryEl); /* lives on <body> so it covers the header too */let tryItem=null,tryBack=null;
+  function faTryOpen(p){if(!p)return;tryItem=p;tryBack=document.activeElement;
+    const s=p.demo?img(p.icon):src(p.img);$('#faTryImg').src=s;$('#faTryRefl').src=s;$('#faTryImg').alt=p.n;
+    $('#faTryK').textContent=p.demo?'Coming soon':FAN[faType(p)];$('#faTryN').textContent=p.demo?FAN[p.k]+' at Plug':p.n;
+    $('#faTryS').textContent=p.demo?'New pieces are on the way. Ask us what is in store today.':[p.sp,p.stock==='out'?'Sold out':'In stock'].filter(Boolean).join(' · ');
+    $('#faTryP').textContent=p.demo?'':p.pt;
+    const add=$('#faTryAdd');delete add.dataset.add;add.hidden=!!p.demo||p.stock==='out';if(!add.hidden)add.dataset.add=p.n;
+    $('#faTryWa').href=`https://wa.me/${WA}?text=${encodeURIComponent(p.demo?`Hi Plug! What ${FAN[p.k].toLowerCase()} do you have in store today?`:`Hi Plug! I'd like the ${p.n}${p.sp?' ('+p.sp+')':''}. Is it available?`)}`;
+    const like=$('#faTryLike');like.hidden=!!p.demo;if(!p.demo){like.dataset.wish=p.id;like.classList.toggle('on',wish.has(p.id))}else delete like.dataset.wish;
+    tryStage.classList.remove('zoom');$('#faTryZoom').setAttribute('aria-pressed','false');
+    tryEl.hidden=false;document.body.classList.add('fa-lock');setTimeout(()=>{const c=tryEl.querySelector('[data-fa-close]:not(.fa-try-bg)');if(c)c.focus({preventScroll:true})},50)}
+  function faTryClose(){if(tryEl.hidden)return;tryEl.hidden=true;document.body.classList.remove('fa-lock');if(tryBack&&tryBack.focus)try{tryBack.focus({preventScroll:true})}catch(e){}}
+  tryEl.addEventListener('click',e=>{if(e.target.closest('[data-fa-close]')){faTryClose();return}
+    if(e.target.closest('#faTryZoom')){const z=!tryStage.classList.contains('zoom');tryStage.classList.toggle('zoom',z);$('#faTryZoom').setAttribute('aria-pressed',z)}
+    if(e.target.closest('#faTryLike'))setTimeout(()=>{if(tryItem&&!tryItem.demo)$('#faTryLike').classList.toggle('on',wish.has(tryItem.id))},30);
+    if(e.target.closest('#faTryShare')){const url=location.origin+location.pathname+'#fashion',t=tryItem&&!tryItem.demo?`${tryItem.n} at Plug`:'Plug Fashion';
+      if(navigator.share)navigator.share({title:t,text:t,url}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>say('Link copied'),()=>say(url));else say(url)}});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!tryEl.hidden)faTryClose()});
+
+  /* ---------- the Watch Room ---------- */
+  const wst=$('#faWStage'),wcv=$('#faWatchGl'),wprog=$('#faWProg');let WR=null,wInit=false,wVis=false;
+  let wReal=false,wHeld=false,wBack=0;
+  function faReal(on){wReal=!!on;wst.classList.toggle('real',wReal)}
+  function faWatchInit(){if(wInit)return;wInit=true;
+    WR=faWatch(wcv,{lite:faLite,reduce:faRM,focal:1.85,onTime:(t,end)=>{wprog.style.setProperty('--p',Math.min(1,t/end).toFixed(3));if(t>=6.6&&!wst.classList.contains('ready'))wst.classList.add('ready');if(t>=end-.15&&!wHeld&&!wReal)faReal(1)},onLost:()=>{wst.classList.add('no-gl','ready');faReal(1)}});
+    if(!WR){wst.classList.add('no-gl','ready');faReal(1);return}
+    WR.layout(.47);
+    if(faRM){wst.classList.add('ready');faReal(1)}
+    const fz=parseFloat((location.search.match(/[?&]fawt=([\d.]+)/)||[])[1]);if(!isNaN(fz)){WR.freeze(fz);if(fz>=6.6)wst.classList.add('ready');if(fz>=7.1)faReal(1)} /* testing: ?fawt=7 shows the watch at 7 s */
+    WR.visible(wVis);WR.active(faOn())}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{if(es[0].isIntersecting)faWatchInit()},{rootMargin:'400px 0px'}).observe(wst);
+    new IntersectionObserver(es=>{wVis=es[0].isIntersecting;if(WR)WR.visible(wVis);faTimeTick()},{threshold:.35}).observe(wst);
+  }else{wVis=true;faWatchInit()}
+  /* the real watch fades in at the end; dragging brings the 3D model back to turn, then the real one returns */
+  wcv.addEventListener('pointerdown',()=>{if(wst.classList.contains('ready'))wst.classList.add('turned');if(wst.classList.contains('ready')){wHeld=true;clearTimeout(wBack);faReal(0)}});
+  addEventListener('pointerup',()=>{if(!wHeld)return;wHeld=false;clearTimeout(wBack);wBack=setTimeout(()=>{if(!wHeld)faReal(1)},2600)});
+  $('#faReplay').onclick=()=>{if(!WR)return;clearTimeout(wBack);faReal(0);wst.classList.remove('ready','turned');WR.replay()};
+  let tTimer=0;function faTimeTick(){clearInterval(tTimer);const run=()=>{const d=new Date();$('#faTime').textContent='Showing your time · '+pad2(d.getHours())+':'+pad2(d.getMinutes())};run();
+    if(wVis&&faOn())tTimer=setInterval(run,5000)}
+  if('ResizeObserver' in window)new ResizeObserver(()=>{if(WR)WR.resize()}).observe(wst);
+
+  /* ---------- bags: orbiting icons ---------- */
+  $$('.fa-orb-r img').forEach((m,i)=>m.style.setProperty('--a',(i*60)+'deg'));
+  const bags=$('.fa-bags');if('IntersectionObserver' in window)new IntersectionObserver(es=>bags.classList.toggle('off',!es[0].isIntersecting)).observe(bags);
+
+  /* ---------- filters + product grid ---------- */
+  const grid=$('#faGrid'),chips=$('#faChips'),em=$('#faEmpty');
+  chips.innerHTML=FAT.map(([k,n])=>`<button type="button" data-fa="${k}" class="${k==='all'?'on':''}">${n}</button>`).join('');
+  function faGridSet(k){gridType=k;$$('#faChips button').forEach(b=>b.classList.toggle('on',b.dataset.fa===k));faGrid()}
+  chips.addEventListener('click',e=>{const b=e.target.closest('[data-fa]');if(b)faGridSet(b.dataset.fa)});
+  const flipIO='IntersectionObserver' in window&&!faRM?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');flipIO.unobserve(en.target)}}),{rootMargin:'0px 0px -6% 0px'}):null;
+  grid.classList.add('fa3d');
+  function faGrid(){const list=faAll.filter(p=>gridType==='all'||faType(p)===gridType);grid.innerHTML=list.map(cardHTML).join('');
+    [...grid.children].forEach((c,i)=>{c.style.setProperty('--i',i%4);if(flipIO)flipIO.observe(c);else c.classList.add('in')});
+    em.hidden=list.length>0;
+    $('#faEmptyWa').href=`https://wa.me/${WA}?text=${encodeURIComponent(gridType==='all'?"Hi Plug! What watches and bags do you have in store today?":`Hi Plug! What ${FAN[gridType].toLowerCase()} do you have in store today?`)}`}
+  function faRender(){faAll=products.filter(p=>p.c==='fashion');
+    const cnt=k=>k==='all'?faAll.length:faAll.filter(p=>faType(p)===k).length;
+    $$('[data-fa-n]').forEach(el=>{const n=cnt(el.dataset.faN);el.textContent=n?n+(n===1?' piece':' pieces'):'Coming soon'});
+    $$('[data-fa-pc]').forEach(el=>{const n=cnt(el.dataset.faPc);el.textContent=n||''});
+    $$('#faPills button').forEach(b=>{if(b.dataset.fa!=='all'&&b.dataset.fa!=='shoes')return;b.hidden=b.dataset.fa==='shoes'&&!cnt('shoes')});
+    $$('#faChips button').forEach(b=>{b.hidden=b.dataset.fa!=='all'&&!cnt(b.dataset.fa)&&faAll.length>0});
+    $('#faWa').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi Plug! I'd like some help choosing a watch or a bag.")}`;
+    $('#faBagWa').href=`https://wa.me/${WA}?text=${encodeURIComponent('Hi Plug! What bags do you have in store today?')}`;
+    const wt=$('#faWTag');if(wt)wt.hidden=!byId['fa-pinduiced'];
+    faGrid();faRailBuild()}
+  window.plugFashionRefresh=faRender;
+  document.addEventListener('click',e=>{if(e.target.closest('[data-wish]')&&curView==='fashion')setTimeout(()=>{R.key='';faRailBuild();faRailPaint()},40)});
+  $('#faAsk').onclick=()=>{openChat('Sasha');const i=$('#chatInput');if(i){i.value="Hi Sasha, I'm looking for a watch or a bag. Can you help me choose?";i.focus()}};
+  $('#faYear').textContent=new Date().getFullYear();
+
+  /* ---------- dark header while the walnut sections are on screen ---------- */
+  const wsec=$('#fa-watch');let faDrk=false,faDq=0;
+  const faTop=el=>el.getBoundingClientRect().top+scrollY;
+  const faDark=()=>{faDq=0;const y=scrollY+70,bt=faTop(bags);const on=curView==='fashion'&&(y<faTop(wsec)||(y>bt&&y<bt+bags.offsetHeight));
+    if(on!==faDrk){faDrk=on;document.body.classList.toggle('au-dark',on)}};
+  addEventListener('scroll',()=>{if(!faDq)faDq=requestAnimationFrame(faDark)},{passive:true});
+
+  /* ---------- page life ---------- */
+  function faWake(){const on=faOn();if(on){faFont();faRoomSize();faRailPaint();faHeroKick()}if(WR)WR.active(on);faTimeTick();setTimeout(faDark,40);if(!on)faTryClose()}
+  addEventListener('hashchange',()=>requestAnimationFrame(faWake));
+  document.addEventListener('visibilitychange',faWake);
+  let faRz=0;addEventListener('resize',()=>{clearTimeout(faRz);faRz=setTimeout(()=>{faRoomSize();faRailPaint()},150)});
+  faRoomSize();faRender();faHeroPaint();
+  setTimeout(()=>{if(curView==='fashion')faWake()},0);
  }
 }
 
