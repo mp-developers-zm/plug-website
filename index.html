@@ -2091,17 +2091,170 @@ body.fs-dark .chat-panel,body.au-dark .chat-panel,html.lite .chat-panel{backgrou
 .cp-faq p{margin:0;padding:0 14px 12px;font-size:13px;line-height:1.55;color:var(--ink2)}
 .cp-promise{margin:12px 2px 2px;font-size:11.5px;color:var(--mute);text-align:center}
 html.lite .cp-team button,html.lite .cp-act,html.lite .cp-deliv div,html.lite .cp-faq details{background:#fff}
-.vh-hero{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center;padding:44px 44px 36px;border-radius:32px;overflow:hidden}
-.vh-hero .pg-h{font-size:clamp(40px,5.4vw,72px)}
-.vh-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.vh-art{position:relative}
-.vh-car{width:100%;height:auto;animation:vhFloat 6s ease-in-out infinite;filter:drop-shadow(0 26px 30px rgba(13,14,16,.18))}
-.vh-sheen{animation:vhSheen 5.5s ease-in-out infinite}
-.vh-floor{position:absolute;left:6%;right:6%;bottom:-6%;height:24%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));pointer-events:none}
-@keyframes vhFloat{50%{transform:translateY(-8px)}}
-@keyframes vhSheen{0%,35%{transform:translateX(0) skewX(-20deg)}75%,100%{transform:translateX(980px) skewX(-20deg)}}
-@media (max-width:820px){.vh-hero{grid-template-columns:1fr;padding:26px 20px 22px}.vh-art{order:-1}.vh-cta .btn{flex:1;justify-content:center}}
-@media (prefers-reduced-motion:reduce){.vh-car,.vh-sheen{animation:none}}
+
+/* ==== vehicles page v2 (M&P, 6 Nov 2026): collector's-poster hero, liquid reveal, rev the engine ==== */
+.vx{--vx-tx:#f7efe4;--vx-mu:#cdb79c;--vx-gold:#f0b76a;background:#0c0806;color:var(--vx-tx)}
+.vx-hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#120b07}
+.vx-scene{position:absolute;inset:0}
+.vx-bg{position:absolute;inset:-3%;display:block}
+.vx-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.08);transition:transform 6s cubic-bezier(.2,.7,.2,1),opacity 1.2s;opacity:0}
+.vx-hero.lit .vx-bg img{transform:scale(1);opacity:1}
+.vx-rays{position:absolute;inset:-20% -10% 30%;pointer-events:none;mix-blend-mode:screen;opacity:0;transition:opacity 2s 1s;
+  background:repeating-linear-gradient(103deg,rgba(255,200,130,0) 0 46px,rgba(255,206,140,.09) 60px,rgba(255,200,130,0) 92px 150px);
+  -webkit-mask-image:radial-gradient(60% 70% at 62% 20%,#000,transparent 75%);mask-image:radial-gradient(60% 70% at 62% 20%,#000,transparent 75%);animation:vxRays 9s ease-in-out infinite}
+.vx-hero.lit .vx-rays{opacity:1}
+@keyframes vxRays{50%{transform:translateX(3%) skewX(-2deg);filter:brightness(1.25)}}
+.vx-ghost{position:absolute;right:1%;top:8%;width:min(40vw,600px);height:auto;opacity:0;filter:blur(1.2px) saturate(1.1) contrast(1.05);transition:opacity 2.4s .6s;pointer-events:none;mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(60% 55% at 45% 62%,#000 35%,transparent 75%);mask-image:radial-gradient(60% 55% at 45% 62%,#000 35%,transparent 75%)}
+.vx-hero.lit .vx-ghost{opacity:.55}
+.vx-word{position:absolute;left:0;right:0;top:10.5%;text-align:center;font-family:var(--head);font-weight:800;font-size:min(19.5vw,300px);line-height:.8;letter-spacing:.015em;white-space:nowrap;pointer-events:none;
+  color:transparent;background:linear-gradient(180deg,#fffaf2 0%,#fff4e4 55%,rgba(255,236,210,.55) 100%);-webkit-background-clip:text;background-clip:text;
+  text-shadow:0 0 0 transparent;filter:drop-shadow(0 18px 40px rgba(0,0,0,.35));opacity:0;transform:translateY(30px) scale(1.04);transition:opacity 1.6s .3s,transform 2.2s .3s cubic-bezier(.2,.7,.2,1)}
+.vx-hero.lit .vx-word{opacity:.94;transform:none}
+.vx-car{position:absolute;left:53%;bottom:5%;width:min(47vw,780px);aspect-ratio:1184/876;transform:translateX(-50%);will-change:transform}
+.vx-car>*{position:absolute;inset:0;width:100%;height:100%}
+@media (min-width:821px){.chat-panel{width:372px}}
+.vx-photo{object-fit:contain;opacity:0;-webkit-mask-image:linear-gradient(100deg,#000 40%,transparent 60%);mask-image:linear-gradient(100deg,#000 40%,transparent 60%);-webkit-mask-size:300% 100%;mask-size:300% 100%;-webkit-mask-position:100% 0;mask-position:100% 0}
+.vx-hero.shown .vx-photo{opacity:1;-webkit-mask-position:0 0;mask-position:0 0;transition:opacity .5s,-webkit-mask-position 1.3s cubic-bezier(.4,.1,.2,1),mask-position 1.3s cubic-bezier(.4,.1,.2,1)}
+.vx-refl{object-fit:contain;transform:scaleY(-1) translateY(-97%);opacity:0;filter:blur(2px) brightness(.8);-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.45),transparent 28%);mask-image:linear-gradient(to top,rgba(0,0,0,.45),transparent 28%);transition:opacity 1.4s .6s}
+.vx-hero.shown .vx-refl{opacity:.55}
+.vx-shadow{top:auto!important;bottom:-2%!important;height:16%!important;left:6%!important;width:88%!important;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,.35) 55%,transparent);opacity:0;transition:opacity 1.2s}
+.vx-hero.shown .vx-shadow,.vx-hero.liquid .vx-shadow{opacity:1}
+.vx-flare{pointer-events:none;opacity:0;background:radial-gradient(16% 7% at 33% 47%,rgba(255,240,215,.6),transparent),radial-gradient(12% 6% at 77% 43%,rgba(255,240,215,.5),transparent);mix-blend-mode:screen;transition:opacity .15s}
+.vx-tint{pointer-events:none;opacity:0;transition:opacity 1.4s .5s;-webkit-mask:url(img/vh/ranger_front.webp) center/contain no-repeat;mask:url(img/vh/ranger_front.webp) center/contain no-repeat;background:linear-gradient(105deg,rgba(40,20,8,.0) 30%,rgba(255,178,92,.38) 78%,rgba(255,206,140,.55)),linear-gradient(to top,rgba(30,16,8,.45),transparent 40%);mix-blend-mode:soft-light}
+.vx-hero.shown .vx-tint{opacity:1}
+.vx-photo{filter:sepia(.12) saturate(1.05) contrast(1.04) brightness(.97)}
+.vx-liquid{pointer-events:none}
+.vx-leaves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* overlay UI */
+.vx-ui{position:absolute;inset:0;pointer-events:none;z-index:3}
+.vx-ui>*{pointer-events:auto}
+.vx-top{position:absolute;left:5vw;right:5vw;top:104px;display:flex;align-items:center;gap:14px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--vx-mu);opacity:0;transition:opacity 1s 1.4s}
+.vx-top i{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,236,210,.45),rgba(255,236,210,.08))}
+.vx-hero.lit .vx-top{opacity:1}
+.vx-copy{position:absolute;left:5vw;bottom:10%;width:min(320px,26vw);opacity:0;transform:translateY(16px);transition:opacity 1s 2.2s,transform 1.2s 2.2s}
+.vx-hero.shown .vx-copy{opacity:1;transform:none}
+.vx-copy h1{margin:0 0 4px;font-family:var(--head);font-size:clamp(26px,2.4vw,36px);font-weight:800;letter-spacing:-.02em;line-height:1.02;color:#fff}
+.vx-copy h1 small{display:block;font-size:12px;letter-spacing:.24em;font-weight:700;color:var(--vx-gold);margin-bottom:8px}
+.vx-copy hr{border:0;height:1px;margin:14px 0;background:linear-gradient(90deg,rgba(255,236,210,.5),transparent)}
+.vx-copy p{margin:0;font-size:12.5px;line-height:1.62;color:#e2d3c0}
+.vx-copy .fine{font-size:10.5px;color:var(--vx-mu);margin-top:8px}
+.vx-cta{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.vx-cta .btn{height:42px;padding:0 16px;font-size:13px}
+.vx-btn{background:linear-gradient(180deg,#fffaf2,#ead8c0);color:#1b120c;box-shadow:0 12px 26px -12px rgba(0,0,0,.7),inset 0 1px 0 #fff}
+.vx-btn-o{color:#fff;border:1px solid rgba(255,236,210,.35);background:rgba(255,236,210,.06)}
+.vx-mark{position:absolute;left:5vw;bottom:3.2%;display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--vx-mu);opacity:0;transition:opacity 1s 2.6s}
+.vx-mark img{height:22px;width:auto;filter:invert(1) brightness(2)}
+.vx-mark i{width:1px;height:16px;background:rgba(255,236,210,.35)}
+.vx-hero.shown .vx-mark{opacity:1}
+.vx-credit{position:absolute;right:5vw;bottom:3.2%;font-size:10px;letter-spacing:.06em;color:rgba(230,210,186,.55);opacity:0;transition:opacity 1s 2.6s}
+.vx-hero.shown .vx-credit{opacity:1}
+/* rev gauge (bottom-right performance graphic) */
+.vx-rev{position:absolute;right:5vw;bottom:15%;width:220px;display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(16px);transition:opacity 1s 2.4s,transform 1.2s 2.4s}
+.vx-hero.shown .vx-rev{opacity:1;transform:none}
+.vx-gauge{position:relative;width:200px;height:118px}
+.vx-gauge svg{width:100%;height:100%;overflow:visible}
+.vx-gauge .nd{transform-origin:100px 100px;transition:none}
+.vx-rpm{position:absolute;left:0;right:0;bottom:-2px;text-align:center;font-family:var(--head);font-weight:800;font-size:22px;letter-spacing:.02em;color:#fff;font-variant-numeric:tabular-nums}
+.vx-rpm small{display:block;font-size:9px;letter-spacing:.3em;color:var(--vx-mu);font-weight:700;margin-top:2px}
+.vx-revbtn{margin-top:14px;position:relative;width:200px;height:50px;border-radius:99px;font-weight:700;font-size:13.5px;letter-spacing:.06em;color:#1b120c;background:linear-gradient(180deg,#fffaf2,#e9d4b8);box-shadow:0 14px 30px -12px rgba(0,0,0,.8),inset 0 1px 0 #fff;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden;transition:transform .15s}
+.vx-revbtn:active,.vx-revbtn.down{transform:scale(.97)}
+.vx-revbtn i{position:absolute;left:0;top:0;bottom:0;width:var(--rv,0%);background:linear-gradient(90deg,rgba(240,140,60,.0),rgba(240,140,60,.55));pointer-events:none}
+.vx-revbtn span{position:relative}
+.vx-revbtn.on{background:linear-gradient(180deg,#2a1d14,#120b07);color:#fff;border:1px solid rgba(255,206,150,.45)}
+.vx-off{margin-top:8px;font-size:11px;color:var(--vx-mu);text-decoration:underline;text-underline-offset:3px;background:none}
+.vx-off[hidden]{display:none}
+.vx-hero.revving .vx-flare{opacity:1}
+/* editorial strip (phones show the story here) */
+.vx-story{display:none}
+/* gallery */
+.vx-gal{position:relative;padding:90px 0 40px;background:radial-gradient(70% 60% at 50% 0%,#2a1a10,#0c0806 70%)}
+.vx-h{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.vx-h h2{margin:8px 0 0;font-family:var(--head);font-weight:800;font-size:clamp(30px,3.6vw,48px);letter-spacing:-.03em;color:#fff}
+.vx-h .eb{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--vx-gold)}
+.vx-h p{margin:0;max-width:44ch;color:var(--vx-mu);font-size:14px;line-height:1.6}
+.vx-row{display:flex;gap:18px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 26px;perspective:1100px;scrollbar-width:thin}
+.vx-ph{flex:none;width:clamp(220px,24vw,320px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;cursor:zoom-in;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s;box-shadow:0 30px 60px -30px rgba(0,0,0,.9);border:1px solid rgba(255,236,210,.12);background:#1c130d}
+.vx-ph img,.vx-ph video{width:100%;height:100%;object-fit:cover;display:block}
+.vx-ph:hover{transform:rotateY(-6deg) rotateX(3deg) translateY(-6px);box-shadow:0 40px 70px -30px rgba(0,0,0,.95)}
+.vx-ph figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border-radius:14px;font-size:12.5px;font-weight:600;color:#fff;background:rgba(18,12,8,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,236,210,.14)}
+.vx-ph figcaption small{display:block;font-weight:500;color:var(--vx-mu);font-size:11px}
+.vx-ph.vid{cursor:pointer}
+.vx-ph .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:rgba(255,248,238,.9);color:#1b120c;box-shadow:0 14px 30px -10px rgba(0,0,0,.7);transition:transform .3s}
+.vx-ph .play svg{width:24px;height:24px;margin-left:3px}
+.vx-ph.playing .play{transform:translate(-50%,-50%) scale(0);}
+.vx-fine{margin:4px 0 0;font-size:11px;color:rgba(205,183,156,.7)}
+/* listing */
+.vx-list{padding:60px 0 130px;background:#0c0806}
+.vx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:26px}
+.vx-card{border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#1d140e,#140d09);border:1px solid rgba(255,236,210,.1);display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
+.vx-card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.vx-card .im{aspect-ratio:4/3;background:#f4efe8;cursor:pointer}
+.vx-card .im img{width:100%;height:100%;object-fit:cover}
+.vx-card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.vx-card b{font-size:17px;color:#fff;cursor:pointer}
+.vx-chips{display:flex;flex-wrap:wrap;gap:6px}
+.vx-chips span{font-size:11.5px;padding:5px 9px;border-radius:99px;background:rgba(255,236,210,.08);color:#e6d4bd;border:1px solid rgba(255,236,210,.1)}
+.vx-card .pr{font-family:var(--head);font-weight:800;font-size:20px;color:#fff;margin-top:auto}
+.vx-card .ac{display:flex;gap:8px}
+.vx-card .ac .btn{height:42px;flex:1;justify-content:center;font-size:13px}
+.vx-empty{display:flex;align-items:center;gap:16px;padding:18px;border-radius:22px;margin-top:22px;background:rgba(255,236,210,.06);border:1px solid rgba(255,236,210,.12)}
+.vx-empty img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.vx-empty div{flex:1;font-size:13.5px;color:var(--vx-mu);line-height:1.5}.vx-empty b{color:#fff;font-size:15px}
+.vx-empty[hidden],.vx-grid[hidden]{display:none}
+/* vehicle specs in product details + admin */
+.vh-specs{margin:6px 0 4px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.vh-specs div{padding:9px 12px;border-radius:12px;background:rgba(13,14,16,.04);border:1px solid rgba(13,14,16,.06)}
+.vh-specs dt{font-size:11px;color:var(--mute);margin:0}.vh-specs dd{margin:2px 0 0;font-weight:600;font-size:13.5px}
+.vh-hl{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.pe-veh{margin-top:6px;padding:14px;border-radius:16px;background:rgba(13,14,16,.04);border:1px solid rgba(13,14,16,.07)}
+.pe-veh[hidden]{display:none}
+.pe-veh h4,.pe-gal h4{margin:0 0 10px;font-size:13px;letter-spacing:.04em}
+.pe-veh .two{gap:10px}
+.pe-gal{margin-top:10px}
+.pe-gal .gl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.pe-gal .gl span{position:relative;width:64px;height:64px;border-radius:12px;overflow:hidden;background:#eee}
+.pe-gal .gl img{width:100%;height:100%;object-fit:cover}
+.pe-gal .gl button{position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font-size:13px;line-height:20px}
+/* dark header over the vehicles page */
+body.vx-dark header.glass{background:rgba(22,14,9,.55);border-color:rgba(255,236,210,.14);box-shadow:0 24px 50px -28px rgba(0,0,0,.8)}
+body.vx-dark header nav.links a{color:#cdb79c}body.vx-dark header nav.links a:hover,body.vx-dark header nav.links a.on{color:#fff}body.vx-dark nav.links a.on:after{background:#fff}
+body.vx-dark header .logo{filter:invert(1) brightness(1.5)}
+body.vx-dark header .search{background:rgba(255,236,210,.08);border-color:rgba(255,236,210,.14);color:#cdb79c}body.vx-dark header .search input{color:#fff}
+body.vx-dark header .icon-btn{color:#fff}
+body.vx-dark .mnav{background:rgba(22,14,9,.82);border-color:rgba(255,236,210,.14)}
+body.vx-dark .mnav a{color:#a8957f}body.vx-dark .mnav a.on{color:#fff}
+body.vx-dark .chat-panel{background:rgba(250,250,251,.97)}
+html.lite .vx-ph figcaption{background:rgba(18,12,8,.82)}
+html.lite .vx-ghost{filter:sepia(.35) brightness(1.1)}
+@media (max-width:1100px){.vx-copy{width:min(300px,34vw)}.vx-car{width:min(54vw,700px);left:56%}}
+@media (max-width:820px){
+  .vx-hero{min-height:600px}
+  .vx-top{top:84px;left:18px;right:18px;font-size:10px}
+  .vx-word{top:17%;font-size:21vw}
+  .vx-ghost{top:22%;width:78vw;right:-18%}
+  .vx-car{width:104vw;left:50%;bottom:24%}
+  .vx-copy{display:none}
+  .vx-rev{left:14px;right:84px;bottom:calc(84px + env(safe-area-inset-bottom));width:auto;flex-direction:row;justify-content:flex-start;gap:10px;align-items:center}
+  .vx-gauge{width:128px;height:76px}
+  .vx-rpm{font-size:16px;bottom:-6px}
+  .vx-rpm small{font-size:8px}
+  .vx-revbtn{margin:0;flex:1;min-width:0;width:auto;height:48px}
+  .vx-off{position:absolute;top:-24px;right:0;bottom:auto;margin:0}
+  .vx-mark{bottom:calc(150px + env(safe-area-inset-bottom));left:18px}
+  .vx-credit{bottom:calc(150px + env(safe-area-inset-bottom));right:18px;font-size:9px}
+  .vx-story{display:block;padding:34px 0 10px;background:#0c0806}
+  .vx-story h1{margin:0 0 6px;font-family:var(--head);font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .vx-story h1 small{display:block;font-size:11px;letter-spacing:.24em;color:var(--vx-gold);margin-bottom:8px}
+  .vx-story hr{border:0;height:1px;margin:14px 0;background:linear-gradient(90deg,rgba(255,236,210,.5),transparent)}
+  .vx-story p{margin:0;font-size:14px;line-height:1.65;color:#e2d3c0}
+  .vx-story .fine{font-size:11px;color:var(--vx-mu);margin-top:8px}
+  .vx-story .vx-cta .btn{flex:1;justify-content:center}
+  .vx-gal{padding-top:50px}
+  .vx-ph{width:72vw}
+}
+@media (prefers-reduced-motion:reduce){.vx-rays{animation:none}.vx-bg img{transition:opacity .6s}}
+
 </style>
 <meta name="author" content="M&amp;P Developers">
 <meta name="copyright" content="© 2026 M&amp;P Developers. Licensed to Plug Electronics &amp; More.">
@@ -2557,42 +2710,73 @@ html.lite .cp-team button,html.lite .cp-act,html.lite .cp-deliv div,html.lite .c
     </div>
   </div>
   </div>
-<div class="view" data-view="vehicles" hidden>
-  <!-- VEHICLES PAGE (M&P, 5 Nov 2026): shows every product whose category is "vehicles" (Admin > Products > Category: Vehicles). -->
-  <section class="pg vh" id="vehicles-top">
-    <div class="wrap">
-      <div class="vh-hero glass reveal">
-        <div class="vh-tx">
-          <span class="eyebrow glass">Vehicles</span>
-          <h1 class="pg-h">Drive something new.</h1>
-          <p class="lead">Vehicles from Plug, with the same genuine-only promise. Photos and prices are on the way.</p>
-          <div class="vh-cta"><a class="btn btn-dark" id="vhAsk" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask June about vehicles</a><a class="btn btn-glass" href="#vh-list">See vehicles ↓</a></div>
-        </div>
-        <div class="vh-art" aria-hidden="true">
-          <svg viewBox="0 0 640 260" class="vh-car"><defs>
-            <linearGradient id="vhBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d9dde2"/><stop offset=".55" stop-color="#8f969f"/><stop offset=".62" stop-color="#eef0f3"/><stop offset="1" stop-color="#9aa1aa"/></linearGradient>
-            <linearGradient id="vhGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2e34"/><stop offset=".5" stop-color="#0d0f12"/><stop offset="1" stop-color="#3a3f46"/></linearGradient>
-            <radialGradient id="vhRim" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#b8bec6"/><stop offset="1" stop-color="#5b6168"/></radialGradient>
-            <radialGradient id="vhShadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(13,14,16,.35)"/><stop offset="1" stop-color="rgba(13,14,16,0)"/></radialGradient>
-            <linearGradient id="vhSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-            <clipPath id="vhClip"><path d="M44 178c-2-20 8-34 34-40l92-16c30-32 74-54 130-58 54-3 104 10 142 34 22 14 40 24 70 28 40 6 66 18 74 40 3 9 3 18 0 26-4 8-12 12-22 12H64c-12 0-19-10-20-26Z"/></clipPath></defs>
-            <ellipse cx="320" cy="214" rx="290" ry="20" fill="url(#vhShadow)"/>
-            <path d="M44 178c-2-20 8-34 34-40l92-16c30-32 74-54 130-58 54-3 104 10 142 34 22 14 40 24 70 28 40 6 66 18 74 40 3 9 3 18 0 26-4 8-12 12-22 12H64c-12 0-19-10-20-26Z" fill="url(#vhBody)" stroke="#6b7178" stroke-width="1.2"/>
-            <path d="M188 122c26-28 62-44 108-46 44-2 86 8 118 28l-6 16H182Z" fill="url(#vhGlass)"/>
-            <path d="M300 78v42" stroke="#c9ced4" stroke-width="5"/>
-            <path d="M70 160h500" stroke="#ffffff" stroke-opacity=".7" stroke-width="2"/>
-            <path d="M560 156c10 2 18 6 22 12l-26-2Z" fill="#fff" opacity=".95"/>
-            <path d="M52 150l20-4v14H50Z" fill="#c2412d" opacity=".85"/>
-            <g clip-path="url(#vhClip)"><rect class="vh-sheen" x="-200" y="40" width="160" height="200" fill="url(#vhSheen)" transform="skewX(-20)"/></g>
-            <g class="vh-wheel"><circle cx="168" cy="200" r="38" fill="#121417"/><circle cx="168" cy="200" r="24" fill="url(#vhRim)"/><circle cx="168" cy="200" r="6" fill="#30343a"/><path d="M168 178v44M146 200h44M152 184l32 32M184 184l-32 32" stroke="#6b7178" stroke-width="3"/></g>
-            <g class="vh-wheel"><circle cx="482" cy="200" r="38" fill="#121417"/><circle cx="482" cy="200" r="24" fill="url(#vhRim)"/><circle cx="482" cy="200" r="6" fill="#30343a"/><path d="M482 178v44M460 200h44M466 184l32 32M498 184l-32 32" stroke="#6b7178" stroke-width="3"/></g>
-          </svg>
-          <span class="vh-floor"></span>
-        </div>
+<div class="view vx" data-view="vehicles" hidden>
+  <!-- VEHICLES PAGE v2 (M&P, 6 Nov 2026): collector's-poster hero for the featured 2022 Ford Ranger
+       (liquid reveal, golden-hour forest road, hold-to-rev with the real exhaust sound), photo gallery,
+       and every product whose category is "vehicles" (Admin > Products > Category: Vehicles, with vehicle specs). -->
+  <section class="vx-hero" id="vehicles-top" aria-label="Featured vehicle: 2022 Ford Ranger">
+    <div class="vx-scene" id="vxScene">
+      <picture class="vx-bg"><source media="(max-aspect-ratio: 1/1)" srcset="img/vh/bg_p.webp"><img id="vxBgImg" src="img/vh/bg_l.webp" alt="" decoding="async" fetchpriority="low"></picture>
+      <i class="vx-rays" aria-hidden="true"></i>
+      <img class="vx-ghost" id="vxGhost" src="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM%20%281%29.jpeg" alt="" decoding="async" loading="lazy">
+      <div class="vx-word" id="vxWord" aria-hidden="true">RANGER</div>
+      <div class="vx-car" id="vxCar">
+        <i class="vx-shadow"></i>
+        <img class="vx-refl" src="img/vh/ranger_front.webp" alt="" decoding="async">
+        <canvas class="vx-liquid" id="vxLiquid" aria-hidden="true"></canvas>
+        <img class="vx-photo" id="vxPhoto" src="img/vh/ranger_front.webp" alt="White 2022 Ford Ranger double cab, front three-quarter view" decoding="async">
+        <i class="vx-tint" aria-hidden="true"></i>
+        <i class="vx-flare" aria-hidden="true"></i>
       </div>
-      <div class="all-head reveal" id="vh-list" style="margin-top:56px"><div><h2>All vehicles</h2><p class="lead" style="margin:10px 0 0">Prices in Kwacha · tap a vehicle for details</p></div></div>
-      <div class="pgrid" id="vhGrid"></div>
-      <div class="empty glass" id="vhEmpty" hidden><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><div><b>Vehicles are arriving soon</b><br><span>Photos are being added. Ask June on WhatsApp what's available today.</span></div><a class="btn wa" id="vhEmptyWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
+      <canvas class="vx-leaves" id="vxLeaves" aria-hidden="true"></canvas>
+    </div>
+    <div class="vx-ui">
+      <div class="vx-top"><span>Plug Vehicles</span><i></i><span>Featured · 2022</span></div>
+      <div class="vx-copy">
+        <h1><small>Featured vehicle</small>2022 Ford Ranger</h1>
+        <hr>
+        <p>The Ranger name has been on Ford pickups since 1983. This generation, launched in 2022, was led by Ford&#8217;s product development centre in Australia, with about 2,000 designers and engineers, and is built in Thailand and South Africa. Engines run from 2.0-litre single- and bi-turbo diesels to a 3.0-litre V6 turbo-diesel with 184 kW and 600 Nm, paired with a 10-speed automatic. On the rally stage, Ford raced the Ranger T1+ at the 2024 Dakar Rally, and the Ranger-inspired Raptor T1+ took third on its 2025 debut, then second and third overall in 2026.</p>
+        <p class="fine">Engine figures are for the Ranger range. Ask June for this truck&#8217;s exact specification. Front photo @zambia.import.aut · sound @dccustom1.</p>
+        <div class="vx-cta"><a class="btn vx-btn" id="vxAsk" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask June about this Ranger</a><a class="btn vx-btn-o" href="#vh-gallery">See photos ↓</a></div>
+      </div>
+      <div class="vx-mark"><img src="img/logo.webp" alt="Plug"><i></i><span>Vehicles · Lusaka</span></div>
+      <div class="vx-rev">
+        <div class="vx-gauge"><svg viewBox="0 0 200 118" aria-hidden="true"><path d="M25.5 143.0A86 86 0 1 1 174.5 143.0" fill="none" stroke="rgba(255,236,210,.18)" stroke-width="2"/><path d="M182.5 91.3A83 83 0 0 1 171.9 141.5" fill="none" stroke="#ff8a4c" stroke-width="4" stroke-linecap="round" opacity=".85"/><path id="vxArc" d="M19.5 146.5A93 93 0 1 1 180.5 146.5" fill="none" stroke="url(#vxG)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 999" pathLength="100"/><defs><linearGradient id="vxG" x1="0" x2="1"><stop offset="0" stop-color="#f0b76a"/><stop offset="1" stop-color="#ff6a2c"/></linearGradient></defs><line x1="35.9" y1="137.0" x2="25.5" y2="143.0" stroke="rgba(255,236,210,.75)" stroke-width="2"/><text x="46.3" y="134.5" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">0</text><line x1="23.9" y1="124.7" x2="18.2" y2="126.6" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="20.4" y1="108.4" x2="14.5" y2="109.0" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="20.4" y1="91.6" x2="14.5" y2="91.0" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="29.6" y1="77.1" x2="18.2" y2="73.4" stroke="rgba(255,236,210,.75)" stroke-width="2"/><text x="41.0" y="84.3" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">1</text><line x1="30.7" y1="60.0" x2="25.5" y2="57.0" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="40.5" y1="46.5" x2="36.1" y2="42.5" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="53.0" y1="35.3" x2="49.5" y2="30.4" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="69.9" y1="32.4" x2="65.0" y2="21.4" stroke="rgba(255,236,210,.75)" stroke-width="2"/><text x="74.8" y="46.9" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">2</text><line x1="83.4" y1="21.7" x2="82.1" y2="15.9" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="100.0" y1="20.0" x2="100.0" y2="14.0" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="116.6" y1="21.7" x2="117.9" y2="15.9" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="130.1" y1="32.4" x2="135.0" y2="21.4" stroke="rgba(255,236,210,.75)" stroke-width="2"/><text x="125.2" y="46.9" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">3</text><line x1="147.0" y1="35.3" x2="150.5" y2="30.4" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="159.5" y1="46.5" x2="163.9" y2="42.5" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="169.3" y1="60.0" x2="174.5" y2="57.0" stroke="rgba(255,236,210,.75)" stroke-width="1"/><line x1="170.4" y1="77.1" x2="181.8" y2="73.4" stroke="rgba(255,236,210,.75)" stroke-width="2"/><text x="159.0" y="84.3" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">4</text><line x1="179.6" y1="91.6" x2="185.5" y2="91.0" stroke="#ff8a4c" stroke-width="1"/><line x1="179.6" y1="108.4" x2="185.5" y2="109.0" stroke="#ff8a4c" stroke-width="1"/><line x1="176.1" y1="124.7" x2="181.8" y2="126.6" stroke="#ff8a4c" stroke-width="1"/><line x1="164.1" y1="137.0" x2="174.5" y2="143.0" stroke="#ff8a4c" stroke-width="2"/><text x="153.7" y="134.5" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,236,210,.7)">5</text><g class="nd" id="vxNeedle" style="transform:rotate(-120deg)"><line x1="100" y1="100" x2="100" y2="26" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="#f0b76a"/></g></svg><div class="vx-rpm"><span id="vxRpm">0</span><small>RPM</small></div></div>
+        <button class="vx-revbtn" id="vxRevBtn" type="button" aria-label="Start the engine"><i></i><span id="vxRevTx">Start engine</span></button>
+        <button class="vx-off" id="vxOff" type="button" hidden>Engine off</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="vx-story">
+    <div class="wrap">
+      <h1><small>Featured vehicle</small>2022 Ford Ranger</h1>
+      <hr>
+      <p>The Ranger name has been on Ford pickups since 1983. This generation, launched in 2022, was led by Ford&#8217;s product development centre in Australia, with about 2,000 designers and engineers, and is built in Thailand and South Africa. Engines run from 2.0-litre single- and bi-turbo diesels to a 3.0-litre V6 turbo-diesel with 184 kW and 600 Nm, paired with a 10-speed automatic. On the rally stage, Ford raced the Ranger T1+ at the 2024 Dakar Rally, and the Ranger-inspired Raptor T1+ took third on its 2025 debut, then second and third overall in 2026.</p>
+      <p class="fine">Engine figures are for the Ranger range. Ask June for this truck&#8217;s exact specification. Front photo @zambia.import.aut · sound @dccustom1.</p>
+      <div class="vx-cta"><a class="btn vx-btn" id="vxAsk2" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask June about this Ranger</a></div>
+    </div>
+  </section>
+
+  <section class="vx-gal" id="vh-gallery">
+    <div class="wrap">
+      <div class="vx-h"><div><span class="eb">In detail</span><h2>Every angle.</h2></div><p>Tap a photo to see it full size. Turn the sound on for the exhaust clip.</p></div>
+      <div class="vx-row" id="vxRow">
+        <figure class="vx-ph" data-full="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM%20%281%29.jpeg"><img src="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM%20%281%29.jpeg" alt="Ranger rear three-quarter at sunset" loading="lazy" decoding="async"><figcaption>Golden hour<small>Rear three-quarter, Wildtrak tailgate</small></figcaption></figure>
+        <figure class="vx-ph" data-full="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.31%20PM.jpeg"><img src="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.31%20PM.jpeg" alt="Ranger LED headlight close-up" loading="lazy" decoding="async"><figcaption>Light signature<small>C-shaped LED headlights</small></figcaption></figure>
+        <figure class="vx-ph" data-full="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM.jpeg"><img src="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM.jpeg" alt="Ranger cabin from the driver's door" loading="lazy" decoding="async"><figcaption>Driver&#8217;s seat<small>Digital cluster, large touchscreen</small></figcaption></figure>
+        <figure class="vx-ph" data-full="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.31%20PM%20%281%29.jpeg"><img src="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.31%20PM%20%281%29.jpeg" alt="Ranger dashboard and centre console" loading="lazy" decoding="async"><figcaption>Cockpit<small>Leather seats, e-shifter</small></figcaption></figure>
+        <figure class="vx-ph vid" id="vxVid"><video src="img/vh/WhatsApp%20Video%202026-11-05%20at%209.47.08%20PM.mp4" poster="img/vh/WhatsApp%20Image%202026-11-05%20at%2011.05.30%20PM%20%281%29.jpeg" preload="none" playsinline loop></video><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5Z"/></svg></span><figcaption>Exhaust note<small>A Ranger with a full exhaust system · tap to play</small></figcaption></figure>
+      </div>
+      <p class="vx-fine">Front photo in the poster: @zambia.import.aut. Exhaust clip and engine sound: @dccustom1 (a Ranger with a full exhaust system). The rev feature on this page uses that recording.</p>
+    </div>
+  </section>
+
+  <section class="vx-list" id="vh-list">
+    <div class="wrap">
+      <div class="vx-h"><div><span class="eb">Plug Vehicles</span><h2>All vehicles</h2></div><p>Prices in Kwacha. Tap a vehicle for its full specs and photos.</p></div>
+      <div class="vx-grid" id="vxGrid"></div>
+      <div class="vx-empty" id="vxEmpty" hidden><img loading="lazy" decoding="async" src="img/june_face.webp" alt=""><div><b>More vehicles are coming</b><br><span>Ask June on WhatsApp what&#8217;s available today.</span></div><a class="btn wa" id="vxEmptyWa" href="https://wa.me/260574541778" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
     </div>
   </section>
   </div>
@@ -3227,7 +3411,7 @@ const specHTML=p=>{const d=SPECS[p.id];if(!d)return'';
   <p class="fine">${d.note?esc(d.note)+' ':''}Specs are from the manufacturer. Colours and versions in stock can vary, so ask June on WhatsApp before you buy.</p></div></div>`};
 /* ---- product details ---- */
 function productView(id){
-  const p=byId[id], imgs=gallery[id]||[p.img];
+  const p=byId[id], imgs=gallery[id]||[p.img,...(Array.isArray(p.gal)?p.gal:[])];
   const rel=products.filter(x=>x.c===p.c&&x.id!==id).slice(0,4);
   openSheet(`<div class="pd">
     <div class="pd-l"><div class="pd-img" id="pdImg"><img loading="lazy" decoding="async" src="${src(imgs[0])}" alt="${esc(p.n)}"></div>
@@ -3241,7 +3425,7 @@ function productView(id){
       <a class="btn wa full" href="${p.wa}" target="_blank" rel="noopener">${waSvg} Order on WhatsApp</a>
       <ul class="perks"><li>🚚 Delivery in Lusaka &amp; Ndola</li><li>⚡ Same-day in Lusaka if you order before 14:00</li><li>🏬 Collect at Liberty Mall, Shop 31</li><li>⭐ Earn ${ptsFor(p.p).toLocaleString()} Plug points</li></ul>
     </div></div>
-    ${specHTML(p)}
+    ${vxSpecsHTML(p)}${specHTML(p)}
     ${rel.length?`<h4 class="rel-h">You may also like</h4><div class="rel">${rel.map(r=>`<button class="rel-c" data-open-p="${r.id}"><span><img src="${src(r.img)}" alt="" loading="lazy"></span><b>${esc(r.n)}</b><em>${r.pt}</em></button>`).join('')}</div>`:''}`,'modal',true);
   let q=1; const im=$('#pdImg');
   sheet.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{q=Math.max(1,Math.min(plMaxQty(p),q+ +b.dataset.q));$('#pdQ').textContent=q});
@@ -3471,7 +3655,7 @@ const ADM={live:false,db:null,u:null,admin:false,owner:false,uid:null,name:'',se
   codes:[{code:'WELCOME10',type:'pct',value:10,min:500,scope:'all',first:true,active:true,expires:''},{code:'TECH25',type:'pct',value:25,min:0,scope:'games',first:false,active:true,expires:''}],
   settings:{wa:'260574541778',instagram:'https://www.instagram.com/plug_electronics_zm',facebook:'https://www.facebook.com/share/1CXKEpqzwe/',pointsPer:100,pointValue:0,announceOn:false,announce:'',freeTowns:'Lusaka & Ndola',cutoff:14,storeName:'Plug Electronics & More',bfOn:true,bfDate:'2026-11-27'},
   campaigns:[],orders:[],subs:[],statuses:{},raw:{products:null,codes:null}};
-const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0,colors:Array.isArray(p.colors)?p.colors.slice(0,30).map(c=>({n:String(c.n||'').slice(0,30),h:String(c.h||'')})).filter(c=>c.n):[],qty:p.qty===''||p.qty==null||isNaN(+p.qty)?null:Math.max(0,parseInt(p.qty,10)||0),low:+p.low||0});
+const cleanP=p=>({n:p.n,sp:p.sp,p:+p.p||0,was:+p.was||0,img:p.img||'',c:p.c,b:p.b==='Sale'&&!(+p.was>+p.p)?'':(p.b||''),stock:p.stock||'in',featured:!!p.featured,order:+p.order||0,colors:Array.isArray(p.colors)?p.colors.slice(0,30).map(c=>({n:String(c.n||'').slice(0,30),h:String(c.h||'')})).filter(c=>c.n):[],qty:p.qty===''||p.qty==null||isNaN(+p.qty)?null:Math.max(0,parseInt(p.qty,10)||0),low:+p.low||0,vs:p.vs&&typeof p.vs==='object'?Object.fromEntries(Object.entries(p.vs).filter(([k,v])=>/^(year|km|engine|trans|fuel|drive|body|colour|cond|seats|loc|hl)$/.test(k)&&typeof v==='string'&&v.trim()).map(([k,v])=>[k,v.slice(0,k==='hl'?600:80)])):{},gal:Array.isArray(p.gal)?p.gal.filter(x=>typeof x==='string'&&x).slice(0,12):[]});
 function localState(){return store.get('admin',null)}
 function localSave(){store.set('admin',{products:products.map(p=>({id:p.id,...cleanP(p)})),codes:ADM.codes,settings:ADM.settings,campaigns:ADM.campaigns,statuses:ADM.statuses})}
 function applyCatalog(){renderGrid();renderDeals();buildOrbit();if(window.plugAudioRefresh)plugAudioRefresh();if(window.plugFashionRefresh)plugFashionRefresh();if(window.plugVehiclesRefresh)plugVehiclesRefresh();if(typeof curAdm!=='undefined'&&curAdm&&!admBusy)renderAdm(curAdm)}
@@ -3626,14 +3810,15 @@ function productEditor(id){const p=id?{...byId[id]}:{id:'',n:'',sp:'',p:'',was:0
     <label class="chk" style="align-self:end;padding-bottom:12px"><input type="checkbox" name="featured" ${p.featured?'checked':''}> Feature in New Arrivals</label></div>
     <div class="two"><label>Quantity in stock<input name="qty" inputmode="numeric" value="${plTracked(p)?+p.qty:''}" placeholder="Empty = not counted"></label><label>Warn me when stock is at<input name="low" inputmode="numeric" value="${p.low||''}" placeholder="3"></label></div>
     ${colorGridHTML(p)}
+    ${vxEditorHTML(p)}
    </div></div><div class="err" id="pErr"></div>
    <div class="row-b"><button class="btn btn-dark" type="submit" style="flex:1;justify-content:center">${id?'Save changes':'Add product'}</button>${id?`<button type="button" class="btn btn-glass" id="pDel">Delete</button>`:''}</div></form>`,'modal',true);
-  let img=p.img;
+  let img=p.img;vxEditorWire(p);
   $('#peFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;$('#peImg').innerHTML='<span>Uploading…</span>';
     try{img=await uploadImage(f);$('#peImg').innerHTML=`<img loading="lazy" decoding="async" src="${src(img)}" alt="">`}catch(err){$('#peImg').innerHTML='<span>Upload failed. Try a smaller image.</span>'}};
   const del=$('#pDel');if(del)del.onclick=async()=>{if(del.dataset.sure){await deleteProduct(id);closeSheet();renderAdm('products')}else{del.dataset.sure=1;del.textContent='Tap again to delete';del.classList.add('danger')}};
   $('#pf').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
-    const np={...p,n:f.get('n').trim(),sp:f.get('sp').trim(),c:f.get('c'),stock:f.get('stock'),p:+String(f.get('p')).replace(/[^\d.]/g,'')||0,was:+String(f.get('was')).replace(/[^\d.]/g,'')||0,b:f.get('b'),featured:!!f.get('featured'),img,colors:peColors(),qty:qtyIn(f.get('qty')),low:parseInt(f.get('low'),10)||0};if(np.qty===0&&np.stock==='in')np.stock='out';if(np.qty>0&&np.stock==='out')np.stock='in';
+    const np={...p,n:f.get('n').trim(),sp:f.get('sp').trim(),c:f.get('c'),stock:f.get('stock'),p:+String(f.get('p')).replace(/[^\d.]/g,'')||0,was:+String(f.get('was')).replace(/[^\d.]/g,'')||0,b:f.get('b'),featured:!!f.get('featured'),img,colors:peColors(),qty:qtyIn(f.get('qty')),low:parseInt(f.get('low'),10)||0,vs:vxSpecsIn(e.target),gal:vxGalGet()};if(np.qty===0&&np.stock==='in')np.stock='out';if(np.qty>0&&np.stock==='out')np.stock='in';
     if(np.n.length<2){$('#pErr').textContent='Add a product name.';return}if(!np.img){$('#pErr').textContent='Upload a product photo.';return}
     if(!np.id)np.id=(np.n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)||'item')+'-'+Math.random().toString(36).slice(2,6);
     if(await saveProduct(np)){say(`✓ ${np.n} saved`);closeSheet();renderAdm('products')}};
@@ -4561,11 +4746,168 @@ function faWatch(cv,o){o=o||{};
   window.plugOpenHelp=()=>{if(!cpPanel.classList.contains('open'))openChat('June');cpTab('help');cpHelp.scrollTop=0};
   const fab=document.querySelector('#chatFab .txt');if(fab)fab.textContent='Chat & help';
  }
- const vGrid=document.getElementById('vhGrid'),vEmpty=document.getElementById('vhEmpty');
- if(vGrid){const vWa=`https://wa.me/${WA}?text=${encodeURIComponent("Hi June! Which vehicles do you have at Plug?")}`;
-  document.getElementById('vhAsk').href=vWa;document.getElementById('vhEmptyWa').href=vWa;
-  window.plugVehiclesRefresh=()=>{const list=products.filter(p=>p.c==='vehicles');vGrid.innerHTML=list.map(cardHTML).join('');vGrid.hidden=!list.length;vEmpty.hidden=!!list.length};
+}
+
+
+/* ==== vehicle specs + extra photos (M&P, 6 Nov 2026) ====
+   Admin > Products: when Category is "Vehicles" a "Vehicle specs" box appears (year, mileage, engine…).
+   Every product can also have extra photos ("More photos"). Saved as p.vs and p.gal. */
+const VX_SPECS=[['year','Year','e.g. 2022'],['km','Mileage (km)','e.g. 38,000'],['engine','Engine','e.g. 2.0 bi-turbo diesel'],['trans','Transmission','e.g. 10-speed automatic'],['fuel','Fuel','e.g. Diesel'],['drive','Drive','e.g. 4x4'],['body','Body','e.g. Double cab'],['colour','Colour','e.g. Arctic White'],['cond','Condition','e.g. Used, imported'],['seats','Seats','e.g. 5'],['loc','Location','e.g. Lusaka']];
+let vxGal=[];
+function vxEditorHTML(p){const v=p.vs||{};
+  return `<div class="pe-veh" id="peVeh"${p.c==='vehicles'?'':' hidden'}><h4>Vehicle specs <span style="font-weight:500;color:var(--mute)">(shown on the Vehicles page)</span></h4>
+   <div class="two">${VX_SPECS.map(([k,l,ph])=>`<label>${l}<input name="vs_${k}" value="${esc(v[k]||'')}" placeholder="${ph}" maxlength="80"></label>`).join('')}</div>
+   <label>Highlights <span style="font-weight:400;color:var(--mute)">(one per line)</span><textarea name="vs_hl" rows="3" maxlength="600" placeholder="e.g. Reverse camera&#10;Tow bar">${esc(v.hl||'')}</textarea></label></div>
+   <div class="pe-gal"><h4>More photos <span style="font-weight:500;color:var(--mute)">(optional, up to 12)</span></h4><div class="gl" id="peGal"></div>
+   <label class="btn btn-glass up" style="height:42px">Add photos<input type="file" accept="image/*" id="peGalFile" multiple hidden></label></div>`}
+function vxEditorWire(p){vxGal=Array.isArray(p.gal)?p.gal.slice(0,12):[];
+  const box=document.getElementById('peGal'),inp=document.getElementById('peGalFile'),veh=document.getElementById('peVeh'),sel=document.querySelector('#pf select[name="c"]');
+  const draw=()=>{box.innerHTML=vxGal.map((g,i)=>`<span><img src="${src(g)}" alt=""><button type="button" data-gx="${i}" aria-label="Remove photo">×</button></span>`).join('')};draw();
+  box.onclick=e=>{const b=e.target.closest('[data-gx]');if(b){vxGal.splice(+b.dataset.gx,1);draw()}};
+  inp.onchange=async e=>{for(const f of [...e.target.files].slice(0,12-vxGal.length)){box.insertAdjacentHTML('beforeend','<span class="ld"></span>');try{vxGal.push(await uploadImage(f))}catch(_){say('A photo could not be uploaded')}draw()}inp.value=''};
+  if(sel&&veh)sel.addEventListener('change',()=>{veh.hidden=sel.value!=='vehicles'})}
+function vxSpecsIn(form){const f=new FormData(form),o={};VX_SPECS.forEach(([k])=>{const v=String(f.get('vs_'+k)||'').trim().slice(0,80);if(v)o[k]=v});const hl=String(f.get('vs_hl')||'').trim().slice(0,600);if(hl)o.hl=hl;return o}
+function vxGalGet(){return vxGal.slice(0,12)}
+function vxSpecsHTML(p){if(!p||p.c!=='vehicles'||!p.vs)return'';const v=p.vs,rows=VX_SPECS.filter(([k])=>v[k]);
+  const hl=(v.hl||'').split('\n').map(s=>s.trim()).filter(Boolean);if(!rows.length&&!hl.length)return'';
+  return `<div class="spx"><div><h4 class="rel-h" style="margin-top:0">Vehicle specs</h4><dl class="vh-specs">${rows.map(([k,l])=>`<div><dt>${l}</dt><dd>${esc(v[k])}</dd></div>`).join('')}</dl>${hl.length?`<ul class="vh-hl">${hl.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>`:''}</div></div>`}
+
+
+/* ==== vehicles page v2 (M&P, 6 Nov 2026) ====
+   Hero: golden-hour forest road, the Ranger rises out of black liquid (WebGL, shaped by img/vh/ranger_sdf.png),
+   falling leaves, parallax, and "Start engine / Hold to rev" using the recorded exhaust (img/vh/eng_*.m4a).
+   Everything animated runs only while the Vehicles page is open and on screen. */
+{const vxPage=document.querySelector('[data-view="vehicles"]');
+ if(vxPage){
+  const hero=document.getElementById('vehicles-top'),car=document.getElementById('vxCar'),word=document.getElementById('vxWord'),ghost=document.getElementById('vxGhost'),bgImg=document.getElementById('vxBgImg');
+  const vxReduce=matchMedia('(prefers-reduced-motion: reduce)').matches,vxLite=document.documentElement.classList.contains('lite');
+  const vxOn=()=>curView==='vehicles'&&!document.hidden;
+  let heroVis=true;if('IntersectionObserver' in window)new IntersectionObserver(es=>{heroVis=es[0].isIntersecting;vxKick()},{rootMargin:'60px'}).observe(hero);
+  const ask=`https://wa.me/${WA}?text=${encodeURIComponent("Hi June! I'm interested in the 2022 Ford Ranger on the Plug website. Is it available, and what's the price?")}`;
+  ['vxAsk','vxAsk2'].forEach(i=>{const a=document.getElementById(i);if(a)a.href=ask});
+  document.getElementById('vxEmptyWa').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi June! Which vehicles do you have at Plug?")}`;
+
+  /* ---- liquid reveal (black liquid puddle -> rising drop -> the Ranger) ---- */
+  const cv=document.getElementById('vxLiquid');let gl=null,prog=null,U={},sdfTex=null,revealT0=0,revealing=false,revealed=false,started=false;
+  function glInit(){try{gl=cv.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false})}catch(_){gl=null}if(!gl)return false;
+    const vs='attribute vec2 a;varying vec2 v;void main(){v=a*.5+.5;v.y=1.-v.y;gl_Position=vec4(a,0.,1.);}';
+    const fs=`precision highp float;varying vec2 v;uniform sampler2D S;uniform float T,AY;
+    float car(vec2 p){vec2 uv=vec2(p.x,p.y/AY);if(uv.x<0.||uv.x>1.||uv.y<0.||uv.y>1.)return .4;return (texture2D(S,uv).r-.5)*.75;}
+    float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}
+    float field(vec2 p){
+      float s1=smoothstep(0.,.28,T),s2=smoothstep(.18,.5,T),s3=smoothstep(.42,.82,T);
+      vec2 c=vec2(.5,AY*.9);
+      vec2 q=(p-c)/vec2(.05+.36*s1,.012+.03*s1);float puddle=(length(q)-1.)*min(.05+.36*s1,.012+.03*s1);
+      float rise=mix(AY*.9,AY*.5,s2);float r=.04+.17*s2+.01*sin(T*30.)*(1.-s3);
+      float drop=length(p-vec2(.5+.015*sin(p.y*20.+T*12.)*(1.-s3),rise))-r;
+      float blob=smin(puddle,drop,.09);
+      float wob=.006*sin(p.x*40.+T*14.)*sin(p.y*30.-T*9.)*(1.-s3);
+      return mix(blob,car(p),s3)+wob;}
+    void main(){vec2 p=vec2(v.x,v.y*AY);float f=field(p);
+      float a=smoothstep(.003,-.003,f);if(a<.004){gl_FragColor=vec4(0.);return;}
+      float e=.012;vec2 g=vec2(field(p+vec2(e,0.))-field(p-vec2(e,0.)),field(p+vec2(0.,e))-field(p-vec2(0.,e)));
+      float h=clamp(-f*14.,0.,1.);vec3 n=normalize(vec3(-g*(1.-h)*55.,1.));
+      vec3 L=normalize(vec3(.45,-.6,.65));vec3 Rf=reflect(vec3(0.,0.,-1.),n);
+      float spec=pow(max(dot(Rf,L),0.),40.)*1.6;float rim=pow(1.-n.z,2.)*.9;
+      float band=smoothstep(.0,.05,Rf.y+.15)*smoothstep(.3,.1,Rf.y+.15);
+      float sweep=exp(-pow((p.x-p.y*.4)-(T*1.6-.3),2.)*90.)*h;vec3 col=vec3(.012,.01,.009)+vec3(1.,.78,.5)*spec+vec3(1.,.72,.4)*rim*.5+vec3(.9,.7,.5)*band*.22+vec3(1.,.85,.6)*sweep*.35;
+      float fade=1.-smoothstep(.84,1.,T);gl_FragColor=vec4(col*a*fade,a*fade);}`;
+    const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw 0;return o};
+    try{prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw 0}catch(_){gl=null;return false}
+    gl.useProgram(prog);const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    const al=gl.getAttribLocation(prog,'a');gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
+    U.T=gl.getUniformLocation(prog,'T');U.AY=gl.getUniformLocation(prog,'AY');gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);return true}
+  function loadSdf(){return new Promise(res=>{const im=new Image();im.onload=()=>{sdfTex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,sdfTex);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.LUMINANCE,gl.LUMINANCE,gl.UNSIGNED_BYTE,im);[gl.TEXTURE_MIN_FILTER,gl.TEXTURE_MAG_FILTER].forEach(k=>gl.texParameteri(gl.TEXTURE_2D,k,gl.LINEAR));
+      [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T].forEach(k=>gl.texParameteri(gl.TEXTURE_2D,k,gl.CLAMP_TO_EDGE));res(true)};im.onerror=()=>res(false);im.src='img/vh/ranger_sdf.png'})}
+  function sizeCv(){const r=car.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,vxLite?1.25:2);cv.width=Math.max(2,Math.round(r.width*d));cv.height=Math.max(2,Math.round(r.height*d));if(gl)gl.viewport(0,0,cv.width,cv.height)}
+  function drawLiquid(t){if(!gl)return;gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform1f(U.T,t);gl.uniform1f(U.AY,cv.height/cv.width);gl.drawArrays(gl.TRIANGLES,0,3)}
+  async function reveal(){if(started)return;started=true;
+    const go=()=>requestAnimationFrame(()=>hero.classList.add('lit'));
+    if(bgImg.complete)go();else{bgImg.onload=go;setTimeout(go,1500)}
+    if(vxReduce||!glInit()||!(await loadSdf())){setTimeout(()=>{hero.classList.add('shown');revealed=true},500);return}
+    sizeCv();hero.classList.add('liquid');revealing=true;revealT0=performance.now()+500;vxKick()}
+
+  /* ---- falling leaves ---- */
+  const lc=document.getElementById('vxLeaves'),lx=lc.getContext('2d');let leaves=[];
+  function leafInit(){const r=hero.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);lc.width=r.width*d;lc.height=r.height*d;lx.setTransform(d,0,0,d,0,0);
+    const n=vxReduce?0:(vxLite?12:24);leaves=Array.from({length:n},()=>newLeaf(r,true))}
+  function newLeaf(r,any){const z=Math.random();return{x:Math.random()*r.width,y:any?Math.random()*r.height:-20,z,s:6+z*13,vy:18+z*34,sw:Math.random()*6.28,ss:.6+Math.random()*1.2,rot:Math.random()*6.28,vr:(Math.random()-.5)*2.2,c:['#c46a22','#a8521a','#e09a3e','#8a3f12','#d4822e'][Math.random()*5|0],a:.35+z*.55}}
+  function drawLeaves(dt){const r={width:lc.width/(Math.min(devicePixelRatio||1,1.5)),height:lc.height/(Math.min(devicePixelRatio||1,1.5))};lx.clearRect(0,0,r.width,r.height);
+    for(const L of leaves){L.y+=L.vy*dt;L.sw+=dt*L.ss;L.x+=Math.sin(L.sw)*22*dt*(.5+L.z);L.rot+=L.vr*dt;if(L.y>r.height+20)Object.assign(L,newLeaf(r,false));
+      lx.save();lx.globalAlpha=L.a;lx.translate(L.x,L.y);lx.rotate(L.rot);lx.scale(1,.55+.45*Math.sin(L.sw*1.7));lx.fillStyle=L.c;lx.beginPath();lx.moveTo(0,-L.s);lx.quadraticCurveTo(L.s*.75,-L.s*.2,0,L.s);lx.quadraticCurveTo(-L.s*.75,-L.s*.2,0,-L.s);lx.fill();
+      lx.strokeStyle='rgba(60,25,8,.45)';lx.lineWidth=.8;lx.beginPath();lx.moveTo(0,-L.s*.9);lx.lineTo(0,L.s*.9);lx.stroke();lx.restore()}}
+
+  /* ---- engine: start, idle loop, hold to rev (Web Audio, recorded exhaust) ---- */
+  const btn=document.getElementById('vxRevBtn'),btnTx=document.getElementById('vxRevTx'),off=document.getElementById('vxOff'),needle=document.getElementById('vxNeedle'),arcEl=document.getElementById('vxArc'),rpmEl=document.getElementById('vxRpm');
+  let ac=null,bufs=null,idle=null,idleGain=null,lp=null,engine=false,rev=0,revTarget=0,holding=false,lastUse=0,loading=false,rpmShown=0;
+  async function audioLoad(){ac=new (window.AudioContext||window.webkitAudioContext)();const get=async k=>{const r=await fetch('img/vh/eng_'+k+'.m4a');const ab=await r.arrayBuffer();return await new Promise((res,rej)=>ac.decodeAudioData(ab,res,rej))};
+    bufs={start:await get('start'),idle:await get('idle'),rev:await get('rev')}}
+  async function startEngine(){if(engine||loading)return;loading=true;btnTx.textContent='Starting…';
+    try{if(!bufs)await audioLoad();if(ac.state==='suspended')await ac.resume()}catch(_){loading=false;btnTx.textContent='Sound not available';return}
+    const t=ac.currentTime+.02,st=ac.createBufferSource();st.buffer=bufs.start;const sg=ac.createGain();sg.gain.value=.9;st.connect(sg).connect(ac.destination);st.start(t);
+    lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=1400;lp.Q.value=.7;idleGain=ac.createGain();idleGain.gain.setValueAtTime(0,t);
+    idle=ac.createBufferSource();idle.buffer=bufs.idle;idle.loop=true;idle.loopStart=.06;idle.loopEnd=bufs.idle.duration-.06;idle.connect(lp).connect(idleGain).connect(ac.destination);
+    const on=t+Math.max(.2,bufs.start.duration-.45);idle.start(on,.06);idleGain.gain.linearRampToValueAtTime(.62,on+.35);
+    engine=true;loading=false;lastUse=performance.now();rev=.55;btn.classList.add('on');btn.setAttribute('aria-label','Hold to rev the engine');btnTx.textContent='Hold to rev';off.hidden=false;
+    if(navigator.vibrate)navigator.vibrate(60);vxKick()}
+  function stopEngine(){if(!engine)return;engine=false;holding=false;revTarget=0;try{const t=ac.currentTime;idleGain.gain.cancelScheduledValues(t);idleGain.gain.setTargetAtTime(0,t,.12);idle.playbackRate.setTargetAtTime(.7,t,.2);idle.stop(t+.8)}catch(_){}
+    btn.classList.remove('on','down');btnTx.textContent='Start engine';btn.setAttribute('aria-label','Start the engine');off.hidden=true}
+  function revDown(){if(!engine){startEngine();return}holding=true;revTarget=1;lastUse=performance.now();btn.classList.add('down');
+    try{const s=ac.createBufferSource();s.buffer=bufs.rev;const g=ac.createGain();g.gain.value=.55;s.connect(g).connect(ac.destination);s.start()}catch(_){}
+    if(navigator.vibrate)navigator.vibrate([0,40,30,60]);hero.classList.add('revving');vxKick()}
+  function revUp(){holding=false;revTarget=0;btn.classList.remove('down');hero.classList.remove('revving');lastUse=performance.now()}
+  btn.addEventListener('pointerdown',e=>{e.preventDefault();try{btn.setPointerCapture(e.pointerId)}catch(_){}revDown()});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(k=>btn.addEventListener(k,()=>{if(holding)revUp()}));
+  btn.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat){e.preventDefault();revDown()}});
+  btn.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();revUp()}});
+  btn.addEventListener('contextmenu',e=>e.preventDefault());
+  off.onclick=stopEngine;
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopEngine()});
+
+  /* ---- gallery ---- */
+  const row=document.getElementById('vxRow'),vidFig=document.getElementById('vxVid'),vid=vidFig.querySelector('video');
+  row.addEventListener('click',e=>{const f=e.target.closest('.vx-ph');if(!f)return;
+    if(f===vidFig){if(vid.paused){stopEngine();vid.muted=false;vid.play().then(()=>vidFig.classList.add('playing')).catch(()=>{})}else{vid.pause();vidFig.classList.remove('playing')}return}
+    openSheet(`<img src="${f.dataset.full}" alt="${esc(f.querySelector('img').alt)}" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:18px;background:#111">`,'modal',true)});
+
+  /* ---- listing (products in category "vehicles") ---- */
+  const grid=document.getElementById('vxGrid'),empty=document.getElementById('vxEmpty');
+  const chip=p=>{const v=p.vs||{};return [v.year,v.km?v.km.replace(/\s*km$/i,'')+' km':'',v.engine,v.trans,v.drive].filter(Boolean).slice(0,5).map(x=>`<span>${esc(x)}</span>`).join('')};
+  window.plugVehiclesRefresh=()=>{const list=products.filter(p=>p.c==='vehicles');
+    grid.innerHTML=list.map(p=>`<article class="vx-card"><div class="im" data-open-p="${p.id}" role="button" tabindex="0" aria-label="View ${esc(p.n)}"><img src="${src(p.img)}" alt="${esc(p.n)}" loading="lazy" decoding="async"></div>
+      <div class="bd"><b data-open-p="${p.id}">${esc(p.n)}</b>${p.sp?`<span style="font-size:13px;color:var(--vx-mu)">${esc(p.sp)}</span>`:''}<div class="vx-chips">${chip(p)}</div><div class="pr">${p.pt}</div>
+      <div class="ac"><button class="btn vx-btn" type="button" data-open-p="${p.id}">Full specs</button><a class="btn wa" href="${p.wa}" target="_blank" rel="noopener" aria-label="Ask about ${esc(p.n)} on WhatsApp" style="flex:0 0 46px;padding:0">${waIcon}</a></div></div></article>`).join('');
+    grid.hidden=!list.length;empty.hidden=!!list.length};
   plugVehiclesRefresh();
+
+  /* ---- motion loop ---- */
+  let raf=0,last=0,px=0,py=0,tx=0,ty=0,tGlob=0;
+  hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=hero.getBoundingClientRect();tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1});
+  hero.addEventListener('pointerleave',()=>{tx=0;ty=0});
+  addEventListener('deviceorientation',e=>{if(e.gamma==null||curView!=='vehicles')return;tx=Math.max(-1,Math.min(1,e.gamma/30));ty=Math.max(-1,Math.min(1,(e.beta-50)/30))});
+  function vxStep(now){raf=0;if(!vxOn())return;const dt=Math.min(.05,(now-(last||now))/1000);last=now;tGlob+=dt;
+    const active=heroVis||engine;if(!active)return;
+    px+=(tx-px)*.05;py+=(ty-py)*.05;
+    // engine
+    if(engine){const up=revTarget>rev;rev+=(revTarget-rev)*(up?1-Math.exp(-dt*5.5):1-Math.exp(-dt*2.2));const idleR=.16+.03*Math.sin(tGlob*9);const r=Math.max(idleR,rev*(revTarget?1:1));
+      try{idle.playbackRate.setTargetAtTime(1+rev*1.55,ac.currentTime,.03);lp.frequency.setTargetAtTime(1400+rev*5200,ac.currentTime,.05);idleGain.gain.setTargetAtTime(.62+rev*.38,ac.currentTime,.05)}catch(_){}
+      rpmShown=800+r*4100;if(!holding&&now-lastUse>30000)stopEngine()}else{rev+=(0-rev)*(1-Math.exp(-dt*3));rpmShown+=(0-rpmShown)*(1-Math.exp(-dt*4))}
+    const frac=Math.max(0,Math.min(1,rpmShown/5000));needle.style.transform=`rotate(${(-120+240*frac).toFixed(1)}deg)`;arcEl.setAttribute('stroke-dasharray',`${(frac*100).toFixed(1)} 999`);rpmEl.textContent=Math.round(rpmShown/10)*10;
+    btn.style.setProperty('--rv',(rev*100).toFixed(0)+'%');
+    const shake=engine?(.35+rev*2.2):0,sx=shake?(Math.random()-.5)*shake:0,sy=shake?(Math.random()-.5)*shake*.6:0;
+    car.style.transform=`translate(calc(-50% + ${(px*-10+sx).toFixed(1)}px),${(py*-4+sy).toFixed(1)}px)`;
+    word.style.transform=hero.classList.contains('lit')?`translate(${(px*14).toFixed(1)}px,${(py*8).toFixed(1)}px)`:'';
+    ghost.style.translate=`${(px*24).toFixed(1)}px ${(py*10).toFixed(1)}px`;
+    bgImg.style.translate=`${(px*-18).toFixed(1)}px ${(py*-10).toFixed(1)}px`;
+    if(revealing){const t=Math.max(0,(now-revealT0)/2900);drawLiquid(Math.min(t,1));if(t>.8&&!revealed){revealed=true;hero.classList.add('shown')}if(t>=1){revealing=false;hero.classList.remove('liquid');gl.clear(gl.COLOR_BUFFER_BIT)}}
+    if(heroVis)drawLeaves(dt);
+    raf=requestAnimationFrame(vxStep)}
+  function vxKick(){if(!raf&&vxOn())raf=requestAnimationFrame(vxStep)}
+  function vxSync(){const on=curView==='vehicles';document.body.classList.toggle('vx-dark',on);if(on){leafInit();reveal();last=0;vxKick()}else{stopEngine();if(!vid.paused){vid.pause();vidFig.classList.remove('playing')}}}
+  addEventListener('hashchange',()=>requestAnimationFrame(vxSync));
+  let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(curView==='vehicles'){leafInit();if(gl)sizeCv()}},200)});
+  setTimeout(vxSync,0);
  }
 }
 
