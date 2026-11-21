@@ -11,6 +11,7 @@ Designed, developed and owned by **M&P Developers**. Licensed (not sold) to Plug
 | `config.js` | Where the Supabase keys go |
 | `supabase-adapter.js` | Connects the site to the Supabase database |
 | `supabase-setup.sql` | Creates the database, security rules and starting data |
+| `supabase-security-update.sql` | Security update (Nov 2026): new tables start private, and new orders are price-checked in the database |
 | `img/` | Product photos, team photos, category tiles |
 
 ## Going live with the database (one time)
@@ -25,6 +26,7 @@ Designed, developed and owned by **M&P Developers**. Licensed (not sold) to Plug
    ```
 5. **Project Settings → API**: copy the **Project URL** and the **anon public** key into `config.js`.
 6. **Authentication → URL Configuration**: set Site URL to the live site address (for password-reset emails).
+7. **SQL Editor → New query**: paste all of `supabase-security-update.sql` → **Run**.
 
 Admin page: `<site address>/admin.html`.
 
