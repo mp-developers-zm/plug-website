@@ -105,7 +105,14 @@
     doc: function (path) {
       var p = split(path), col = p[0], id = p[1];
       return {
-        get: function () { return sb.from('docs').select('id,data').eq('collection', col).eq('id', id).maybeSingle().then(fail).then(function (r) { return docSnap(r.data); }); },
+        get: function () {
+          var plain = function () { return sb.from('docs').select('id,data').eq('collection', col).eq('id', id).maybeSingle().then(fail).then(function (r) { return docSnap(r.data); }); };
+          // Order status: customers look up ONE order by its exact number (the full list is staff-only).
+          if (col === 'orderstatus') return sb.rpc('plug_order_status', { p_no: id }).then(fail).then(function (r) {
+            return r.data == null ? plain() : docSnap({ id: id, data: r.data });
+          }).catch(plain);
+          return plain();
+        },
         set: function (data) {
           return ensureUid().then(function (uid) {
             return sb.from('docs').upsert({ collection: col, id: id, data: data, owner: uid || null, updated_at: new Date().toISOString() }, { onConflict: 'collection,id' });

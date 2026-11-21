@@ -87,3 +87,22 @@ create trigger plug_check_orders before insert or update on public.docs
 --  * Your staff login: turn on MFA (Authentication → Multi-Factor).
 --  * Billing: set a spend cap or usage alerts.
 -- =====================================================================
+
+-- 3) Order tracking: customers look up ONE order by its exact number; only staff can list them all.
+create or replace function public.plug_order_status(p_no text)
+returns jsonb language sql stable security definer set search_path = '' as $$
+  select d.data from public.docs d
+  where d.collection = 'orderstatus' and d.id = p_no and length(p_no) between 5 and 40
+  limit 1;
+$$;
+revoke all on function public.plug_order_status(text) from public;
+grant execute on function public.plug_order_status(text) to anon, authenticated;
+
+do $$ declare q text; n text; begin
+  select qual into q from pg_policies
+   where schemaname = 'public' and tablename = 'docs' and policyname = 'read public store data';
+  if q is null then raise exception 'Policy "read public store data" not found'; end if;
+  n := replace(q, ', ''orderstatus''::text', '');
+  if n = q then raise notice 'orderstatus was already removed'; return; end if;
+  execute format('alter policy %I on public.docs using (%s)', 'read public store data', n);
+end $$;
