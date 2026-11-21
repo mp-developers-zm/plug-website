@@ -4,6 +4,14 @@
 -- Safe to run again.
 -- =====================================================================
 
+-- 0) Only the access the website actually uses ----------------------------------
+-- Visitors who are not logged in may only read; logged-in customers (including anonymous
+-- shoppers) may write, and the row rules above still decide exactly which rows.
+revoke all on public.docs, public.admins from anon, authenticated;
+grant select on public.docs to anon, authenticated;
+grant insert, update, delete on public.docs to authenticated;
+grant select on public.admins to authenticated;
+
 -- 1) New tables start private -------------------------------------------------
 -- Without this, any table added later is readable and writable by anyone on the internet
 -- until someone remembers to lock it. Each new table must now be granted explicitly, with RLS.
