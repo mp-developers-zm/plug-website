@@ -11,6 +11,7 @@
 <html lang="en" class="admin-only">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://knuqiithcainhwljuvra.supabase.co; media-src 'self' data: blob:; connect-src 'self' https://knuqiithcainhwljuvra.supabase.co wss://knuqiithcainhwljuvra.supabase.co https://api.emailjs.com https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plug Admin</title>
 <link rel="preload" as="image" href="img/back_blue.webp">
@@ -3326,7 +3327,7 @@ function checkout(step){
 }
 function placeOrder(){
   const st=subtotal(),tot=Math.max(0,st-co.disc);
-  const o={no:'PLG-'+String(Math.floor(10000+Math.random()*90000)),date:new Date().toISOString(),items:cartItems.map(i=>i.color?{id:i.id,qty:i.qty,color:i.color,price:byId[i.id].p}:{id:i.id,qty:i.qty,price:byId[i.id].p}),total:tot,email:co.email||'',momo:co.pay==='momo'?co.momo:'',ref:co.ref||'',method:co.method,city:co.city,address:co.address,name:co.name,phone:co.phone,pay:co.pay,code:co.disc?co.code.toUpperCase():''};
+  const o={no:'PLG-'+Array.from(crypto.getRandomValues(new Uint8Array(10)),b=>b%10).join(''),date:new Date().toISOString(),items:cartItems.map(i=>i.color?{id:i.id,qty:i.qty,color:i.color,price:byId[i.id].p}:{id:i.id,qty:i.qty,price:byId[i.id].p}),total:tot,email:co.email||'',momo:co.pay==='momo'?co.momo:'',ref:co.ref||'',method:co.method,city:co.city,address:co.address,name:co.name,phone:co.phone,pay:co.pay,code:co.disc?co.code.toUpperCase():''};
   orders.unshift(o);store.set('orders',orders);syncMyOrders();
   const earned=ptsFor(tot);if(user&&!user.uid){points+=earned;store.set('points',points)}
   cartItems=[];saveCart();co.disc=0;co.code='';co.ref='';
@@ -3348,7 +3349,7 @@ function trackView(no,fetched){
   const si=o?((ADM.statuses[o.no]||{}).status||0):0;
   const stepsT=o&&o.method==='collect'?['Order placed','Confirmed','Ready for collection','Collected']:['Order placed','Confirmed','Out for delivery','Delivered'];
   openSheet(`<h3 class="sh-t">Track your order</h3>
-   <form class="code-row" id="tf"><input id="tno" placeholder="Order number, e.g. PLG-12345" value="${esc(no||'')}" aria-label="Order number"><button class="btn btn-dark">Track</button></form>
+   <form class="code-row" id="tf"><input id="tno" placeholder="Order number, e.g. PLG-4820193756" value="${esc(no||'')}" aria-label="Order number"><button class="btn btn-dark">Track</button></form>
    ${o?`<div class="trk glass2"><div class="trk-h"><div><b>${o.no}</b><span>Placed ${new Date(o.date).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></div><b>${K(o.total)}</b></div>
       <div class="tl">${stepsT.map((s,i)=>`<div class="${i<=si?'on':''}"><i></i><span>${s}</span></div>`).join('')}</div>${(ADM.statuses[o.no]||{}).note?`<p class="fine">Note from Plug: ${esc(ADM.statuses[o.no].note)}</p>`:''}
       ${payTrackHTML(o)}<div class="trk-items">${o.items.map(i=>`<div><img loading="lazy" decoding="async" src="${src(byId[i.id].img)}" alt=""><span>${i.qty} × ${esc(itn(i))}</span></div>`).join('')}</div>
