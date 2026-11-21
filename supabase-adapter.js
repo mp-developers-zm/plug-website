@@ -7,15 +7,23 @@
   stand-alone mode (built-in catalogue, WhatsApp ordering, admin demo saved on the device).
 */
 (function () {
+  // Refuse to run inside another site's frame (clickjacking: a hidden frame could trick staff into
+  // pressing buttons in the admin page). GitHub Pages cannot send frame-blocking headers.
+  if (window.top !== window.self) {
+    document.documentElement.innerHTML = '<body style="font:16px system-ui;padding:24px">Open this page directly at plugzm.com</body>';
+    throw new Error('Framed');
+  }
   var CFG = window.PLUG_CONFIG || {};
   if (!CFG.supabaseUrl || !CFG.supabaseKey) return;
-  var LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+  // Exact version + fingerprint (SRI): the browser refuses the file if it is ever changed.
+  var LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+  var LIB_SRI = 'sha384-0w2KAL2YHP6wKOkUDzkCDGgVvfmHnj02DHeQ6XcHOgTfFsGyonKOpShMH1x6nk9o';
 
   // Speed: the database library (about 120 KB) downloads in the background, so the page can draw and
   // start working straight away. Everything below waits for it only when it is actually needed.
   var libP = new Promise(function (res) {
     if (window.supabase && window.supabase.createClient) return res(window.supabase);
-    var s = document.createElement('script'); s.src = LIB; s.async = true;
+    var s = document.createElement('script'); s.src = LIB; s.integrity = LIB_SRI; s.crossOrigin = 'anonymous'; s.async = true;
     s.onload = function () { res(window.supabase && window.supabase.createClient ? window.supabase : null); };
     s.onerror = function () { res(null); };
     document.head.appendChild(s);
